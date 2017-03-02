@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+input,img{
+    outline: none;
+    border: none;
+    vertical-align: middle;
+}
+button{
+    border: none;
+}
+
+
+
+
+.tuceng{
+
+    height: 800px;
+    width: 1260px;
+    margin: 0 auto;
+
+    background:url("../img/tcc.png") no-repeat;
+}
+
+.neiR{
+    border: 1px solid #999999;
+    border-radius: 5px;
+    width: 958px;
+    margin: 10px 150px;
+    padding-bottom:20px;
+    display: inline-block;
+}
+.neiR ul{
+    margin-top: 14px;
+    border-bottom: 1px solid #999999;
+    width: 918px;
+    height: 32px;
+    margin-left: 20px;
+}
+
+.neiR ul li{
+    float: left;
+    font-size: 18px;
+    margin-left: 70px;
+    font-weight: 900;
+    cursor:pointer
+}
+
+.neiR ul li i{
+   display: none;
+    height: 4px;
+    background: #459dff;
+    margin-top: 8px;
+
+}
+
+.neiR ul li:hover i{
+    display: block;
+}
+.tuceng>a{
+    float: right;
+    margin-right: 150px;
+    margin-top: 50px;
+}
+
+.tuceng>a:hover{
+    color: red;
+}
+
+label{
+    width: 110px;
+    height: 20px;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+}
+
+
+.gr>p,.qy>p{
+    margin-top: 12px;
+    margin-left: 90px;
+    font-size: 16px;
+    color: #459dff;
+    font-weight: 900;
+}
+
+.qy{
+    display: none;
+}
+
+
+/*                                                                               */
+input{
+    border: 1px solid #999999;
+    height: 34px;
+    width: 280px;
+    border-radius: 2px;
+    margin-left: 40px;
+}
+.reght{
+    width: 240px;
+}
+
+.gr div,.qy div{
+    margin-left: 70px;
+    margin-top: 12px;
+}
+.qy span{
+    display: block;
+    height: 14px;
+    margin-top: 12px;
+    margin-left: 147px;
+    font-size: 14px;
+
+}
+.neiR .gr span .wei,.qy span .wei{
+    color: #459dff;
+    margin-left: 0;
+}
+
+
+
+.gr span{
+    display: block;
+    height: 20px;
+    margin-top: 12px;
+    margin-left: 147px;
+    font-size: 14px;
+}
+.neiR .gr .name p{
+    font-size: 16px;
+
+}
+.neiR .gr .name{
+    margin-left: 60px;
+}
+
+
+
+
+.gr span input,.qy span input{
+    height: 14px;
+    width: 14px;
+    float: left;
+    margin-right: 4px;
+    margin-left: 40px;
+    margin-top: 4px;
+    
+
+}
+.gr span p,.qy span p{
+    float: left;
+}
+
+.gr .yd p label{
+	 font-size: 12px;
+}
+.gr .yd p input{
+	   margin-left: 0;
+}
+
+
+.gr .suoZ{
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+}
+
+.gr .suoZ label{
+    margin-right: 40px;
+}
+
+.gr .suoZ select{
+    height: 34px;
+}
+
+
+
+
+
+.yanZheng img{
+    height: 34px;
+    width: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.yanZheng input{
+    width: 94px;
+}
+
+.yanZheng .hua{
+	font-size: 12px;
+}
+
+
+.yanZheng a{
+	 color: #459dff;
+    font-size: 12px;
+}
+
+
+.duanX input{
+    width: 166px;
+    margin-right: 4px;
+}
+.duanX button{
+    height: 34px;
+    border-radius: 2px;
+    width: 104px;
+    background: #459dff;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.gr>button{
+    height: 28px;
+    width: 70px;
+    margin-top: 10px;
+    margin-left: 198px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #459dff;
+    margin-bottom: 118px;
+    font-weight: 600;
+}
+.qy>button{
+    height: 28px;
+    width: 70px;
+    margin-top: 10px;
+    margin-left: 198px;
+    font-size: 14px;
+    color: #ffffff;
+    background: #459dff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.neiR .qy span:last-child p:first-child input{
+    height: 14px;
+    width: 14px;
+    float: left;
+    margin-right: 4px;
+    margin-top: 0;
+}
+
+
+.neiR .gr span p,.neiR .qy span p{
+      float: left;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 74px;
+}
+
+.neiR .gr .name .n{
+	 margin-left: 4px;
+}
+.neiR .gr .name .v{
+	 margin-left: 4px;
+}
+
+
+
+.neiR .qy .x,.neiR .gr .x{
+    margin-left: 88px;
+}
+.tuceng .neiR .qy .f .y,.tuceng .neiR .gr .f .y{
+    height: 12px;
+    line-height: 12px;
+    margin-left: 34px;
+}
+
+.tuceng .neiR .qy .f .y p,.tuceng .neiR .gr .f .y p{
+    margin-left: 20px;
+}
+
+.xL4>button{
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    background: #459dff;
+    width: 80px;
+    height: 26px;
+    border-radius: 10px;
+    margin-top: 26px;
+    margin-left:54px ;
+    float: left;
+   cursor: pointer;
+}
+
+.dengL{
+    display: inline-block;
+    width: 948px;height: 428px;
+    border: 1px solid #999999;
+    margin: 185px 155px;
+    background: #ffffff;
+   filter:alpha(opacity:70); opacity:0.7;  -moz-opacity:0.7;-khtml-opacity: 0.7;
+}
+
+
+#loginsubmit{
+	border: none;
+    color: #fff;
+    font-size: 18px;
+    background: #459dff;
+    width: 80px;
+    height: 26px;
+    border-radius: 10px;
+    margin-top: 26px;
+    margin-left:222px ;
+    float: left;
+   cursor: pointer;
+}
+
+
+
+
+
+

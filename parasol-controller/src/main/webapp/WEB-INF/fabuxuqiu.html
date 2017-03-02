@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html  xmlns=http://www.w3.org/1999/xhtml xmlns:bd=http://www.baidu.com/2010/xbdml>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>发布需求</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta http-equiv=X-UA-Compatible content=IE=EmulateIE7>
+    <script>var wpo={start:new Date*1,pid:109,page:'superpage'}</script>
+    <meta http-equiv=X-UA-Compatible content=IE=EmulateIE7>
+
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/fabuxuqiu.css"/>
+
+</head>
+<body>
+<div class="header">
+    <div class="banx">
+        <a href="index.html"> < 返回首页</a>
+        <div class="clear"></div>
+        <div class="con">
+            <div class="con-1">
+                <div class="logo">
+                </div>
+                <p></p>
+            </div>
+            <div class="con-2">
+                <div>选择类目</div>
+                <div>描述您的需求</div>
+                <div>发布成功</div>
+            </div>
+            <div class="con-3">
+                <div class="le">
+                    <!--  onkeydown 为键盘事件  -->
+                    <div class="zhao">
+                        <label for="zhao"><i>*</i>工程名称</label><input  type="text" id="zhao" value=""  placeholder="不得超过50个字符" />
+                    </div>
+                    <div class="zhaobiao">
+                        <label for="zhaobiao"><i>*</i>招标单位</label><input  type="text" id="zhaobiao" value=""  placeholder="不得超过50个字符"/>
+                    </div>
+                    <div class="gongcheng">
+                        <label for="gongcheng">招标代理机构</label><input  type="text" id="gongcheng"  value="" placeholder="不得超过50个字符" />
+                    </div>
+                    <div class="fanwei">
+                        <label for="fanwei"><i>*</i>项目类别</label><input  type="text" id="fanwei" value="" placeholder="不得超过50个字符" />
+                    </div>
+                    <div class="gongqi">
+                        <label for="gongqi"><i>*</i>工期</label><input  type="number"  onkeyup= "if(! /^[0-9]*[1-9][0-9]*$/.test(this.value)){alert('只能整数');}"   id="gongqi" placeholder="所用时间"    /><p>自然日</p>
+                    </div>
+                    <div class="zhiliang">
+                        <label for="zhiliang"><i>*</i>质量要求</label><input  type="text" id="zhiliang"  value="合格" readonly="readonly" />
+                    </div>
+                    <div class="zhijia">
+                        <label for="zhijia"><i>*</i>合同估算价</label><input  type="number" id="zhijia" placeholder="合同价格" onkeypress="return noNumbers(event)" /><p>元</p>
+                    </div>
+                    <div class="ghuding">
+                        <input type="checkbox" name="ding"/>
+                        <p>固定总价合同</p>
+                        <input type="checkbox" name="ding"/>
+                        <p>增值税专用发票</p>
+                        <input type="checkbox" name="ding"/>
+                        <p>超价废标</p>
+                    </div>
+                    <div class="xiangmu">
+                        <label for="xiangmu"><i>*</i>项目地点</label><input  type="text" id="xiangmu" placeholder="不得超过50个字符" />
+                    </div>
+                    <div class="baojiajiezhi" id="baojiajiezhi">
+                        <label ><i>*</i>投标文件递交截止时间</label>
+                        <select name="year1" id="year1" class="s_center"></select>年
+                        <select name="month1" id="month1" class="s_center"></select>月
+                        <select name="day1" id="day1" class="s_center"></select>日
+                    </div>
+                    <div class="baozheng">
+                        <label for="baozheng"><i>*</i>投标保证金</label><input  type="number" id="baozheng" placeholder="不得超过估算价2%" onkeypress="return noNumbers(event)" /><p>元</p><p class="baifei">(不超过招标项目估算价的2%)</p>
+                    </div>
+                </div>
+                <!--                          右  右                     右侧                             -->
+                <div class="re">
+                    <div class="zhaob">
+                        <label for="zhiliang"><i>*</i>招标地址</label><input  type="text" id="zhaob" placeholder="不得超过50个字符" />
+                    </div>
+                    <div class="zhaobiaoren">
+                        <label for="zhiliang"><i>*</i>联系人</label>姓名<input  type="text" class="lianXren" id="lianXren" placeholder="二到五个字" />手机号<input id="shouJhao" class="shouJhao" type="number" placeholder="有效手机号" />
+                    </div>
+                    <div class="xmshuom">
+                        <label for="shuoM">其他项目说明 <p>(不超过500字)</p></label>
+                        <textarea class="content" type="text" id="shuoM" placeholder="不超过500个汉字"></textarea>
+                    </div>
+                    <div class="shangchuan">
+                        <label for="shangC"><i>*</i>上传附件</label>招标文件<input  type="text" id="shangC" /><p>添加附件</p>
+                    </div>
+                    <div class="shangchuan">
+                        <label for="zhaoBw"><i></i></label>投标文件<input  type="text" id="zhaoBw" /><p>添加附件</p>
+                    </div>
+                    <p>添加附件不大于10M，仅支持doc/docx</p>
+                    <div class="clear"></div>
+                    <div class="tijiao">
+                        <button id="but">提交</button><p>(请填写完整再提交)</p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="application/javascript" src="JS/jquery-1.11.3.js"></script>
+<script type="application/javascript" src="JS/fBxq.js"></script>
+<script>
+    new YMDselect('year1','month1','day1');
+</script>
+<script type="text/javascript">
+
+    /*                                                  控制字节                                  */
+
+    $("input").change(function(){
+        var value=$(this).val();
+        if(value.length>18){
+            // 内容超长了
+            alert("长度不能大于18个字符");
+            $(this).css("borderColor","red");
+            return false;
+        }else if(value.length<2){
+            // 提示长度要大于2
+            $(this).css("borderColor","red");
+            alert("长度要大于2个字符");
+            return false;
+        }else{
+            $(this).css("borderColor","");
+        }
+    });
+
+/*       文本域  字数限制                           */
+    document.getElementById('shuoM').onkeydown = function(){
+        if(this.value.length >= 500)
+            event.returnValue = false;
+    };
+
+ /*  只保留两位小数        */
+
+    function noNumbers(e)
+    {
+        var keynum;
+        var keychar;
+        var numcheck;
+        if(window.event) // IE
+        {
+            keynum = e.keyCode
+        }
+        else if(e.which) // Netscape/Firefox/Opera
+        {
+            keynum = e.which
+        }
+        keychar = String.fromCharCode(keynum);
+//判断是数字,且小数点后面只保留两位小数
+        if(!isNaN(keychar)){
+            var index=e.currentTarget.value.indexOf(".");
+            if(index >= 0 && e.currentTarget.value.length-index >2){
+                alert("只保留两位小数");
+                return false;
+            }
+            return true;
+        }
+//如果是小数点 但不能出现多个 且第一位不能是小数点
+        if("."== keychar ){
+            if(e.currentTarget.value==""){
+                return false;
+            }
+            if(e.currentTarget.value.indexOf(".") >= 0){
+                return false;
+            }
+            return true;
+        }
+        return false  ;
+    }
+
+
+    /*          校验           校验                       */
+
+    document.getElementById("but").onclick=function(){
+
+        var re = /^([\u4e00-\u9fa5]+|[a-zA-Z0-9]+)$/; //不能出现特殊字符
+        if($("#zhao").val()=="" || $("#zhao").val()=="undefined"){
+            $("#zhao").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert("工程名称不能为空");
+            return false;
+        } else if(!re.test($("#zhao").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#zhao").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#zhao").val()){
+            $("#zhao").css("borderColor","");
+            $(".tijiao p").css("color","");
+        }
+
+
+
+        if($("#zhaobiao").val()=="" || $("#zhaobiao").val()=="undefined"){
+            $("#zhaobiao").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("招标单位不能为空");
+            return false;
+        }else if(!re.test($("#zhaobiao").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#zhaobiao").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#zhaobiao").val()){
+            $("#zhaobiao").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+        if($("#gongcheng").val()=="" || $("#gongcheng").val()=="undefined"){
+            $("#gongcheng").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("招标代理机构不能为空");
+            return false;
+        }else if(!re.test($("#gongcheng").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#gongcheng").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#gongcheng").val()){
+            $("#gongcheng").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+        if($("#fanwei").val()=="" || $("#fanwei").val()=="undefined"){
+            $("#fanwei").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("项目类别不能为空");
+            return false;
+        }else if(!re.test($("#fanwei").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#fanwei").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#fanwei").val()){
+            $("#fanwei").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+/*                工期                          */
+
+
+        if($("#gongqi").val()=="" || $("#gongqi").val()=="undefined"){
+            $("#gongqi").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请填写工期");
+            return false;
+        }else if($("#gongqi").val()){
+            $("#gongqi").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+        if($("#zhiliang").val()=="" || $("#zhiliang").val()=="undefined"){
+            $("#zhiliang").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请填写质量要求");
+            return false;
+        }else if(!re.test($("#zhiliang").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#zhiliang").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#zhiliang").val()){
+            $("#zhiliang").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+        if($("#zhijia").val()=="" || $("#zhijia").val()=="undefined"){
+            $("#zhijia").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请填写价格");
+            return false;
+        }else if($("#zhijia").val()){
+            $("#zhijia").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+       if($("#xiangmu").val()=="" || $("#xiangmu").val()=="undefined"){
+           $("#xiangmu").css("borderColor","red");    $(".tijiao p").css("color","red");
+           alert("请填项目地点");
+            return false;
+        }else if(!re.test($("#xiangmu").val())){ // 返回true,代表在字符串中找到了非数字。
+           $("#xiangmu").css("borderColor","red");
+           $(".tijiao p").css("color","red");
+           alert('不能输入特殊字符');
+           return false;
+       }else if($("#xiangmu").val()){
+           $("#xiangmu").css("borderColor",""); $(".tijiao p").css("color","");
+       }
+
+
+        /*                     时间 戳                                */
+
+
+        if($("#year1").val()=="0" || $("#year1").val()=="undefined"){
+            $("#year1").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请选择年份");
+            return false;
+        }else if($("#year1").val()!=="0"){
+            $("#year1").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+        if($("#month1").val()=="0" || $("#month1").val()=="undefined"){
+            $("#month1").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请选择月份");
+            return false;
+        }else if($("#month1").val()!=="0"){
+            $("#month1").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+        if($("#day1").val()=="0" || $("#day1").val()=="undefined"){
+            $("#day1").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请选择日");
+            return false;
+        }else if($("#day1").val()!=="0"){
+            $("#day1").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+
+       if($("#baozheng").val()=="" || $("#baozheng").val()=="undefined"){
+           $("#baozheng").css("borderColor","red");    $(".tijiao p").css("color","red");
+           alert("请填写投标保证金");
+            return false;
+        }else if($("#baozheng").val()){
+           $("#baozheng").css("borderColor",""); $(".tijiao p").css("color","");
+       }
+
+      if($("#zhaob").val()=="" || $("#zhaob").val()=="undefined"){
+          $("#zhaob").css("borderColor","red");    $(".tijiao p").css("color","red");
+          alert("请填写招标地址");
+            return false;
+        }else if(!re.test($("#zhaob").val())){ // 返回true,代表在字符串中找到了非数字。
+          $("#zhaob").css("borderColor","red");
+          $(".tijiao p").css("color","red");
+          alert('不能输入特殊字符');
+          return false;
+      }else if($("#zhaob").val()){
+          $("#zhaob").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+/*      联系人                            校验                */
+
+        var de=/^1[34578]\d{9}$/;
+
+        if($("#lianXren").val()=="" || $("#lianXren").val()=="undefined"){
+            $("#lianXren").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("联系人");
+            return false;
+        }else if($("#lianXren").val()){
+            $("#lianXren").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+        if($("#shouJhao").val()=="" || $("#shouJhao").val()=="undefined"){
+            $("#shouJhao").css("borderColor","red");    $(".tijiao p").css("color","red");
+            alert("请填写手机号");
+            return false;
+        }else if(!de.test($("#shouJhao").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#shouJhao").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('手机号无效');
+            return false;
+        }else if($("#shouJhao").val()){
+            $("#shouJhao").css("borderColor",""); $(".tijiao p").css("color","");
+        }
+
+
+
+        /*                 div          */
+
+        if($("#shuoM").val()=="" || $("#shuoM").val()=="undefined"){
+          $("#shuoM").css("borderColor","red");    $(".shuoM p").css("color","red");
+          alert("请填项目说明");
+            return false;
+        }else if(!re.test($("#shuoM").val())){ // 返回true,代表在字符串中找到了非数字。
+            $("#shuoM").css("borderColor","red");
+            $(".tijiao p").css("color","red");
+            alert('不能输入特殊字符');
+            return false;
+        }else if($("#shuoM").val()){
+          $("#shuoM").css("borderColor",""); $(".shuoM p").css("color","");
+        }
+        $(".tijiao p").css("color","");
+    };
+
+
+</script>
+</html>
+
+
+
+
+
