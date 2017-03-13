@@ -257,11 +257,6 @@
         return false;
     }
 
-
-
-
-
-
 /* 
 
  //           原来的 校验                                            
@@ -410,10 +405,6 @@
             }else if($("#day1").val()!=="0"){
                 $("#day1").css("borderColor",""); $(".tijiao p").css("color","");
             }
-
-
-
-
            if($("#tenderMoney").val()=="" || $("#tenderMoney").val()=="undefined"){
                $("#tenderMoney").css("borderColor","red");    $(".tijiao p").css("color","red");
                alert("请填写投标保证金");
@@ -458,9 +449,6 @@
             }else if($("#contactMobile").val()){
                 $("#contactMobile").css("borderColor",""); $(".tijiao p").css("color","");
             }
-
-
-
               //           div         
 
             if($("#explainl").val()=="" || $("#explainl").val()=="undefined"){
@@ -483,17 +471,6 @@
 
 
      */
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-
     
 
         /*                 新的                校验                                   */
@@ -671,22 +648,10 @@
                    
                };        
        
-        
-        
-        
-        
-        
-        
-        
-    
-       
-    
-    
     function getPhotoSize(obj){
         photoExt=obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase();//获得文件后缀名
         var fileSize = 0;
         var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
-
         if (isIE && !obj.files) {
             var filePath = obj.value;
             var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
@@ -703,47 +668,33 @@
             alert("您的文件格式或大小 不正确！");
             return false;
         }
-
-    }
-
-    
-    
-    
-    
-    
-    
-//---------校验项目名---//
+    } 
+//---------------校验项目名-----------------//
     $(function() {  
-    	             //文本框点击事件  
-    	             $("input[name='projectName']").blur(function(){  
-    	                 //发送ajax请求  
-    	                 $.ajax({  
-    	                     type:"POST",  
-    	                     url:"/projectName.do",  
-    	                     data:{  
-    	                     	projectName:$("input[name='projectName']").val()
+    	      //文本框点击事件  
+    	      $("input[name='projectName']").blur(function(){  
+    	      //发送ajax请求  
+    	      $.ajax({  
+    	               type:"POST",  
+    	               url:"/projectName.do",  
+    	               data:{  
+    	                     projectName:$("input[name='projectName']").val()
     	                     },  
-    	                     dataType:"json",  
-    	                     success:function(data){   
-    	                         if(data.admin=="0"){  
-    		                             alert("项目名称已存在"); 
-                                         $("#but").attr("disabled", true);
-                                         $("#projectName").css("borderColor", "red");
-    									return false; 
-    									
-    	                         }else if(data.admin=="1"){
-			                              $('#but').removeAttr("disabled"); 
-			                              $("#shou_j").css("borderColor", "");  
-    	                                 
-    	                         }
-    	                     },  
+    	               dataType:"json",  
+    	               success:function(data){   
+    	               if(data.admin=="0"){  
+    		                 alert("项目名称已存在"); 
+                            $("#but").attr("disabled", true);
+                            $("#projectName").css("borderColor", "red");
+    							return false; 		
+    	                      }else if(data.admin=="1"){
+			                $('#but').removeAttr("disabled"); 
+			                $("#shou_j").css("borderColor", "");     	                                 
+    	                       }
+    	                    },  
     	                 })  
-    	             })  
-    	              
-    	        })  
-    	
-    	
-    	
+    	              })     
+    	           })  
 /*     	
     	  function getPhotoSize(obj){
             photoExt=obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase();//获得文件后缀名

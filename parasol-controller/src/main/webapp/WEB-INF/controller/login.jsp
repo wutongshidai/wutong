@@ -19,8 +19,7 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#loginsubmit").click(function(){
-		$("#loginForm").submit();
-		
+		$("#loginForm").submit();		
 		/* alert(error); */
 	});
   });  	
@@ -53,7 +52,7 @@ function checkmobile(mobile){//验证手机号
 	  return false;
 	 }
 	}
-	//----------------------------------------//
+//-----------------------------------------//
 	
 function checkuserName(userName){//验证用户名
 	 var str = userName;

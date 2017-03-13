@@ -8,4 +8,8 @@ public interface UserService {
 	public User selectByPrimaryKey(Integer id);
 	public User selectUserByUsername(String username);
 	public User selectByMobile(String mobile);
+	
+	
+	public Boolean updatePassword(String userName , String password);
+	public Boolean updateByNickName(User user);
 }

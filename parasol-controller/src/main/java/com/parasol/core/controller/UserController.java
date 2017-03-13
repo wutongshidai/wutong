@@ -51,12 +51,7 @@ public class UserController {
 	private TenderService tenderService;
 	
 	private Logger logger = Logger.getLogger(this.getClass());
-	
-	public void insert(User user){
 		
-	}
-	
-	
 	/**
      * 跳转首页
      * @param

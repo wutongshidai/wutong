@@ -24,7 +24,7 @@
 <script>
 function ckname(){
 	var user = document.getElementById('mima').value;
-	var patten = /^[0-9a-zA-Z]\w{6,18}$/ig;
+	var patten = /^[0-9a-zA-Z]\w{5,17}$/ig;
 	if(!patten.test(user))
 	{
 	$("input[name=userName]").focus().val("用户名不符合规则!");
