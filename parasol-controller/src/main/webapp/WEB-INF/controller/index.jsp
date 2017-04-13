@@ -109,9 +109,11 @@
                         <div><img src="img/wdl.png" alt=""/></div>
                         <p>Hi,欢迎访问梧桐时代!</p>
                         <span class="deng"><div class="" <c:if test="${empty user.userName}"> style="display: block" </c:if><c:if test="${not empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >登录</a></div>
-             							<div class="" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >${user.userName }</a></div></span>
+										<!-- <div style="text-align:center;"> -->
+             							<div class="yonghu" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >${user.userName }</a></div>
+             							<!-- </div> --></span>
                         <span class="zhu"><div class="" <c:if test="${empty user.userName}"> style="display: block" </c:if><c:if test="${not empty user.userName}">style="display: none" </c:if>><a href="/login.do" >注册</a></div>
-             							<div class="" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/loginOut.do" >退出</a></div>
+             							<%-- <div class="" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/loginOut.do" >退出</a></div> --%>
                         </span>
                         <ul>
                             <li class="xin"><a href="#">新人福利</a></li>

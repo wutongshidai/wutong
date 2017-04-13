@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
-	   public Boolean updatePassword(String userName , String password) {
+/*	   public Boolean updatePassword(String userName , String password) {
 		  int i = userMapper.updatePassword(userName , password);
 		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
 	   }
@@ -57,5 +57,5 @@ public class UserServiceImpl implements UserService {
 	   public Boolean updateByNickName(User user){
 		   int i = userMapper.updateByNickName(user);
 		   return i == 1?Boolean.valueOf(true):Boolean.valueOf(false);  
-	   }
+	   }*/
 }

@@ -1,4 +1,4 @@
-package com.parasol.core.controller;
+/*package com.parasol.core.controller;
 
 
 import java.awt.Color;
@@ -55,12 +55,12 @@ public class UserManageController {
 
 	
 	
-	/**
+	*//**
      * 跳转修改信息页面
      * @param
      * @param 
      * @return
-     */
+     *//*
 	@RequestMapping(value="/message.do")
 	public String message(Model model , HttpServletRequest request , HttpServletResponse response){	
 		User user = (User) request.getSession().getAttribute("user");
@@ -72,12 +72,12 @@ public class UserManageController {
 	}
 	
 	
-	/**
+	*//**
      * 修改密码
      * @param
      * @param 
      * @return
-     */
+     *//*
 	@RequestMapping(value="/updatePassword.do")
 	public String updatePassword(String password , String newpassword , Model model , HttpServletRequest request , HttpServletResponse response){	
 		User user = (User) request.getSession().getAttribute("user");
@@ -91,12 +91,12 @@ public class UserManageController {
 	}	
 	
 	
-	/**
+	*//**
      * 修改用户信息
      * @param
      * @param 
      * @return
-     */
+     *//*
 	@RequestMapping(value="/updateMessage.do")
 	public String updateMessage(Model model , HttpServletRequest request , HttpServletResponse response){	
 		User user = new User();
@@ -109,15 +109,15 @@ public class UserManageController {
 		return "updateMessage";
 	}	
 	
-	/**
+	*//**
      * 我的发布
      * @param
      * @param 
      * @return
-     */
+     *//*
 	@RequestMapping(value="/mydemand.do")
 	public String mydemand(Model model , HttpServletRequest request , HttpServletResponse response){	
-/*		SELECT
+		SELECT
 		project_name , start_time
 		FROM
 		tender t
@@ -127,19 +127,19 @@ public class UserManageController {
 		t.userId = c.id
 		WHERE
 		c.id = "1"
-*/
+
 		
 		
 		return "mydemand";
 	}
 
 	
-	/**
+	*//**
      * 加密 MD5  + 十六进制  + 盐  
      * password = "safqwgnetrygfhehn123456j7efwhtreyguyu6y";
      * @param 
      * @return
-     */
+     *//*
 	public String encodePassword(String password){
 		String algorithm = "MD5";
 		char[] encodeHex  = null;	
@@ -155,3 +155,4 @@ public class UserManageController {
 		return new String(encodeHex);
 	}
 }
+*/

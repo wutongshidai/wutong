@@ -345,14 +345,15 @@
   </update>
   
   
-  <select id="selectByUserName" parameterType="string" resultMap="string">
+  
+<!--   <select id="selectByUserName" parameterType="string" resultType="string">
   	select 
   	    password
   	from
   		com_user
   	where
   		user_name = #{userName} 
-  </select>
+  </select> 
   
   <update id="updatePassword">
   	update com_user
@@ -366,6 +367,6 @@
     	province = #{province,jdbcType=VARCHAR},
       	city = #{city,jdbcType=VARCHAR}
     where user_name = #{userName,jdbcType=VARCHAR}
-  </update>
+  </update>-->
   
 </mapper>

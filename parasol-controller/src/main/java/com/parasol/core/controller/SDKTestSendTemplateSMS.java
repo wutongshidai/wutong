@@ -15,7 +15,7 @@ public class SDKTestSendTemplateSMS {
 	/**
 	 * @param args
 	 */
-	//ajaxtijiao
+
 	@RequestMapping("/sdkTestSend.do")
 	public void sdkTestSend(String[] args) {
 		HashMap<String, Object> result = null;

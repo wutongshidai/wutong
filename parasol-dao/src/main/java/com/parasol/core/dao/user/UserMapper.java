@@ -30,7 +30,7 @@ public interface UserMapper {
     
     
     
-    int updatePassword(@Param("userName") String userName ,@Param("password") String password);
+    /*int updatePassword(@Param("userName") String userName ,@Param("password") String password);
     String selectByUserName(String userName);
-    int updateByNickName(User user);//sql
+    int updateByNickName(User user);*///sql
 }

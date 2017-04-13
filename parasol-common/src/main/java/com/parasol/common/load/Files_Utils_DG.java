@@ -162,25 +162,25 @@ package com.parasol.common.load;
 
 	    //return server absolute path（real path） the style is  “server absolute path/DataPath/UUIDName”filePath example "/files/Upload"
 	    public static String getAndSetAbsolutePath(HttpServletRequest request, String filePath, String suffix) {
-	        String savePath = getServerPath(request, filePath) + File.separator + getDataPath() + File.separator;//example:F:/qixiao/files/Upload/20160912/
+	        String savePath = getServerPath(request, filePath) + System.getProperty("file.separator") + getDataPath() + System.getProperty("file.separator");//example:F:/qixiao/files/Upload/20160912/
 	        checkDir(savePath);//check if the path has exist if not create it
 	        return savePath + getUUIDName(suffix);
 	    }
 	    
 	    //---新建---//
 	    public static String getAndSetAbsolutePaths(MultipartFile multipartFile,HttpServletRequest request, String filePath, String suffix) {
-	        String savePath = getServerPath(request, filePath) + File.separator + getDataPath() + File.separator;//example:F:/qixiao/files/Upload/20160912/
+	        String savePath = getServerPath(request, filePath) + System.getProperty("file.separator") + getDataPath() + System.getProperty("file.separator");//example:F:/qixiao/files/Upload/20160912/
 	        checkDir(savePath);//check if the path has exist if not create it
 	        return savePath + multipartFile.getOriginalFilename();
 	    }
 
 	    //get the relative path of files style is “/filePath/DataPath/UUIDName”filePath example "/files/Upload"
 	    public static String getRelativePath(String filePath, String suffix) {
-	        return filePath + File.separator + getDataPath() + File.separator + getUUIDName(suffix);//example:/files/Upload/20160912/
+	        return filePath + System.getProperty("file.separator") + getDataPath() + System.getProperty("file.separator") + getUUIDName(suffix);//example:/files/Upload/20160912/
 	    }
 	    
 	    public static String getRelativePaths(MultipartFile multipartFile,String filePath, String suffix) {
-	        return filePath + File.separator + getDataPath() + File.separator + multipartFile.getOriginalFilename();//example:/files/Upload/20160912/
+	        return filePath + System.getProperty("file.separator") + getDataPath() + System.getProperty("file.separator") + multipartFile.getOriginalFilename();//example:/files/Upload/20160912/
 	    }
 	    
 	    public static String getRelativePathss(MultipartFile multipartFile,String filePath, String suffix) {

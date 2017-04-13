@@ -19,7 +19,6 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -89,7 +88,7 @@ public class UserController {
      */
 	@RequestMapping(value="/login.do",method = RequestMethod.GET)
 	public String login(Model model){
-	/*	String uuid = UUID.randomUUID().toString();
+/*		String uuid = UUID.randomUUID().toString();
 		baseCacheService.set(uuid, uuid);
 		baseCacheService.expire(uuid, 3*60);
 		System.out.println("uuid"+uuid);

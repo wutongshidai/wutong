@@ -155,7 +155,9 @@ public class TenderController {
 	
 	//录入发布信息
 	@RequestMapping(value="/needs.do")
-	public String needs(Model model , @RequestParam("file_upload") MultipartFile[] multipartFile                                     
+	public String needs(Model model , @RequestParam("file_upload") MultipartFile[] multipartFile 
+			
+			
 			,HttpServletRequest request,HttpServletResponse response) throws Exception{
 			Tender tender = new Tender();
 			try {
@@ -180,9 +182,7 @@ public class TenderController {
 					 if (multipartFile != null && multipartFile.length > 0) {
 						 System.out.println(multipartFile);
 						 System.out.println(multipartFile[0]);
-						 System.out.println(multipartFile[1]);
-						 
-						 
+						 System.out.println(multipartFile[1]);						 
 						  tender.setTenderFile(Files_Utils_DG.FilesUpload_transferTo_spring(request, multipartFile[0], "/filesOut/Upload"));
 						  tender.setBidFile(Files_Utils_DG.FilesUpload_transferTo_spring(request, multipartFile[1], "/filesOut/Upload"));
 					 }

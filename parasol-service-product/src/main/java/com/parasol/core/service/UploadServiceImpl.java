@@ -1,6 +1,7 @@
 package com.parasol.core.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.parasol.common.fdfs.FastDFSUtils;
 
@@ -10,6 +11,7 @@ import com.parasol.common.fdfs.FastDFSUtils;
  *
  */
 @Service("uploadService")
+@Transactional
 public class UploadServiceImpl implements UploadService {
 
 	@Override
