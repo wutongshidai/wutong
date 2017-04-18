@@ -156,7 +156,10 @@ input[type=text]{  width: 280px;
 	color:#ffffff;
 }
 
-
+.xuqiuT ul li a{
+	color:#ffffff;
+}
+	
 .xuqiuT ul{
     height: 43px;
     margin: 0 auto;
@@ -393,6 +396,16 @@ em,i{
     margin: 0 auto;
     margin-top: 16px;
 }
+.guangG img{
+    height: 100%;
+    width: 100%;
+
+}
+
+
+
+
+
 
                                         采购类                                           
 
@@ -1036,14 +1049,16 @@ input[type=text]{  width: 280px;
     float: left;
     text-align: center;
     cursor: pointer;
-
 }
 
-.xuqiuT ul .mr a{
+
+.xuqiuT ul li a{
 	color:#ffffff;
 }
 
-
+.xuqiuT ul .mr a{
+	color:#333;
+}
 
 
 

@@ -44,12 +44,12 @@
         <p></p>
         <div class="search_f">
             <form method="GET"   target="_blank" onsubmit="return formsub()">
-                <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ><img src="img/dongh_newbbs_ssfdj.png" ></button>
+                <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ><img src="img/dongh_newbbs_ssfdj1.png" ></button>
                 <a href="#" class="re">热门搜索</a>
                 <a href="#">设计</a>
-                <a href="#">设计</a>
-                <a href="#">设计</a>
-                <a href="#">设计</a>
+                <a href="#">专家库</a>
+                <a href="#">材料</a>
+                <a href="#">需求</a>
             </form>
         </div>
     </div>
@@ -62,10 +62,10 @@
                 <li><img src="img/hr.png" alt=""/>材料</li>
                 <li>专业分包</li>
                 <li>劳务分包</li>
-                <li>设计</li>
+                <li><a href="cgal.html">设计</a></li>
                 <li><a href="zjLb.html">专家库</a></li>
                 <li>设备租赁</li>
-                <li>成功案例</li>
+                <li><a href="cgal.html">成功案例</a></li>
             
              
             </ul>
@@ -109,11 +109,9 @@
                         <div><img src="img/wdl.png" alt=""/></div>
                         <p>Hi,欢迎访问梧桐时代!</p>
                         <span class="deng"><div class="" <c:if test="${empty user.userName}"> style="display: block" </c:if><c:if test="${not empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >登录</a></div>
-										<!-- <div style="text-align:center;"> -->
-             							<div class="yonghu" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >${user.userName }</a></div>
-             							<!-- </div> --></span>
+             							<div class="yonghu" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/dengL.do" >${user.userName }</a></div></span>
                         <span class="zhu"><div class="" <c:if test="${empty user.userName}"> style="display: block" </c:if><c:if test="${not empty user.userName}">style="display: none" </c:if>><a href="/login.do" >注册</a></div>
-             							<%-- <div class="" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/loginOut.do" >退出</a></div> --%>
+             						<%--	<div class="" <c:if test="${not empty user.userName}"> style="display: block" </c:if><c:if test="${empty user.userName}">style="display: none" </c:if>><a href="/loginOut.do" >退出</a></div> --%>
                         </span>
                         <ul>
                             <li class="xin"><a href="#">新人福利</a></li>
@@ -124,11 +122,11 @@
                         <ul>
                             <li><a href="#"></a>最新发布<i></i></li>
                             <li><a href="#"></a>公告<i></i></li>
-                            <li><a href="#"></a>更多<i></i></li>
+                            <li><a href="/xuqiudating.do" style="color: #459DFF">更多</a></li>
                         </ul>
                       <!--   <p class="fo-s">需求发布</p> -->
                         <c:forEach items="${tenders}" var="tender" >
-                        	<p><a href="/selectByPrimaryNamel.do?projectName=${tender.projectName }" stye="margin-left: 6px;">${tender.projectName }</a></p>
+                        	<p><a href="/choiceDemand.do?projectName=${tender.projectName }" stye="margin-left: 6px;">${tender.projectName }</a></p>
                         </c:forEach>
                     </div>
                 </div>
@@ -138,13 +136,13 @@
         <!--广告                                                -->
         <div class="banner banx">
            <!--  <span><img src="img/yizhanshifuwu/11.png"alt=""/></span> -->
-            <span><img src="img/yizhanshifuwu/1(1).png"alt=""/></span>
+            <span><img src="img/yizhanshifuwu/1.png"alt=""/></span>
          <!--    <span><img src="img/yizhanshifuwu/3.png"alt=""/></span>
             <span><img src="img/yizhanshifuwu/2.png"alt=""/></span>
             <span><img src="img/yizhanshifuwu/4.png"alt=""/></span> -->
-             <span><img src="img/yizhanshifuwu/1(1).png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/1(1).png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/1(1).png"alt=""/></span>
+             <span><img src="img/yizhanshifuwu/2.png"alt=""/></span>
+            <span><img src="img/yizhanshifuwu/3.png"alt=""/></span>
+            <span><img src="img/yizhanshifuwu/4.png"alt=""/></span>
         </div>
         <div class="clear"></div>
 
@@ -188,8 +186,8 @@
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>材料商家</li>
+                            <li><img src="img/sycl-2.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -199,15 +197,15 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北龙源开关设备有限责任公司</li>
                         </ul>
 
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>材料商家</li>
+                            <li><img src="img/sycl-3.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -217,7 +215,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>海鲸伟业装饰材料有限公司</li>
                         </ul>
                     </div>
                     <div>
@@ -332,8 +330,8 @@
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>防水商家</li>
+                            <li><img src="img/syfb-2.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -343,7 +341,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京世纪洪雨防水有限公司</li>
                         </ul>
                     </div>
                     <div>
@@ -448,17 +446,17 @@
                         <li></li>
                     </ul>
                     <div>
-                        <span><img src="img/zhuanjianku/111.png" alt=""/></span>
+                        <span><img src="img/zhuanjianku/1.png" alt=""/></span>
                         <p>天建设计院</p>
                         <p>好评率：100%</p>
                     </div>
                     <div>
-                        <span><img src="img/zhuanjianku/1-1.png" alt=""/></span>
+                        <span><img src="img/zhuanjianku/1.png" alt=""/></span>
                         <p>天建设计院</p>
                         <p>好评率：100%</p>
                     </div>
                     <div>
-                        <span><img src="img/zhuanjianku/1-1.png" alt=""/></span>
+                        <span><img src="img/zhuanjianku/1.png" alt=""/></span>
                         <p>天建设计院</p>
                         <p>好评率：100%</p>
                     </div>
@@ -499,31 +497,31 @@
                     <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
                     <p>专业领域：工民建专业</p>
                     <p>所在城市：北京</p>
-                    <p class="guan"><a href="#">查看详情</a></p>
+                    <p class="guan"><a href="zHuanJia/zjxq-4.html">查看详情</a></p>
                 </li>
                 <li>
                     <span><img src="img/zhuanjianku/syzj-02.png" alt=""/></span>
-                    <p class="zi">齐宝廷</p>
+                    <p class="zi">庄英</p>
                     <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
-                    <p>专业领域：机电及智能化</p>
+                    <p>专业领域：暖通及机电设备</p>
                     <p>所在城市：北京</p>
-                    <p class="guan"><a href="#">查看详情</a></p>
+                    <p class="guan"><a href="zHuanJia/zjxq-2.html">查看详情</a></p>
                 </li>
                 <li>
                     <span><img src="img/zhuanjianku/syzj-03.png" alt=""/></span>
-                    <p class="zi">邢燕丽</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
-                    <p>专业领域：信息与信息管理</p>
+                    <p class="zi">杨国强</p>
+                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：工程硕士</p>
+                    <p>专业领域：工程监理</p>
                     <p>所在城市：北京</p>
-                    <p class="guan"><a href="#">查看详情</a></p>
+                    <p class="guan"><a href="zHuanJia/zjxq-1.html">查看详情</a></p>
                 </li>
                 <li>
                     <span><img src="img/zhuanjianku/syzj-04.png" alt=""/></span>
-                    <p class="zi">郭朝峰</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
-                    <p>专业领域：房建</p>
+                    <p class="zi">何礼富</p>
+                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：硕士研究生</p>
+                    <p>专业领域：计算机应用</p>
                     <p>所在城市：北京</p>
-                    <p class="guan"><a href="#">查看详情</a></p>
+                    <p class="guan"><a href="zHuanJia/zjxq-3.html">查看详情</a></p>
                 </li>
             </ul>
             <div>
@@ -622,9 +620,9 @@
         <div class="main_weibuguanGg banx">
             <ul>
                 <li><img src="img/guangGaotu/beG.png" alt=""/></li>
-                <li><img src="img/guangGaotu/changM.png" alt=""/></li>
-                <li><img src="img/guangGaotu/changW.png" alt=""/></li>
                 <li><img src="img/guangGaotu/dongH.png" alt=""/></li>
+                <li><img src="img/guangGaotu/changW.png" alt=""/></li>
+                <li><img src="img/guangGaotu/changM.png" alt=""/></li>
                 <li><img src="img/guangGaotu/fanH.png" alt=""/></li>
                 <li><img src="img/guangGaotu/jianG.png" alt=""/></li>
                 <li><img src="img/guangGaotu/tongC.png" alt=""/></li>
@@ -638,22 +636,22 @@
         <div class="main_youqing banx">
             <div>
                 <h3>友情链接</h3>
-                <p><a href="http://www.donghao.cc/">北京东豪建设有限公司</a></p>
-                <p><a href="#">北方工业集团</a></p>
-                <p><a href="#">北京中铁建设工程</a></p>
-                <p><a href="#">北京维创物业管理有限公司</a></p>
-                <p><a href="#">北京东豪建设有限公司</a></p>
-                <p><a href="#">北方工业集团</a></p>
-                <p><a href="#">北京中铁建设工程</a></p>
-                <p><a href="#">北京维创物业管理有限公司</a></p>
-                <p><a href="#">北京东豪建设有限公司</a></p>
-                <p><a href="#">北方工业集团</a></p>
-                <p><a href="#">北京中铁建设工程</a></p>
-                <p><a href="#">北京维创物业管理有限公司</a></p>
-                <p><a href="#">北京东豪建设有限公司</a></p>
-                <p><a href="#">北方工业集团</a></p>
-                <p><a href="#">北京中铁建设工程</a></p>
-                <p><a href="#">北京维创物业管理有限公司</a></p>
+                <p><a href="http://www.donghao.cc/">北京东豪建设集团有限公司</a></p>
+                <p><a href="http://www.huadu2003.com/">华都国际建设集团有限公司</a></p>
+                <p><a href="http://www.bjzjht.com/">北京中建华腾装饰工程有限公司</a></p>
+                <p><a href="http://www.tctd.com.cn/">北京同创同德建筑装饰工程有限责任公司</a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
+                <p><a href="#"></a></p>
             </div>
         </div>
         <!--尾部                                             尾部-->

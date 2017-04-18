@@ -5,6 +5,8 @@ a:hover{color:#ff0000;}
 img,input{
     outline: none;border: none;vertical-align: middle;
 }
+
+/*     找               */
 /*body,html{
     height: 100%;
     width: 100%;
@@ -85,8 +87,8 @@ ul,ol{
 .search{
     height:95px;
     margin: 0 auto;
-
 }
+
 .logo{
     display: block;
     float: left;
@@ -96,6 +98,7 @@ ul,ol{
     margin-top: 10px;
     margin-left: 20px;
 }
+
 .search>p{
     float: left;
     width: 158px;
@@ -112,7 +115,7 @@ button{
     width: 40px;
     height: 42px;
     border: none;
-    background: #0053f9;
+    background: #459dff;
     float: left;
     margin-top: 20px;
 }
@@ -140,12 +143,11 @@ input[type=text]{
 .search_f form img{
     height: 22px;
     width: 22px;
-    margin-left: -32px;
-    margin-top: 31px;
+    margin-top: 2px;
 }
 .search_f{
     float: right;
-    padding-right: 200px;
+    padding-right: 90px;
     width: 400px ;
     height: 95px;
 }
@@ -200,7 +202,7 @@ input[type=text]{
 }
 
 .zhuTi>p a:last-child{
-    color: #055faa;
+    color: #459dff;
 }
 i,em{
     font-style:normal
@@ -208,7 +210,7 @@ i,em{
 
 .Dxiaoguo>p{
     float: left;
-    color: #055faa;
+    color: #459dff;
 
 }
 
@@ -236,7 +238,7 @@ i,em{
     width: 80px;
     font-size: 20px;
     padding-bottom: 10px;
-    border-bottom: 4px solid #055faa;
+    border-bottom: 4px solid #459dff;
 }
 
 .reB{
@@ -256,16 +258,6 @@ i,em{
     padding-bottom: 20px;
 }
 
-
-
-/* .xinX ul li{
-    width: 444px;
-    float: left;
-    height: 14px;margin-top: 16px;line-height: 14px;
-}
- */
-
-
 .xinX ul li{
     width: 444px;
     float: left;
@@ -273,13 +265,6 @@ i,em{
     margin-top: 16px;line-height: 14px;
     overflow: auto;
 }
-
-
-
-
-
-
-
 
 .xinX ul .shuoM{
     width: 892px;
@@ -289,6 +274,19 @@ i,em{
 .xinX ul .shuoM p{
     height: 100%;
     line-height:140%
+}
+
+
+.xinX ul .ggg{
+    width: 888px;
+
+}
+
+.xinX ul li div{
+    width: 90px;
+    height: 14px;
+    float: left;
+    display: inline-block;
 }
 
 
@@ -309,7 +307,7 @@ i,em{
     width: 80px;
     font-size: 20px;
     padding-bottom: 10px;
-    border-bottom: 4px solid #055faa;
+    border-bottom: 4px solid #459dff;
 }
 
 .miaoS ul{
@@ -418,7 +416,7 @@ i,em{
     width: 80px;
     font-size: 20px;
     padding-bottom: 10px;
-    border-bottom: 4px solid #055faa;
+    border-bottom: 4px solid #459dff;
 }
 
 .reM ul{
@@ -438,8 +436,6 @@ i,em{
 .reM ul li span{
     display: block;
     height: 124px;
-    background: grey;
-
 }
 
 
@@ -469,7 +465,7 @@ i,em{
     letter-spacing:2px;
     margin-top: 20px;
     float: left;
-    background-color: #055faa;
+    background-color: #459dff;
     color: #ffffff;
     margin-left: 40px;
     text-align: center;
@@ -562,51 +558,6 @@ i,em{
     margin-left: 475px;
 
 }
-
-
-
-
-.xinX ul .ggg{
-    width: 888px;
-    
-}
-
-.xinX ul li div{
-    width:120px;
-    text-align: left;
-    margin-right: 16px;
-    height: 14px;
-    float: left;
-    display: inline-block;
-    color: red;
-
-}
-
-
-.xinX ul li div:first-child{
-	  margin-right: 0;
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

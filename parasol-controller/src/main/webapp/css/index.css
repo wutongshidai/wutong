@@ -533,18 +533,38 @@ input[type=text]{
     margin-left: 3px;
 }
 
+
 .main_rightsidebar .he .deng{
     position: absolute;
     top:40px;
     left: 110px;
 
 }
+
 .main_rightsidebar .he .zhu{
     position: absolute;
     top: 40px;
     left: 176px;
 
 }
+
+.main_rightsidebar .he .deng div{
+	width:50px;
+	height:24px;
+	}
+
+
+
+.main_rightsidebar .he .zhu div{
+	width:50px;
+	height:24px;
+	}
+
+
+
+
+
+
 .main_rightsidebar .he ul{
     width: 100%;
     height: 22px;
@@ -1942,12 +1962,11 @@ font-size: 12px;
 
 }
 
-
 .yonghu{margin-left:-30px;
-		margin-bottom:20px;
-		margin-top:-10px; 
-
+        margin-bottom:20px;
+        margin-top:-10px;
 }
+
 
 
 

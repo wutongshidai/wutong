@@ -144,7 +144,7 @@ package com.parasol.common.load;
 
 	    //return a dir that named date of today ; example:20160912
 	    public static String getDataPath() {
-	        return new SimpleDateFormat("yyyyMMdd").format(new Date());
+	        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 	    }
 
 	    //check if the path has exist if not create it

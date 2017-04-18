@@ -9,7 +9,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>需求发布成品</title>
+    <title>项目详情</title>
 
     <meta http-equiv=Content-Type content="text/html;charset=utf-8">
     <meta http-equiv=X-UA-Compatible content=IE=EmulateIE7>
@@ -58,7 +58,7 @@
             <div class="search_f">
                 <form method="GET"   target="_blank" onsubmit="return formsub()">
                     <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ></button>
-                    <img src="img/dongh_newbbs_ssfdj.png" >
+                    <img src="img/dongh_newbbs_ssfdj1.png" >
                     <a href="#" class="re">热门搜索</a>
                     <a href="#">设计</a>
                     <a href="#">设计</a>
@@ -106,7 +106,7 @@
                                 <li>招标地址：${tender.tenderAddress}</li>
                                 <li class="ggg"><div class="" id= "contractStatus" name="contractStatus" >固定总价合同</div><div class="" id= "billStatus" name="billStatus" >增值税专用发票</div><div class="" id= "priceStatus" name="priceStatus" >超价废标</div></li>                                          	                           
                                 <%-- <li class="shuoM">其他项目说明：<p>${tender.explainl}</p></li> --%>
-                                <li>附件列表：<a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
+                                <li><span style="color: #0616CC">附件下载：</span><a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
                                 <li>联系人：${tender.contactName}  ${tender.contactMobile}</li>
                             </ul>
                         </div>
@@ -127,17 +127,17 @@
                         <div>
                             <div><img src="img/dengllu.jpg" alt="商家"/></div>
                             <span>好评率：100%</span>
-                            <p>北京宏洋宸电线电缆</p>
+                            <p style="text-align: center">商家广告推荐位</p>
                         </div>
                         <div>
                             <div><img src="img/dengllu.jpg" alt="商家"/></div>
                             <span>好评率：100%</span>
-                            <p>北京宏洋宸电线电缆</p>
+                            <p style="text-align: center">商家广告推荐位</p>
                         </div>
                         <div>
                             <div><img src="img/dengllu.jpg" alt="商家"/></div>
                             <span>好评率：100%</span>
-                            <p>北京宏洋宸电线电缆</p>
+                            <p style="text-align: center">商家广告推荐位</p>
                         </div>
                     </div>
                 </div>
@@ -147,32 +147,32 @@
                         <li>
                             <span><img src="img/dengllu.jpg" alt="商家"/></span>
                             <p><em></em>北京</p>
-                            <b>电线商家</b>
-                            <p>北京宏洋宸电线电缆</p>
+                            <b>商家类别</b>
+                            <p style="text-align: center">商家广告位</p>
                         </li>
                         <li>
                             <span><img src="img/dengllu.jpg" alt="商家"/></span>
                             <p><em></em>北京</p>
-                            <b>电线商家</b>
-                            <p>北京宏洋宸电线电缆</p>
+                            <b>商家类别</b>
+                            <p style="text-align: center">商家广告位</p>
                         </li>
                         <li>
                             <span><img src="img/dengllu.jpg" alt="商家"/></span>
                             <p><em></em>北京</p>
-                            <b>电线商家</b>
-                            <p>北京宏洋宸电线电缆</p>
+                            <b>商家类别</b>
+                            <p style="text-align: center">商家广告位</p>
                         </li>
                         <li>
                             <span><img src="img/dengllu.jpg" alt="商家"/></span>
                             <p><em></em>北京</p>
-                            <b>电线商家</b>
-                            <p>北京宏洋宸电线电缆</p>
+                            <b>商家类别</b>
+                            <p style="text-align: center">商家广告位</p>
                         </li>
                         <li>
                             <span><img src="img/dengllu.jpg" alt="商家"/></span>
                             <p><em></em>北京</p>
-                            <b>电线商家</b>
-                            <p>北京宏洋宸电线电缆</p>
+                            <b>商家类别</b>
+                            <p style="text-align: center">商家广告位</p>
                         </li>
                     </ul>
                 </div>

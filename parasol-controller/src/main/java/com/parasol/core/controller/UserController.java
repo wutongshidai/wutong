@@ -10,6 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parasol.common.converter.Validator;
+import com.parasol.core.myclass.TenderName;
 import com.parasol.core.service.TenderService;
 import com.parasol.core.service.UserService;
 import com.parasol.core.tender.Tender;
@@ -61,9 +63,18 @@ public class UserController {
 	public String index(Model model ,HttpServletRequest request , HttpServletResponse response){	
 		HttpSession session = request.getSession();
     	session.removeAttribute("tenders");
-		List<Tender> tenders = tenderService.selectTenderTen();
+		List<Tender> lists = tenderService.selectTenderTen();
+		List<TenderName> tenders = new ArrayList<>();
+	
+		for (Tender list : lists) {
+			TenderName tenderName = new TenderName();
+			tenderName.setProjectName(list.getProjectName());	
+			tenders.add(tenderName);
+		}
+		
 		System.out.println(tenders);
 		model.addAttribute("tenders", tenders);
+
 		return "index";
 	}	
 	
@@ -140,12 +151,7 @@ public class UserController {
 						}
 					}else{
 						logger.info(userName+"用户名错误！");
-					}
-//				user.setUserName(userName);
-//				user.setPassword(encodePassword(password));
-//				user.setMobile(user.getMobile());
-//				user.setUserEmail(user.getUserEmail());
-				
+				}
 			} catch (Exception e) {	
 				e.printStackTrace();
 			} 

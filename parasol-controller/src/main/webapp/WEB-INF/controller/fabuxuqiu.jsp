@@ -57,7 +57,7 @@
                         <label for="gongqi"><i>*</i>工期</label><input  id="schedule" name="schedule" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"><p>日历天</p>
                     </div>
                     <div class="zhiliang">
-                        <label for="zhiliang"><i>*</i>质量要求</label><input  type="text" id="zhiliang"  value="合格" readonly="readonly" />
+                        <label for="zhiliang"><i>*</i>质量要求</label><input  type="text" id="zhiliang"  value="合格" readonly />
                     </div>
                     <div class="zhijia">
                         <label for="zhijia"><i>*</i>合同估算价</label><input step="0.01"  type="number" id="agreementPrice" name="agreementPrice" placeholder="只能保留两位小数" onkeypress="return myNumberic(event)" /><p>元</p>
@@ -128,11 +128,11 @@
                               <label for="shangC"><i>*</i>上传附件</label>招标文件<input  type="file" name="file_upload" id="shangC" onchange="getPhotoSize(this)" />
                       </div>
                       <div class="shangchuan">
-                              <label for="zhaoBw"><i>*</i>上传附件</label>投标文件<input  type="file" name="file_upload" id="zhaoBw" onchange="getPhotoSize(this)" />
+                              <label for="zhaoBw">上传附件</label>其它文件<input  type="file" name="file_upload" id="zhaoBw" onchange="getPhotoSize(this)" />
                       </div>
                     
                     
-                    <p>添加附件不大于10M</p>     
+                    <p>添加附件不大于100M</p>     
                     <div class="clear"></div>
                     <div class="tijiao">
                     <input type="submit" id="but" value="提交"/>
@@ -645,6 +645,17 @@
                      $("#explainl").css("borderColor",""); $(".explainl p").css("color","");
                    }
                    $(".tijiao p").css("color","");
+				   
+				   
+				   
+				   
+			       if($("#shangC").val()=="" || $("#shangC").val()=="undefined"){
+                      $("#shangC").css("borderColor","red");    $(".tijiao p").css("color","red");
+                             alert("必须上传招标文件");
+                                       return false;
+                      }else if($("#shangC").val()){
+                               $("#shangC").css("borderColor",""); $(".tijiao p").css("color","");
+                     } 
                    
                };        
        
@@ -660,9 +671,9 @@
         }else {
             fileSize = obj.files[0].size;
         }
-        fileSize=Math.round(fileSize/1024*1024)/1000; //单位为KB
+        fileSize=Math.round(fileSize/10240*1024)/1000; //单位为KB
         console.log(fileSize);
-        if(fileSize>=10240){
+        if(fileSize>=102400){
             $(".shang").css("borderColor","red");
          
             alert("您的文件格式或大小 不正确！");

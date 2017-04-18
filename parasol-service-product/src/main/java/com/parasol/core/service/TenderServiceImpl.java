@@ -87,23 +87,6 @@ public class TenderServiceImpl implements TenderService{
 	@Override
 	public List<Tender> selectClassification(Integer classification) {
 		List<Tender> tenders = tenderMapper.selectClassification(classification);
-//		List<DemandHall> demandHalls = new ArrayList<>();
-//		System.out.println(tenders);
-//		for (Tender tender : tenders) {
-//			DemandHall demandHall = new DemandHall();
-//			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//			String time = dateFormat.format(tender.getStartTime());
-//			
-//			TenderStatusEnum code = TenderStatusEnum.getByCode(tender.getClassification());
-//			demandHall.setGenre(code.getEsc());
-//			demandHall.setGenres(code.getDesc());
-//			demandHall.setTender(tender);
-//			demandHall.setTime(time);
-//			demandHalls.add(demandHall);
-//			
-//		}
-//		System.out.println(demandHalls);
-//		return demandHalls;
 		return tenders;
 	}
 
@@ -128,7 +111,6 @@ public class TenderServiceImpl implements TenderService{
 		}
 		System.out.println(demandHalls);
 		return demandHalls;
-//		return selectProject;
 	}
 
 
@@ -152,7 +134,6 @@ public class TenderServiceImpl implements TenderService{
 		}
 		System.out.println(demandHalls);
 		return demandHalls;
-//		return selectPurchase;
 	}
 
 
@@ -176,7 +157,6 @@ public class TenderServiceImpl implements TenderService{
 		}
 		System.out.println(demandHalls);
 		return demandHalls;
-//		return selectDesign;
 	}
 
 
@@ -218,11 +198,14 @@ public class TenderServiceImpl implements TenderService{
 			demandHall.setGenres(code.getDesc());
 			demandHall.setTender(tender);
 			demandHall.setTime(time);
-			demandHalls.add(demandHall);
-			
+			demandHalls.add(demandHall);			
 		}
 		System.out.println(demandHalls);
 		return demandHalls;
-//		return selectConsultation;
 	}
+	
+	
+	
+	
+	
 }

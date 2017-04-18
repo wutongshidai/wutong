@@ -47,14 +47,19 @@ function ckpassword(){
 </head>
 <body>
 <div class="tuCeng">
+
+ 
     <div class="dengL">
+    <div class="ding" style="text-align: right;"><a href="/index.do" style=" color:#062748; font-size:16px;"> < 返回首页</a></div>
         <div class="left">
             <span>
                 <p>登陆</p>
                 <a href="/login.do">新用户注册</a>
             </span>
 				<div class="msg-wrap">
-				<div class="msg-warn" <c:if test="${!empty error }">style="display: none;"</c:if>>
+				<div class="msg-warn" style="
+    border-right-width: 150px;"
+				<c:if test="${!empty error }">style="display: none;"</c:if>>
 						<b></b>公共场所不建议自动登录，以防账号丢失
 				</div>
 				<div <c:if test="${empty error }">style="display: none;"</c:if> class="msg-error">
@@ -78,8 +83,7 @@ function ckpassword(){
                     <p class="de">忘记密码？</p>
                 </div>
             </form>
-            <p >您还可以用以下方式登陆：</p>
-            <a href="#"><img src="img/imgxiaotubiao/qq.png" alt=""/></a><a href="#"><img src="img/imgxiaotubiao/weixin.png" alt=""/></a>
+            <!--   <a href="#"><img src="img/imgxiaotubiao/qq.png" alt=""/></a><a href="#"><img src="img/imgxiaotubiao/weixin.png" alt=""/></a> -->
         </div>
         <div class="reght"></div>
     </div>

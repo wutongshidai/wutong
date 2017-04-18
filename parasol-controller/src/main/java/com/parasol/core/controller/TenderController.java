@@ -91,24 +91,6 @@ public class TenderController {
 					tender.setStartTime(date);
 					tender.setUserid(user.getId());
 					System.out.println(tender);
-					
-			/*		String year = request.getParameter("year1");
-					String month = request.getParameter("month1");
-					String day = request.getParameter("day1");
-					if(month.length() == 1){
-						month = "0" + month;
-					}
-					if(day.length() == 1){
-						day = "0" + day;
-					}
-					String endTime = year + "-" + month + "-" + day;
-					System.out.println(endTime);
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
-					java.sql.Date endDate = null;
-					java.util.Date udate = sdf.parse(endTime);
-					endDate = new java.sql.Date(udate.getTime());
-				    tender.setEndDate(endDate);
-				    System.out.println(tender);*/
 					logger.info("tender"+ tender);			
 					//通用表状态：0:通用表;1:工程表
 					if(null != tender.getProjectName()){
@@ -119,7 +101,8 @@ public class TenderController {
 						tender.setStatus(0);
 						tenderService.insert(tender);	
 						System.out.println("执行成功!");
-						return "redirect:/selectByPrimaryNamel.do";
+						model.addAttribute("projectName", tender.getProjectName());
+						return "redirect:/tyxq.do";
 					}else{
 						logger.info(tender.getTenderFile()+"上传文件不能为空!");
 						System.out.println(tender.getTenderFile()+"上传文件不能为空!");
@@ -153,6 +136,29 @@ public class TenderController {
 	}
 	
 	
+	
+	/**
+	 * 显示通用表信息,直接跳转
+	 */
+	@RequestMapping(value="/tyxq.do")
+	public String selectByPrimaryNameTy(Model model , String projectName , HttpServletRequest request,HttpServletResponse response) throws Exception{	
+		System.out.println(projectName);
+		Tender tender = tenderService.selectByPrimaryName(projectName);
+		model.addAttribute("tender", tender);
+		System.out.println(tender);
+		//测试是否截断文件路径
+		String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+		System.out.println(suffix);
+		model.addAttribute("suffix", suffix);
+		TenderStatusEnum code = TenderStatusEnum.getByCode(tender.getClassification());
+//		model.addAttribute("explainl", tender.getExplainl().replaceAll("", "&nbsp;").replaceAll("\r", "<br/>"));
+		model.addAttribute("esc", code.getEsc());
+		model.addAttribute("desc", code.getDesc());
+		return "tyxq";
+	}
+	
+	
+	
 	//录入发布信息
 	@RequestMapping(value="/needs.do")
 	public String needs(Model model , @RequestParam("file_upload") MultipartFile[] multipartFile 
@@ -166,8 +172,7 @@ public class TenderController {
 				System.out.println(user);
 				if(user != null){
 					BeanUtils.populate(tender, request.getParameterMap());//获取request域中参数
-					System.out.println(tender);
-					
+					System.out.println(tender);					
 					
 					if(tender.getBillStatus() == null){
 						tender.setBillStatus(1);
@@ -223,29 +228,11 @@ public class TenderController {
 				 	if(null != tender.getContractStatus()){
 					if(null != tender.getBillStatus()){
 					if(null != tender.getTenderFile()){
-//					if(null != tender.getBidFile()){
-						//长传文件路径
-//							String filePath = Files_Utils_DG.FilesUpload_stream(request,multipartFile,"/filesOut/Upload");
-//							System.out.println(filePath);			
-//				  for (int i = 0; i < multipartFile.length; i++) {
-//                MultipartFile file = multipartFile[i];
-//                    //保存文件
-//                    String fileName = Files_Utils_DG.FilesUpload_transferTo_spring(request, file, "/filesOut/Upload");
-//                    System.out.println(fileName);
-//					 tender.setTenderFile(fileName);
-//               }		
-					//判定勾选---------------
-					
-						    //通用表状态：0:通用表;1:工程表
 							tender.setStatus(1);
 							tenderService.insert(tender);	
 							System.out.println("执行成功!");
 							model.addAttribute("projectName", tender.getProjectName());
 							return "redirect:/selectByPrimaryNamel.do";						
-//					    }else{
-//							logger.info(tender.getBidFile()+"投标文件不能为空!");
-//							System.out.println(tender.getBidFile()+"投标文件不能为空!");
-//						}
 						}else{
 							logger.info(tender.getTenderFile()+"招标文件不能为空!");
 							System.out.println(tender.getTenderFile()+"招标文件不能为空!");
@@ -326,7 +313,7 @@ public class TenderController {
 	/**
 	 * 显示投标信息，没用..
 	 */
-	@RequestMapping(value="/selectByPrimaryName.do")
+/*	@RequestMapping(value="/selectByPrimaryName.do")
 	public String selectByPrimaryName(Model model , String projectName) throws Exception{	
 		Tender tender = tenderService.selectByPrimaryName("北京办公区装饰装修工程");
 		model.addAttribute("tender", tender);
@@ -338,17 +325,17 @@ public class TenderController {
 		System.out.println(suffix);
 		model.addAttribute("suffix", suffix);
 		return "xuqiufabuchengpin";
-	}
+	}*/
 	
 	/**
 	 * 显示投标信息列表
 	 */
-	@RequestMapping(value="/selectListUserId.do")
+/*	@RequestMapping(value="/selectListUserId.do")
 	public String selectListUserId(Model model , Integer userId) throws Exception{
 		List<Tender> tenders = tenderService.selectListUserId(userId); 
 		model.addAttribute("tenders", tenders);
 		return "";
-	}
+	}*/
 	
 	/**
 	 * 显示投标信息,直接跳转
@@ -362,11 +349,12 @@ public class TenderController {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
 		String date = formatter.format(tender.getEndDate());//格式化数据
 		model.addAttribute("endDate", date);
-		String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf("\\")+1);
+		//测试是否截断文件路径
+		String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
 		System.out.println(suffix);
 		model.addAttribute("suffix", suffix);
 		if(tender.getBidFile() != null){
-			String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf("\\")+1);
+			String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\"
 			System.out.println(suffixl);
 			model.addAttribute("suffixl", suffixl);
 		}
@@ -490,5 +478,46 @@ public class TenderController {
 			
 			return "xuqiudating";
 		}
+		
+		
+	    /**
+	     * 需求名称跳转
+	     */ 	
+		@RequestMapping(value="/choiceDemand.do")
+		public String choiceDemand(Model model , String projectName , HttpServletRequest request,HttpServletResponse response) throws Exception{	
+			System.out.println(projectName);
+			Tender tender = tenderService.selectByPrimaryName(projectName);
+			model.addAttribute("tender", tender);
+			System.out.println(tender);
+			if(tender.getClassification() < 6){
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd ");
+				String date = formatter.format(tender.getEndDate());//格式化数据
+				model.addAttribute("endDate", date);
+				//测试是否截断文件路径
+				String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+				System.out.println(suffix);
+				model.addAttribute("suffix", suffix);
+				if(tender.getBidFile() != null){
+					String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\"
+					System.out.println(suffixl);
+					model.addAttribute("suffixl", suffixl);
+				}	
+				TenderStatusEnum code = TenderStatusEnum.getByCode(tender.getClassification());
+//				model.addAttribute("explainl", tender.getExplainl().replaceAll("", "&nbsp;").replaceAll("\r", "<br/>"));
+				model.addAttribute("esc", code.getEsc());
+				model.addAttribute("desc", code.getDesc());
+				return "xuqiufabuchengpin";
+			}else{
+			//测试是否截断文件路径
+			String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+			System.out.println(suffix);
+			model.addAttribute("suffix", suffix);
+			TenderStatusEnum code = TenderStatusEnum.getByCode(tender.getClassification());
+//			model.addAttribute("explainl", tender.getExplainl().replaceAll("", "&nbsp;").replaceAll("\r", "<br/>"));
+			model.addAttribute("esc", code.getEsc());
+			model.addAttribute("desc", code.getDesc());
+			return "tyxq";
+			}
+		}		
 }
  

@@ -554,29 +554,34 @@
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
      where classification &lt;= 5
+     order by id desc
   </select>
     <select id="selectPurchase" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
      where classification &gt; 5 and classification &lt;= 12
+     order by id desc
   </select>
     <select id="selectDesign" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
      where classification &gt; 12 and classification &lt;= 17
+     order by id desc
   </select>
     <select id="selectManage" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
      where classification &gt; 17 and classification &lt;= 20
+     order by id desc
   </select>
   <select id="selectConsultation" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
      where classification = 21
+     order by id desc
   </select>
 </mapper>
