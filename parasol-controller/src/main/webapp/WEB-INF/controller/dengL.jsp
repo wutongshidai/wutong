@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>登陆列表</title>
+    <title>登录列表</title>
     <link rel="stylesheet" href="css/reset.min.css"/>
     <link rel="stylesheet" href="css/dengL.css"/>
 <!--     <link rel="stylesheet" type="text/css" href="css/base.css" media="all">
@@ -53,7 +53,7 @@ function ckpassword(){
     <div class="ding" style="text-align: right;"><a href="/index.do" style=" color:#062748; font-size:16px;"> < 返回首页</a></div>
         <div class="left">
             <span>
-                <p>登陆</p>
+                <p>登录</p>
                 <a href="/login.do">新用户注册</a>
             </span>
 				<div class="msg-wrap">

@@ -11,24 +11,11 @@
     <link rel="stylesheet" href="css/reset.min.css"/>
     <link rel="stylesheet" href="css/zhuC.css"/>
     <link rel="stylesheet" href="css/b.css"/>
-<!--     <link rel="stylesheet" type="text/css" href="css/base.css" media="all">
-	<link type="text/css" rel="stylesheet" href="css/a.css" source="widget"> -->
 	<script type="text/javascript" src="/JS/jquery-1.11.3.js"></script>
 	<script type="text/javascript" src="/JS/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="/JS/registerCheck.js"></script>
+	<script type="text/javascript" src="/JS/duanxin.js"></script>
 	<script type="text/javascript">
-
-/*	$(function(){
-		$("#loginsubmit").click(function(){
-		$("#loginForm").submit();		
-		/!* alert(error); *!/
-	});
-  });  	*/
-	
-/* 	function sub(){
-	alert("傻不傻！");
-	window.location.href="/sdkTestSend.do";
-} */
 
 //-------------------------------------------//
 function checkemail(email){
@@ -84,18 +71,15 @@ function checkForm(loginForm){
 	   if(!checkuserName(loginForm.userName.value)){
 		   window.alert("用户名格式不正确");
 		   return false;
-	   }
-
+	   
 	   if(!checkpassword(loginForm.password.value)){
 		   window.alert("密码格式不正确");
 		   return false;
 	   }
-
 	   if(loginForm.repassword.value!=loginForm.password.value){
 	      window.alert("您输入的两次密码不一致！");
 	      return false;
 	   }
-
 	   if(loginForm.userEmail.value==""){
 	      window.alert("请输入email地址");
 	      return false;
@@ -116,11 +100,7 @@ function checkForm(loginForm){
 	      window.alert("请输入校验码");
 	      return false;
 	   }
-	   /* if(!checkyanz(loginForm.authCode.value)){
-		   window.alert("校验码错误");
-		   return false;
-	   } */
-	   if(loginForm.mobile.value==""){         //手机号为空
+	   if(loginForm.mobile.value==""){//手机号为空
 		   window.alert("手机号不能为空");
 		   return false;
 	   }
@@ -128,94 +108,24 @@ function checkForm(loginForm){
 		   window.alert("手机号格式不正确");
 		   return false;
 	   }
-
-
+	   if(loginForm.mobileyan.value==""){                                 
+		   window.alert("验证码不能为空");
+		   return false;
+	   }
+	   if(loginForm.agree_status.value=="0"){                                 
+		   window.alert("请认真阅读协议并选中");
+		   return false;
+	   }
 	/*            协议单选框必选校验                             */
-
-
-
-
-	if(!$('#agree_status').is(":checked")){
+/* 	if(!$('#agree_status').is(":checked")){
 		alert("请认真阅读协议并选中");
 		return false;
-	}else if($('#idr').is(":checked")){
-
-	}
-
-	}
-  //------------------------------//
-	/*    function checkyanz(authCode){
-			var strCode = ${strCode};			
-			if(authCode == strCode){
-				return true;
-			}else{
-				return false;
-			}
-		}  */
- //------------------------------//
+		}else if($('#idr').is(":checked")){
+		}
+	} */
 function chageCode() {
     $('#codeImage').attr('src','authCode.do?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
 }
-//--------------------------------//
- $(function() {  
-             //文本框点击事件  
-             $("input[name='userName']").blur(function(){  
-                 //发送ajax请求  
-                 $.ajax({  
-                     type:"POST",  
-                     url:"/userName.do",  
-                     data:{  
-                     	userName:$("input[name='userName']").val()
-                     },  
-                     dataType:"json",  
-                     success:function(data){   
-                         if(data.admin=="0"){  
-                             //将接收到的数据显示到文本框  
-                                 alert("用户名不可用");
-                                 $("#loginsubmit").attr("disabled", true);
-                                 $("#userName").css("borderColor", "red");  
-                                 return false; 
-                         }else if(data.admin=="1"){ 
-								 $("#userName").css("borderColor", ""); 
-								$('#loginsubmit').removeAttr("disabled"); 
-								
-                         }
-                     } 
-                 })  
-             })  
-              
-        }) 
-//--------------------------------//
- $(function() {  
-             //文本框点击事件  
-             $("input[name='authCode']").blur(function(){  
-                 //发送ajax请求  
-                 $.ajax({  
-                     type:"POST",  
-                     url:"/checkCode.do",  
-                     data:{  
-                         authCode:$("input[name='authCode']").val()  
-                     },  
-                     dataType:"json",  
-                     success:function(data){  
-                         //清空  
-                         $("#showRet").empty();  
-                         if(data.admin=="1"){  
-                             //将接收到的数据显示到文本框  
-							/*	alert("验证码正确");  */
-                            $("#showRet").text("验证码正确").css("color","black");  //不显示，需修改
-                         }else if(data.admin=="0"){
-							 	alert("请输入验证码"); 
-                            $("#showRet").text("请输入验证码").css("color","red");  
-                         }else{  
-								alert("验证码错误");
-                             $("#showRet").text("验证码错误").css("color","red");   
-                         }  
-                     }  
-                 })  
-             })  
-              
-        }) 
 </script>
 </head>
 <body>
@@ -231,22 +141,19 @@ function chageCode() {
 			<form form id="loginForm" name="loginForm" action="/register.do" method="post" onSubmit="return checkForm(loginForm)" >
             <div class="yongH">
                 <label for="yongh">&nbsp;&nbsp;用户名</label>
-                <input type="text" class="" id="userName" name="userName" placeholder="6-18位英文字母或数字" />
+                <input type="text" class="" id="userName" name="userName" placeholder="&nbsp;&nbsp;&nbsp;6-18位英文字母或数字" />
             </div>
             <div class="miM">
                 <label for="mima">&nbsp;&nbsp;&nbsp;密码</label>
-                <input type="password" class="" name="password" placeholder="6-18个字符，可使用字母 ,数字,下划线" /> 
+                <input type="password" class="" name="password" placeholder="&nbsp;&nbsp;&nbsp;6-18个字符，可使用字母 ,数字,下划线" /> 
             </div>
             <div class="queR">
                 <label for="queren">&nbsp;确认密码</label>
-                <input type="password" class="" name="repassword" placeholder="确认密码"/>
+                <input type="password" class="" name="repassword" placeholder="&nbsp;&nbsp;&nbsp;确认密码"/>
             </div>
             <div class="dinZ">
                 <label for="queren">&nbsp;电子邮箱</label>
-            	<input type="text" id="userEmail" class="" name="userEmail" placeholder="请填写有效邮箱"/>
-             <!--    <input type="text" class=""/> -->
-             <!--   <input type="text" id="2" /><input type="button" value="提交" onclick="mail()" /> -->
-            <!--     <input name="email" id="EMAIL" type="text" onfocus="showDesc(this)" onblur="checkText(this)"/> -->
+            	<input type="text" id="userEmail" class="" name="userEmail" placeholder="&nbsp;&nbsp;&nbsp;请填写有效邮箱"/>
             </div>
             <span class="name">
                 <p>&nbsp;&nbsp;&nbsp;性别</p>
@@ -255,15 +162,10 @@ function chageCode() {
                 <input type="radio" name="sex" value="1" checked="checked"/>
                 <p class="v">女</p>
             </span>
-            <div class="suoZ">
-            
-             <!--    <label for="suozai">&nbsp;所在地区</label>
-                <input  type="number" name="province" />
-                <input  type="number" name="city" /> -->
-                
+            <div class="suoZ">               
                <label>&nbsp;所在地区</label>
 			省：<select name="province" id="to_cn" onchange="set_city(this, document.getElementById('city')); WYL();" class=login_text_input > 			
-					<option value=0>请选择</option>  
+					<option value=0>&nbsp;请选择</option>  
 					<option value=北京>北京</option> 
 					<option value=上海>上海</option> 
 					<option value=天津>天津</option> 
@@ -298,32 +200,29 @@ function chageCode() {
 					<option value=香港>香港</option> 
 					<option value=澳门>澳门</option> 
                     <option value=台湾>台湾</option>
-					</select> - 市： 
+					</select> &nbsp;&nbsp;&nbsp;市： 
 					<select id="city" class=login_text_input name="city"> 
-					<option value=0>请选择</option> 
+					<option value=0>&nbsp;请选择</option> 
 					</select>
-                <!-- <input  type="number" class="reght" name="" id="suozai" /> -->
             </div>
             <div class="yanZheng">
                 <label for="queren">&nbsp;&nbsp;验证码</label>
                 <input id="authCode" name="authCode" type="text"/>
         		<!--这里img标签的src属性的值为后台实现图片验证码方法的请求地址-->
        			<label><img type="image" src="authCode.do" id="codeImage" onclick="chageCode()" title="图片看不清？点击重新得到验证码" style="cursor:pointer;"/></label>
-        		<label class="hua">看不清楚<a onclick="chageCode()">换一张</a></label><span id="showRet"></span> 
-                <!-- <input type="text" class=""/><img src="img/imglunb/9.jpg" alt=""/><a>看不清楚  换一张</a> -->
+        		<label class="hua"><a onclick="chageCode()">看不清楚换一张</a></label><span id="showRet"></span> 
             </div>
             <div class="shouJ">
                 <label for="queren">&nbsp;&nbsp;手机号</label>
                   <input type="text" name="mobile" id="mobile" class="" placeholder="有效的手机号"/><span style="color: red;" id="userNameError"/>
-              <!--    <input type="text" name="mobile" id="mobile" class=""/><span style="color: red;" id="userNameError"/> -->
             </div>
              <div class="duanX">
                 <label for="yanZ">短信验证码</label>
-                <input type="text" id="yanZ" placeholder="填写验证码"/> <button type="sub()" onclick="sub()" class="">获取验证码</button>
+                <input type="text" class="" id="mobileyan" name="mobileyan" placeholder="填写验证码" maxlength="6"/><input type="button" value="免费获取验证码" id="btnSendCode" name="btnSendCode" onclick="sendMessage()">
             </div>
 			<div class="spanf">
 					<div class="spanf-1">
-						<input name="agree_status" id="agree_status" type="checkbox" value="0" onClick="auto_ck(this);">
+						<input name="agree_status" id="agree_status" name="agree_status" type="checkbox" value="0" checked="checked" onClick="auto_ck(this);">
 						<p for="idr">我已阅读并同意协议</p>
 					</div>
 					<div class="spanf-2">
@@ -416,22 +315,9 @@ function chageCode() {
 						<div class="theme-popover-mask"></div>
 					</div>
 				</div>
-
-
-       <!--      <span class="yd">
-                <p>
-                    <input name="agree_status" id="agree_status" type="checkbox" value="0" onClick="auto_ck(this);">
-                    <label for="idr">我已阅读并同意协议</label>
-                </p>
-                <p class="wei">《梧桐时代用户注册协议》</p>
-            </span>-->
-
-
-
             <button type="submit" id="loginsubmit" class="" >注册</button>
         </div>
 		</form>
-        <!--                                               -->
    <!--      <div class="qy" id="qy">
             <p>提交个人注册信息</p>
             <div class="yongH">
@@ -488,15 +374,8 @@ function chageCode() {
         </div> -->
     </div>
 </div>
-
 <script type="application/javascript">
-
-
-
-
 	/*         弹窗                    */
-
-
 	jQuery(document).ready(function($) {
 		$('.theme-login').click(function(){
 			$('.theme-popover-mask').fadeIn(100);
@@ -506,10 +385,7 @@ function chageCode() {
 			$('.theme-popover-mask').fadeOut(100);
 			$('.theme-popover').slideUp(200);
 		})
-
 	})
-
-
 </script>
 </body>
 </html>

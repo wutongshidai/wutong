@@ -25,9 +25,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.parasol.common.load.Files_Utils_DG;
 import com.parasol.core.Enum.TenderStatusEnum;
 import com.parasol.core.myclass.DemandHall;
+import com.parasol.core.myclass.TenderAll;
 import com.parasol.core.service.TenderService;
 import com.parasol.core.tender.Tender;
 import com.parasol.core.user.User;
+
+import cn.itcast.common.page.Pagination;
 
 @Controller
 public class TenderController {
@@ -36,6 +39,8 @@ public class TenderController {
 	
 	@Resource
 	private TenderService tenderService;
+
+	
 
 	
 	//跳转类目页
@@ -384,7 +389,9 @@ public class TenderController {
     		flag="0";
     	}
     	adminMap.put("admin",flag);
+    	System.out.println(adminMap);
     	System.out.println("打印这句话说明,Ajax request 发送项目名成功...");
+    	
     	return adminMap;
   }
     
@@ -518,6 +525,93 @@ public class TenderController {
 			model.addAttribute("desc", code.getDesc());
 			return "tyxq";
 			}
-		}		
+		}	
+		
+		
+		
+		
+		
+		
+		//校验验证码
+		
+		 @ResponseBody
+		@RequestMapping(value="/checkCodesss.do")
+		public Map<String,String> checkCodesss(String mobileyan, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws Exception{	
+			Map<String, String> adminMaps= new HashMap<String,String>();
+	    	String flag = "0";
+			if(null != mobileyan){
+				System.out.println(mobileyan);
+				String code = (String)request.getSession().getAttribute("yancode");
+				System.out.println("code="+ code);
+				if(null != code){
+					if(code.equals(mobileyan)){
+						System.out.println("验证成功");
+						flag = "0";
+					}else{
+						System.out.println("验证失败");
+						flag = "1";
+					}
+				}else{
+					flag = "1";
+				}
+			}else{
+				flag = "2";//验证码不能为空
+			}	
+			System.out.println(flag);
+			adminMaps.put("admin",flag);
+			System.out.println(adminMaps);
+	    	System.out.println("短信验证...");
+	    	return adminMaps;	
+		}
+		
+		 
+		 @ResponseBody
+		 @RequestMapping(value="/alltenders.do")
+			public List<TenderAll> alltenders(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.tenderAll(page);
+			  return tenderAll;
+				
+			}
+			
+/*//		 @ResponseBody
+		@RequestMapping(value="/allTenderss.do")
+		public String allTenderss(Model model ,Integer pageNo,String projectName, HttpServletRequest request,HttpServletResponse response) throws Exception{
+			
+			System.out.println(number);
+			Pagination pagination = new Pagination();
+			if(number == null ){//number == 0
+				pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
+			}else if(number == 2){
+				pagination = tenderService.selectPaginationByTenderDesign(pageNo,projectName);
+			}else if(number == 3){
+				pagination = tenderService.selectPaginationByTenderProperty(pageNo,projectName);
+			}else if(number == 4){
+				pagination = tenderService.selectPaginationByTenderCost(pageNo,projectName);
+			}else if(number == 1){				
+				pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);
+			}else if(number == 0){				
+				pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);
+			}else{
+				pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
+			}
+			Pagination pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
+			System.out.println("all执行了！！！！！！！");
+			System.out.println(pagination);
+			model.addAttribute("pagination", pagination);
+			return "aaaa"; 
+			
+		}
+		
+		
+	//shishi5.2
+		 @RequestMapping(value="/shishi.do")
+			public String shishi(Model model ,Integer pageNo,String projectName) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.tenderAll(page);
+			 Pagination pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);			 
+			 System.out.println("shishi执行了！！！！！");
+			 System.out.println(pagination);
+				model.addAttribute("pagination", pagination);
+				return "aaaa2";
+			}*/
 }
  

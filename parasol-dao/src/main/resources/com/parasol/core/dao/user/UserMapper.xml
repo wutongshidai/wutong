@@ -346,7 +346,7 @@
   
   
   
-<!--   <select id="selectByUserName" parameterType="string" resultType="string">
+  <select id="selectByUserName" parameterType="string" resultType="string">
   	select 
   	    password
   	from
@@ -355,7 +355,7 @@
   		user_name = #{userName} 
   </select> 
   
-  <update id="updatePassword">
+  <update id="updatePassword" parameterType="com.parasol.core.user.User">
   	update com_user
   	set password = #{newPassword}
   	where userName = #{userName}  
@@ -367,6 +367,6 @@
     	province = #{province,jdbcType=VARCHAR},
       	city = #{city,jdbcType=VARCHAR}
     where user_name = #{userName,jdbcType=VARCHAR}
-  </update>-->
+  </update>
   
 </mapper>

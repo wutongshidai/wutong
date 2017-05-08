@@ -545,14 +545,16 @@
   </select>
    <select id="selectClassification" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
-    id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
+    id,userId,project_name,start_time,classification   
      from tender
      where classification = #{classification}
+     order by
+     id desc
   </select>
    <select id="selectProject" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
-    id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
-     from tender
+	id,userId,project_name,start_time,classification   
+	  from tender
      where classification &lt;= 5
      order by id desc
   </select>
@@ -584,4 +586,132 @@
      where classification = 21
      order by id desc
   </select>
+  
+  
+    <select id="selectByExamplel" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+ <!--   <if test="distinct" >
+      distinct
+    </if>
+     <include refid="Base_Column_List" /> -->
+    project_name,start_time,classification
+ 
+    from tender
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <sql id="Base_Column_Listss" >
+    <if test="fields == null" >
+      id, project_name, classification , DATE_FORMAT(start_time,'%Y-%c-%d')
+    </if>
+    <if test="fields != null" >
+      ${fields}
+    </if>
+  </sql>
+  
+  
+  
+  
+  
+  
+ <!--   DATE_FORMAT(start_time,'%Y-%c-%d') aaa-->
+  
+    <select id="selectByExampless" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  
+  
+  
+<!--    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if> -->
+    <!-- 需要五个，后续添加classification范围 -->
+      <select id="selectByExampleProgramme" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+  	where classification &lt;= 5
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+        <select id="selectByExamplePurchase" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+  	where classification &gt; 5 and classification &lt;= 12
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+        <select id="selectByExampleDesign" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+  	where classification &gt; 12 and classification &lt;= 17
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+        <select id="selectByExampleProperty" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+  	where classification &gt; 17 and classification &lt;= 20
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}       
+    </if>
+  </select>
+          <select id="selectByExampleCost" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
+    select
+		start_time , project_name
+    from tender
+  	where classification = 21
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="startRow != null" >
+      limit #{startRow} , #{pageSize}
+    </if>
+  </select>
+  
 </mapper>

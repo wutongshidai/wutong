@@ -4,8 +4,13 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.parasol.common.load.CCPRestSDK;
 
@@ -16,9 +21,9 @@ public class SDKTestSendTemplateSMS {
 	/**
 	 * @param args
 	 */
-
+	@ResponseBody
 	@RequestMapping("/sdkTestSend.do")
-	public void sdkTestSend(String mobile) {
+	public void sdkTestSend(String mobile,HttpServletRequest request,HttpServletResponse response) {
 		HashMap<String, Object> result = null;
 
 		CCPRestSDK restAPI = new CCPRestSDK();
@@ -30,12 +35,15 @@ public class SDKTestSendTemplateSMS {
 		restAPI.init("app.cloopen.com", "8883");// 初始化服务器地址和端口，格式如下，服务器地址不需要写https://
 		restAPI.setAccount("8aaf07085b5fee9a015b661ebb2b03f7", "3cba3e8d5fef40d9beace42065ba9f22");// 初始化主帐号和主帐号TOKEN
 		restAPI.setAppId("8aaf07085b5fee9a015b661ebcd403fe");// 初始化应用ID
-		
-		
-		String i =  new Random().nextInt(1000000) + "";
+
+		int i =(int)((Math.random()*9+1)*100000);
+		String yancode = i + "";
+
+		HttpSession session = request.getSession();
+		session.setAttribute("yancode", yancode);
 		System.out.println(mobile);
-		System.out.println(i);
-		result = restAPI.sendTemplateSMS(mobile,"168213" ,new String[]{i,"3"});
+		System.out.println(yancode);
+		result = restAPI.sendTemplateSMS(mobile,"168213" ,new String[]{yancode,"1"});
 
 		System.out.println("SDKTestSendTemplateSMS result=" + result);
 		
@@ -52,5 +60,12 @@ public class SDKTestSendTemplateSMS {
 			System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
 		}
 	}
+	
+	
+	
+	
+	
+	
+
 
 }

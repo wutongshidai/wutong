@@ -33,8 +33,8 @@
             <li><a href="/loginOut.do">退出</a></li>
             <li><a href="/login.do">免费注册</a></li>
             <li><a href="#">我的账户</a></li>
-            <li><a href="#">联系客服</a></li>
-            <li><a href="#">消息</a></li>
+            <li><a href="/allTenderss.do">联系客服</a></li>
+            <li><a href="/allTenderss.do">消息</a></li>
             <li><a href="#">帮助</a></li>
         </ul>
     </div>
@@ -62,10 +62,10 @@
                 <li><img src="img/hr.png" alt=""/>材料</li>
                 <li>专业分包</li>
                 <li>劳务分包</li>
-                <li><a href="cgal.html">设计</a></li>
+                <li><a href="/cgal.do">设计</a></li>
                 <li><a href="zjLb.html">专家库</a></li>
                 <li>设备租赁</li>
-                <li><a href="cgal.html">成功案例</a></li>
+                <li><a href="/cgal.do">成功案例</a></li>
             
              
             </ul>

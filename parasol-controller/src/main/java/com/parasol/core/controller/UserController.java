@@ -55,9 +55,6 @@ public class UserController {
 		
 	/**
      * 跳转首页
-     * @param
-     * @param 
-     * @return
      */
 	@RequestMapping(value="/index.do",method = RequestMethod.GET)
 	public String index(Model model ,HttpServletRequest request , HttpServletResponse response){	
@@ -74,16 +71,12 @@ public class UserController {
 		
 		System.out.println(tenders);
 		model.addAttribute("tenders", tenders);
-
 		return "index";
 	}	
 	
 	
 	/**
      * 跳转注册成功
-     * @param
-     * @param 
-     * @return
      */
 	@RequestMapping(value="/zhucechenggong.do",method = RequestMethod.GET)
 	public String zhucechenggong(){
@@ -93,33 +86,27 @@ public class UserController {
 	
 	/**
      * 跳转注册页面
-     * @param 
-     * @param 
-     * @return
      */
 	@RequestMapping(value="/login.do",method = RequestMethod.GET)
 	public String login(Model model){
-/*		String uuid = UUID.randomUUID().toString();
-		baseCacheService.set(uuid, uuid);
-		baseCacheService.expire(uuid, 3*60);
-		System.out.println("uuid"+uuid);
-		model.addAttribute(uuid, uuid);
-		model.addAttribute("status", 1);*/
 		return "login";
 	}
 	
-
 	/**
      * 跳转登录页面
-     * @param 
-     * @param 
-     * @return
      */
 	@RequestMapping(value="/dengL.do",method = RequestMethod.GET)
 	public String dengL(Model model){
 		return "dengL";
 	}
 	
+	 /**
+     * 跳转设计成功案例页面
+     */
+	@RequestMapping(value="/cgal.do",method = RequestMethod.GET)
+	public String cgal(Model model){
+		return "cgal";
+	}
 
 	/**
      * 注册
@@ -157,13 +144,8 @@ public class UserController {
 			} 
 			return "login";
 	}
-	
-
 	/**
      * 登录
-     * @param 
-     * @param 
-     * @return
      */
 	@RequestMapping(value="/dengL.do",method = RequestMethod.POST)
 	public String login(String userName,String password,String ReturnUrl,Model model
@@ -201,12 +183,9 @@ public class UserController {
 		}else{
 			model.addAttribute("error", "用户名不能为空");
 			System.out.println("用户名不能为空");
-		}
-		
+		}	
 		return "dengL";
 	}
-
-	
 	/**
      * 加密 MD5  + 十六进制  + 盐  
      * password = "safqwgnetrygfhehn123456j7efwhtreyguyu6y";
@@ -231,9 +210,6 @@ public class UserController {
 	
 	/**
      * 手机号为用户名注册
-     * @param 
-     * @param 
-     * @return
      */
 	@RequestMapping("/userReg.action")
 	public String userReg(User user,Model model
@@ -268,9 +244,6 @@ public class UserController {
 	
 	/**
      * 处理用户名唯一性的判断，手机号版
-     * @param 
-     * @param 
-     * @return
      */                                                           
 	@RequestMapping("/userJudge.do")
 	@ResponseBody
@@ -288,9 +261,6 @@ public class UserController {
 	
 	/**
      * 生成验证码
-     * @param 
-     * @param 
-     * @return
      */ 
 	@RequestMapping("/authCode.do")
     public void getAuthCode(HttpServletRequest request , HttpServletResponse response
@@ -352,9 +322,6 @@ public class UserController {
     
 	/**
      * 校验验证码
-     * @param 
-     * @param 
-     * @return
      */ 
     @ResponseBody
     @RequestMapping("/checkCode.do")
@@ -380,9 +347,6 @@ public class UserController {
     
     /**
      * 姓名重复校验
-     * @param 
-     * @param 
-     * @return
      */ 
     @ResponseBody
     @RequestMapping("/userName.do")
@@ -398,34 +362,24 @@ public class UserController {
     	}
     	adminMap.put("admin",flag);
     	System.out.println("打印这句话说明,Ajax request 发送姓名成功...");
+    	System.out.println(adminMap);
     	return adminMap;
   }
     
     
     /**
      * 退出
-     * @param 
-     * @param 
-     * @return
      */
-    @ResponseBody
     @RequestMapping("/loginOut.do")
-    public ModelAndView loginOut(Model model,HttpServletRequest request , HttpServletResponse response){
+    public String loginOut(Model model,HttpServletRequest request , HttpServletResponse response){
     	HttpSession session = request.getSession();
     	session.removeAttribute("user");
     	List<Tender> tenders = tenderService.selectTenderTen();
 		model.addAttribute("tenders", tenders);
-    	 ModelAndView mav = new ModelAndView("/index");
-    	return mav;
+    	return "redirect:/index.do";
   }  
     
-    /**
-     * 修改密码
-     */
-    @ResponseBody
-    @RequestMapping("/updatePassword.do")
-    public ModelAndView updatePassword(String password , Model model,HttpServletRequest request , HttpServletResponse response){
-    		
-    	return null;
-  } 
+    
+    
+   
 }

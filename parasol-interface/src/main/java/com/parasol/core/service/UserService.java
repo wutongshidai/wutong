@@ -10,6 +10,6 @@ public interface UserService {
 	public User selectByMobile(String mobile);
 	
 	
-/*	public Boolean updatePassword(String userName , String password);
-	public Boolean updateByNickName(User user);*/
+	public Boolean updatePassword(String userName , String password);
+	public Boolean updateByNickName(User user);
 }

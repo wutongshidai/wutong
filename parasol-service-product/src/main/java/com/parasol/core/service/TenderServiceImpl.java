@@ -2,6 +2,7 @@ package com.parasol.core.service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.parasol.core.Enum.TenderStatusEnum;
 import com.parasol.core.dao.tender.TenderMapper;
 import com.parasol.core.myclass.DemandHall;
+import com.parasol.core.myclass.TenderAll;
 import com.parasol.core.tender.Tender;
+import com.parasol.core.tender.TenderQuery;
+import com.parasol.core.tender.TenderQuery.Criteria;
+
+import cn.itcast.common.page.Pagination;
 
 
 
@@ -207,5 +213,205 @@ public class TenderServiceImpl implements TenderService{
 	
 	
 	
+	
+	//最新测试
+	
+	@Override
+	public List<Tender> selectaa(){
+		TenderQuery tenderQuery = new TenderQuery();
+//		tenderQuery.createCriteria().andTender
+		tenderQuery.setPageNo(2);
+		tenderQuery.setPageSize(5);
+		tenderQuery.setOrderByClause("id desc");
+		tenderQuery.setFields("project_name,start_time,classification");
+		System.out.println(tenderQuery);
+		List<Tender> examples = tenderMapper.selectByExamplel(tenderQuery);
+		System.out.println(examples);
+		return examples;
+	}
+	
+	//------------fenyejie----------//
+	
+	
+	@Override
+	public List<TenderAll> tenderAll(Integer page){
+		TenderQuery tenderQuery = new TenderQuery();
+//		tenderQuery.createCriteria().andTender
+		tenderQuery.setPageNo(page);
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		tenderQuery.setFields("project_name,start_time,classification");
+		System.out.println(tenderQuery);
+		List<Tender> examples = tenderMapper.selectByExamplel(tenderQuery);
+	
+		List<TenderAll> list = new ArrayList<>();
+		for (Tender tender : examples) {
+			TenderAll tenderAll = new TenderAll();	
+			tenderAll.setProjectName(tender.getProjectName());
+			
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String str = dateFormat.format(tender.getStartTime());
+			
+
+			tenderAll.setStartTime(str);
+			list.add(tenderAll);
+		}
+		System.out.println("------------------wolaile--------");
+		System.out.println(list);
+		return list;
+	}
+	
+	//工程类
+	@Override
+	public Pagination selectPaginationByTenderProgramme(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.selectByExampleProgramme(tenderQuery)
+				);
+		String url ="/allTenderss.do";
+		pagination.pageView(url, builder.toString());
+		return pagination; 
+	}
+	//采购类
+	@Override
+	public Pagination selectPaginationByTenderPurchase(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.selectByExamplePurchase(tenderQuery)
+				);
+		String url ="/shishi.do";
+		pagination.pageView(url, builder.toString());
+		List<?> list = pagination.getList();
+		System.out.println("-------------wolailalalallalala");
+		System.out.println(list);
+		System.out.println(pagination);
+		return pagination; 
+	}
+	//设计类
+	@Override
+	public Pagination selectPaginationByTenderDesign(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.selectByExampleDesign(tenderQuery)
+				);
+		String url ="/allTenderss.do";
+		pagination.pageView(url, builder.toString());
+		List<?> list = pagination.getList();
+		System.out.println("-------------wolailalalallalala");
+		System.out.println(list);
+		System.out.println(pagination);
+		return pagination; 
+	}
+	//物业管理类
+	@Override
+	public Pagination selectPaginationByTenderProperty(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.selectByExampleProperty(tenderQuery)
+				);
+		String url ="/allTenderss.do";
+		pagination.pageView(url, builder.toString());
+		List<?> list = pagination.getList();
+		System.out.println("-------------wolailalalallalala");
+		System.out.println(list);
+		System.out.println(pagination);
+		return pagination; 
+	}
+	//造价咨询类
+	@Override
+	public Pagination selectPaginationByTenderCost(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.selectByExampleCost(tenderQuery)
+				);
+		String url ="/allTenderss.do";
+		pagination.pageView(url, builder.toString());
+		List<?> list = pagination.getList();
+		System.out.println("-------------wolailalalallalala");
+		System.out.println(list);
+		System.out.println(pagination);
+		return pagination; 
+	}
 	
 }

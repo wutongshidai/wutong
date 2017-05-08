@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.parasol.core.myclass.TenderAll;
 import com.parasol.core.tender.Tender;
 import com.parasol.core.tender.TenderQuery;
 
@@ -48,4 +49,20 @@ public interface TenderMapper {
     List<Tender> selectDesign();
     List<Tender> selectManage();
     List<Tender> selectConsultation();
+    
+    
+    
+    
+    
+    
+    List<Tender> selectByExamplel(TenderQuery example);
+    
+    
+    
+    List<Tender> selectByExampless(TenderQuery example);
+    List<Tender> selectByExampleProgramme(TenderQuery example);
+    List<Tender> selectByExamplePurchase(TenderQuery example);
+    List<Tender> selectByExampleDesign(TenderQuery example);
+    List<Tender> selectByExampleProperty(TenderQuery example);
+    List<Tender> selectByExampleCost(TenderQuery example);
 }

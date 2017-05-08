@@ -82,7 +82,7 @@
                             <li class="on r">全部</li>
                             <li>勘察</li>
                             <li>施工</li>
-                            <li>专业<a href="xuqiudating.css">xuqiudating</a></li>
+                            <li>专业</li><!-- <a href="xuqiudating.css">xuqiudating</a> -->
                             <li>审计</li>
                             <li>监理</li>
                             <li>其他</li>
@@ -103,14 +103,14 @@
                         </div>
                         <div>
                         <div class="ll">
-          						<c:forEach items="${list0}" var="list0" begin="0" end="7" step="2">
+          						<c:forEach items="${list0}" var="list0" begin="0" end="15" step="2">
                                 	<c:if test="${list0.tender.classification == 0 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${list0.tender.projectName }"> <em>【${list0.genres }】</em>${list0.tender.projectName }</a><i>${list0.time }</i></p>
 									</c:if>
                        			</c:forEach>
                         </div>
                             <div class="rr">
-                               <c:forEach items="${list0}" var="list0" begin="1" end="8" step="2">
+                               <c:forEach items="${list0}" var="list0" begin="1" end="15" step="2">
                                 	<c:if test="${list0.tender.classification == 0 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${list0.tender.projectName }"> <em>【${list0.genres }】</em>${list0.tender.projectName }</a><i>${list0.time }</i></p>
 									</c:if>
@@ -119,14 +119,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list1}" var="project" begin="0" end="7" step="2">
+                                <c:forEach items="${list1}" var="project" begin="0" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 1 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list1}" var="project" begin="1" end="8" step="2">
+                               <c:forEach items="${list1}" var="project" begin="1" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 1 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
@@ -135,14 +135,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list2}" var="project" begin="0" end="7" step="2">
+                                <c:forEach items="${list2}" var="project" begin="0" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 2 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list2}" var="project" begin="1" end="8" step="2">
+                               <c:forEach items="${list2}" var="project" begin="1" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 2 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
@@ -151,14 +151,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list3}" var="project" begin="0" end="7" step="2">
+                                <c:forEach items="${list3}" var="project" begin="0" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 3 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list3}" var="project" begin="1" end="8" step="2">
+                               <c:forEach items="${list3}" var="project" begin="1" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 3 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
