@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
@@ -43,9 +43,9 @@
                     <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ><img src="img/dongh_newbbs_ssfdj1.png" ></button>
                     <a href="#" class="re">热门搜索</a>
                     <a href="#">设计</a>
-                    <a href="#">设计</a>
-                    <a href="#">设计</a>
-                    <a href="#">设计</a>
+                    <a href="#">专家库</a>
+                    <a href="#">材料</a>
+                    <a href="#">需求</a>
                 </form>
             </div>
         </div>
@@ -53,23 +53,23 @@
         <div class="xuqiuT">
             <ul>
                 <li><a href="/index.do">首页</a></li>
-                <li class="mr"><a href="/xuqiudating.do">需求大厅</a></li>
-                <li><img src="img/hr.png" alt=""/>材料</li> 
-                <li>劳务分包</li>
-                <li>专业分包</li>            
+                <li class="mr"><a href="/xuqiudating.do">招标大厅</a></li>
+                <li><img src="img/hr.png" alt=""/><a href="caiLiao.html">材料</a></li> 
+                <li>专业分包</li>
+                <li>劳务分包</li>            
                 <li><a href="/cgal.html">设计</a></li>
-                <li>设备租赁</li>
-                <li>物业管理</li>             
+                <li>专家库</li>
+                <li>设备租赁</li>             
                 <li><a href="/cgal.html">成功案例</a></li>
             </ul>
             <div class="bannerTu">
                 <a href="/liumu.do"></a>
                 <div class="fa">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                    <a></a>
                 </div>
             </div>
         </div>
@@ -82,7 +82,7 @@
                             <li class="on r">全部</li>
                             <li>勘察</li>
                             <li>施工</li>
-                            <li>专业</li><!-- <a href="xuqiudating.css">xuqiudating</a> -->
+                            <li>专业</li>
                             <li>审计</li>
                             <li>监理</li>
                             <li>其他</li>
@@ -167,14 +167,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list4}" var="project" begin="0" step="1"  varStatus="status">
+                                <c:forEach items="${list4}" var="project" begin="0" step="15"  varStatus="status">
 									<c:if test="${status.index < 5 && project.tender.classification == 4 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if> 
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list4}" var="project" begin="1" step="2">
+                               <c:forEach items="${list4}" var="project" begin="1" step="15">
                                 	<c:if test="${project.tender.classification == 4 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
@@ -183,14 +183,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list5}" var="project" begin="0" end="7" step="2">
+                                <c:forEach items="${list5}" var="project" begin="0" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 5 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list5}" var="project" begin="1" end="8" step="2">
+                               <c:forEach items="${list5}" var="project" begin="1" end="15" step="2">
                                 	<c:if test="${project.tender.classification == 5 }">
 										<p><a href="/selectByPrimaryNamel.do?projectName=${project.tender.projectName }"> <em>【${project.genres }】</em>${project.tender.projectName }</a><i>${project.time }</i></p>
 									</c:if>
@@ -199,7 +199,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="#"> >> 查看所有工程类需求</a>
+                <a href="/tenderProgramme.do"> >> 查看所有需求</a>
             </div>
          <div class="guangG"><img src="img/xuqiudating/dtgg01.png"  alt=""/></div>
             <div class="caiG">
@@ -231,14 +231,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list6}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list6}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 6 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list6}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list6}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 6 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -247,14 +247,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list7}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list7}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 7 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list7}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list7}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 7 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -263,14 +263,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list8}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list8}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 8 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list8}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list8}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 8 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -279,14 +279,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list9}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list9}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 9 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list9}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list9}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 9 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -295,14 +295,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list10}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list10}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 10 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list10}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list10}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 10 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -311,14 +311,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list11}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list11}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 11 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list11}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list11}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 11 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -327,14 +327,14 @@
                         </div>
                         <div>
                             <div class="ll">
-                                <c:forEach items="${list12}" var="purchase" begin="0" end="7" step="2">
+                                <c:forEach items="${list12}" var="purchase" begin="0" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 12 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
                        			</c:forEach>
                             </div>
                             <div class="rr">
-                               <c:forEach items="${list12}" var="purchase" begin="1" end="8" step="2">
+                               <c:forEach items="${list12}" var="purchase" begin="1" end="15" step="2">
                                 	<c:if test="${purchase.tender.classification == 12 }">
 										<p><a href="/tyxq.do?projectName=${purchase.tender.projectName }"> <em>【${purchase.genres }】</em>${purchase.tender.projectName }</a><i>${purchase.time }</i></p>
 									</c:if>
@@ -344,7 +344,7 @@
                     </div>
                 </div>
                 <div class="cai"></div>
-                <a href="#"> >> 查看所有采购类需求</a>
+                <a href="/tenderPurchase.do"> >> 查看所有需求</a>
             </div>
             <div class="guangG-2"><img src="img/xuqiudating/dtgg02.png"   alt=""/></div>
             <div class="shij-wuye">
@@ -403,7 +403,7 @@
                        			</c:forEach>
                             </div>
                         </div>
-                        <a href="#"> >>  查看所有设计类需求</a>
+                        <a href="/tenderDesign.do"> >>  查看所有需求</a>
                     </div>
                 </div>
                 <div class="wuye">
@@ -446,7 +446,7 @@
                        			</c:forEach>
                             </div>
                         </div>
-                        <a href="#"> >>  查看所有物业类需求</a>
+                        <a href="/tenderProperty.do"> >>  查看所有需求</a>
                     </div>
                 </div>
             </div>
@@ -468,7 +468,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"> >>  查看所有造价类需求</a>
+                    <a href="/tenderCost.do"> >>  查看所有需求</a>
                 </div>
                 <div class="guangG-4"><img src="img/xuqiudating/dtgg04.png"  alt=""/></div>
             </div>
@@ -528,7 +528,7 @@
                 <p><a href="#">联系我们</a></p>
                 <p><a href="#">帮助中心</a></p>
                 <p><a href="#">网站导航</a></p>
-                <p>Copyright2017 梧桐时代科技有限责任公司 . 京ICP 证 000000 号 京公网安备  1100000000000 号</p>
+                <p>Copyright2017 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号</a></p>
                 <p>通讯地址：北京市大兴区亦庄县小羊坊康碱路 6 号</p>
             </div>
         </div>

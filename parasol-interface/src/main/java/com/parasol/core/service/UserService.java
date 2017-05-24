@@ -11,5 +11,6 @@ public interface UserService {
 	
 	
 	public Boolean updatePassword(String userName , String password);
-	public Boolean updateByNickName(User user);
+	public Boolean updateByNickName(Integer id , String companyName);
+	public Boolean updateByNickNames(User user);
 }

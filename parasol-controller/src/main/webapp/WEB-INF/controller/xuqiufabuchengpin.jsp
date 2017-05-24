@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     String path = request.getContextPath();
@@ -60,10 +60,10 @@
                     <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ></button>
                     <img src="img/dongh_newbbs_ssfdj1.png" >
                     <a href="#" class="re">热门搜索</a>
-                    <a href="#">设计</a>
-                    <a href="#">设计</a>
-                    <a href="#">设计</a>
-                    <a href="#">设计</a>
+               	    <a href="#">设计</a>
+                    <a href="#">专家库</a>
+                    <a href="#">材料</a>
+                    <a href="#">需求</a>
                 </form>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div class="mainbav">
                 <ul>
                 	<li class="mr"><a href="/index.do">首页</a></li>
-                	<li><a href="/xuqiudating.do">需求大厅</a></li>
+                	<li><a href="/xuqiudating.do">招标大厅</a></li>
                 	<li><img src="img/hr.png" alt=""/>材料</li>
                     <li>专业分包</li>
                     <li>劳务分包</li>
@@ -106,21 +106,29 @@
                                 <li>招标地址：${tender.tenderAddress}</li>
                                 <li class="ggg"><div class="" id= "contractStatus" name="contractStatus" >固定总价合同</div><div class="" id= "billStatus" name="billStatus" >增值税专用发票</div><div class="" id= "priceStatus" name="priceStatus" >超价废标</div></li>                                          	                           
                                 <%-- <li class="shuoM">其他项目说明：<p>${tender.explainl}</p></li> --%>
-                                <li><span style="color: #0616CC">附件下载：</span><a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
+                                <li>附件下载：<a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
                                 <li>联系人：${tender.contactName}  ${tender.contactMobile}</li>
                             </ul>
                         </div>
                         <div class="miaoS">
                             <h6>需求描述</h6>
-                            <ul>
-                              <!--   <li>仓库3D仿真展示端，说有数据来自第三方系统，通过WEBAPI及TCP与第三方系统通信</li>
+                            
+                            
+                            <!-- <ul>
+                                <li>仓库3D仿真展示端，说有数据来自第三方系统，通过WEBAPI及TCP与第三方系统通信</li>
                                 <li>3D局部示意图请参考《WAREHOUSE.PNG》</li>
                                 <li>通过3D技术仿真附件《ROBOTS-IN-WAREHOUSE.MP4》中的内容</li> -->
                            <!--      <li>1.用户登录|退出登录</li>
                                 <li>2.依据第三方系统提供的数据初始化仓库3D模型<br/></li> 
-                                 <li>${explainl}</li>    -->                          
-                                <li>${tender.explainl }</li>                          
-                            </ul>
+                                 <li>${explainl}</li>                         
+                                <li>${tender.explainl }</li>  
+                                
+                                                        
+                            </ul>       -->  
+                            
+                            <div class="shuoM">
+                            <textarea name="textarea" readonly>${tender.explainl}</textarea >
+                            </div>                                                    
                         </div>
                     </div>
                     <div class="reB">
@@ -187,7 +195,7 @@
                 <p><a href="#">联系我们</a></p>
                 <p><a href="#">帮助中心</a></p>
                 <p><a href="#">网站导航</a></p>
-                <p>Copyright2016 梧桐时代科技有限责任公司 . 京ICP 证 000000 号 京公网安备  1100000000000 号</p>
+                <p>Copyright2016 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号-1</a></p>
                 <p>通讯地址：北京市大兴区亦庄县小羊坊康碱路 6 号</p>
                 </div>
             </div>

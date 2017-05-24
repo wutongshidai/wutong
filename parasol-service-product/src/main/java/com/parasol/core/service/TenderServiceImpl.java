@@ -234,34 +234,184 @@ public class TenderServiceImpl implements TenderService{
 	
 	
 	@Override
-	public List<TenderAll> tenderAll(Integer page){
+	public Pagination tenderAll(Integer userId , Integer page){
 		TenderQuery tenderQuery = new TenderQuery();
-//		tenderQuery.createCriteria().andTender
 		tenderQuery.setPageNo(page);
-		tenderQuery.setPageSize(20);
+		tenderQuery.setPageSize(17);
 		tenderQuery.setOrderByClause("id desc");
 		tenderQuery.setFields("project_name,start_time,classification");
 		System.out.println(tenderQuery);
-		List<Tender> examples = tenderMapper.selectByExamplel(tenderQuery);
-	
+		System.out.println(userId);
+		System.out.println(page);
+		
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != userId){
+			createCriteria.andUseridEqualTo(userId);
+			builder.append("userId=").append(userId);
+		}
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.countByExampleMy(userId),
+				tenderMapper.selectByExample(tenderQuery)
+				);
+		String url ="/alltenders.do";
+		pagination.pageView(url, builder.toString());
+		System.out.println("我的发布！");
+		System.out.println(pagination);
+		
+		
+/*		List<Tender> examples = tenderMapper.selectByExamplel(tenderQuery);
 		List<TenderAll> list = new ArrayList<>();
 		for (Tender tender : examples) {
 			TenderAll tenderAll = new TenderAll();	
 			tenderAll.setProjectName(tender.getProjectName());
-			
-			
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			String str = dateFormat.format(tender.getStartTime());
-			
-
 			tenderAll.setStartTime(str);
 			list.add(tenderAll);
 		}
 		System.out.println("------------------wolaile--------");
-		System.out.println(list);
-		return list;
+		System.out.println(list);*/
+		return pagination;
 	}
 	
+	/*
+	 * 工程类
+	 */
+		@Override
+		public List<TenderAll> selectPaginationByTenderProgramme(Integer page){
+			TenderQuery tenderQuery = new TenderQuery();
+			tenderQuery.setPageNo(Pagination.cpn(page));
+			tenderQuery.setPageSize(20);
+			tenderQuery.setOrderByClause("id desc");
+			/*tenderQuery.setFields("project_name,start_time,classification");*/
+			System.out.println(tenderQuery);
+			List<Tender> selectByExampless = tenderMapper.selectByExampleProgramme(tenderQuery);
+			List<TenderAll> list = new ArrayList<>();
+			for (Tender tender : selectByExampless) {
+				TenderAll tenderAll = new TenderAll();	
+				tenderAll.setProjectName(tender.getProjectName());
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String str = dateFormat.format(tender.getStartTime());
+				tenderAll.setStartTime(str);
+				list.add(tenderAll);
+			}		
+			System.out.println("------------------wolaile工程类--------");
+			System.out.println(list);
+			return list;
+		}
+		
+		/*
+		 * 采购类
+		 */
+		@Override
+		public List<TenderAll> selectPaginationByTenderPurchase(Integer page){
+			TenderQuery tenderQuery = new TenderQuery();
+			tenderQuery.setPageNo(Pagination.cpn(page));
+			tenderQuery.setPageSize(20);
+			tenderQuery.setOrderByClause("id desc");
+			/*tenderQuery.setFields("project_name,start_time,classification");*/
+			System.out.println(tenderQuery);
+			List<Tender> selectByExampless = tenderMapper.selectByExamplePurchase(tenderQuery);
+			List<TenderAll> list = new ArrayList<>();
+			for (Tender tender : selectByExampless) {
+				TenderAll tenderAll = new TenderAll();	
+				tenderAll.setProjectName(tender.getProjectName());
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String str = dateFormat.format(tender.getStartTime());
+				tenderAll.setStartTime(str);
+				list.add(tenderAll);
+			}		
+			System.out.println("------------------wolaile采购类--------");
+			System.out.println(list);
+			return list;
+		}
+		
+		/*
+		 * 设计类
+		 */
+		@Override
+		public List<TenderAll> selectPaginationByTenderDesign(Integer page){
+			TenderQuery tenderQuery = new TenderQuery();
+			tenderQuery.setPageNo(Pagination.cpn(page));
+			tenderQuery.setPageSize(20);
+			tenderQuery.setOrderByClause("id desc");
+			/*tenderQuery.setFields("project_name,start_time,classification");*/
+			System.out.println(tenderQuery);
+			List<Tender> selectByExampless = tenderMapper.selectByExampleDesign(tenderQuery);
+			List<TenderAll> list = new ArrayList<>();
+			for (Tender tender : selectByExampless) {
+				TenderAll tenderAll = new TenderAll();	
+				tenderAll.setProjectName(tender.getProjectName());
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String str = dateFormat.format(tender.getStartTime());
+				tenderAll.setStartTime(str);
+				list.add(tenderAll);
+			}		
+			System.out.println("------------------wolaile设计类--------");
+			System.out.println(list);
+			return list;
+		}
+		
+		/*
+		 * 物业类
+		 */
+		@Override
+		public List<TenderAll> selectPaginationByTenderProperty(Integer page){
+			TenderQuery tenderQuery = new TenderQuery();
+			tenderQuery.setPageNo(Pagination.cpn(page));
+			tenderQuery.setPageSize(20);
+			tenderQuery.setOrderByClause("id desc");
+			/*tenderQuery.setFields("project_name,start_time,classification");*/
+			System.out.println(tenderQuery);
+			List<Tender> selectByExampless = tenderMapper.selectByExampleProperty(tenderQuery);
+			List<TenderAll> list = new ArrayList<>();
+			for (Tender tender : selectByExampless) {
+				TenderAll tenderAll = new TenderAll();	
+				tenderAll.setProjectName(tender.getProjectName());
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String str = dateFormat.format(tender.getStartTime());
+				tenderAll.setStartTime(str);
+				list.add(tenderAll);
+			}		
+			System.out.println("------------------wolaile物业类--------");
+			System.out.println(list);
+			return list;
+		}
+		
+		/*
+		 * 造价咨询类
+		 */
+		@Override
+		public List<TenderAll> selectPaginationByTenderCost(Integer page){
+			TenderQuery tenderQuery = new TenderQuery();
+			tenderQuery.setPageNo(Pagination.cpn(page));
+			tenderQuery.setPageSize(20);
+			tenderQuery.setOrderByClause("id desc");
+			/*tenderQuery.setFields("project_name,start_time,classification");*/
+			System.out.println(tenderQuery);
+			List<Tender> selectByExampless = tenderMapper.selectByExampleCost(tenderQuery);
+			List<TenderAll> list = new ArrayList<>();
+			for (Tender tender : selectByExampless) {
+				TenderAll tenderAll = new TenderAll();	
+				tenderAll.setProjectName(tender.getProjectName());
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+				String str = dateFormat.format(tender.getStartTime());
+				tenderAll.setStartTime(str);
+				list.add(tenderAll);
+			}		
+			System.out.println("------------------wolaile造价咨询类--------");
+			System.out.println(list);
+			return list;
+		}
+		
+		
+		
 	//工程类
 	@Override
 	public Pagination selectPaginationByTenderProgramme(Integer pageNo,String projectName){
@@ -277,15 +427,15 @@ public class TenderServiceImpl implements TenderService{
 			createCriteria.andProjectNameLike("%"+ projectName +"%");
 			builder.append("projectName=").append(projectName);
 		}		
-		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
-		
+/*		List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);
+		*/
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
-				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.countByExampleProgramme(tenderQuery),
 				tenderMapper.selectByExampleProgramme(tenderQuery)
 				);
-		String url ="/allTenderss.do";
+		String url ="/tenderProgramme.do";
 		pagination.pageView(url, builder.toString());
 		return pagination; 
 	}
@@ -309,10 +459,10 @@ public class TenderServiceImpl implements TenderService{
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
-				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.countByExamplePurchase(tenderQuery),
 				tenderMapper.selectByExamplePurchase(tenderQuery)
 				);
-		String url ="/shishi.do";
+		String url ="/tenderPurchase.do";
 		pagination.pageView(url, builder.toString());
 		List<?> list = pagination.getList();
 		System.out.println("-------------wolailalalallalala");
@@ -335,15 +485,15 @@ public class TenderServiceImpl implements TenderService{
 			createCriteria.andProjectNameLike("%"+ projectName +"%");
 			builder.append("projectName=").append(projectName);
 		}		
-		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+	/*	List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
 		
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
-				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.countByExampleDesign(tenderQuery),
 				tenderMapper.selectByExampleDesign(tenderQuery)
 				);
-		String url ="/allTenderss.do";
+		String url ="/tenderDesign.do";
 		pagination.pageView(url, builder.toString());
 		List<?> list = pagination.getList();
 		System.out.println("-------------wolailalalallalala");
@@ -371,10 +521,10 @@ public class TenderServiceImpl implements TenderService{
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
-				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.countByExampleProperty(tenderQuery),
 				tenderMapper.selectByExampleProperty(tenderQuery)
 				);
-		String url ="/allTenderss.do";
+		String url ="/tenderProperty.do";
 		pagination.pageView(url, builder.toString());
 		List<?> list = pagination.getList();
 		System.out.println("-------------wolailalalallalala");
@@ -397,15 +547,15 @@ public class TenderServiceImpl implements TenderService{
 			createCriteria.andProjectNameLike("%"+ projectName +"%");
 			builder.append("projectName=").append(projectName);
 		}		
-		/*List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
+	/*	List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);*/
 		
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
-				tenderMapper.countByExample(tenderQuery),
+				tenderMapper.countByExampleCost(tenderQuery),
 				tenderMapper.selectByExampleCost(tenderQuery)
 				);
-		String url ="/allTenderss.do";
+		String url ="/tenderCost.do";
 		pagination.pageView(url, builder.toString());
 		List<?> list = pagination.getList();
 		System.out.println("-------------wolailalalallalala");
@@ -414,4 +564,40 @@ public class TenderServiceImpl implements TenderService{
 		return pagination; 
 	}
 	
+	//个人发布编辑
+/*	@Override
+	public Pagination selectPaginationByUserId(Integer pageNo,String projectName){
+		TenderQuery tenderQuery = new TenderQuery();
+		tenderQuery.setPageNo(Pagination.cpn(pageNo));
+		tenderQuery.setPageSize(20);
+		tenderQuery.set
+		tenderQuery.setOrderByClause("id desc");
+		System.out.println(tenderQuery);
+		Criteria createCriteria = tenderQuery.createCriteria();
+		System.out.println(createCriteria);
+		StringBuilder builder = new StringBuilder();
+		if(null != projectName){
+			createCriteria.andUseridEqualTo(id);
+			andProjectNameLike("%"+ projectName +"%");
+			builder.append("projectName=").append(projectName);
+		}		
+		List<Tender> selectByExampless = tenderMapper.selectByExampless(tenderQuery);
+		
+		Pagination pagination = new Pagination(
+				tenderQuery.getPageNo(),
+				tenderQuery.getPageSize(),
+				tenderMapper.selectPaginationByUserId(tenderQuery),
+				tenderMapper.selectPaginationByUserId(tenderQuery)
+				tenderMapper.updateByExampleSelective(record, example)
+				);
+		String url ="/tenderProgramme.do";
+		pagination.pageView(url, builder.toString());
+		return pagination; 
+	}*/
+	
+	@Override
+	public Boolean deleteByPrinaryName(String projectName){
+		int i = tenderMapper.deleteByPrimaryKey(tenderMapper.selectByPrimaryName(projectName).getId());
+		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
+	} 
 }

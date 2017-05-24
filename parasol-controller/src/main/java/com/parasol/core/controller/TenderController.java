@@ -53,7 +53,7 @@ public class TenderController {
 			return "dengL";
 		}
 	}
-	
+		
 	//跳转需求发布通用列表
 	@RequestMapping(value="/tongyongliebiao.do",method = RequestMethod.GET)
 	public ModelAndView tongyongliebiao(Integer classification){
@@ -167,9 +167,7 @@ public class TenderController {
 	//录入发布信息
 	@RequestMapping(value="/needs.do")
 	public String needs(Model model , @RequestParam("file_upload") MultipartFile[] multipartFile 
-			
-			
-			,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		,HttpServletRequest request,HttpServletResponse response) throws Exception{
 			Tender tender = new Tender();
 			try {
 				//在session中获取用户信息		
@@ -355,11 +353,11 @@ public class TenderController {
 		String date = formatter.format(tender.getEndDate());//格式化数据
 		model.addAttribute("endDate", date);
 		//测试是否截断文件路径
-		String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+		String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);
 		System.out.println(suffix);
 		model.addAttribute("suffix", suffix);
 		if(tender.getBidFile() != null){
-			String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\"
+			String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);
 			System.out.println(suffixl);
 			model.addAttribute("suffixl", suffixl);
 		}
@@ -395,8 +393,7 @@ public class TenderController {
     	return adminMap;
   }
     
-    
-    
+
     //根据类别编号查询
 	@RequestMapping(value="/classification.do")
 	public Map<String, Object> selectClassification(Model model , Integer classification) throws Exception{	
@@ -424,8 +421,7 @@ public class TenderController {
 			List<DemandHall> manage = tenderService.selectManage();
 			List<DemandHall> purchase = tenderService.selectPurchase();
 			List<DemandHall> consultation = tenderService.selectConsultation();
-			
-		
+					
 				List<DemandHall> list0 = tenderService.selectDemandHall(0);
 				List<DemandHall> list1 = tenderService.selectDemandHall(1);
 				List<DemandHall> list2 = tenderService.selectDemandHall(2);
@@ -448,7 +444,6 @@ public class TenderController {
 				List<DemandHall> list19 = tenderService.selectDemandHall(19);
 				List<DemandHall> list20 = tenderService.selectDemandHall(20);
 				List<DemandHall> list21 = tenderService.selectDemandHall(21);
-	
 		
 			System.out.println(project);
 			model.addAttribute("project",project);
@@ -456,8 +451,6 @@ public class TenderController {
 			model.addAttribute("design",design);
 			model.addAttribute("manage",manage);
 			model.addAttribute("consultation",consultation);
-			
-			
 			
 			model.addAttribute("list0",list0);
 			model.addAttribute("list1",list1);
@@ -485,8 +478,7 @@ public class TenderController {
 			
 			return "xuqiudating";
 		}
-		
-		
+				
 	    /**
 	     * 需求名称跳转
 	     */ 	
@@ -501,11 +493,11 @@ public class TenderController {
 				String date = formatter.format(tender.getEndDate());//格式化数据
 				model.addAttribute("endDate", date);
 				//测试是否截断文件路径
-				String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+				String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);
 				System.out.println(suffix);
 				model.addAttribute("suffix", suffix);
 				if(tender.getBidFile() != null){
-					String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\"
+					String suffixl = tender.getBidFile().substring(tender.getBidFile().lastIndexOf(System.getProperty("file.separator"))+1);
 					System.out.println(suffixl);
 					model.addAttribute("suffixl", suffixl);
 				}	
@@ -516,7 +508,7 @@ public class TenderController {
 				return "xuqiufabuchengpin";
 			}else{
 			//测试是否截断文件路径
-			String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);//"\\" 
+			String suffix = tender.getTenderFile().substring(tender.getTenderFile().lastIndexOf(System.getProperty("file.separator"))+1);
 			System.out.println(suffix);
 			model.addAttribute("suffix", suffix);
 			TenderStatusEnum code = TenderStatusEnum.getByCode(tender.getClassification());
@@ -526,15 +518,10 @@ public class TenderController {
 			return "tyxq";
 			}
 		}	
+
 		
-		
-		
-		
-		
-		
-		//校验验证码
-		
-		 @ResponseBody
+		//校验验证码	
+		@ResponseBody
 		@RequestMapping(value="/checkCodesss.do")
 		public Map<String,String> checkCodesss(String mobileyan, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws Exception{	
 			Map<String, String> adminMaps= new HashMap<String,String>();
@@ -563,23 +550,47 @@ public class TenderController {
 	    	System.out.println("短信验证...");
 	    	return adminMaps;	
 		}
-		
 		 
 		 @ResponseBody
-		 @RequestMapping(value="/alltenders.do")
-			public List<TenderAll> alltenders(Integer page) throws Exception{
-			  List<TenderAll> tenderAll = tenderService.tenderAll(page);
-			  return tenderAll;
-				
+		 @RequestMapping(value="/alltendersProgramme.do")
+			public List<TenderAll> alltendersProgramme(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.selectPaginationByTenderProgramme(page);
+			  return tenderAll;			
 			}
+		 
+		 @ResponseBody
+		 @RequestMapping(value="/alltendersPurchase.do")
+			public List<TenderAll> alltendersPurchase(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.selectPaginationByTenderPurchase(page);
+			  return tenderAll;			
+			}
+		 
+		 @ResponseBody
+		 @RequestMapping(value="/alltendersDesign.do")
+			public List<TenderAll> alltendersDesign(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.selectPaginationByTenderDesign(page);
+			  return tenderAll;			
+			}
+		 
+		 @ResponseBody
+		 @RequestMapping(value="/alltendersProperty.do")
+			public List<TenderAll> alltendersProperty(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.selectPaginationByTenderProperty(page);
+			  return tenderAll;			
+			}
+		 @ResponseBody
+		 @RequestMapping(value="/alltendersCost.do")
+			public List<TenderAll> alltendersCost(Integer page) throws Exception{
+			  List<TenderAll> tenderAll = tenderService.selectPaginationByTenderCost(page);
+			  return tenderAll;			
+			}
+		 
+		//工程类
+		@RequestMapping(value="/tenderProgramme.do")
+		public String tenderProgramme(Model model ,Integer pageNo,String projectName, HttpServletRequest request,HttpServletResponse response) throws Exception{
 			
-/*//		 @ResponseBody
-		@RequestMapping(value="/allTenderss.do")
-		public String allTenderss(Model model ,Integer pageNo,String projectName, HttpServletRequest request,HttpServletResponse response) throws Exception{
-			
-			System.out.println(number);
-			Pagination pagination = new Pagination();
-			if(number == null ){//number == 0
+		Pagination pagination = new Pagination();
+		/*	if(number == null ){//number == 0
 				pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
 			}else if(number == 2){
 				pagination = tenderService.selectPaginationByTenderDesign(pageNo,projectName);
@@ -593,25 +604,60 @@ public class TenderController {
 				pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);
 			}else{
 				pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
-			}
-			Pagination pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
+			}*/
+			 pagination = tenderService.selectPaginationByTenderProgramme(pageNo,projectName);
 			System.out.println("all执行了！！！！！！！");
 			System.out.println(pagination);
 			model.addAttribute("pagination", pagination);
-			return "aaaa"; 
+			return "tenderProgramme"; 
 			
 		}
 		
-		
-	//shishi5.2
-		 @RequestMapping(value="/shishi.do")
-			public String shishi(Model model ,Integer pageNo,String projectName) throws Exception{
-			  List<TenderAll> tenderAll = tenderService.tenderAll(page);
-			 Pagination pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);			 
-			 System.out.println("shishi执行了！！！！！");
+			
+		//采购类
+		 @RequestMapping(value="/tenderPurchase.do")
+			public String tenderPurchase(Model model ,Integer pageNo,String projectName) throws Exception{
+			 Pagination pagination = new Pagination();
+			 pagination = tenderService.selectPaginationByTenderPurchase(pageNo,projectName);			 
+			 System.out.println("采购执行了！！！！！");
 			 System.out.println(pagination);
 				model.addAttribute("pagination", pagination);
-				return "aaaa2";
-			}*/
+				return "tenderPurchase";
+			}
+		//设计类
+		 @RequestMapping(value="/tenderDesign.do")
+			public String tenderDesign(Model model ,Integer pageNo,String projectName) throws Exception{
+			 Pagination pagination = new Pagination();
+			 pagination = tenderService.selectPaginationByTenderDesign(pageNo,projectName);			 
+			 System.out.println("设计执行了！！！！！");
+			 System.out.println(pagination);
+				model.addAttribute("pagination", pagination);
+				return "tenderDesign";
+			}
+		//物业管理类
+		 @RequestMapping(value="/tenderProperty.do")
+			public String tenderProperty(Model model ,Integer pageNo,String projectName) throws Exception{
+			 Pagination pagination = tenderService.selectPaginationByTenderProperty(pageNo,projectName);			 
+			 System.out.println("物业执行了！！！！！");
+			 System.out.println(pagination);
+				model.addAttribute("pagination", pagination);
+				return "tenderProperty";
+			}
+		//造价咨询类
+		 @RequestMapping(value="/tenderCost.do")
+			public String tenderCost(Model model ,Integer pageNo,String projectName) throws Exception{
+			 Pagination pagination = tenderService.selectPaginationByTenderCost(pageNo,projectName);			 
+			 System.out.println("造价执行了！！！！！");
+			 System.out.println(pagination);
+				model.addAttribute("pagination", pagination);
+				return "tenderCost";
+			}
+		 
+	/*	//跳转我的发布
+		@RequestMapping(value="/wodefabu.do",method = RequestMethod.GET)
+		public String wodefabu(HttpServletRequest request){	
+			User user = (User) request.getSession().getAttribute("user");
+			return "wodefabu";
+		}*/
 }
  

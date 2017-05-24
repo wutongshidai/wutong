@@ -54,8 +54,16 @@ public class UserServiceImpl implements UserService {
 		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
 	   }
 	   
-	   public Boolean updateByNickName(User user){
-		   int i = userMapper.updateByNickName(user);
+	   @Override
+	   public Boolean updateByNickNames(User user){
+		   int i = userMapper.updateByPrimaryKey(user);
+		   System.out.println(i);
 		   return i == 1?Boolean.valueOf(true):Boolean.valueOf(false);  
+	   }
+
+	   @Override
+	   public Boolean updateByNickName(Integer id, String companyName) {
+		// TODO Auto-generated method stub
+		return null;
 	   }
 }

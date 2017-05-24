@@ -595,7 +595,6 @@
     </if>
      <include refid="Base_Column_List" /> -->
     project_name,start_time,classification
- 
     from tender
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -607,14 +606,6 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  
-  
-  
-  
-  
-  
-  
-  
   
     <sql id="Base_Column_Listss" >
     <if test="fields == null" >
@@ -655,7 +646,7 @@
     <!-- 需要五个，后续添加classification范围 -->
       <select id="selectByExampleProgramme" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
     select
-		start_time , project_name
+		id , start_time , project_name , classification
     from tender
   	where classification &lt;= 5
     <if test="orderByClause != null" >
@@ -667,7 +658,7 @@
   </select>
         <select id="selectByExamplePurchase" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
     select
-		start_time , project_name
+		id , start_time , project_name , classification
     from tender
   	where classification &gt; 5 and classification &lt;= 12
     <if test="orderByClause != null" >
@@ -679,7 +670,7 @@
   </select>
         <select id="selectByExampleDesign" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
     select
-		start_time , project_name
+		id , start_time , project_name , classification
     from tender
   	where classification &gt; 12 and classification &lt;= 17
     <if test="orderByClause != null" >
@@ -691,7 +682,7 @@
   </select>
         <select id="selectByExampleProperty" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
     select
-		start_time , project_name
+		id , start_time , project_name , classification
     from tender
   	where classification &gt; 17 and classification &lt;= 20
     <if test="orderByClause != null" >
@@ -703,7 +694,7 @@
   </select>
           <select id="selectByExampleCost" resultMap="BaseResultMap" parameterType="com.parasol.core.tender.TenderQuery" >
     select
-		start_time , project_name
+		id , start_time , project_name , classification
     from tender
   	where classification = 21
     <if test="orderByClause != null" >
@@ -714,4 +705,45 @@
     </if>
   </select>
   
+  
+  
+   <select id="countByExampleProgramme" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where classification &lt;= 5
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+   <select id="countByExamplePurchase" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where classification &gt; 5 and classification &lt;= 12
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+   <select id="countByExampleDesign" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where classification &gt; 12 and classification &lt;= 17
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+   <select id="countByExampleProperty" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where classification &gt; 17 and classification &lt;= 20
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+   <select id="countByExampleCost" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where classification = 21
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="countByExampleMy" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
+    select count(*) from tender
+    where userId = #{userId}
+  </select>
 </mapper>

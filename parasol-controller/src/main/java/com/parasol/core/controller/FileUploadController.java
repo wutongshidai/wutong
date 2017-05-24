@@ -57,6 +57,7 @@ public class FileUploadController {
 	     @RequestMapping(value = "/fileDownload_servlet.do")
 	      public void fileDownload_servlet(HttpServletRequest request, HttpServletResponse response , String filePath) {
 //	          Files_Utils_DG.FilesDownload_stream(request,response,"/filesOut/Download/1.jpg");
+	    	 
 	    	  Files_Utils_DG.FilesDownload_stream(request , response , filePath);
 	        }
 }

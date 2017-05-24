@@ -1,10 +1,10 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>梧桐网</title>
+    <title>梧桐时代-建筑业二次分包领域集采平台</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -14,11 +14,17 @@
 
     <link rel="stylesheet" href="css/reset.min.css" type="text/css"/>
     <link href="css/index.css" rel="stylesheet"  type="text/css"/>
-
-
-
 </head>
 <body>
+<div class="fanHui-wenma">
+    <span>扫码关注</span>
+    <div class="vv">
+        <div class="vv-1"><img src="img/erweima.png" alt=""/></div>
+        <p>扫一扫</p>
+        <p>关注梧桐时代</p>
+        <p>官方微信公众号</p>
+    </div>
+</div>
 <a  class="fanHui" href="javascript:;" id="btn"></a>
 <div class="banxin1260">
     <div>
@@ -32,10 +38,10 @@
          	</li> 
             <li><a href="/loginOut.do">退出</a></li>
             <li><a href="/login.do">免费注册</a></li>
-            <li><a href="#">我的账户</a></li>
-            <li><a href="/allTenderss.do">联系客服</a></li>
-            <li><a href="/allTenderss.do">消息</a></li>
-            <li><a href="#">帮助</a></li>
+            <li><a href="/userMessage.do">我的账户</a></li>
+            <li><a href="#">联系客服</a></li>
+            <li><a href="#">消息</a></li>
+            <li><a href="">帮助</a></li>
         </ul>
     </div>
     <!--logo 搜索-->
@@ -58,12 +64,12 @@
         <div class="mainbav">
         <ul>
                 <li class="mr"><a href="/index.do">首页</a></li>
-                <li><a href="/xuqiudating.do">需求大厅</a></li>
-                <li><img src="img/hr.png" alt=""/>材料</li>
+                <li><a href="/xuqiudating.do">招标大厅</a></li>
+                <li><img src="img/hr.png" alt=""/><a href="caiLiao.html">材料</a></li>
                 <li>专业分包</li>
                 <li>劳务分包</li>
                 <li><a href="/cgal.do">设计</a></li>
-                <li><a href="zjLb.html">专家库</a></li>
+                <li><a href="#">专家库</a></li>
                 <li>设备租赁</li>
                 <li><a href="/cgal.do">成功案例</a></li>
             
@@ -73,20 +79,30 @@
         </div>
         <!--                                                 主体内容                                          -->
         <div class="main banx">
-            <div class="main_leftsidebar">
-                <div>
-                    <span><img src="img/首页修改图片/图.png" alt=""/></span>
-                    <p>网站正试运营 更多好礼等您拿!</p>
+            <div class="main_leftsidebar">       
+             <div class="imgWe">
+                    <div>
+                        <h6>梧桐资讯</h6>
+                        <a href="#">更多</a>
+                    </div>
+                    <div class="list_lh">
+                        <ul class="wenZ">                         
+                           <!--  <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>
+                            <li><a href="#"><em></em>北京东豪建设集团入驻梧桐时代</a><i>4-20</i></li>  -->
+                        </ul>
+                    </div>
                 </div>
-                <ul>
-                    <li><i></i>工程造价咨询</li>
-                    <li><i></i>工程管理</li>
-                    <li><i></i>BIM</li>
-                    <li><i></i>VR体验馆</li>
-                    <li><i></i>帮助</li>
-                </ul>
-                <div class="button"><a href="/liumu.do">发布您的需求 > </a></div>
-                <span></span>
+                <div class="button"><a href="/liumu.do">发布招标需求 > </a></div>          
             </div>
 
             <!--                       -->
@@ -115,13 +131,13 @@
                         </span>
                         <ul>
                             <li class="xin"><a href="#">新人福利</a></li>
-                            <li class="hui"><a href="#">会员注册</a></li>
+                            <li class="hui"><a href="login.do">会员注册</a></li>
                         </ul>
                     </div>
                     <div class="fo">
                         <ul>
                             <li><a href="#"></a>最新发布<i></i></li>
-                            <li><a href="#"></a>公告<i></i></li>
+                         
                             <li><a href="/xuqiudating.do" style="color: #459DFF">更多</a></li>
                         </ul>
                       <!--   <p class="fo-s">需求发布</p> -->
@@ -135,14 +151,14 @@
         </div>
         <!--广告                                                -->
         <div class="banner banx">
-           <!--  <span><img src="img/yizhanshifuwu/11.png"alt=""/></span> -->
-            <span><img src="img/yizhanshifuwu/1.png"alt=""/></span>
-         <!--    <span><img src="img/yizhanshifuwu/3.png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/2.png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/4.png"alt=""/></span> -->
-             <span><img src="img/yizhanshifuwu/2.png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/3.png"alt=""/></span>
-            <span><img src="img/yizhanshifuwu/4.png"alt=""/></span>
+         <div class="banner-1">
+                <h5>入驻采买商家</h5><i></i>
+            </div>
+            <div class="banner-2" id="div1">
+                <ul id="ul1">
+
+                </ul>
+            </div>     
         </div>
         <div class="clear"></div>
 
@@ -150,7 +166,7 @@
 
         <div class="main_cail banx">
 
-            <h2>材料<i></i><p>更多<span></span></p></h2>
+            <h2>材料<i></i><p><a href="#">更多<span></span></a></p></h2>
 
             <div class="cail-content">
                 <div class="leftsidebar">
@@ -178,15 +194,15 @@
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
                             </li>
-                            <li>成交量：1000+</li>
                             <li>好评率：100%</li>
+                            <li>成交量：1000+</li>
                             <li>江苏帝一集团有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>材料商家</li>
+                            <li>地面材料</li>
                             <li><img src="img/sycl-2.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -197,7 +213,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北龙源开关设备有限责任公司</li>
+                            <li>北京全欣科技有限公司</li>
                         </ul>
 
                     </div>
@@ -221,8 +237,8 @@
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>石材商家</li>
+                            <li><img src="img/sycl-4.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -232,14 +248,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京蓝兴冯胜石材有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>地毯商家</li>
+                            <li><img src="img/sycl-5.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -249,14 +265,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>东升地毯集团</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>铝材商家</li>
+                            <li><img src="img/sycl-6.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -266,14 +282,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京科泰盛世铝业有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>涂料商家</li>
+                            <li><img src="img/sycl-7.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -283,7 +299,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京东方海润贸易有限公司</li>
                         </ul>
                     </div>
                 </div>
@@ -294,7 +310,7 @@
 
         <div class="main_fenb banx">
 
-            <h2>专业分包<i></i><p>更多<span></span></p></h2>
+            <h2>专业分包<i></i><p><a href="#">更多<span></span></a></p></h2>
 
             <div class="cail-content">
                 <div class="leftsidebar">
@@ -322,8 +338,8 @@
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
                             </li>
-                            <li>成交量：1000+</li>
                             <li>好评率：100%</li>
+                            <li>成交量：1000+</li>
                             <li>北京京东安装饰</li>
                         </ul>
                     </div>
@@ -347,8 +363,8 @@
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>幕墙商家</li>
+                            <li><img src="img/syfb-3.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -358,14 +374,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>鸿泰建筑装饰设计有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>弱电商家</li>
+                            <li><img src="img/syfb-4.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -375,14 +391,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>伟辰远峰科技发展有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>空调商家</li>
+                            <li><img src="img/syfb-5.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -392,14 +408,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京力格泰商贸有限公司</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>灯具商家</li>
+                            <li><img src="img/syfb-6.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -409,14 +425,14 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北京星空华业光电科技</li>
                         </ul>
                     </div>
                     <div>
                         <ul>
                             <li><b></b>北京</li>
-                            <li>石料商家</li>
-                            <li><img src="img/z-1.png" alt=""/></li>
+                            <li>开关设备</li>
+                            <li><img src="img/syfb-7.png" alt=""/></li>
                             <li>
                                 <i><img src="img/z-x.png" alt=""/></i>
                                 <i><img src="img/z-x.png" alt=""/></i>
@@ -426,7 +442,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京裕隆东升石材</li>
+                            <li>北龙源开关设备有限责任公司</li>
                         </ul>
                     </div>
                 </div>
@@ -435,7 +451,7 @@
 
         <!-- 设计                                                        -->
         <div class="main_she banx">
-            <h2>设计<i></i><p >更多<span></span></p></h2>
+            <h2>设计<i></i><p><a href="/cgal.do"> 更多<span></span></a></p></h2>
             <div class="sheji">
                 <div class="leftsidebar">
                     <span><img src="img/sheji/0.png" alt=""/></span>
@@ -489,7 +505,7 @@
         </div> 
         <!-- 专家库                                                    -->
         <div class="main_zhuan banx">
-            <h2>专家库<i></i> <p>更多<span></span></p></h2>
+           <h2>专家库<i></i><p><a href="#"> 更多<span></span></a></p></h2>
             <ul>
                 <li>
                     <span><img src="img/zhuanjianku/syzj-01.png" alt=""/></span>
@@ -540,7 +556,7 @@
         </div>
         <!--  成功案例                                        成功案例-->
         <div class="main_anli banx">
-            <h2>成功案例<i></i><p>更多<span></span></p></h2>
+             <h2>成功案例<i></i><p><a href="/cgal.do">更多<span></span></a></p></h2>
             <ul>
                 <li>
                     <span><img src="img/chenggonganli/1.png" alt=""/></span>
@@ -619,14 +635,14 @@
 
         <div class="main_weibuguanGg banx">
             <ul>
-                <li><img src="img/guangGaotu/beG.png" alt=""/></li>
-                <li><img src="img/guangGaotu/dongH.png" alt=""/></li>
-                <li><img src="img/guangGaotu/changW.png" alt=""/></li>
-                <li><img src="img/guangGaotu/changM.png" alt=""/></li>
-                <li><img src="img/guangGaotu/fanH.png" alt=""/></li>
-                <li><img src="img/guangGaotu/jianG.png" alt=""/></li>
-                <li><img src="img/guangGaotu/tongC.png" alt=""/></li>
-                <li><img src="img/guangGaotu/zhongT.png" alt=""/></li>
+                <li><a href="https://www.aliyun.com/"><img src="img/guangGaotu/beG.png" alt=""/></a></li>
+                <li><a href="http://www.donghao.cc"><img src="img/guangGaotu/dongH.png" alt=""/></a></li>
+                <li><a href="http://yantai.liebiao.com/zhuangxiu/323475925.html"><img src="img/guangGaotu/changW.png" alt=""/></a></li>
+                <li><a href="http://www.honggao.com.cn/"><img src="img/guangGaotu/changM.png" alt=""/></a></li>
+                <li><a href="http://www.cmbchina.com/"><img src="img/guangGaotu/fanH.png" alt=""/></a></li>
+                <li><a href="http://www.huadu2003.com/"><img src="img/guangGaotu/jianG.png" alt=""/></a></li>
+                <li><a href="http://www.tctd.com.cn/"><img src="img/guangGaotu/tongC.png" alt=""/></a></li>
+                <li><a href="http://www.bjzjht.com/"><img src="img/guangGaotu/zhongT.png" alt=""/></a></li>
             </ul>
         </div>
         <!-- 占位符                                                           横线-->
@@ -656,12 +672,12 @@
         </div>
         <!--尾部                                             尾部-->
         <div class="main_wenbu banx">
-            <p><a href="#">关于我们</a></p>
-            <p><a href="#">企业服务</a></p>
-            <p><a href="#">联系我们</a></p>
-            <p><a href="#">帮助中心</a></p>
-            <p><a href="#">网站导航</a></p>
-            <p>Copyright2016 梧桐时代科技有限责任公司 . 京ICP 证 000000 号 京公网安备  1100000000000 号</p>
+ 	    <p><a href="Tail%20link/About%20us.html">关于我们</a></p>
+            <p><a href="Tail%20link/Enterprise%20service.html">企业服务</a></p>
+            <p><a href="Tail%20link/Contact%20us.html">联系我们</a></p>
+            <p><a href="Tail%20link/Help%20center.html">帮助中心</a></p>
+	    <p><a href="">网站导航</a></p>	
+            <p>Copyright2016 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号-1</a></p>
             <p>通讯地址：北京市大兴区亦庄县小羊坊康碱路 6 号</p>
         </div>
        <!-- <a href="javascript:scroll(0,0)">返回顶部</a>-->
@@ -670,11 +686,205 @@
 </div>
 
 </body>
+<script src="JS/jquery-1.11.3.js"></script>
 <script src="JS/utils.js" type="text/javascript" rel="stylesheet"></script>
 <script src="JS/move.js"></script>
 <script src="JS/AutoBanner.js"></script>
 <script>var oTab=new AutoBanner('box','json/data.txt',6000);</script>
 <script>
+
+/*       获取滚动文字数据     并且绑定         */
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        /*    url: "json/json2.txt",*/
+        url: "json/data2.txt",
+
+        success: function (data) {
+
+            console.log(data);
+            var htmlStr = '';
+            /*  for (var i = 0; i < data.length; i++) {*/
+            var len = data.length;
+
+            for (var i=0;i<data.length;i++) {
+                var curData = data[i];
+                htmlStr += '<li>'
+                        + '<a href="#">'+'<em>'+'</em>'+curData["weiZ"]+'</a>'
+                        +'<i>'+curData["dete"]+'</i>'
+                        + '</li>';
+            }
+            $('.wenZ').append(htmlStr);
+        }
+    });
+
+
+
+/*                 滚动方法                 */
+
+    (function($){
+        $.fn.myScroll = function(options){
+
+            var defaults = {
+                speed:40,
+                rowHeight:24
+            };
+
+            var opts = $.extend({}, defaults, options),intId = [];
+
+            function marquee(obj, step){
+
+                obj.find("ul").animate({
+                    marginTop: '-=1'
+                },0,function(){
+                    var s = Math.abs(parseInt($(this).css("margin-top")));
+                    if(s >= step){
+                        $(this).find("li").slice(0, 1).appendTo($(this));
+                        $(this).css("margin-top", 0);
+                    }
+                });
+            }
+
+            this.each(function(i){
+                var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
+                intId[i] = setInterval(function(){
+                    if(_this.find("ul").height()<=_this.height()){
+                        clearInterval(intId[i]);
+                    }else{
+                        marquee(_this, sh);
+                    }
+                }, speed);
+
+                _this.hover(function(){
+                    clearInterval(intId[i]);
+                },function(){
+                    intId[i] = setInterval(function(){
+                        if(_this.find("ul").height()<=_this.height()){
+                            clearInterval(intId[i]);
+                        }else{
+                            marquee(_this, sh);
+                        }
+                    }, speed);
+                });
+
+            });
+
+        }
+
+    })(jQuery);
+
+    /*                             文字滚动                      */
+
+    $(document).ready(function(){
+        $('.list_lh li:even').addClass('lieven');
+    });
+    $(function(){
+        $("div.list_lh").myScroll({
+            speed:40, 
+            rowHeight:450,
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        /*    url: "json/json2.txt",*/
+        url: "json/data1.txt",
+
+        success: function (data) {
+
+            console.log(data);
+            var htmlStr = '';
+            /*  for (var i = 0; i < data.length; i++) {*/
+            var len = data.length;
+
+            for (var i=0;i<data.length;i++) {
+                var curData = data[i];
+                htmlStr += '<li>'
+                        + '<a href="#">'
+                        + '<img src="' + curData["imgSrc"] + '" alt=""/>'
+                        + ' </a>'
+                        + '</li>';
+            }
+            $('#ul1').append(htmlStr);
+
+        }
+    });
+
+
+    /*         滚动              */
+
+
+
+
+window.onload = function() {
+
+    var oUl = document.getElementById('ul1');
+    var oLi = oUl.getElementsByTagName('li');
+
+/*    var AA=oLi.getElementsByName('a');*/
+
+
+    var timer = null;
+    var iSpeed = -1;  // 步距  正数是向右  负数是向左  数字来调快慢
+    oUl.innerHTML+=oUl.innerHTML;
+  oUl.style.width = oLi.length*oLi[0].offsetWidth+'px'; /*   正常写法 但是有点兼容问题 我就写成下面的固定值了   */
+
+  /*  oUl.style.width = oLi.length*179+'px'; // oLi[0].offsetWidth+'px'会有一点兼容问题 我就写成固定值了*/
+
+    timer = setInterval(startOut,30);
+    function startOut(){
+
+        if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+            oUl.style.left = 0;
+        }
+        else if (oUl.offsetLeft>0) {
+            oUl.style.left = -oUl.offsetWidth/2 + 'px';
+        }
+        oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
+    }
+
+    //移入暂停，移除开始
+    oUl.onmouseover = function(){
+        clearInterval(timer);
+
+    }
+    oUl.onmouseout = function(){
+        timer = setInterval(startOut,30);
+    }
+}
+
+
+
+
+
+
+
+
+
+   /*            返回首页       */
     var oBtn=document.getElementById('btn');
     window.onscroll=computedDisplay;
     function computedDisplay(){

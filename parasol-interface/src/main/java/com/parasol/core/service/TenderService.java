@@ -33,7 +33,8 @@ public interface TenderService {
 	//测试
 	List<Tender> selectaa();
 	
-	public List<TenderAll> tenderAll(Integer page);
+	/*public List<TenderAll> tenderAll(Integer id , Integer page);*/
+	public Pagination tenderAll(Integer id , Integer page);
 
 	public Pagination selectPaginationByTenderProgramme(Integer pageNo,String projectName);
 	public Pagination selectPaginationByTenderPurchase(Integer pageNo,String projectName);
@@ -41,5 +42,14 @@ public interface TenderService {
 	public Pagination selectPaginationByTenderProperty(Integer pageNo,String projectName);
 	public Pagination selectPaginationByTenderCost(Integer pageNo,String projectName);
 	
+	public List<TenderAll> selectPaginationByTenderProgramme(Integer page);
+	public List<TenderAll> selectPaginationByTenderPurchase(Integer page);
+	public List<TenderAll> selectPaginationByTenderDesign(Integer page);
+	public List<TenderAll> selectPaginationByTenderProperty(Integer page);
+	public List<TenderAll> selectPaginationByTenderCost(Integer page);
+	
 	/*public Pagination selectPaginationByTender(Integer pageNo,String projectName,Integer number);*/
+	public Boolean deleteByPrinaryName(String projectName);
+
+	
 }

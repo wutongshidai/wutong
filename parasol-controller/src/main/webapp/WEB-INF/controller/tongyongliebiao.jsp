@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -34,8 +34,8 @@
                         <label for="xuQ"><i>*</i>需求名称</label><input  type="text" name="projectName" id="xuQ" placeholder="不得超过50个字符" />
                     </div>
                     <div class="xmshuom">
-                        <label for="shuoM">项目说明 <p>(不超过1500字)</p></label>
-                        <textarea class="content" type="text" id="shuoM" name="explainl" placeholder="不超过1500个汉字"></textarea>
+                        <label for="shuoM">项目说明 <p>(不超过500字)</p></label>
+                        <textarea class="content" type="text" id="shuoM" name="explainl" placeholder="不超过500个汉字"></textarea>
                     </div>
 
                     <div class="lianxiren">
@@ -52,6 +52,7 @@
 
                     <div class="shangchuan">
                         <label for="shangC"><i>*</i>上传附件</label><input  type="file" name="file_upload" id="shangC" onchange="getPhotoSize1(this)"/>
+                        <p class="wz">文件大小不能超过100MB</p>
                     </div>
 
 
@@ -65,10 +66,10 @@
                 </div>
                 </form>
                 <div class="zR">
-                    <p>发布需求常见问题</p>
+                   <!-- <p>发布需求常见问题</p>
                     <p>什么是需求发布？</p>
                     <p>如何进行需求发布？</p>
-                    <p>标题标题标题标题标题标题？</p>
+                    <p>标题标题标题标题标题标题？</p>  -->
                 </div>
             </div>
 
@@ -100,7 +101,7 @@
 
     /*       文本域  字数限制                           */
     document.getElementById('shuoM').onkeydown = function(){
-        if(this.value.length >= 1500)
+        if(this.value.length >= 500)
 
             event.returnValue = false;
     };
@@ -182,7 +183,7 @@
         }else {
             fileSize = obj.files[0].size;
         }
-        fileSize=Math.round(fileSize/1024*1024)/1000; //单位为KB
+        fileSize=Math.round(fileSize/1024)/1000; //单位为MB
         console.log(fileSize);
 
 

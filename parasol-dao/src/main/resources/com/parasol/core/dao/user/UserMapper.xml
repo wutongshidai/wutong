@@ -364,9 +364,7 @@
   <update id="updateByNickName" parameterType="com.parasol.core.user.User">
   	update com_user
   	set company_name = #{companyName,jdbcType=VARCHAR},
-    	province = #{province,jdbcType=VARCHAR},
-      	city = #{city,jdbcType=VARCHAR}
-    where user_name = #{userName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   
 </mapper>

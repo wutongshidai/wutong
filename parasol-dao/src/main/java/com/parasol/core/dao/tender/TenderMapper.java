@@ -50,19 +50,20 @@ public interface TenderMapper {
     List<Tender> selectManage();
     List<Tender> selectConsultation();
     
-    
-    
-    
-    
-    
     List<Tender> selectByExamplel(TenderQuery example);
     
-    
-    
+ 
     List<Tender> selectByExampless(TenderQuery example);
     List<Tender> selectByExampleProgramme(TenderQuery example);
     List<Tender> selectByExamplePurchase(TenderQuery example);
     List<Tender> selectByExampleDesign(TenderQuery example);
     List<Tender> selectByExampleProperty(TenderQuery example);
     List<Tender> selectByExampleCost(TenderQuery example);
+    
+    int countByExampleProgramme(TenderQuery example);
+    int countByExamplePurchase(TenderQuery example);
+    int countByExampleDesign(TenderQuery example);
+    int countByExampleProperty(TenderQuery example);
+    int countByExampleCost(TenderQuery example);
+    int countByExampleMy(Integer userId);
 }
