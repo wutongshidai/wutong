@@ -141,8 +141,10 @@
                             <li><a href="/xuqiudating.do" style="color: #459DFF">更多</a></li>
                         </ul>
                       <!--   <p class="fo-s">需求发布</p> -->
+                      <!--                                                	<p><a href="/choiceDemand.do?projectName=${tender.projectName }" style="margin-left: 6px;">${tender.projectName }</a></p>
+                      -->
                         <c:forEach items="${tenders}" var="tender" >
-                        	<p><a href="/choiceDemand.do?projectName=${tender.projectName }" stye="margin-left: 6px;">${tender.projectName }</a></p>
+                        	<p><a href="#" onclick="tests('${tender.projectName }')" style="margin-left: 6px;">${tender.projectName }</a></p>
                         </c:forEach>
                     </div>
                 </div>
@@ -921,6 +923,9 @@ window.onload = function() {
     	            traget.style.display="none";  
     	      }  
     	   }  
+    	
+  /*点击*/
+  function tests(a){location.href=encodeURI("www.wutongsd.com/choiceDemand.do?projectName="+a);}
 </script>
 
 </html>

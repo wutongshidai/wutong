@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,7 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.parasol.common.web.Constants;
 import com.parasol.core.service.UploadService;
+import com.parasol.core.user.User;
 
 @Controller
 public class UploadController {
@@ -84,4 +86,17 @@ public class UploadController {
 			response.getWriter().write(jo.toString());
 		}
 	}
+	
+	//跳转测试
+	@RequestMapping(value="/dddd.do",method = RequestMethod.GET)
+	public String dddd(){	
+		return "ddddd";
+	}
+	
+	//跳转测试
+		@RequestMapping(value="/tijiao.do",method = RequestMethod.GET)
+		public String tijiao(HttpServletRequest request , HttpServletResponse response
+				){	
+			return "ddddd";
+		}
 }
