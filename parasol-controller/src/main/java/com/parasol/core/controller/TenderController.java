@@ -187,10 +187,7 @@ public class TenderController {
 						tender.setPriceStatus(1);
 					}
 				//----------------------	
-					 if (multipartFile != null && multipartFile.length > 0) {
-						 System.out.println(multipartFile);
-						 System.out.println(multipartFile[0]);
-						 System.out.println(multipartFile[1]);						 
+					 if (multipartFile != null && multipartFile.length > 0) {					 
 						  tender.setTenderFile(Files_Utils_DG.FilesUpload_transferTo_spring(request, multipartFile[0], "/filesOut/Upload"));
 						  tender.setBidFile(Files_Utils_DG.FilesUpload_transferTo_spring(request, multipartFile[1], "/filesOut/Upload"));
 					 }
