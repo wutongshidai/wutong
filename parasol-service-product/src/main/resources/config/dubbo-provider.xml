@@ -29,6 +29,7 @@
 		<dubbo:service interface="com.parasol.core.service.UploadService" ref="uploadService"/>
 		<dubbo:service interface="com.parasol.core.service.UserService" ref="userService"/>
 		<dubbo:service interface="com.parasol.core.service.TenderService" ref="tenderService"/>
+		<dubbo:service interface="com.parasol.core.service.ExpertsService" ref="expertsService"/> 
 		<!-- <dubbo:service interface="com.parasol.core.service.BaseCacheService" ref="baseCacheService"/> -->
 		 
 </beans> 

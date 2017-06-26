@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.parasol.core.dao.experts.ExpertsDao" >
+<mapper namespace="com.parasol.core.dao.experts.ExpertsMapper" >
   <resultMap id="BaseResultMap" type="com.parasol.core.experts.Experts" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
@@ -16,7 +16,7 @@
     <result column="achievement" property="achievement" jdbcType="VARCHAR" />
     <result column="writings" property="writings" jdbcType="VARCHAR" />
     <result column="winning" property="winning" jdbcType="VARCHAR" />
-    <result column="show" property="show" jdbcType="VARCHAR" />
+    <result column="show0" property="show0" jdbcType="VARCHAR" />
     <result column="show1" property="show1" jdbcType="VARCHAR" />
     <result column="show2" property="show2" jdbcType="VARCHAR" />
     <result column="show3" property="show3" jdbcType="VARCHAR" />
@@ -93,23 +93,34 @@
   <sql id="Base_Column_List" >
     <if test="fields == null" >
       id, user_id, title, field, date_worke, education, major, photo, follower, abstractsa, 
-      experience, achievement, writings, winning, show, show1, show2, show3, show4, show5, 
+      experience, achievement, writings, winning, show0, show1, show2, show3, show4, show5, 
       show6, show7, spare1, spare2, spare3, spare4, auditing, education_number, major_number
     </if>
     <if test="fields != null" >
       ${fields}
     </if>
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.parasol.core.experts.ExpertsMapper" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="map" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from experts
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
+      <where>
+           <if test="maps.title!=null" >
+           	   title = #{maps.title} and
+           </if>
+           <if test="maps.field!=null" >
+           field = #{maps.field} and
+           </if>
+           <if test="maps.education_number!=null" >
+           education_number = #{maps.education_number} and
+           </if>
+           <if test="maps.major_number!=null" >
+           major_number = #{maps.major_number} 
+           </if>
+      </where>
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
@@ -119,7 +130,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    id,user_id,title,field,date_worke,education,major,photo,follower,abstractsa,experience,achievement,writings,winning,show,show1,show2,show3,show4,show5,show6,show7,spare1,spare2,spare3,spare4,auditing,education_number,major_number
+    id,user_id,title,field,date_worke,education,major,photo,follower,abstractsa,experience,achievement,writings,winning,show0,show1,show2,show3,show4,show5,show6,show7,spare1,spare2,spare3,spare4,auditing,education_number,major_number
     from experts
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -127,7 +138,7 @@
     delete from experts
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.parasol.core.experts.ExpertsMapper" >
+  <delete id="deleteByExample" parameterType="com.parasol.core.experts.ExpertsQuery" >
     delete from experts
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -138,7 +149,7 @@
       field, date_worke, education, 
       major, photo, follower, 
       abstractsa, experience, achievement, 
-      writings, winning, show, 
+      writings, winning, show0, 
       show1, show2, show3, 
       show4, show5, show6, 
       show7, spare1, spare2, 
@@ -148,7 +159,7 @@
       #{field,jdbcType=INTEGER}, #{dateWorke,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, 
       #{major,jdbcType=INTEGER}, #{photo,jdbcType=VARCHAR}, #{follower,jdbcType=INTEGER}, 
       #{abstractsa,jdbcType=VARCHAR}, #{experience,jdbcType=VARCHAR}, #{achievement,jdbcType=VARCHAR}, 
-      #{writings,jdbcType=VARCHAR}, #{winning,jdbcType=VARCHAR}, #{show,jdbcType=VARCHAR}, 
+      #{writings,jdbcType=VARCHAR}, #{winning,jdbcType=VARCHAR}, #{show0,jdbcType=VARCHAR}, 
       #{show1,jdbcType=VARCHAR}, #{show2,jdbcType=VARCHAR}, #{show3,jdbcType=VARCHAR}, 
       #{show4,jdbcType=VARCHAR}, #{show5,jdbcType=VARCHAR}, #{show6,jdbcType=VARCHAR}, 
       #{show7,jdbcType=VARCHAR}, #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, 
@@ -200,8 +211,8 @@
       <if test="winning != null" >
         winning,
       </if>
-      <if test="show != null" >
-        show,
+      <if test="show0 != null" >
+        show0,
       </if>
       <if test="show1 != null" >
         show1,
@@ -289,8 +300,8 @@
       <if test="winning != null" >
         #{winning,jdbcType=VARCHAR},
       </if>
-      <if test="show != null" >
-        #{show,jdbcType=VARCHAR},
+      <if test="show0 != null" >
+        #{show0,jdbcType=VARCHAR},
       </if>
       <if test="show1 != null" >
         #{show1,jdbcType=VARCHAR},
@@ -336,7 +347,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.parasol.core.experts.ExpertsMapper" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.parasol.core.experts.ExpertsQuery" resultType="java.lang.Integer" >
     select count(*) from experts
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -387,8 +398,8 @@
       <if test="record.winning != null" >
         winning = #{record.winning,jdbcType=VARCHAR},
       </if>
-      <if test="record.show != null" >
-        show = #{record.show,jdbcType=VARCHAR},
+      <if test="record.show0 != null" >
+        show0 = #{record.show0,jdbcType=VARCHAR},
       </if>
       <if test="record.show1 != null" >
         show1 = #{record.show1,jdbcType=VARCHAR},
@@ -453,7 +464,7 @@
       achievement = #{record.achievement,jdbcType=VARCHAR},
       writings = #{record.writings,jdbcType=VARCHAR},
       winning = #{record.winning,jdbcType=VARCHAR},
-      show = #{record.show,jdbcType=VARCHAR},
+      show0 = #{record.show0,jdbcType=VARCHAR},
       show1 = #{record.show1,jdbcType=VARCHAR},
       show2 = #{record.show2,jdbcType=VARCHAR},
       show3 = #{record.show3,jdbcType=VARCHAR},
@@ -514,8 +525,8 @@
       <if test="winning != null" >
         winning = #{winning,jdbcType=VARCHAR},
       </if>
-      <if test="show != null" >
-        show = #{show,jdbcType=VARCHAR},
+      <if test="show0 != null" >
+        show0 = #{show0,jdbcType=VARCHAR},
       </if>
       <if test="show1 != null" >
         show1 = #{show1,jdbcType=VARCHAR},
@@ -577,7 +588,7 @@
       achievement = #{achievement,jdbcType=VARCHAR},
       writings = #{writings,jdbcType=VARCHAR},
       winning = #{winning,jdbcType=VARCHAR},
-      show = #{show,jdbcType=VARCHAR},
+      show0 = #{show0,jdbcType=VARCHAR},
       show1 = #{show1,jdbcType=VARCHAR},
       show2 = #{show2,jdbcType=VARCHAR},
       show3 = #{show3,jdbcType=VARCHAR},

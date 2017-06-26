@@ -1,11 +1,14 @@
 package com.parasol.core.dao.experts;
 
 import com.parasol.core.experts.Experts;
-import com.parasol.core.experts.ExpertsMapper;
+import com.parasol.core.experts.ExpertsQuery;
+
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
-public interface ExpertsDao {
+public interface ExpertsMapper {
     int countByExample(ExpertsMapper example);
 
     int deleteByExample(ExpertsMapper example);
@@ -16,7 +19,7 @@ public interface ExpertsDao {
 
     int insertSelective(Experts record);
 
-    List<Experts> selectByExample(ExpertsMapper example);
+    List<Experts> selectByExample(@Param("example")ExpertsQuery example,@Param("maps")Map<String, Integer> map);
 
     Experts selectByPrimaryKey(Integer id);
 

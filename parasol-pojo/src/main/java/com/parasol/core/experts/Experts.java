@@ -76,7 +76,7 @@ public class Experts implements Serializable {
     /**
      * 作品展示
      */
-    private String show;
+    private String show0;
 
     private String show1;
 
@@ -220,12 +220,12 @@ public class Experts implements Serializable {
         this.winning = winning == null ? null : winning.trim();
     }
 
-    public String getShow() {
-        return show;
+    public String getShow0() {
+        return show0;
     }
 
-    public void setShow(String show) {
-        this.show = show == null ? null : show.trim();
+    public void setShow0(String show0) {
+        this.show0 = show0 == null ? null : show0.trim();
     }
 
     public String getShow1() {
@@ -360,7 +360,7 @@ public class Experts implements Serializable {
         sb.append(", achievement=").append(achievement);
         sb.append(", writings=").append(writings);
         sb.append(", winning=").append(winning);
-        sb.append(", show=").append(show);
+        sb.append(", show=").append(show0);
         sb.append(", show1=").append(show1);
         sb.append(", show2=").append(show2);
         sb.append(", show3=").append(show3);

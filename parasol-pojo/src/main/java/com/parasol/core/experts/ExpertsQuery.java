@@ -3,7 +3,7 @@ package com.parasol.core.experts;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExpertsMapper {
+public class ExpertsQuery {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -18,7 +18,7 @@ public class ExpertsMapper {
 
     protected String fields;
 
-    public ExpertsMapper() {
+    public ExpertsQuery() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
