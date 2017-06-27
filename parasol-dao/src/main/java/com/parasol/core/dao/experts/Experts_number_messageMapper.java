@@ -8,7 +8,7 @@ public interface Experts_number_messageMapper {
     String selectByNumber_message(Integer id);
     
     
-    List<Map<Integer,String>> selectNumber_message();
+    List<Map<String,Object>> selectNumber_message();
 
     
 }

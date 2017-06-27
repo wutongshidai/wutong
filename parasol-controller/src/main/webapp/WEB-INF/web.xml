@@ -36,6 +36,18 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+<filter>
+    <filter-name>cors</filter-name>
+    <filter-class>com.parasol.common.filter.CrossFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>cors</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+	
+	
+	
+	
 	
     <welcome-file-list>
         <welcome-file>/WEB-INF/in.jsp</welcome-file>

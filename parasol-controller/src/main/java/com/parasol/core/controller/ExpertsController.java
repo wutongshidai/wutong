@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
+import com.parasol.core.experts.ExpertsB;
 import com.parasol.core.service.ExpertsService;
 import com.parasol.core.user.User;
 
@@ -30,12 +31,17 @@ public class ExpertsController {
     public String experts(HttpServletRequest request,
     		HttpServletResponse response) throws Exception{
 //    	Map<String, String> adminMap= new HashMap<String,String>();
+    	System.out.println(request.toString());
+    	/*User user = (User) request.getSession().getAttribute("user");
+    	*/
     	
-    	User user = (User) request.getSession().getAttribute("user");
     	Experts experts = new Experts();
-    	experts.setUserId(user.getId());
+    	experts.setUserId(10);
     	BeanUtils.populate(experts, request.getParameterMap());	
+    	System.out.println(request.getParameterMap().toString());
     	String saveExperts = expertsService.saveExperts(experts);
+    	System.out.println(request.toString());
+    	System.out.println(saveExperts);
     	return saveExperts;
     }
     
@@ -50,7 +56,7 @@ public class ExpertsController {
 	 @RequestMapping(value="/expertsListQuery.do")
 		public List<ExpertsA> expertsListQuery(Integer page,Integer education_number , 
 				Integer major_number , Integer title , Integer field) throws Exception{
-		  List<ExpertsA> expertsa = expertsService.expertsList(page,education_number,major_number, title, field);
+		  List<ExpertsA> expertsa = expertsService.expertsList(title,field,education_number,major_number,page );
 		  return expertsa;			
 		}
 	 
@@ -58,7 +64,8 @@ public class ExpertsController {
 	 @RequestMapping(value="/expertsDetails.do")
 		public Experts expertsDetails(Integer id) throws Exception{
 //		 Experts experts =  expertsService.expertsDetail(id);
-		 Experts experts = expertsService.selectByPrimaryKey(id);
-		  return experts;			
+		 ExpertsB expertsB = expertsService.expertsDetail(id);
+		 System.out.println(expertsB);
+		  return expertsB;			
 		}
 }

@@ -32,6 +32,37 @@
     <result column="education_number" property="educationNumber" jdbcType="INTEGER" />
     <result column="major_number" property="majorNumber" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap id="BaseResultMapB" type="com.parasol.core.experts.ExpertsB" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="INTEGER" />
+    <result column="field" property="field" jdbcType="INTEGER" />
+    <result column="date_worke" property="dateWorke" jdbcType="INTEGER" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="INTEGER" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="follower" property="follower" jdbcType="INTEGER" />
+    <result column="abstractsa" property="abstractsa" jdbcType="VARCHAR" />
+    <result column="experience" property="experience" jdbcType="VARCHAR" />
+    <result column="achievement" property="achievement" jdbcType="VARCHAR" />
+    <result column="writings" property="writings" jdbcType="VARCHAR" />
+    <result column="winning" property="winning" jdbcType="VARCHAR" />
+    <result column="show0" property="show0" jdbcType="VARCHAR" />
+    <result column="show1" property="show1" jdbcType="VARCHAR" />
+    <result column="show2" property="show2" jdbcType="VARCHAR" />
+    <result column="show3" property="show3" jdbcType="VARCHAR" />
+    <result column="show4" property="show4" jdbcType="VARCHAR" />
+    <result column="show5" property="show5" jdbcType="VARCHAR" />
+    <result column="show6" property="show6" jdbcType="VARCHAR" />
+    <result column="show7" property="show7" jdbcType="VARCHAR" />
+    <result column="spare1" property="spare1" jdbcType="VARCHAR" />
+    <result column="spare2" property="spare2" jdbcType="VARCHAR" />
+    <result column="spare3" property="spare3" jdbcType="VARCHAR" />
+    <result column="spare4" property="spare4" jdbcType="VARCHAR" />
+    <result column="auditing" property="auditing" jdbcType="INTEGER" />
+    <result column="education_number" property="educationNumber" jdbcType="INTEGER" />
+    <result column="major_number" property="majorNumber" jdbcType="INTEGER" />
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -102,33 +133,34 @@
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="map" >
     select
-    <if test="distinct" >
+<!--     <if test="distinct" >
       distinct
     </if>
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List" /> -->
+    *
     from experts
       <where>
            <if test="maps.title!=null" >
-           	   title = #{maps.title} and
+           	   title = #{maps.title} 
            </if>
            <if test="maps.field!=null" >
-           field = #{maps.field} and
+           and field = #{maps.field} 
            </if>
            <if test="maps.education_number!=null" >
-           education_number = #{maps.education_number} and
+          and education_number = #{maps.education_number} 
            </if>
            <if test="maps.major_number!=null" >
-           major_number = #{maps.major_number} 
+          and major_number = #{maps.major_number} 
            </if>
       </where>
-    <if test="orderByClause != null" >
+<!--     <if test="orderByClause != null" >
       order by ${orderByClause}
-    </if>
-    <if test="startRow != null" >
-      limit #{startRow} , #{pageSize}
+    </if> -->
+    <if test="example.startRow != null" >
+      limit #{example.startRow} , #{example.pageSize}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMapB" parameterType="java.lang.Integer" >
     select 
     id,user_id,title,field,date_worke,education,major,photo,follower,abstractsa,experience,achievement,writings,winning,show0,show1,show2,show3,show4,show5,show6,show7,spare1,spare2,spare3,spare4,auditing,education_number,major_number
     from experts

@@ -13,6 +13,7 @@ import com.parasol.core.dao.experts.ExpertsMapper;
 import com.parasol.core.dao.experts.Experts_number_messageMapper;
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
+import com.parasol.core.experts.ExpertsB;
 import com.parasol.core.experts.ExpertsQuery;
 
 
@@ -38,9 +39,6 @@ public class ExpertsServiceImpl implements ExpertsService {
 	@Override
 	public List<ExpertsA> expertsList(Integer title, Integer field, Integer education_number, Integer major_number,
 			Integer page) {
-		// TODO Auto-generated method stub
-		
-		ExpertsA expertsA = new ExpertsA();
 		ExpertsQuery expertsMapper = new ExpertsQuery();
 		expertsMapper.setPageNo(page);
 		Map<String,Integer> mapperList=new HashMap<>();
@@ -48,29 +46,31 @@ public class ExpertsServiceImpl implements ExpertsService {
 		mapperList.put("field", field);
 		mapperList.put("education_number", education_number);
 		mapperList.put("major_number", major_number);
-//		mapperList.add(title);
-//		mapperList.add(field);
-//		mapperList.add(education_number);
-//		mapperList.add(major_number);
-//		expertsMapper.setMapperList(mapperList);
 		List<Experts> expertsList=expertsDao.selectByExample(expertsMapper,mapperList);
-//		System.out.println(expertsList.toString());
-		List<Map<Integer,String>> number_message = experts_number_messageMapper.selectNumber_message();
+		List<Map<String,Object>> number_message = experts_number_messageMapper.selectNumber_message();
 		List<ExpertsA> exList=new ArrayList<>();
 		for (Experts experts : expertsList) {
 			Integer title2 = experts.getTitle();
-			Integer field2 = experts.getTitle();
-//			Integer education_number2 = experts.getTitle();
-//			Integer major_number2 = experts.getTitle();
-			for (Map<Integer, String> map : number_message) {
-				String titleStr = map.get(title2);
-				String fieldStr = map.get(field2);
-//				String education_numberStr = map.get(education_number2);
-//				String major_numberStr = map.get(major_number2);
-				expertsA.setTitle(titleStr);
+			Integer field2 = experts.getField();
+			Integer education_number2 = experts.getEducationNumber();
+			ExpertsA expertsA = new ExpertsA();
+			for (Map<String, Object> map : number_message) {
+				Integer Id = (Integer)map.get("id");
+				String titleStr="";
+				String fieldStr="";
+				String educationStr="";
+				if(Id==title2){
+					titleStr = (String) map.get("number_message");
+					expertsA.setTitle(titleStr);
+				}else if (Id==field2){
+					fieldStr =(String) map.get("number_message");
+					expertsA.setField(fieldStr);
+				}else if(Id==education_number2){
+					educationStr =(String) map.get("number_message");
+//					expertsA.setField(educationStr);
+					expertsA.setEducation(educationStr);
+				}
 				expertsA.setDateWorke(experts.getDateWorke());
-				expertsA.setEducation(experts.getEducation());
-				expertsA.setField(fieldStr);
 				expertsA.setFollower(experts.getFollower());
 				expertsA.setId(experts.getId());
 				expertsA.setPhoto(experts.getPhoto());
@@ -84,21 +84,40 @@ public class ExpertsServiceImpl implements ExpertsService {
 
 	@Override
 	public String saveExperts(Experts experts) {
-		int updateByPrimaryKey = expertsDao.updateByPrimaryKey(experts);
+		int updateByPrimaryKey = expertsDao.insert(experts);
 		String string = Integer.toString(updateByPrimaryKey);
 		return string;
 	}
 
 	@Override
-	public Experts expertsDetail(Integer id) {
-		Experts experts = expertsDao.selectByPrimaryKey(id);
-		return experts;
+	public ExpertsB expertsDetail(Integer id) {
+		ExpertsB expertsB = expertsDao.selectByPrimaryKey(id);
+		Integer title = expertsB.getTitle();
+		Integer field = expertsB.getField();
+		Integer educationNumber = expertsB.getEducationNumber();
+		String titleStr = experts_number_messageMapper.selectByNumber_message(title);
+		String fieldStr = experts_number_messageMapper.selectByNumber_message(field);
+		String educationNumberStr = experts_number_messageMapper.selectByNumber_message(educationNumber);
+		expertsB.setEducationNumber2(educationNumberStr);
+		expertsB.setField2(fieldStr);
+		expertsB.setTitle2(titleStr);
+		return expertsB;
 	}
 
-	@Override
-	public Experts selectByPrimaryKey(Integer id) {
-		Experts experts = expertsDao.selectByPrimaryKey(id);
-		return experts;
-	}
+//	@Override
+//	public Experts selectByPrimaryKey(Integer id) {
+//		Experts experts = expertsDao.selectByPrimaryKey(id);
+//		Integer title = experts.getTitle();
+//		Integer field = experts.getField();
+//		Integer educationNumber = experts.getEducationNumber();
+//		String titleStr = experts_number_messageMapper.selectByNumber_message(title);
+//		String fieldStr = experts_number_messageMapper.selectByNumber_message(field);
+//		String educationNumberStr = experts_number_messageMapper.selectByNumber_message(educationNumber);
+//		ExpertsB expertsB = new ExpertsB();
+//		expertsB.setEducationNumber2(educationNumberStr);
+//		expertsB.setField2(fieldStr);
+//		expertsB.setTitle2(titleStr);
+//		return expertsB;
+//	}
 
 }

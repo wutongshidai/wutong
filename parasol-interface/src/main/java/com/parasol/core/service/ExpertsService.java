@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
+import com.parasol.core.experts.ExpertsB;
 
 /**
  * 
@@ -38,12 +39,12 @@ public interface ExpertsService {
 	 * @param id   专家ID
 	 * @return   专家对象
 	 */
-    Experts expertsDetail(Integer id);
+	ExpertsB expertsDetail(Integer id);
 
     
     
     
-	Experts selectByPrimaryKey(Integer id);
+//	Experts selectByPrimaryKey(Integer id);
     
 
 

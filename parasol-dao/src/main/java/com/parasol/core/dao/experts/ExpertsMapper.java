@@ -1,6 +1,7 @@
 package com.parasol.core.dao.experts;
 
 import com.parasol.core.experts.Experts;
+import com.parasol.core.experts.ExpertsB;
 import com.parasol.core.experts.ExpertsQuery;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface ExpertsMapper {
 
     List<Experts> selectByExample(@Param("example")ExpertsQuery example,@Param("maps")Map<String, Integer> map);
 
-    Experts selectByPrimaryKey(Integer id);
+    ExpertsB selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Experts record, @Param("example") ExpertsMapper example);
 

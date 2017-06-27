@@ -45,4 +45,17 @@
 	</bean>
 	<!-- 扫描 -->
 	<import resource="dubbo-controller.xml"/>
+	
+	
+		
+	<!-- <mvc:cors>	
+		<mvc:mapping path="/**" allowed-origins="*" allow-credentials="true" max-age="1800" 
+		allowed-methods="GET,POST,OPTIONS"/>
+	</mvc:cors> -->
+	<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/**/*"/>
+        <bean class="com.parasol.common.filter.CrossInterceptor" />
+    </mvc:interceptor>
+</mvc:interceptors>
 </beans>
