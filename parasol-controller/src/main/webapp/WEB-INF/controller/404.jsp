@@ -17,7 +17,7 @@
 <div class="jumbotron">
     <a href="/index.do"> <img class="img-responsive center-block" alt="" src="img/404.jpg" style="text-align:center"></a>
 </div>
-<script type="text/javascript" src="Js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="Js/bootstrap.min.js"></script>
+<script type="text/javascript" src="JS/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="JS/bootstrap.min.js"></script>
 </body>
 </html>

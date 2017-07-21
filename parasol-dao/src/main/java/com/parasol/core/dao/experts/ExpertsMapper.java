@@ -10,9 +10,9 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 public interface ExpertsMapper {
-    int countByExample(ExpertsMapper example);
+    int countByExample(ExpertsQuery example);
 
-    int deleteByExample(ExpertsMapper example);
+    int deleteByExample(ExpertsQuery example);
 
     int deleteByPrimaryKey(Integer id);
 
@@ -31,4 +31,7 @@ public interface ExpertsMapper {
     int updateByPrimaryKeySelective(Experts record);
 
     int updateByPrimaryKey(Experts record);
+    
+    
+    Experts selectByUserId(Integer userId);
 }

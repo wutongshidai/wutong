@@ -176,7 +176,7 @@
                 <p><a href="#">帮助中心</a></p>
                 <p><a href="#">网站导航</a></p>
             	<p>Copyright2016 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号-1</a></p>
-                <p>通讯地址：北京市大兴区亦庄县小羊坊康碱路 6 号</p>
+                <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
             </div>
             <!-- <a href="javascript:scroll(0,0)">返回顶部</a>-->
         </div>

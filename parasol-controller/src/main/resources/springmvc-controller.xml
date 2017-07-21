@@ -42,6 +42,7 @@
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/controller/"/>
 		<property name="suffix" value=".jsp"/>
+	    <property name="order" value="1" />
 	</bean>
 	<!-- 扫描 -->
 	<import resource="dubbo-controller.xml"/>

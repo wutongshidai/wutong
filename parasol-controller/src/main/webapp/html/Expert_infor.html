@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/Expert_infor.css"/>
+		<link href="../css/iconfont.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/fileUpload.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<p class="return_index"><a href="javascript:;"> &lt; &nbsp;返回首页</a></p>
+		<div class="Exper_form">
+			<p class="titlelogo">
+				<img src="../img/xuqiufabu/xuqiulogo.png"/>
+				<img src="../img/xuqiufabu/zaoyang.png"/>
+			</p>
+			<form class="title" id= "uploadForm">
+				<ul>
+					<li class="backblue one">个人中心</li>
+					<li class="two">个人业绩</li>
+					<li class="three">提交状态</li>
+				</ul>
+				
+				<div class="disPlay first">
+					
+					
+					<div class="content1" >	
+						<div>
+							<p class="names"><span>*</span>姓名:</p>
+						    <p class="inputs"><input type="text" maxlength="6" class="nameone"  id="username" name="username" placeholder="请输入真实姓名"/></p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>职称:</p>
+						    <p class="inputs">
+						    	<select class="titles">
+										<option  value = "1" >正高级工程师</option >
+										<option  value = "2" >副高级工程师</option >
+										<option  value = "3" >中级工程师</option >
+									</select>
+						    	
+						    </p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>电子邮件:</p>
+						    <p class="inputs"><input type="text" class="spare4"  placeholder="请输入正确邮箱" /></p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>学历:</p>
+						    <p class="inputs">
+						    	<select class="education">
+									
+									<option  value = "23" >博士</option >
+									<option  value = "24" >硕士</option >
+									<option  value = "25" >本科</option >
+									<option  value = "26" >大专</option >
+									<option  value = "27" >大专以下</option >
+									
+								</select>
+						    </p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>个人简介:</p>
+						    <p class="inputs">
+						    	<textarea class="abstractsa"></textarea>
+						    </p>
+						</div>
+						<!--<div>
+							<p class="names"><span>*</span>地区:</p>
+						    <p class="inputs">
+						    	<select >
+									<option  value = "1" >北京</option >
+									<option  value = "2" >上海</option >
+									<option  value = "3" >广州</option >
+								</select>
+						    </p>
+						</div>-->
+						<div>
+							<p class="names"><span>*</span>专业领域:</p>
+						    <p class="inputs">
+						    	<select class="field" >
+									<option  value = "4" >建筑专业</option >
+									<option  value = "5" >规划专业</option >
+									<option  value = "6" >结构专业</option >
+									<option  value = "7" >设备专业</option >
+									<option  value = "8" >造价专业</option >
+									<option  value = "9" >公路专业</option >
+									<option  value = "10" >园林专业</option >
+									<option  value = "11" >水利专业</option >
+									
+									<option  value = "12" >市政专业</option >
+									<option  value = "13" >工程建设</option >
+									<option  value = "14" >工程咨询</option >
+									<option  value = "15" >专项工程</option >
+									<option  value = "16" >软件制图</option >
+									<option  value = "17" >工程监理</option >
+									<option  value = "18" >BIM专业</option >
+								</select>
+						    </p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>工作年限:</p>
+						    <p class="inputs"><input type="number" maxlength="8" class="dateWorke" placeholder="请填写数字"/></p>
+						</div>
+						<div>
+							<p class="names"><span>*</span>注册专业:</p>
+						    <p class="inputs"><input type="text" maxlength="8" class="major"/></p>
+						</div>
+						<div>
+							
+							<p class="names"><span>*</span>上传照片:</p>
+						    <div class="inputs">
+						    	
+						    	<input type="file" id="fileup_z" class="uhide" accept="image/x-png">
+								<div class="br05" id="fileup_z_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h4 class="tx-c">上传头像</h4>
+								</div>
+						    </div>	
+								
+								
+								
+							<!--<div id="fileUploadContent" class="fileUploadContent"></div>-->
+							<!--<p class="names"><span>*</span>上传照片:</p>
+						    <p class="inputs"><input class="select_photo" type="file" multiple="multiple" /></p>-->
+						</div>
+						<div class="btn">
+							<span class="next1">下一步</span>
+							<!--<input type="submit" value="提交并保存" />-->
+						</div>
+					</div>	
+					
+					
+				</div>
+				<div class="second">
+					
+					<!--<div class="table_one">
+						<h4>工作经历：</h4>
+						<div class="t_table">
+						 	<div>
+								<p class="names"><span>*</span>入职时间:</p>
+							    <p class="inputs"><input type="date" id="haha"/></p>
+							</div>
+							<div>
+								<p class="names"><span>*</span>离职时间:</p>
+							    <p class="inputs"><input type="date" /></p>
+							</div>
+							<div>
+								<p class="names"><span>*</span>企业名称:</p>
+							    <p class="inputs"><input type="text" /></p>
+							</div>
+							<div>
+								<p class="names"><span>*</span>职位:</p>
+							    <p class="inputs">
+							    	<input type="text" maxlength="8" />
+							    </p>
+							</div>
+							<div class="experience">
+								
+								<span class="del" onClick="getDel(this)">删除</span>
+							</div>
+							
+						 </div>
+						 <p class="btntwo">
+								<span class="add">新加工作经历</span>
+						 </p>
+					</div>	-->
+					<div class="table_one">
+						 <h4>工作经历：</h4>
+						 <div id="editor">
+					        
+					    </div>
+					</div>
+					<div class="table_two">
+						<h4>个人作品:</h4>
+						<div class="content2">
+							<!--<div id="fileUploadContent" class="fileUploadContent"></div>-->
+							<div class="photos photos_z">
+								<input type="file" id="fileup_a" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_a_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品1</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_b" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_b_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品2</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_c" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_c_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品3</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_d" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_d_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品4</h5>
+								</div>
+							</div>
+							<div class="photos photos_z">
+								<input type="file" id="fileup_e" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_e_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品5</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_f" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_f_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品6</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_g" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_g_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品7</h5>
+								</div>
+							</div>
+							
+							<div class="photos">
+								<input type="file" id="fileup_h" class="uhide" accept="image/x-png">
+								<div class="br01" id="fileup_h_btn" style="background-size:contain;background-repeat:no-repeat;background-position:center;">
+									<h5 class="tx-c">作品8</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="table_three">
+						<h4>个人著作:</h4>
+						<div id="editor2" class="writings">
+					        
+					    </div>
+						<!--<div class="content3">
+							<textarea class="writings"></textarea>
+						</div>-->
+					</div>	
+					<div class="table_four">
+						<h4>个人业绩:</h4>
+						<div id="editor3" class="achievement">
+					        
+					    </div>
+						<!--<div class="content4">
+							<textarea class="achievement"></textarea>
+						</div>-->
+					</div>
+					<div class="table_five">
+						<h4>获奖情况:</h4>
+						<div id="editor4" class="winning">
+					        
+					    </div>
+						<!--<div class="content5">
+							<textarea class="winning"></textarea>
+						</div>-->
+					</div>
+					<div class="btn">
+						<span class="Previous2">上一步</span>
+						<span class="next2">提交并保存</span>
+						<!--<input type="submit" value="提交并保存" class="next2" />-->
+					</div>
+					
+					
+				</div>
+				<div class="third">
+					<div class="show_examine1">
+						<h3>提交状态：提交成功</h3>
+					    <!--<h5>如有需要修改的或补充的资料请点击<a href="Expert_infor.html">去修改</a></h5>-->
+					    <h5>重新编辑<a href="javascript:;" class="returnO">返回</a></h5>
+					</div>
+					<div class="show_examine2">
+						<h3 class="passed">审核状态：已通过</h3>
+					    <h5>
+					    	修改后的资料将重新审核<br/>
+					    	<button disabled="disabled">修改资料</button>
+					    </h5>
+					    
+					</div>
+					
+				</div>
+				
+			</form>
+		</div>
+	</body>
+<script src="../JS/jquery-1.11.3.js"></script>
+<!--<script type="text/javascript" src="JS/fileUpload.js"></script>-->
+<script type="text/javascript" src="https://unpkg.com/wangeditor@3.0.2/release/wangEditor.min.js"></script>
+<script type="text/javascript">
+
+    
+	$(document).ready(function(){
+//		  var url=window.location.href;
+//		  function getQuery(url){
+//		      var id;
+//		      var reg=/(\w+)=(\w+)/ig;
+//		      var res=reg.exec(url)[2];
+//		      console.log(res)
+//		      return res;
+//		  }
+//		  var resId=getQuery(url); 
+
+
+/*获取URL参数方法*/
+    
+     function GetQueryString (name) {
+        /*定义正则，用于获取相应参数*/
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        /*字符串截取，获取匹配参数值*/
+        
+        var r = window.location.search.substr(1).match(reg);
+//      console.log(r)
+        /*但会参数值*/
+        if (r != null){
+            return decodeURI(r[2]);
+        }
+        return null;
+    }
+	var resId=GetQueryString("id"); 				
+//  var resId=1; 
+   var bChk1=true
+   var bChk2=true
+
+ 
+		if(resId){
+			
+			 $.ajax({
+				        type: 'post',
+				        dataType: 'json',
+				        url: "http://192.168.3.124:8082/expertsDetails.do?id="+resId,
+				        cache: false,
+				        success: function (data) {
+				        	console.log(data)
+				        	
+					        	 if(data.photo==""){
+					        		 Img1=null
+					        	 }else{
+					        		 Img1=data.photo
+					        	 }
+					        	 
+					        	 if(data.show0==""){
+					        		 Img2=null
+					        	 }else{
+					        		 Img2=data.show0
+					        	 }
+					        	 
+					        	 if(data.show1==""){
+					        		 Img3=null
+					        	 }else{
+					        		 Img3=data.show1
+					        	 }
+					        	 
+					        	 if(data.show2==""){
+					        		 Img4=null
+					        	 }else{
+					        		 Img4=data.show2
+					        	 }
+					        	 
+					        	 if(data.show3==""){
+					        		 Img5=null
+					        	 }else{
+					        		 Img5=data.show3
+					        	 }
+					        	 
+					        	 if(data.show4==""){
+					        		 Img6=null
+					        	 }else{
+					        		 Img6=data.show4
+					        	 }
+					        	 
+					        	 if(data.show5==""){
+					        		 Img7=null
+					        	 }else{
+					        		 Img7=data.show5
+					        	 }
+					        	 
+					        	 if(data.show6==""){
+					        		 Img8=null
+					        	 }else{
+					        		 Img8=data.show6
+					        	 }
+					        	 
+					        	 if(data.show7==""){
+					        		 Img9=null
+					        	 }else{
+					        		 Img9=data.show7
+					        	 }
+							    
+							         
+				        	    var photo="url("+data.photo+")"
+					            var show0="url("+data.show0+")"
+					            var show1="url("+data.show1+")"
+					            var show2="url("+data.show2+")"
+					            var show3="url("+data.show3+")"
+					            var show4="url("+data.show4+")"
+					            var show5="url("+data.show5+")"
+					            var show6="url("+data.show6+")"
+					            var show7="url("+data.show7+")"
+								
+								
+								$('.titles').val(data.title);
+								
+								$('#username').val(data.spare3);
+								$('.education').val(data.education);
+								$('.field').val(data.field);
+								$('.dateWorke').val(data.dateWorke);
+								$('.education').val(data.education);
+								$('.major').val(data.major); 
+								$('.spare4').val(data.spare4); 
+								$('#fileup_z_btn').css("background-image",photo);
+								$('.abstractsa').val(data.abstractsa);
+								$('#editor>div').html(data.experience);
+								$('.achievement>div').html(data.achievement);
+								$('.writings>div').html(data.writings);
+								$('.winning>div').html(data.winning);
+
+								$('#fileup_a_btn').css("background-image",show0);
+								$('#fileup_b_btn').css("background-image",show1);
+								$('#fileup_c_btn').css("background-image",show2);
+								$('#fileup_d_btn').css("background-image",show3);
+								$('#fileup_e_btn').css("background-image",show4);
+								$('#fileup_f_btn').css("background-image",show5);
+								$('#fileup_g_btn').css("background-image",show6);
+								$('#fileup_h_btn').css("background-image",show7);
+								
+								 var E = window.wangEditor
+							        var editor = new E('#editor')
+							        var editor2 = new E('#editor2')
+							        var editor3 = new E('#editor3')
+							        var editor4 = new E('#editor4')
+							        // 或者 var editor = new E( document.getElementById('#editor') )
+							        editor.create()	
+							        editor2.create()	
+							        editor3.create()	
+							        editor4.create()
+							         
+							        
+							        
+							},
+							error:function(){
+								console.log("shibai")
+							}
+					});
+}else{
+	 
+		     Img1=null
+		     Img2=null
+		     Img3=null
+		     Img4=null
+		     Img5=null
+		     Img6=null
+		     Img7=null
+		     Img8=null
+		     Img9=null
+ 	     
+}
+					     
+						$("#username").blur(function(){
+						   var nameone=$(this).val()
+						   var patrn = /^\s*[\u4e00-\u9fa5]{1,15}\s*$/;
+                           bChk1=patrn.test(nameone);
+                           console.log(nameone)
+                           if(!bChk1){
+                           	$("#username").val("！请填写正确的名字")
+                           	$(".nameone").css("border-color","red")
+                           	$(".nameone").css("color","red")
+//                          $(".next2").off()
+                           }else{
+                           	$(".nameone").css("border-color","#999")
+                           	$(".nameone").css("color","black")
+//                         	$(".next2").on()
+                           }
+						});
+						$(".spare4").blur(function(){
+						   var spare4=$(this).val()
+						   var szReg=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;  
+                            bChk2=szReg.test(spare4);
+                           if(!bChk2){
+                           	$(".spare4").val("！请填写正确的邮箱")
+                           	$(".spare4").css("border-color","red")
+                           	$(".spare4").css("color","red")
+//                         	$(".next2").off()
+                           }else{
+                           	$(".spare4").css("border-color","#999")
+                           	$(".spare4").css("color","black")
+//                          $(".next2").on()
+                           }
+						});
+	 			 //tab切换
+//				  $(".title>ul>li").click(function(){
+//				  		$(".title>ul>li").removeClass("backblue")
+//				  		$(".title>div").removeClass("disPlay")
+//				  		$(this).addClass("backblue")
+//				  		var index=$(this).index()
+//				  		$(".title>div").eq(index).addClass("disPlay")
+//				  		
+//				  		console.log($(this).index())
+//console.log($("#haha"))
+//var yourTime="2009-11-11"
+//$("#haha").attr('value',yourTime);
+//				  })
+				  //第一页 下一步
+				  $(".next1").click(function(){
+				  	$(".title>div").removeClass("disPlay")
+				  	$(".second").addClass("disPlay")
+				  	$(".title>ul>li").removeClass("backblue")
+				  	$(".two").addClass("backblue")
+				  	
+				  })
+				  //第二页 下一步
+				
+				  $(".next2").on("click",function(){
+				  	    
+					 
+				  	     
+				  	console.log(Img1)
+//					console.log(Img1_suffix)
+				  	var title  = $(".titles").val()
+				  	var spare3 = $("#username").val()
+				  	var spare4= $(".spare4").val()
+				  	var field=$(".field").val()
+				  	var dateWorke=$(".dateWorke").val()
+				  	var education=$(".education").val()
+				  	var major=$(".major").val()
+				  	var photo=Img1
+				    var show0=Img2
+				    var show1=Img3
+				    var show2=Img4
+				    var show3=Img5
+				    var show4=Img6
+				    var show5=Img7
+				    var show6=Img8
+				    var show7=Img9
+				  	var abstractsa=$(".abstractsa").val()
+				  	var experience=$("#editor>div:nth-child(2)>div").html()
+				  	var achievement=$(".achievement>div:nth-child(2)>div").html()
+				  	var writings=$(".writings>div:nth-child(2)>div").html()
+				  	var winning=$(".winning>div:nth-child(2)>div").html()
+					if(!spare3){
+						alert("姓名不能为空，请填写正确的姓名")
+					}else if(!bChk1){
+						alert("姓名格式不正确，请填写正确的姓名")
+					}else if(!spare4){
+						alert("邮箱不能为空，请填写正确的邮箱")
+					}else if(!bChk2){
+						alert("邮箱格式错误，请填写正确的邮箱")
+					}else if(!abstractsa){
+						alert("简介不能为空，请填写")
+					}else if(!dateWorke){
+						alert("工作年限不能为空，请填写正确的数字")
+					}else if(!major){
+						alert("专业不能为空，请填写正确的专业")
+					}else {
+						var datas={      title  : title,
+									  	 spare3 : spare3,
+									  	 spare4 : spare4,
+									  	 field : field,
+									  	 dateWorke : dateWorke,
+									  	 education : education,
+									  	 major:major,
+									  	 photo:photo,
+										 show0:show0,
+										 show1:show1,
+										 show2:show2,
+										 show3:show3,
+										 show4:show4,
+										 show5:show5,
+										 show6:show6,
+										 show7:show7,
+									  	 abstractsa:abstractsa,
+									  	 experience:experience,
+									  	 achievement:achievement,
+									  	 writings:writings,
+									  	 winning:winning,
+									  	 expertId:resId
+							          }
+						
+						
+						
+						$.ajax({
+							type:"post",
+							url: 'http://192.168.3.124:8082/experts.do',
+							dataType:'json',
+							data:datas ,
+							cache: false,
+							success:function(res){
+								console.log(res)
+								resId = res
+								$(".title>div").removeClass("disPlay")
+							  	$(".third").addClass("disPlay")
+							  	$(".title>ul>li").removeClass("backblue")
+							  	$(".three").addClass("backblue")
+							},
+							error:function(){
+								console.log("shibai")
+							}
+						});
+					}
+//				  	
+	   				
+				  	 
+//					  $.ajax({
+//					          url: 'http://192.168.3.124:8082/experts.do' ,  
+//					          type: 'GET',  
+//					          
+//					          async: false,  
+//					          cache: false,  
+//					          contentType: false,  
+//					          processData: false,  
+//					          success: function (returndata) {  
+//					              
+//					              console.log(returndata);
+//					          },  
+//					          error: function (returndata) {  
+//					              console.log(returndata);  
+//					          }  
+//					     }); 
+				  	
+				  	
+				  	
+				  })
+				  //第二页 上一步
+				  $(".Previous2").click(function(){
+				  	$(".title>div").removeClass("disPlay")
+				  	$(".first").addClass("disPlay")
+				  	$(".title>ul>li").removeClass("backblue")
+				  	$(".one").addClass("backblue")
+				  	
+				  })
+				   //第三页 上一步
+				  $(".Previous3").click(function(){
+				  	$(".title>div").removeClass("disPlay")
+				  	$(".second").addClass("disPlay")
+				  	$(".title>ul>li").removeClass("backblue")
+				  	$(".two").addClass("backblue")
+				  	
+				  })
+				   //上传头像
+				   function suffix(str){
+						var index1=str.lastIndexOf(".");
+						var index2=str.length;
+						var suffix=str.substring(index1+1,index2);//后缀名
+						return suffix;
+					};
+				   $('#fileup_z_btn').on('click',function(){
+						var files=document.getElementById('fileup_z');
+						files.click();
+					});
+					$('#fileup_a_btn').on('click',function(){
+						var files=document.getElementById('fileup_a');
+						files.click();
+					});
+					$('#fileup_b_btn').on('click',function(){
+						var files=document.getElementById('fileup_b');
+						files.click();
+					});
+					$('#fileup_c_btn').on('click',function(){
+						var files=document.getElementById('fileup_c');
+						files.click();
+					});
+					$('#fileup_d_btn').on('click',function(){
+						var files=document.getElementById('fileup_d');
+						files.click();
+					});
+					$('#fileup_e_btn').on('click',function(){
+						var files=document.getElementById('fileup_e');
+						files.click();
+					});
+					$('#fileup_f_btn').on('click',function(){
+						var files=document.getElementById('fileup_f');
+						files.click();
+					});
+					$('#fileup_g_btn').on('click',function(){
+						var files=document.getElementById('fileup_g');
+						files.click();
+					});
+					$('#fileup_h_btn').on('click',function(){
+						var files=document.getElementById('fileup_h');
+						files.click();
+					});
+					
+					$("#fileup_z,#fileup_a,#fileup_b,#fileup_c,#fileup_d,#fileup_e,#fileup_f,#fileup_g,#fileup_h").on('change',function(){
+						
+						var imgId=$(this).attr('id');
+					    var v = $(this).val();
+					    var reader = new FileReader();
+					    reader.readAsDataURL(this.files[0]);
+//					    console.log(this.files)
+					    reader.onload = function(e){
+					      var fileImg=e.target.result;
+					      
+//					      console.log(reader)
+//					      console.log(e)
+//					     console.log(fileImg)
+//					      console.log(reader.readAsDataURL)
+//					      console.log(reader.readAsBinaryString)
+					     
+					    
+					      if(imgId=='fileup_z'){
+					      	Img1=fileImg.split(',')[1];
+					      	Img1_suffix=suffix(v);
+					      }else if(imgId=='fileup_a'){
+					      	Img2=fileImg.split(',')[1];
+					      	Img2_suffix=suffix(v);
+					      }else if(imgId=='fileup_b'){
+					      	Img3=fileImg.split(',')[1];
+					      	Img3_suffix=suffix(v);
+					      }else if(imgId=='fileup_c'){
+					      	Img4=fileImg.split(',')[1];
+					      	Img4_suffix=suffix(v);
+					      }else if(imgId=='fileup_d'){
+					      	Img5=fileImg.split(',')[1];
+					      	Img5_suffix=suffix(v);
+					      }else if(imgId=='fileup_e'){
+					      	Img6=fileImg.split(',')[1];
+					      	Img6_suffix=suffix(v);
+					      }else if(imgId=='fileup_f'){
+					      	Img7=fileImg.split(',')[1];
+					      	Img7_suffix=suffix(v);
+					      }else if(imgId=='fileup_g'){
+					      	Img8=fileImg.split(',')[1];
+					      	Img8_suffix=suffix(v);
+					      }else if(imgId=='fileup_h'){
+					      	Img9=fileImg.split(',')[1];
+					      	Img9_suffix=suffix(v);
+					      }
+					      
+					      $('#'+imgId+'_btn').css('background-image','url('+fileImg+')');
+					    };
+					});
+					$(".returnO").click(function(){
+						
+							 location.href = "zjXq1.html?id="+resId;
+							
+						
+					})
+				  //上传
+//				   $("#fileUploadContent").initUpload({
+//			        "uploadUrl":"#",//上传文件信息地址
+//			       // "progressUrl":"#",//获取进度信息地址，可选，注意需要返回的data格式如下（{bytesRead: 102516060, contentLength: 102516060, items: 1, percent: 100, startTime: 1489223136317, useTime: 2767}）
+//			        "showSummerProgress":false,//总进度条，默认限制
+//			        //"size":350,//文件大小限制，单位kb,默认不限制
+//			        //"maxFileNumber":3,//文件个数限制，为整数
+//			        //"filelSavePath":"",//文件上传地址，后台设置的根目录
+//			        "beforeUpload":beforeUploadFun,//在上传前执行的函数
+//			        "onUpload":onUploadFun,//在上传后执行的函数
+//			        autoCommit:false,//文件是否自动上传
+//			        //"fileType":['png','jpg','docx','doc']，//文件类型限制，默认不限制，注意写的是文件后缀
+//			    })
+//			    function beforeUploadFun(opt){
+//			       opt.otherData =[{"name":"你要上传的参数","value":"你要上传的值"}];
+//			    }
+//			    function onUploadFun(opt,data){
+//
+////			        alert(data);
+////			        uploadTools.uploadError(opt);//显示上传错误
+//			    }
+//			    $(".add").click(function(){
+//			    	$(".btntwo").before(
+//			    		'<div class="t_table">'+
+//						 	'<div>'+
+//								'<p class="names"><span>*</span>入职时间:</p>'+
+//							   ' <p class="inputs"><input type="date" /></p>'+
+//							'</div>'+
+//							'<div>'+
+//								'<p class="names"><span>*</span>离职时间:</p>'+
+//							    '<p class="inputs"><input type="date" /></p>'+
+//							'</div>'+
+//							'<div>'+
+//								'<p class="names"><span>*</span>企业名称:</p>'+
+//							   ' <p class="inputs"><input type="text" /></p>'+
+//							'</div>'+
+//							'<div>'+
+//								'<p class="names"><span>*</span>职位:</p>'+
+//							   ' <p class="inputs">'+
+//							    	'<input type="text" maxlength="8" />'+
+//							    ' </p>'+
+//							'</div>'+
+//							'<div class="experience">'+
+//								
+//								'<span class="del" onClick="getDel(this)">删除</span>'+
+//							'</div>'+
+//						' </div>'
+//			    	);
+//			    	$(".btntwo").css("display","none")
+//			    })
+			  
+	  
+	  
+	});
+    function getDel(k){
+		$(k).parent().parent().remove(); 
+		$(".btntwo").css("display","block")
+	}
+	var E = window.wangEditor
+        var editor = new E('#editor')
+        var editor2 = new E('#editor2')
+        var editor3 = new E('#editor3')
+        var editor4 = new E('#editor4')
+        // 或者 var editor = new E( document.getElementById('#editor') )
+        editor.create()	
+        editor2.create()	
+        editor3.create()	
+        editor4.create()	
+</script>
+</html>

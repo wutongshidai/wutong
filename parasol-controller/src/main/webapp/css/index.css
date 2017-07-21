@@ -6,10 +6,11 @@ article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 img,input{
     outline: none;border: none;vertical-align: middle;
 }
-/*body,html{
+body,html{
     height: 100%;
     width: 100%;
-}*/
+    font-family:平方;
+}
 
 .fanHui{
     position: fixed;
@@ -100,7 +101,7 @@ img,input{
 
 .banxin1260{
     background-color: #cecece;
-    height: 100%;
+   min-height: 100%;
     width: 1260px;
     margin: 0 auto;
 }
@@ -244,6 +245,10 @@ input[type=text]{
     width: 126px;
     font-size: 18px;
     text-align :center;
+    cursor: pointer;
+}
+.mainbav>ul>li:hover{
+    background:#1c5ba0;
 }
 .mainbav>ul>li>a{
     color: #ffffff;
@@ -589,20 +594,23 @@ input[type=text]{
     width:100%;
     height:100%;
 }
-.box ul{
+.box ul {
     position: absolute;
-    right:365px;
-    bottom:10px;
+    width: 100%;
+    right: 0;
+    bottom: 10px;
     overflow: hidden;
-    z-index:10;
+    z-index: 10;
+    text-align: center;
 }
-.box ul li{
-    float: left;
+
+.box ul li {
+    display: inline-block;
     width: 18px;
-    height:18px;
+    height: 18px;
     background: #ccc;
     border-radius: 50%;
-    margin-left:10px;
+    margin-left: 10px;
     cursor: pointer;
 }
 .box ul li.bg{
@@ -810,6 +818,7 @@ input[type=text]{
     font-size: 20px;
     height: 24px;
     line-height: 24px;
+    font-family:微软雅黑;
 }
 
 .banner-1 i{
@@ -822,32 +831,41 @@ input[type=text]{
 }
 
 
-.banner-2{
-	 margin-top: 10px;
-    width: 1150px;
-    height: 138px;
-    position: relative;
-    overflow: hidden;
-}
-.banner-2 ul{
-    height: 138px;
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-.banner-2 ul li{
-    float: left;
-    width: 179px;
-    height: 138px;
-
+.banner-2 {
+	margin-top: 10px;
+	width: 1150px;
+	height: 138px;
+	position: relative;
+	overflow: hidden;
 }
 
-.banner-2 ul li a{
-    width: 150px;
-    display: block;
-    height: 117px;
-    margin: 10px 14px;
+.banner-2 ul {
+	height: 68px;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
+
+.banner-2 #ul2 {
+	height: 68px;
+	position: absolute;
+	left: 0;
+	top: 69px;
+}
+
+.banner-2 ul li {
+	float: left;
+	width: 179px;
+	height: 68px;
+}
+
+.banner-2 ul li a {
+	width: 150px;
+	display: block;
+	height: 60px;
+	margin: 10px 14px;
+}
+
 
 /*
 
@@ -955,7 +973,7 @@ input[type=text]{
     /*border-bottom: 1px solid #000000;*/
     margin-top: 20px;
     width: 145px;
-    font-size: 28px;
+    font-size: 30px;
     height: 36px;
     line-height: 36px;
     margin-bottom: 10px;
@@ -986,6 +1004,7 @@ input[type=text]{
     height: 4px;
     margin-top: 6px;
     background: #459dff;
+    width:70px;
 }
 
 
@@ -1490,6 +1509,7 @@ position: relative;
     height: 3px;
     background: #459dff;
     margin-top: 3px;
+    width:70px;
 }
 .main_she>h2 p span{
     position: absolute;
@@ -1710,6 +1730,7 @@ position: relative;
     height: 3px;
     margin-top: 3px;
     background: #459dff;
+    width: 95px;
 }
 .main_zhuan>h2>p{
     position: absolute;
@@ -1941,6 +1962,7 @@ position: relative;
     height: 3px;
     margin-top: 3px;
     background: #459dff;
+    width: 123px;
 }
 
 .main_anli>h2 p a{
@@ -2075,6 +2097,7 @@ font-size: 12px;
     margin-left: 36px;
     width: 120px;
     margin-top: 98px;
+	font-weight:bold;
 }
 .main_wutong ul{
     margin-top: 15px;
@@ -2174,7 +2197,7 @@ font-size: 12px;
     margin-bottom: 30px;
 }
 .main_youqing>div h3{
-    font-size: 24px;
+    font-size: 23px;
     width: 96px;
     height: 100px;
     margin-left: 34px;

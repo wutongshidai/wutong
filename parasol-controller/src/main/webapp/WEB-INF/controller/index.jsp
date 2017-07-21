@@ -38,9 +38,9 @@
          	</li> 
             <li><a href="/loginOut.do">退出</a></li>
             <li><a href="/login.do">免费注册</a></li>
-            <li><a href="/userMessage.do">我的账户</a></li>
+            <li><a href="/html/myAccount.html">我的账户</a></li>
             <li><a href="#">联系客服</a></li>
-            <li><a href="#">消息</a></li>
+            <li><a href="">消息</a></li>
             <li><a href="">帮助</a></li>
         </ul>
     </div>
@@ -53,7 +53,7 @@
                 <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ><img src="img/dongh_newbbs_ssfdj1.png" ></button>
                 <a href="#" class="re">热门搜索</a>
                 <a href="#">设计</a>
-                <a href="#">专家库</a>
+                <a href="../html/zjLb1.html">专家库</a>
                 <a href="#">材料</a>
                 <a href="#">需求</a>
             </form>
@@ -69,7 +69,7 @@
                 <li>专业分包</li>
                 <li>劳务分包</li>
                 <li><a href="/cgal.do">设计</a></li>
-                <li><a href="#">专家库</a></li>
+                <li><a href="../html/zjLb1.html">专家库</a></li>
                 <li>设备租赁</li>
                 <li><a href="/cgal.do">成功案例</a></li>
             
@@ -141,10 +141,8 @@
                             <li><a href="/xuqiudating.do" style="color: #459DFF">更多</a></li>
                         </ul>
                       <!--   <p class="fo-s">需求发布</p> -->
-                      <!--                                                	<p><a href="/choiceDemand.do?projectName=${tender.projectName }" style="margin-left: 6px;">${tender.projectName }</a></p>
-                      -->
                         <c:forEach items="${tenders}" var="tender" >
-                        	<p><a href="#" onclick="tests('${tender.projectName }')" style="margin-left: 6px;">${tender.projectName }</a></p>
+                        	<p><a href="/choiceDemand.do?projectName=${tender.projectName }" stye="margin-left: 6px;">${tender.projectName }</a></p>
                         </c:forEach>
                     </div>
                 </div>
@@ -158,6 +156,9 @@
             </div>
             <div class="banner-2" id="div1">
                 <ul id="ul1">
+
+                </ul>
+                <ul id="ul2">
 
                 </ul>
             </div>     
@@ -250,7 +251,7 @@
                             </li>
                             <li>成交量：1000+</li>
                             <li>好评率：100%</li>
-                            <li>北京蓝兴冯胜石材有限公司</li>
+                            <li>北京蓝兴峰胜石材有限公司</li>
                         </ul>
                     </div>
                     <div>
@@ -553,7 +554,7 @@
                     <li><i></i>专属交易顾问</li>
                     <li><i></i>足不出户当全国专家</li>
                 </ol>
-                <p><a href="#">立即入驻</a></p>
+                <p><a id="btn110">立即入驻</a></p>
             </div>
         </div>
         <!--  成功案例                                        成功案例-->
@@ -641,7 +642,7 @@
                 <li><a href="http://www.donghao.cc"><img src="img/guangGaotu/dongH.png" alt=""/></a></li>
                 <li><a href="http://yantai.liebiao.com/zhuangxiu/323475925.html"><img src="img/guangGaotu/changW.png" alt=""/></a></li>
                 <li><a href="http://www.honggao.com.cn/"><img src="img/guangGaotu/changM.png" alt=""/></a></li>
-                <li><a href="http://www.cmbchina.com/"><img src="img/guangGaotu/fanH.png" alt=""/></a></li>
+                <li><a href="http://c.eqxiu.com/s/V9CaNrUU"><img src="img/guangGaotu/fanH.png" alt=""/></a></li>
                 <li><a href="http://www.huadu2003.com/"><img src="img/guangGaotu/jianG.png" alt=""/></a></li>
                 <li><a href="http://www.tctd.com.cn/"><img src="img/guangGaotu/tongC.png" alt=""/></a></li>
                 <li><a href="http://www.bjzjht.com/"><img src="img/guangGaotu/zhongT.png" alt=""/></a></li>
@@ -658,7 +659,7 @@
                 <p><a href="http://www.huadu2003.com/">华都国际建设集团有限公司</a></p>
                 <p><a href="http://www.bjzjht.com/">北京中建华腾装饰工程有限公司</a></p>
                 <p><a href="http://www.tctd.com.cn/">北京同创同德建筑装饰工程有限责任公司</a></p>
-                <p><a href="#"></a></p>
+                <p><a href="http://c.eqxiu.com/s/V9CaNrUU">北京众望共创科技中心</a></p>
                 <p><a href="#"></a></p>
                 <p><a href="#"></a></p>
                 <p><a href="#"></a></p>
@@ -680,7 +681,7 @@
             <p><a href="Tail%20link/Help%20center.html">帮助中心</a></p>
 	    <p><a href="">网站导航</a></p>	
             <p>Copyright2016 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号-1</a></p>
-            <p>通讯地址：北京市大兴区亦庄县小羊坊康碱路 6 号</p>
+            <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
         </div>
        <!-- <a href="javascript:scroll(0,0)">返回顶部</a>-->
     </div>
@@ -694,7 +695,17 @@
 <script src="JS/AutoBanner.js"></script>
 <script>var oTab=new AutoBanner('box','json/data.txt',6000);</script>
 <script>
-
+	$("#btn110").click(function(){
+		$.ajax({
+			type:"get",
+			url:"http://192.168.3.124:8082/expertsJump.do",
+			async:true,
+			success:function(data){
+				console.log(data)
+				location.href = "http://192.168.3.124:8082/"+data.redirects
+			}
+		});
+	})
 /*       获取滚动文字数据     并且绑定         */
     $.ajax({
         type: 'get',
@@ -797,86 +808,221 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+    /*                     分两次获取 分别的 数据     滚动图片                 */
     $.ajax({
-        type: 'get',
-        dataType: 'json',
-        /*    url: "json/json2.txt",*/
-        url: "json/data1.txt",
+    type: 'get',
+    dataType: 'json',
+    /*    url: "json/json2.txt",*/
+    url: "json/data66.txt",
 
-        success: function (data) {
+    success: function (data) {
 
-            console.log(data);
-            var htmlStr = '';
-            /*  for (var i = 0; i < data.length; i++) {*/
-            var len = data.length;
+    console.log(data);
+    var htmlStr = '';
+    /*  for (var i = 0; i < data.length; i++) {*/
+    var len = data.length;
 
-            for (var i=0;i<data.length;i++) {
-                var curData = data[i];
-                htmlStr += '<li>'
-                        + '<a href="#">'
-                        + '<img src="' + curData["imgSrc"] + '" alt=""/>'
-                        + ' </a>'
-                        + '</li>';
-            }
-            $('#ul1').append(htmlStr);
-
-        }
+    for (var i=0;i<data.length;i++) {
+    var curData = data[i];
+    htmlStr += '<li>'
+    + '<a href="#">'
+    + '<img src="' + curData["imgSrc"] + '" alt=""/>'
+    + ' </a>'
+    + '</li>';
+    }
+    $('#ul1').append(htmlStr);
+		fangfa()
+    }
     });
 
 
-    /*         滚动              */
+    /*                获取桂东图片 2                 */
+    $.ajax({
+    type: 'get',
+    dataType: 'json',
+    /*    url: "json/json2.txt",*/
+    url: "json/data66.txt",
+
+    success: function (data) {
+
+    console.log(data);
+    var htmlStr = '';
+    /*  for (var i = 0; i < data.length; i++) {*/
+    var len = data.length;
+
+    for (var i=0;i<data.length;i++) {
+    var curData = data[i];
+    htmlStr += '<li>'
+    + '<a href="#">'
+    + '<img src="' + curData["imgSrc"] + '" alt=""/>'
+    + ' </a>'
+    + '</li>';
+    }
+    $('#ul2').append(htmlStr);
+	fangfa2()
+    }
+    });
 
 
 
 
-window.onload = function() {
+    /*
+
+    /!*         滚动              *!/
+
+
+
+
+    window.onload = function() {
 
     var oUl = document.getElementById('ul1');
     var oLi = oUl.getElementsByTagName('li');
 
-/*    var AA=oLi.getElementsByName('a');*/
+    /!*    var AA=oLi.getElementsByName('a');*!/
 
 
     var timer = null;
     var iSpeed = -1;  // 步距  正数是向右  负数是向左  数字来调快慢
     oUl.innerHTML+=oUl.innerHTML;
-  oUl.style.width = oLi.length*oLi[0].offsetWidth+'px'; /*   正常写法 但是有点兼容问题 我就写成下面的固定值了   */
+    oUl.style.width = oLi.length*oLi[0].offsetWidth+'px'; /!*   正常写法 但是有点兼容问题 我就写成下面的固定值了   *!/
 
-  /*  oUl.style.width = oLi.length*179+'px'; // oLi[0].offsetWidth+'px'会有一点兼容问题 我就写成固定值了*/
+    /!*  oUl.style.width = oLi.length*179+'px'; // oLi[0].offsetWidth+'px'会有一点兼容问题 我就写成固定值了*!/
 
     timer = setInterval(startOut,30);
     function startOut(){
 
-        if (oUl.offsetLeft<-oUl.offsetWidth/2) {
-            oUl.style.left = 0;
-        }
-        else if (oUl.offsetLeft>0) {
-            oUl.style.left = -oUl.offsetWidth/2 + 'px';
-        }
-        oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
+    if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+    oUl.style.left = 0;
+    }
+    else if (oUl.offsetLeft>0) {
+    oUl.style.left = -oUl.offsetWidth/2 + 'px';
+    }
+    oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
     }
 
     //移入暂停，移除开始
     oUl.onmouseover = function(){
-        clearInterval(timer);
+    clearInterval(timer);
 
     }
     oUl.onmouseout = function(){
-        timer = setInterval(startOut,30);
+    timer = setInterval(startOut,30);
     }
-}
+    }
+
+    */
+
+
+    /*      广告    滚动     2         */
+
+
+    function fangfa() {
+
+    var oUl = document.getElementById('ul1');
+    var oLi = oUl.getElementsByTagName('li');
+
+    /*    var AA=oLi.getElementsByName('a');*/
+
+    var timer = null;
+    var iSpeed = -1;  // 步距  正数是向右  负数是向左  数字来调快慢
+    oUl.innerHTML+=oUl.innerHTML;
+
+    /*
+    console.log(oLi[0]);
+    console.log(oUl);
+    */
+    /*   var liW=$('#ul1 li').innerWidth();
+
+    console.log(liW);//179 能获取到但是没有单位
+
+    oUl.style.width = oLi.length*liW+'px';*/
+
+    oUl.style.width = oLi.length*oLi[0].offsetWidth+'px'; /*   正常写法 但是有点兼容问题 我就写成下面的固定值了    */
+
+
+    /*    oUl.style.width = oLi.length*179+'px'; // oLi[0].offsetWidth+'px'会有一点兼容问题 我就写成固定值了*/
+
+
+    timer = setInterval(startOut,30);
+
+    function startOut(){
+
+    if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+    oUl.style.left = 0;
+    }
+    else if (oUl.offsetLeft>0) {
+    oUl.style.left = -oUl.offsetWidth/2 + 'px';
+    }
+    oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
+    }
+
+    //移入暂停，移除开始
+    oUl.onmouseover = function(){
+    clearInterval(timer);
+    }
+    oUl.onmouseout = function(){
+    timer = setInterval(startOut,30);
+    }
+    }
+
+    function fangfa2() {
+
+    var oUl = document.getElementById('ul2');
+    var oLi = oUl.getElementsByTagName('li');
+
+    /*    var AA=oLi.getElementsByName('a');*/
+
+    var timer = null;
+    var iSpeed = -1;  // 步距  正数是向右  负数是向左  数字来调快慢
+    oUl.innerHTML+=oUl.innerHTML;
+
+    /*
+    console.log(oLi[0]);
+    console.log(oUl);
+    */
+    /*   var liW=$('#ul1 li').innerWidth();
+
+    console.log(liW);//179 能获取到但是没有单位
+
+    oUl.style.width = oLi.length*liW+'px';*/
+
+    oUl.style.width = oLi.length*oLi[0].offsetWidth+'px'; /*   正常写法 但是有点兼容问题 我就写成下面的固定值了    */
+
+
+    /*    oUl.style.width = oLi.length*179+'px'; // oLi[0].offsetWidth+'px'会有一点兼容问题 我就写成固定值了*/
+
+
+    timer = setInterval(startOut,30);
+
+    function startOut(){
+
+    if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+    oUl.style.left = 0;
+    }
+    else if (oUl.offsetLeft>0) {
+    oUl.style.left = -oUl.offsetWidth/2 + 'px';
+    }
+    oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
+    }
+
+    //移入暂停，移除开始
+    oUl.onmouseover = function(){
+    clearInterval(timer);
+    }
+    oUl.onmouseout = function(){
+    timer = setInterval(startOut,30);
+    }
+    }
+
+
+    //onload事件侦听函数
+    function addLoadEvent(func){
+    var oldonload=window.onload;
+    if(typeof window.onload!="function"){window.onload=func;}else{window.onload=function(){oldonload();func();}};
+    }
+    //调用方式
+//  addLoadEvent(fangfa);
+//  addLoadEvent(fangfa2);
 
 
 
@@ -886,7 +1032,33 @@ window.onload = function() {
 
 
 
-   /*            返回首页       */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*            返回首页       */
     var oBtn=document.getElementById('btn');
     window.onscroll=computedDisplay;
     function computedDisplay(){
@@ -923,9 +1095,6 @@ window.onload = function() {
     	            traget.style.display="none";  
     	      }  
     	   }  
-    	
-  /*点击*/
-  function tests(a){location.href=encodeURI("www.wutongsd.com/choiceDemand.do?projectName="+a);}
 </script>
 
 </html>

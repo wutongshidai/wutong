@@ -36,7 +36,7 @@ public class Experts implements Serializable {
     /**
      * 专业
      */
-    private Integer major;
+    private String major;
 
     /**
      * 头像
@@ -156,11 +156,11 @@ public class Experts implements Serializable {
         this.education = education == null ? null : education.trim();
     }
 
-    public Integer getMajor() {
+    public String getMajor() {
         return major;
     }
 
-    public void setMajor(Integer major) {
+    public void setMajor(String major) {
         this.major = major;
     }
 

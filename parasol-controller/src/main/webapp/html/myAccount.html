@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的账户</title>
+		 <link rel="stylesheet" href="../css/reset.min.css" type="text/css"/>
+		 <link rel="stylesheet" href="../css/myAccount.css" type="text/css"/>
+		 
+	</head>
+	<body>
+		<!--修改用户信息模块-->
+		<div class="t_basicInformation" style="display: none;">
+        		<p><span id="">
+        			用户账号 :
+        		</span>
+        		<span id="">
+        			王天霸
+        		</span>
+        		</p>
+        		<p><span id="">
+        			用户昵称 :
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="nickname" value="" />
+        		</span>
+        		</p>
+        		<!--<p><span id="">
+        			性别 :
+        		</span>
+        		<span id="">
+        			 <input type="radio" name="sex" value="0" checked="checked"/><label for="">男</label> <input type="radio" name="sex" value="1" checked="checked"/><label for="">女</label>
+        		</span>
+        		</p>
+        		<p><span id="">
+        			邮寄地址 :
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="" value="" />
+        		</span>
+        		</p>
+        		<p><span id="">
+        			手机号码:
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="" value="" />
+        		</span>
+        		</p>
+        		<p><span id="">
+        			短信验证码:
+        		</span>
+        		<span id="yzm">
+        			<input type="" name="" id="" value="" />
+        			<botton>免费获取验证码</botton>
+        		</span>
+        		</p>
+        		<p><span id="">
+        			新手机号码:
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="" value="" />
+        		</span>
+        		</p>
+        		<p>
+        		<span id="">
+        			邮箱 :
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="" value="" />
+        		</span>
+        		</p>-->
+        		<p>
+        			<button id="nicknames" style="color:#ffffff;width:100px;height:34px;background:#459dff;margin:20px 0 50px 220px;">更改</button>
+        			
+        		</p>
+        	</div>
+        	<!--页面主体-->
+		<div class="box">
+			<div class="nav">
+            <span><a href="#">关于我们</a></span>
+            <ul>
+                <li><a id="main_name">登陆</a></li>
+                <li><a href="zhuC.html">免费注册</a></li>
+                <li><a href="#" style="color:red;">我的账户</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">消息</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul>
+        </div>
+        	<div class="logoImg">
+        		
+        	</div>
+        <div class="content">
+        		<div class="lists">
+        			<span id="basicIformation" class="actives">
+        				基本信息
+        			</span>
+        			<span id="changeThepassword">
+        				修改密码
+        			</span>
+        		</div>
+        <ul class="navigation">
+        	<li><a href="/index.do" style="text-decoration: none;color:black;">首页</a></li>
+        	<li class="active farIn">账户设置
+        	
+        	</li>
+        	<li>我的发布</li>
+        	<li>专家信息</li>
+        	<li>专家预约</li>
+        	<li>常见问题</li>
+        	
+        </ul>
+        <!--基本信息模块-->
+        <ul class="inFormation inFormations" style='display: block;'>
+        	<p class="tag"><span id="">
+        		基本信息        		
+        	</span></p>
+        	<li class="basicInformation">
+        		<p><span id="">
+        			用户账号 :
+        		</span>
+        		<span id="userName">
+        			王天霸
+        		</span>
+        		</p>
+        		<p><span id="">
+        			用户昵称 :
+        		</span>
+        		<span id="companyName">
+        			天霸
+        		</span>
+        		</p>
+        		<p><span id="">
+        			性别 :
+        		</span>
+        		<span id="sex">
+        			男
+        		</span>
+        		</p>
+        		<p style="display: none;"><span id="">
+        			邮寄地址 :
+        		</span>
+        		<span id="">
+        			北京市大兴区亦庄镇小洋坊康碱路6号
+        		</span>
+        		</p>
+        		<p><span id="">
+        			手机号码:
+        		</span>
+        		<span id="mobile">
+        			15565133664
+        		</span>
+        		</p>
+        		<p>
+        		<span id="">
+        			邮箱 :
+        		</span>
+        		<span id="userEmail">
+        			w15565133664@163.com
+        		</span>
+        		</p>
+        		<p>
+        			<button style="color:#ffffff" id="btn">编辑</button>
+        			
+        		</p>
+        	</li>
+        </ul>
+        <!--修改密码模块-->
+        <ul class="inFormation changePassword" style='display: none;'>
+        	<p class="tag"><span id="">
+        		修改密码       		
+        	</span></p>
+        	<li class="basicInPassword">
+        		<p><span id="">
+        			当前密码 :
+        		</span>
+        		<span id="">
+        			<input type="placehoder" name="" id="currentPassword" placeholder="请输入密码" value="" />
+        		</span>
+        		<span id="">
+        			修改之前最近使用的密码
+        		</span>
+        		</p>
+        		<p><span id="">
+        			新密码 :
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="newPassword" value="" placeholder="请输入新密码" />
+        		</span>
+        		<span id="mesePsw">
+        			6-18个字符，可使用字母，数字，下划线
+        		</span>
+        		</p>
+        		<p><span id="">
+        			确认密码:
+        		</span>
+        		<span id="">
+        			<input type="" name="" id="newsPassword" value="" placeholder="请再次输入新密码" />
+        		</span>
+        		<span id="">
+        			两次输入密码，与新密码一致
+        		</span>
+        		</p>
+        		
+        		<p>
+        			<button id="xgPassword" style="color:#ffffff">修改密码</button>
+        			
+        			
+        		</p>
+        	</li>
+        </ul>
+        <!--我的发布-->
+         <ul class="inFormation myRelease" style='display: none;'>
+        	<p class="tag"><span id="">
+        		我的发布      		
+        	</span></p>
+        	<li class="basicInPassword">
+        		<table border="1" width='880' id="myRelesa" style="font-size:18px;text-align: center;">
+		    <tr height="40">
+		        <th width="445">标题</th>
+		        <th width="200">发布时间</th>
+		        <th width="230">操作</th>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+		    <tr height="40" style="font-size:13px;">
+		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >2017.5.01</td>
+		        <td >
+		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        </td>
+		    </tr>
+</table>
+        	</li>
+        	
+        	<!--分页器-->
+        	<div class="page" style="width:800px;height:20px;float:right;color:#000000;"></div>
+        </ul>
+        
+        <!--专家信息-->
+        <!--expert information--> 
+        <ul class="inFormation expert_information " style='display:none;'>
+        	<p class="tag"><span id="">
+        		专家信息       		
+        	</span></p>
+        	<li class="basicInformation" style='display:block;'>
+        		<p><span id="">
+        			专家姓名 :
+        		</span>
+        		<span id="zjName">
+        			
+        		</span>
+        		</p>
+        		<p><span id="">
+        			专业 :
+        		</span>
+        		<span id="major">
+        			
+        		</span>
+        		</p>
+        		<!--<p><span id="">
+        			性别 :
+        		</span>
+        		<span id="sex">
+        			
+        		</span>
+        		</p>-->
+        		<!--<p style="display: none;"><span id="">
+        			邮寄地址 :
+        		</span>
+        		<span id="">
+        			北京市大兴区亦庄镇小洋坊康碱路6号
+        		</span>
+        		</p>-->
+        		<!--<p><span id="">
+        			手机号码:
+        		</span>
+        		<span id="mobile">
+        			15565133664
+        		</span>
+        		</p>-->
+        		<p>
+        		<span id="">
+        			邮箱 :
+        		</span>
+        		<span id="zjuserEmail">
+        			
+        		</span>
+        		</p>
+        		<p>
+        			<button style="color:#ffffff" id="btnzj">编辑</button>
+        			<button style="color:#ffffff" id="delzj">删除</button>
+        		</p>
+        	</li>
+        	<li class="basicInformationone" style="display: none;">
+        			<div style="width:400px;height:200px; color:#459dff;line-height:200px;text-align: center;font-size: 30px;">
+        				<h5>您暂未入驻专家库</h5>
+        			</div>
+        		<p>
+        			<button  id="btnrz">专家入驻</button>
+        			
+        		</p>
+        	</li>
+        </ul>
+        </div>
+        <div class="main_wenbu banx">
+                <p><a href="#">关于我们</a></p>
+                <p><a href="#">企业服务</a></p>
+                <p><a href="#">联系我们</a></p>
+                <p><a href="#">帮助中心</a></p>
+                <p><a href="#">网站导航</a></p>
+                <p>Copyright2016 梧桐时代科技有限责任公司 . 京ICP 证 17016004 号</p>
+                <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
+            </div>
+		</div>
+		
+		
+	</body>
+	<script type="text/javascript" src="../JS/jquery.min.js"></script>
+	<script type="text/javascript" src="../JS/myAccount.js"></script>
+	<script type="text/javascript" src="../JS/data.js"></script>
+	<script type="text/javascript" src="../JS/jquery.page.js"></script>
+	<script type="text/javascript" src="../JS/layer/layer.js"></script>
+</html>

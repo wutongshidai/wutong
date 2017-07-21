@@ -1,6 +1,7 @@
 package com.parasol.core.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
@@ -41,11 +42,29 @@ public interface ExpertsService {
 	 */
 	ExpertsB expertsDetail(Integer id);
 
+	/**
+	 * 专家编辑
+	 * @param experts   专家对象
+	 * @return   1成功，0失败。
+	 */
+	Integer updateByPrimaryKey(Experts record);
+
     
     
     
 //	Experts selectByPrimaryKey(Integer id);
     
+	/**
+	 * 专家信息查询
+	 * @param id 用户id
+	 */
+    Experts selectByUserId(Integer userId);
 
+    /**
+     * 删除专家
+     * @param userId
+     * @return
+     */
+    Map<String,Object> deleteExpert(Integer userId);
 
 }

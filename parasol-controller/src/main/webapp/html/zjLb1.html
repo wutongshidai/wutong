@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <title>专家库列表</title>
+    <link rel="stylesheet" href="../css/reset.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/zjLb.css" type="text/css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../img/xuqiufabu/xlogo.png" media="screen" />
+</head>
+<body>
+<div class="banxin1260">
+    <div>
+        <!--zhu dao hang-->
+        <div class="nav">
+            <span><a href="#">关于我们</a></span>
+            <ul>
+                <li><a href="dengL.html">登录</a></li>
+                <li><a href="zhuC.html">免费注册</a></li>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">消息</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">VIP会员</a></li>
+            </ul>
+        </div>
+        <!-- logo 搜索 -->
+        <div class="search banx">
+            <span class="logo"></span>
+            <p></p>
+            <div class="search_f">
+             	    <form method="GET"   target="_blank" onsubmit="return formsub()">
+                <input  id="kuang" type="text" name="q" value="搜全网" onfocus="javascript:this.value=''" ><button type="button"   name="topic" style="color: #0000cc" onclick="display_alert()" style="cursor:pointer" ><img src="../img/dongh_newbbs_ssfdj1.png" ></button>
+                <a href="javascript:;" class="re">热门搜索</a>
+                <a href="javascript:;">设计</a>
+                <a href="javascript:;">专家库</a>
+                <a href="javascript:;">材料</a>
+                <a href="javascript:;">需求</a>
+            </form>  
+            </div>
+        </div>
+        <!--  zhu ti 导航-->
+        <div class="content banx">
+            <div class="mainbav">
+                <ul>
+                    <li><a href="../index.do">首页</a></li>
+                    <li><a href="../xuqiudating.do">招标大厅</a></li>
+                    <li><img src="../img/hr.png" alt=""/>材料</li>
+                    <li>专业分包</li>
+                    <li>劳务分包</li>
+                    <li><a href="../cgal.do">设计</a></li>
+                    <li  class="mr"><a href="zjLb1.html">专家库</a></li>
+                    <li>设备租赁</li>
+                    <li><a href="../cgal.do">成功案例</a></li>
+                </ul>
+            </div>
+            <div class="shiH banx-b">
+                <a href="../index.do">首页</a> > <a href="zjLb1.html">专家库</a>
+            </div>
+            <!--   专家列表  头部 选项                            -->
+            <div class="zjLb-shou banx-b">
+                <ul id="ul">
+                    <li id="zzjj">
+                        <p>专家职称 :</p>
+                        <p><a href="#" idParams='1' >正高级工程师</a></p>
+                        <p><a href="#" idParams='2' >副高级工程师</a></p>
+                        <p><a href="#" idParams='3' >中级工程师</a></p>
+                    </li>
+                    <li id="llyy">
+                        <p>专业领域 :</p>
+                        <p><a href="#" idParams='4'>建筑专业</a></p>
+                        <p><a href="#" idParams='5'>规划专业</a></p>
+                        <p><a href="#" idParams='6'>结构专业</a></p>
+                        <p><a href="#" idParams='7'>设备专业</a></p>
+                        <p><a href="#" idParams='8'>造价专业</a></p>
+                        <p><a href="#" idParams='9'>公路专业</a></p>
+                        <p><a href="#" idParams='10'>园林专业</a></p>
+                        <p><a href="#" idParams='11'>水利专业</a></p>
+                        <p><a href="#" idParams='12'>市政专业</a></p>
+                        <p><a href="#" idParams='13'>工程建设</a></p>
+                        <p><a href="#" idParams='14'>工程咨询</a></p>
+                        <p><a href="#" idParams='15'>专项工程</a></p>
+                        <p><a href="#" idParams='16'>软件制图</a></p>
+                        <p><a href="#" idParams='17'>工程监理</a></p>
+                        <p><a href="#" idParams='18'>BIM专业</a></p>
+                    </li>
+                    <li id="nnxx">
+                        <p>工作年限 :</p>
+                        <p><a href="#" idParams='19'>20年以上</a></p>
+                        <p><a href="#" idParams='20'>15-20年</a></p>
+                        <p><a href="#" idParams='21'>10-15年</a></p>
+                        <p><a href="#" idParams='22'>10年以下</a></p>
+                    </li>
+                    <li id="xxll">
+                        <p>学历 :</p>
+                        <p><a href="#" idParams='23'>博士及以上</a></p>
+                        <p><a href="#" idParams='24'>硕士</a></p>
+                        <p><a href="#" idParams='25'>本科</a></p>
+                        <p><a href="#" idParams='26'>本科</a></p>
+                        <p><a href="#" idParams='27'>大专及以下</a></p>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <!--  列表                                      热度 -->
+            <div class="zjLb-rd banx-b">
+           <!--     <p>专家列表</p><p>关注度<i></i></p><p>关注度<i></i></p> -->
+                <p>专家列表</p>
+            </div>
+            <div class="zjLb-nr banx-b" id="majar-list">
+                <!--动态数据-->
+
+
+            </div>
+            <div class="clear"></div>
+            <div class="zjLb-but banx-b pageDiv">
+            </div>
+            <!--                    热门 服务商                -->
+            <div class="zjLb-rm banx-b">
+                <p>热门服务商</p>
+                <div class="rm">
+                    <div>
+                        <span><img src="img/banner1.png" alt=""/></span>
+                        <p><i></i>北京</p>
+                        <p>电线商家</p>
+                        <p>北京弘洋宸电线电缆</p>
+                    </div>
+                    <div>
+                        <span><img src="img/banner1.png" alt=""/></span>
+                        <p><i></i>北京</p>
+                        <p>电线商家</p>
+                        <p>北京弘洋宸电线电缆</p>
+                    </div>
+                    <div>
+                    <span><img src="img/banner1.png" alt=""/></span>
+                    <p><i></i>北京</p>
+                    <p>电线商家</p>
+                    <p>北京弘洋宸电线电缆</p>
+                    </div>
+                    <div>
+                    <span><img src="img/banner1.png" alt=""/></span>
+                    <p><i></i>北京</p>
+                    <p>电线商家</p>
+                    <p>北京弘洋宸电线电缆</p>
+                    </div>
+                    <div>
+                    <span><img src="img/banner1.png" alt=""/></span>
+                    <p><i></i>北京</p>
+                    <p>电线商家</p>
+                    <p>北京弘洋宸电线电缆</p>
+                    </div>
+                </div>
+            </div>
+            <!--                  尾部                                                         尾部                         -->
+            <div class="main_wenbu banx">
+                <p><a href="Tail%20link/About%20us.html">关于我们</a></p>
+                <p><a href="Tail%20link/Enterprise%20service.html">企业服务</a></p>
+                <p><a href="Tail%20link/Contact%20us.html">联系我们</a></p>
+                <p><a href="Tail%20link/Help%20center.html">帮助中心</a></p>
+                <p><a href="#">网站导航</a></p>
+                <p>Copyright2016 北京梧桐时代科技有限责任公司 . 京ICP备17016004号-1</p>
+                <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../JS/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../JS/jquer.page.js"></script>
+<script type="text/javascript" >
+    var total;
+     ajaxSj(1);
+     function ajaxSj(cs){
+        console.log(cs)
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: "http://www.wutongsd.com/expertsList.do?page="+cs,
+            success: function (data) {
+                var htmlStr = '';
+                
+                var len = data[0].count;
+                var len2=data.length
+                console.log(data)
+                total=Math.ceil(len/15);         
+                for (var i=0;i<len2;i++) {
+                    var curData = data[i];
+                    htmlStr += '<div id="' + curData["id"] + '">'
+                            + '<ul>'
+                            + '<li>'
+                            + '<img src="' + curData["photo"] + '" alt=""/>'
+
+                            + '<p>' + curData["spare3"] + '</p>'
+                            + '<p style="visibility: hidden;">关注 : ' + curData["follower"] + '</p>'
+                            + '<span>' + curData["title"] + '</span>'
+                            + '</li>'
+                            + '<li>'
+                            + '<p>学历 : ' + curData["education"] + '</p>'
+                            + '<p>工作年限 : ' + curData["dateWorke"] + '</p>'
+                            + '<p>专业领域 : ' + curData["field"] + '</p>'
+                            + '</li>'
+                            + ' </ul>'
+                            + ' <button type="button" id="' + curData["id"] + '" >预约TA</button>'
+                            + '</div>';
+                }
+                $('#majar-list').html(htmlStr);
+        $(".pageDiv").createPage({
+            pageCount:total,//总页数
+            current:1,//当前页
+            turndown:'false',//是否显示跳转框，显示为true，
+            backFn:function(p){
+//          	console.log(p)
+                $('#majar-list').empty();
+                   $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: "http://www.wutongsd.com/expertsList.do?page="+p,
+            success: function (data) {
+                var htmlStr = '';
+                
+                var len = data[0].count;
+                var len2=data.length
+                console.log(data)
+                total=Math.ceil(len/15);         
+                for (var i=0;i<len2;i++) {
+                    var curData = data[i];
+                    htmlStr += '<div id="' + curData["id"] + '">'
+                            + '<ul>'
+                            + '<li>'
+                            + '<img src="' + curData["photo"] + '" alt=""/>'
+
+                            + '<p>' + curData["spare3"] + '</p>'
+                            + '<p style="visibility: hidden;">关注 : ' + curData["follower"] + '</p>'
+                            + '<span>' + curData["title"] + '</span>'
+                            + '</li>'
+                            + '<li>'
+                            + '<p>学历 : ' + curData["education"] + '</p>'
+                            + '<p>工作年限 : ' + curData["dateWorke"] + '</p>'
+                            + '<p>专业领域 : ' + curData["field"] + '</p>'
+                            + '</li>'
+                            + ' </ul>'
+                            + ' <button type="button" id="' + curData["id"] + '" >预约TA</button>'
+                            + '</div>';
+                }
+                $('#majar-list').html(htmlStr);
+            }
+        });
+            }
+        });
+            }
+        });
+    }
+
+$('#ul').on("click","a",function(e){
+        $(this).addClass('selected').parent().siblings().children().removeClass('selected');
+        var array=params();
+      $('#majar-list').empty();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url:"http://www.wutongsd.com/expertsListQuery.do?page=1"+"&education_number="+array[2]+"&major_number="+ array[3]+"&title="+array[0]+"&field="+array[1],
+        success: function (data) {
+            var htmlStr = '';
+            var len = data.length;
+            for (var i=0;i<len;i++) {
+                var curData = data[i];
+                if(curData["photo"] ==null||curData["photo"] ==undefined){curData["photo"] =''}
+                if(curData["spare3"] ==null||curData["spare3"] ==undefined){curData["spare3"] =''}
+                if(curData["follower"] ==null||curData["follower"] ==undefined){curData["follower"] =''}
+                if(curData["title"] ==null||curData["title"] ==undefined){curData["title"] =''}
+                if(curData["education"] ==null||curData["education"] ==undefined){curData["education"] =''}
+                if(curData["dateWorke"] ==null||curData["dateWorke"] ==undefined){curData["dateWorke"] =''}
+                if(curData["edfe"] ==null||curData["edfe"] ==undefined){curData["edfe"] =''}
+                if(curData["field"] ==null||curData["field"] ==undefined){curData["field"] =''}
+
+                htmlStr += '<div>'
+                        + '<ul>'
+                        + '<li>'
+                        + '<img src="' + curData["photo"] + '" alt=""/>'
+                        + '<p>' + curData["spare3"] + '</p>'
+                        + '<p>关注 : ' + curData["follower"] + '</p>'
+                        + '<span>' + curData["title"] + '</span>'
+                        + '</li>'
+                        + '<li>'
+                        + '<p>学历 : ' + curData["education"] + '</p>'
+                        + '<p>工作年限 : ' + curData["dateWorke"] + '</p>'
+                        
+                        + '<p>专业领域 : ' + curData["field"] + '</p>'
+                        + '</li>'
+                        + ' </ul>'
+                        + ' <button type="button" id="' + curData["id"] + '">预约TA</button>'
+                        + '</div>';
+            }
+            $('#majar-list').append(htmlStr);
+        }
+    });
+    });
+
+function params(){
+    var arr=[];
+    $('#zzjj a').each(function(){
+        if($('#zzjj a').hasClass('selected')){
+            arr[0]=$("#zzjj a[class='selected']").attr("idParams");
+        }else{
+            arr[0]=""
+        }
+    })
+    $('#llyy a').each(function(){
+        if($('#llyy a').hasClass('selected')){
+            arr[1]=$("#llyy a[class='selected']").attr("idParams");
+        }else{
+            arr[1]=""
+        }
+    })
+    $('#nnxx a').each(function(){
+        if($('#nnxx a').hasClass('selected')){
+            arr[2]=$("#nnxx a[class='selected']").attr("idParams");
+        }else{
+            arr[2]=""
+        }
+    })
+    $('#xxll a').each(function(){
+        if($('#xxll a').hasClass('selected')){
+            arr[3]=$("#xxll a[class='selected']").attr("idParams");
+        }else{
+            arr[3]=""
+        }
+    })
+  return arr;
+}
+    $("#majar-list").on('click','button',function(){
+
+        location.href = "zjXq1.html?id="+$(this).attr('id');
+    });
+
+</script>
+</html>
+

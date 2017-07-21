@@ -1,0 +1,299 @@
+html,body{
+	width:100%;
+	height:100%;
+	overflow-y: scroll;
+}
+.box{
+	width: 1260px;
+	min-height:  1000px;
+	margin:0 auto;
+	background:#ffffff;
+	
+}
+.nav{
+    /*float: left;*/
+    width: 100%;
+    height: 40px;
+    background-color: #eaeaea;
+    margin: 0 auto;
+}
+.nav>ul{
+    float: right;
+    height: 14px;
+
+}
+.nav>ul>li,.nav>span{
+    float: left;
+    padding-right:35px;
+    margin-top: 8px;
+    
+
+}
+
+.nav>ul>li{
+    padding-left: 35px;
+}
+.nav>ul>li{
+    border-left: 1px solid #666666;
+}
+.nav>ul>li:nth-child(1){
+	border:none;
+}
+.nav>span{
+    margin-left: 26px;
+    color: #333333;
+    padding-left: 20px;
+}
+.nav>ul>li a{
+	color: #333333;
+}
+.logoImg{
+	width:100%;
+	height:120px;
+	background:url(../img/logobig.png) no-repeat left top;
+}
+
+.content{
+	width:100%;
+	height:810px;
+	background:#ffffff;
+	position:relative;
+}
+.navigation{
+	width:100%;
+	height:50px;
+	background:#dfdede;
+	text-align: center;
+	overflow: hidden;
+	margin-bottom: 85px;
+}
+.navigation li{
+	display: inline-block;
+	padding:14px 29px;
+	font-size: 18px;
+	margin-left:-3px;
+	z-index: 95;
+}
+ 
+.lists{
+	width:130px;
+	height:82px;
+	background:#eeeeee;
+	position:absolute;
+	left:350px;
+	top: 50px;
+	z-index: 999;
+	display: block;
+	
+}
+.lists span{
+  	width:100%;
+	height:41px;
+	text-align: center;
+	display: block;
+	line-height: 41px;
+	font-size: 16px;
+}
+.inFormation{
+	width: 880px;
+	height:550px;
+	
+	margin:0 auto;
+}
+.tag{
+	width:100%;
+	height:40px;
+	border-bottom:2px solid #dfdede;
+	margin-bottom: 20px;
+}
+.tag span{
+	display: block;
+	width:110px;
+	height:40px; 
+	background:#dfdede;
+	font-size:18px;
+	line-height: 40px;
+	text-align: center;
+}
+.inFormation li{
+	width:570px;
+	height:506px;
+	padding-left:310px;
+}
+.inFormation .basicInformation p{
+	width:570px;
+	height:60px;
+	
+}
+.inFormation .basicInformation p span{
+	float: left;
+}
+.inFormation .basicInformation p span:nth-child(1){
+	width:92px;
+	height:60px;
+	line-height: 60px;
+	font-size: 15px;
+	text-align: right;
+}
+.inFormation .basicInformation p span:nth-child(2){
+	width:478px;
+	height:60px;
+	line-height: 60px;
+	font-size: 15px;
+	text-align: left;
+	text-indent: 16px;
+}
+.inFormation .basicInformation p button{
+	width:140px;
+	height:46px;
+	border:none;
+	background: #459dff;
+	border-radius: 5px;
+	margin-right: 30px;
+	font-size: 16px;
+	margin:10px 0 0 30px;
+}
+.basicInPassword p{
+	width:570px;
+	height:110px;
+}
+.inFormation .basicInPassword p span{
+	float: left;
+}
+.inFormation .basicInPassword p span:nth-child(1){
+	width:92px;
+	height:60px;
+	line-height: 60px;
+	font-size: 15px;
+	text-align: right;
+}
+.inFormation .basicInPassword p span:nth-child(2){
+	width:478px;
+	height:60px;
+	line-height: 60px;
+	font-size: 15px;
+	text-align: left;
+	text-indent: 16px;
+}
+.inFormation .basicInPassword p span:nth-child(2) input{
+	width:298px;
+	height:38px;
+}
+.inFormation .basicInPassword p span:nth-child(3){
+	margin-left:110px;
+	font-size: 13px;
+	color:#999999;
+}
+.inFormation .basicInPassword p button{
+	width:140px;
+	height:46px;
+	border:none;
+	background: #459dff;
+	border-radius: 5px;
+	margin-right: 30px;
+	font-size: 16px;
+	margin:10px 0 0 100px;
+}
+.myRelease li{
+	padding-left:0;
+}
+.active{
+	background:#459dff;
+}
+.actives{
+	color:red;
+}
+.t_basicInformation{
+	width:100%;
+	height:250px;
+	overflow: hidden;
+	padding-top:50px;
+}
+.t_basicInformation p{
+	margin:20px auto 20px;
+	width:60%;
+	height:40px;
+}
+.t_basicInformation p span:nth-child(1){
+	width:25%;
+	float:left;
+	font-size: 16px;
+    line-height: 40px;
+    text-align: right;
+}
+.t_basicInformation p span:nth-child(2){
+	width:75%;
+	float:left;
+}
+.t_basicInformation p span:nth-child(2) input{
+	height: 34px;
+    line-height: 34px;
+    width: 280px;
+    border-radius: 2px;
+    margin-left: 40px;
+    text-align: center;
+    border: 1px solid #999999;
+    border-radius: 2px;
+}
+.t_basicInformation p:nth-child(3) span:nth-child(2) {
+	text-indent: 40px;
+}
+.t_basicInformation p:nth-child(3) span:nth-child(2) input{
+	height: 14px;
+    width: 14px;
+    margin:13px 4px 0 4px;
+   
+}
+.t_basicInformation p:nth-child(1) span:nth-child(2){
+	font-size: 16px;
+    line-height: 40px;
+    text-indent: 40px;
+} 
+ #yzm input{
+	width:150px;
+}
+.main_wenbu{
+    height:124px;
+    width:100%;
+    background:#cecece;
+}
+
+.main_wenbu>p{
+    float: left;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+#btnrz{
+	width: 140px;
+    height: 46px;
+    border: none;
+    background: #459dff;
+    border-radius: 5px;
+    margin-right: 30px;
+    font-size: 16px;
+    margin: 10px 0 0 100px;
+}
+
+
+/*        尾部新修改        */
+
+.main_wenbu>p{
+    margin-left: 71px;
+}
+
+
+.main_wenbu>p:first-child{
+    margin-left: 350px;
+}
+
+.main_wenbu>p:first-child+p+p+p+p+p{
+    margin-left: 416px;
+}
+
+.main_wenbu>p:first-child+p+p+p+p+p+p{
+    margin-left: 475px;
+}
+
+
+.page a.turndown{padding: 0 10px;}

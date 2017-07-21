@@ -230,29 +230,25 @@ public class TenderServiceImpl implements TenderService{
 		return examples;
 	}
 	
-	//------------fenyejie----------//
 	
+	/*
+	 * 我的发布，带分页
+	 *
+	 */
 	
 	@Override
 	public Pagination tenderAll(Integer userId , Integer page){
 		TenderQuery tenderQuery = new TenderQuery();
 		tenderQuery.setPageNo(page);
-		tenderQuery.setPageSize(17);
+		tenderQuery.setPageSize(10);
 		tenderQuery.setOrderByClause("id desc");
 		tenderQuery.setFields("project_name,start_time,classification");
-		System.out.println(tenderQuery);
-		System.out.println(userId);
-		System.out.println(page);
-		
-		System.out.println(tenderQuery);
 		Criteria createCriteria = tenderQuery.createCriteria();
-		System.out.println(createCriteria);
 		StringBuilder builder = new StringBuilder();
 		if(null != userId){
 			createCriteria.andUseridEqualTo(userId);
 			builder.append("userId=").append(userId);
 		}
-		
 		Pagination pagination = new Pagination(
 				tenderQuery.getPageNo(),
 				tenderQuery.getPageSize(),
@@ -261,22 +257,6 @@ public class TenderServiceImpl implements TenderService{
 				);
 		String url ="/alltenders.do";
 		pagination.pageView(url, builder.toString());
-		System.out.println("我的发布！");
-		System.out.println(pagination);
-		
-		
-/*		List<Tender> examples = tenderMapper.selectByExamplel(tenderQuery);
-		List<TenderAll> list = new ArrayList<>();
-		for (Tender tender : examples) {
-			TenderAll tenderAll = new TenderAll();	
-			tenderAll.setProjectName(tender.getProjectName());
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			String str = dateFormat.format(tender.getStartTime());
-			tenderAll.setStartTime(str);
-			list.add(tenderAll);
-		}
-		System.out.println("------------------wolaile--------");
-		System.out.println(list);*/
 		return pagination;
 	}
 	

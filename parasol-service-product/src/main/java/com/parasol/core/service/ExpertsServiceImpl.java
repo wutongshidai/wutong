@@ -48,6 +48,7 @@ public class ExpertsServiceImpl implements ExpertsService {
 		mapperList.put("major_number", major_number);
 		List<Experts> expertsList=expertsDao.selectByExample(expertsMapper,mapperList);
 		List<Map<String,Object>> number_message = experts_number_messageMapper.selectNumber_message();
+		int countByExample = expertsDao.countByExample(expertsMapper);
 		List<ExpertsA> exList=new ArrayList<>();
 		for (Experts experts : expertsList) {
 			Integer title2 = experts.getTitle();
@@ -75,15 +76,25 @@ public class ExpertsServiceImpl implements ExpertsService {
 				expertsA.setId(experts.getId());
 				expertsA.setPhoto(experts.getPhoto());
 				expertsA.setSpare3(experts.getSpare3());
+				expertsA.setCount(countByExample);
 			}
 			exList.add(expertsA);
 		}
-		
 		return exList;
 	}
 
 	@Override
 	public String saveExperts(Experts experts) {
+		Integer worke = experts.getDateWorke();
+		if(worke <=10){
+			experts.setMajorNumber(22);
+		}else if(10 < worke && worke <= 15 ){
+			experts.setMajorNumber(21);
+		}else if(15 < worke && worke <= 20 ){
+			experts.setMajorNumber(20);
+		}else {
+			experts.setMajorNumber(19);
+		}
 		int updateByPrimaryKey = expertsDao.insert(experts);
 		String string = Integer.toString(updateByPrimaryKey);
 		return string;
@@ -92,6 +103,7 @@ public class ExpertsServiceImpl implements ExpertsService {
 	@Override
 	public ExpertsB expertsDetail(Integer id) {
 		ExpertsB expertsB = expertsDao.selectByPrimaryKey(id);
+		if(null!=expertsB){
 		Integer title = expertsB.getTitle();
 		Integer field = expertsB.getField();
 		Integer educationNumber = expertsB.getEducationNumber();
@@ -102,8 +114,11 @@ public class ExpertsServiceImpl implements ExpertsService {
 		expertsB.setField2(fieldStr);
 		expertsB.setTitle2(titleStr);
 		return expertsB;
+		}else{
+			return expertsB;
+		}
 	}
-
+ 
 //	@Override
 //	public Experts selectByPrimaryKey(Integer id) {
 //		Experts experts = expertsDao.selectByPrimaryKey(id);
@@ -119,5 +134,36 @@ public class ExpertsServiceImpl implements ExpertsService {
 //		expertsB.setTitle2(titleStr);
 //		return expertsB;
 //	}
+	
+	/*
+	 * 编辑专家
+	 */
+	@Override
+	public Integer updateByPrimaryKey(Experts record){
+		int key = expertsDao.updateByPrimaryKey(record);
+		return key;
+	}
 
+	
+	@Override
+	public Experts selectByUserId(Integer userId) {
+		// TODO Auto-generated method stub
+		Experts experts = expertsDao.selectByUserId(userId);
+		return experts;
+	}
+
+	@Override
+	public Map<String, Object> deleteExpert(Integer id) {
+		// TODO Auto-generated method stub
+		int deleteByPrimaryKey = expertsDao.deleteByPrimaryKey(id);
+		Map<String,Object> map=new HashMap<>();
+		if(deleteByPrimaryKey==1){
+			map.put("message","删除用户成功");
+			map.put("success", deleteByPrimaryKey);
+		}else{
+			map.put("message","删除用户失败");
+			map.put("success", deleteByPrimaryKey);			
+		}
+		return map;
+	}
 }

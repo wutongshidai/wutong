@@ -14,7 +14,7 @@ public class ExpertsQuery {
 
     protected Integer startRow;
 
-    protected Integer pageSize = 10;
+    protected Integer pageSize = 15;
 
     protected String fields;
 

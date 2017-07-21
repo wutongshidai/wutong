@@ -8,7 +8,7 @@
     <result column="field" property="field" jdbcType="INTEGER" />
     <result column="date_worke" property="dateWorke" jdbcType="INTEGER" />
     <result column="education" property="education" jdbcType="VARCHAR" />
-    <result column="major" property="major" jdbcType="INTEGER" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
     <result column="photo" property="photo" jdbcType="VARCHAR" />
     <result column="follower" property="follower" jdbcType="INTEGER" />
     <result column="abstractsa" property="abstractsa" jdbcType="VARCHAR" />
@@ -39,7 +39,7 @@
     <result column="field" property="field" jdbcType="INTEGER" />
     <result column="date_worke" property="dateWorke" jdbcType="INTEGER" />
     <result column="education" property="education" jdbcType="VARCHAR" />
-    <result column="major" property="major" jdbcType="INTEGER" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
     <result column="photo" property="photo" jdbcType="VARCHAR" />
     <result column="follower" property="follower" jdbcType="INTEGER" />
     <result column="abstractsa" property="abstractsa" jdbcType="VARCHAR" />
@@ -176,8 +176,8 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.parasol.core.experts.Experts" >
-    insert into experts (id, user_id, title, 
+  <insert id="insert" parameterType="com.parasol.core.experts.Experts">
+    insert into experts (user_id, title, 
       field, date_worke, education, 
       major, photo, follower, 
       abstractsa, experience, achievement, 
@@ -187,9 +187,9 @@
       show7, spare1, spare2, 
       spare3, spare4, auditing, 
       education_number, major_number)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{title,jdbcType=INTEGER}, 
+    values (#{userId,jdbcType=INTEGER}, #{title,jdbcType=INTEGER}, 
       #{field,jdbcType=INTEGER}, #{dateWorke,jdbcType=INTEGER}, #{education,jdbcType=VARCHAR}, 
-      #{major,jdbcType=INTEGER}, #{photo,jdbcType=VARCHAR}, #{follower,jdbcType=INTEGER}, 
+      #{major,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR}, #{follower,jdbcType=INTEGER}, 
       #{abstractsa,jdbcType=VARCHAR}, #{experience,jdbcType=VARCHAR}, #{achievement,jdbcType=VARCHAR}, 
       #{writings,jdbcType=VARCHAR}, #{winning,jdbcType=VARCHAR}, #{show0,jdbcType=VARCHAR}, 
       #{show1,jdbcType=VARCHAR}, #{show2,jdbcType=VARCHAR}, #{show3,jdbcType=VARCHAR}, 
@@ -407,7 +407,7 @@
         education = #{record.education,jdbcType=VARCHAR},
       </if>
       <if test="record.major != null" >
-        major = #{record.major,jdbcType=INTEGER},
+        major = #{record.major,jdbcType=VARCHAR},
       </if>
       <if test="record.photo != null" >
         photo = #{record.photo,jdbcType=VARCHAR},
@@ -488,7 +488,7 @@
       field = #{record.field,jdbcType=INTEGER},
       date_worke = #{record.dateWorke,jdbcType=INTEGER},
       education = #{record.education,jdbcType=VARCHAR},
-      major = #{record.major,jdbcType=INTEGER},
+      major = #{record.major,jdbcType=VARCHAR},
       photo = #{record.photo,jdbcType=VARCHAR},
       follower = #{record.follower,jdbcType=INTEGER},
       abstractsa = #{record.abstractsa,jdbcType=VARCHAR},
@@ -534,7 +534,7 @@
         education = #{education,jdbcType=VARCHAR},
       </if>
       <if test="major != null" >
-        major = #{major,jdbcType=INTEGER},
+        major = #{major,jdbcType=VARCHAR},
       </if>
       <if test="photo != null" >
         photo = #{photo,jdbcType=VARCHAR},
@@ -612,7 +612,7 @@
       field = #{field,jdbcType=INTEGER},
       date_worke = #{dateWorke,jdbcType=INTEGER},
       education = #{education,jdbcType=VARCHAR},
-      major = #{major,jdbcType=INTEGER},
+      major = #{major,jdbcType=VARCHAR},
       photo = #{photo,jdbcType=VARCHAR},
       follower = #{follower,jdbcType=INTEGER},
       abstractsa = #{abstractsa,jdbcType=VARCHAR},
@@ -637,4 +637,8 @@
       major_number = #{majorNumber,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+    <select id="selectByUserId" parameterType="java.lang.Integer" resultType="com.parasol.core.experts.Experts">
+  		select * from experts where user_id = #{userId}
+  </select>
 </mapper>

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 a:link,a:visited{color:#444;text-decoration:none;}
 a:hover{color:#ff0000;}
 
@@ -274,7 +274,6 @@ i,em{
     float: left;
     height: 28px;
     margin-top: 16px;line-height: 14px;
-    overflow: auto;
 }
 
 .xinX ul .shuoM{

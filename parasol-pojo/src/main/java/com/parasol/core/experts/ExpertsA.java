@@ -40,8 +40,25 @@ public class ExpertsA implements Serializable {
      * 专家名
      */
     private String spare3;
+    
+    /**
+     * 总条数
+     */
+    private Integer count;
+    
+    public void setCount(Integer count) {
+		this.count = count;
+	}
 
-    private static final long serialVersionUID = 1L;
+
+
+	public Integer getCount() {
+		return count;
+	}
+
+
+
+	private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -111,8 +128,10 @@ public class ExpertsA implements Serializable {
 	public String toString() {
 		return "ExpertsA [id=" + id + ", title=" + title + ", field=" + field + ", dateWorke=" + dateWorke
 				+ ", education=" + education + ", photo=" + photo + ", follower=" + follower + ", spare3=" + spare3
-				+ "]";
+				+ ", count=" + count + "]";
 	}
+
+
 
 
 

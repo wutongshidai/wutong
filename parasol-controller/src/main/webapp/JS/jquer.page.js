@@ -92,7 +92,7 @@
                     }
                 });
                 //跳转
-                obj.on("click","a.turndown",function(){ 
+                obj.on("click","a.turndown",function(){
                     var page = $("span.countYe input").val();
                     if(page>args.pageCount){
                         alert("您的输入有误，请重新输入！");
