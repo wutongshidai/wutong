@@ -1,5 +1,6 @@
 package com.parasol.core.dao.experts;
 
+import com.parasol.core.experts.Expertindex;
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsB;
 import com.parasol.core.experts.ExpertsQuery;
@@ -32,6 +33,7 @@ public interface ExpertsMapper {
 
     int updateByPrimaryKey(Experts record);
     
-    
     Experts selectByUserId(Integer userId);
+    
+    List<Expertindex> selectExpertindex();
 }

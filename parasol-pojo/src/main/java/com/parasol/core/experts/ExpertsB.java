@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class ExpertsB extends Experts implements Serializable {
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * 职称,关联字典表
      */
     private String title2;

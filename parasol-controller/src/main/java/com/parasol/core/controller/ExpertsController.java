@@ -194,11 +194,10 @@ public class ExpertsController {
 	 @RequestMapping(value="/expertsListQuery.do")
 		public List<ExpertsA> expertsListQuery(Integer page,Integer education_number , 
 				Integer major_number , Integer title , Integer field) throws Exception{
-		 if(page != 0 && education_number != 0 && major_number != 0 && title != 0 && field != 0){
+//		 if(page != 0 && education_number != 0 && major_number != 0 && title != 0 && field != 0){ }
 			 List<ExpertsA> expertsa = expertsService.expertsList(title,field,education_number,major_number,page );
 			 return expertsa;
-		 }
-		  	return 	null;	
+
 		}
 	 
 	 @ResponseBody
@@ -228,8 +227,8 @@ public class ExpertsController {
 				if(experts == null){
 					map.put("redirects", "/html/Expert_infor.html");
 					return map;
-				}else{
-					String redirects = "/html/zjXq1.html?id=" + user.getId();
+				}else{  
+					String redirects = "/html/zjXq1.html?id=" + experts.getId();
 					map.put("redirects", redirects);
 					return map;
 				}		

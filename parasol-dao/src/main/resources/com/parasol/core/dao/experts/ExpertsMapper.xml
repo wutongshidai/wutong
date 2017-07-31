@@ -638,7 +638,15 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-    <select id="selectByUserId" parameterType="java.lang.Integer" resultType="com.parasol.core.experts.Experts">
+   <select id="selectByUserId" parameterType="java.lang.Integer" resultType="com.parasol.core.experts.Experts">
   		select * from experts where user_id = #{userId}
+  </select>
+  
+  
+   <select id="selectExpertindex" resultType="com.parasol.core.experts.Expertindex" >
+    	select 
+			id , user_id , field , date_worke , title , education , photo , spare3
+		from experts
+    	order by rand() limit 4 
   </select>
 </mapper>

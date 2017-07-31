@@ -3,6 +3,7 @@ package com.parasol.core.service;
 import java.util.List;
 import java.util.Map;
 
+import com.parasol.core.experts.Expertindex;
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
 import com.parasol.core.experts.ExpertsB;
@@ -66,5 +67,12 @@ public interface ExpertsService {
      * @return
      */
     Map<String,Object> deleteExpert(Integer userId);
+
+    
+    /**
+     * 查询首页回显专家
+     * @return
+     */
+	List<Expertindex> selectExpertindex();
 
 }

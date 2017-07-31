@@ -510,10 +510,20 @@
         <div class="main_zhuan banx">
            <h2>专家库<i></i><p><a href="#"> 更多<span></span></a></p></h2>
             <ul>
-                <li>
+            	 <c:forEach items="${experts}" var="experts" >
+                      <li>
+                    	<span><img src="${experts.photo}" alt=""/></span>
+                    	<p class="zi">${experts.spare3 }</p>
+                    	<p>学&nbsp;&nbsp;历：${experts.education }</p>
+                    	<p>专业领域：${experts.field }</p>
+                    	<p>专家职称：${experts.title}</p>
+                    	<p class="guan"><a href="/html/zjXq1.html?id=${experts.id }">查看详情</a></p>
+                	  </li>
+                 </c:forEach>
+         <!--        <li>
                     <span><img src="img/zhuanjianku/syzj-01.png" alt=""/></span>
                     <p class="zi">王长军</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
+                    <p>学&nbsp;&nbsp;历：大学本科</p>
                     <p>专业领域：工民建专业</p>
                     <p>所在城市：北京</p>
                     <p class="guan"><a href="zHuanJia/zjxq-4.html">查看详情</a></p>
@@ -521,7 +531,7 @@
                 <li>
                     <span><img src="img/zhuanjianku/syzj-02.png" alt=""/></span>
                     <p class="zi">庄英</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：大学本科</p>
+                    <p>学&nbsp;&nbsp;历：大学本科</p>
                     <p>专业领域：暖通及机电设备</p>
                     <p>所在城市：北京</p>
                     <p class="guan"><a href="zHuanJia/zjxq-2.html">查看详情</a></p>
@@ -529,7 +539,7 @@
                 <li>
                     <span><img src="img/zhuanjianku/syzj-03.png" alt=""/></span>
                     <p class="zi">杨国强</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：工程硕士</p>
+                    <p>学&nbsp;&nbsp;历：工程硕士</p>
                     <p>专业领域：工程监理</p>
                     <p>所在城市：北京</p>
                     <p class="guan"><a href="zHuanJia/zjxq-1.html">查看详情</a></p>
@@ -537,11 +547,11 @@
                 <li>
                     <span><img src="img/zhuanjianku/syzj-04.png" alt=""/></span>
                     <p class="zi">何礼富</p>
-                    <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：硕士研究生</p>
+                    <p>学&nbsp;&nbsp;历：硕士研究生</p>
                     <p>专业领域：计算机应用</p>
                     <p>所在城市：北京</p>
                     <p class="guan"><a href="zHuanJia/zjxq-3.html">查看详情</a></p>
-                </li>
+                </li> -->
             </ul>
             <div>
               <span>

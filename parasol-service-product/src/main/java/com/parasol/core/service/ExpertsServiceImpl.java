@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.parasol.core.dao.experts.ExpertsMapper;
 import com.parasol.core.dao.experts.Experts_number_messageMapper;
+import com.parasol.core.experts.Expertindex;
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
 import com.parasol.core.experts.ExpertsB;
@@ -139,8 +140,20 @@ public class ExpertsServiceImpl implements ExpertsService {
 	 * 编辑专家
 	 */
 	@Override
-	public Integer updateByPrimaryKey(Experts record){
-		int key = expertsDao.updateByPrimaryKey(record);
+	public Integer updateByPrimaryKey(Experts experts){
+		
+		Integer worke = experts.getDateWorke();
+		if(worke <=10){
+			experts.setMajorNumber(22);
+		}else if(10 < worke && worke <= 15 ){
+			experts.setMajorNumber(21);
+		}else if(15 < worke && worke <= 20 ){
+			experts.setMajorNumber(20);
+		}else {
+			experts.setMajorNumber(19);
+		}
+		
+		int key = expertsDao.updateByPrimaryKey(experts);
 		return key;
 	}
 
@@ -166,4 +179,24 @@ public class ExpertsServiceImpl implements ExpertsService {
 		}
 		return map;
 	}
+	
+	@Override
+	public List<Expertindex> selectExpertindex(){
+		List<Expertindex> expertindexs = expertsDao.selectExpertindex();
+		for (Expertindex expertindex : expertindexs) {
+			expertindex.setEducation(selectName(expertindex.getEducation()));
+			expertindex.setField(selectName(expertindex.getField()));
+			expertindex.setTitle(selectName(expertindex.getTitle()));
+			if(null == expertindex.getPhoto() || expertindex.getPhoto().length() == 0){
+				expertindex.setPhoto("img/wdl.png");
+			}
+		}
+		return expertindexs;
+	}
+	
+	public String selectName(String str){
+		String stri = experts_number_messageMapper.selectByNumber_message(Integer.valueOf(str));
+		return new String(stri);
+	}
+
 }

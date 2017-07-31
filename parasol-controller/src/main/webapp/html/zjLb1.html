@@ -175,7 +175,7 @@
         $.ajax({
             type: 'get',
             dataType: 'json',
-            url: "http://www.wutongsd.com/expertsList.do?page="+cs,
+            url: "http://192.168.3.124:8082/expertsList.do?page="+cs,
             success: function (data) {
                 var htmlStr = '';
                 
@@ -214,7 +214,7 @@
                    $.ajax({
             type: 'get',
             dataType: 'json',
-            url: "http://www.wutongsd.com/expertsList.do?page="+p,
+            url: "http://192.168.3.124:8082/expertsList.do?page="+p,
             success: function (data) {
                 var htmlStr = '';
                 
@@ -258,7 +258,7 @@ $('#ul').on("click","a",function(e){
     $.ajax({
         type: 'get',
         dataType: 'json',
-        url:"http://www.wutongsd.com/expertsListQuery.do?page=1"+"&education_number="+array[2]+"&major_number="+ array[3]+"&title="+array[0]+"&field="+array[1],
+        url:"http://192.168.3.124:8082/expertsListQuery.do?page=1"+"&education_number="+array[2]+"&major_number="+ array[3]+"&title="+array[0]+"&field="+array[1],
         success: function (data) {
             var htmlStr = '';
             var len = data.length;

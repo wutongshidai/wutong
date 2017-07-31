@@ -45,6 +45,9 @@
 		<dubbo:reference interface="com.parasol.core.service.TenderService" id="tenderService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
+		<dubbo:reference interface="com.parasol.core.service.ExpertsService" id="expertsService"
+			url="dubbo://127.0.0.1:20880"  
+		/>
 		<!-- 	<dubbo:reference interface="com.parasol.core.service.BaseCacheService" id="baseCacheService"
 			url="dubbo://127.0.0.1:20880"  
 		/> -->

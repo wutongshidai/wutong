@@ -34,10 +34,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.parasol.common.converter.Validator;
+import com.parasol.core.experts.Expertindex;
 import com.parasol.core.myclass.TenderName;
+import com.parasol.core.service.ExpertsService;
 import com.parasol.core.service.TenderService;
 import com.parasol.core.service.UserService;
 import com.parasol.core.tender.Tender;
@@ -50,6 +51,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private TenderService tenderService;
+	@Autowired
+	private ExpertsService expertsService;
 	
 	private Logger logger = Logger.getLogger(this.getClass());
 		
@@ -68,8 +71,11 @@ public class UserController {
 			tenderName.setProjectName(list.getProjectName());	
 			tenders.add(tenderName);
 		}
-		
-		System.out.println(tenders);
+
+		List<Expertindex> expertindexs = expertsService.selectExpertindex();
+		model.addAttribute("experts", expertindexs);
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(expertindexs);
 		model.addAttribute("tenders", tenders);
 		return "index";
 	}	
