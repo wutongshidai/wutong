@@ -1,6 +1,8 @@
 package com.parasol.core.controller;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.http.HttpRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +23,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
+import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parasol.common.load.Files_Utils_DG;
+import com.parasol.common.oss.OSSObjectUtils;
 import com.parasol.core.Enum.TenderStatusEnum;
 import com.parasol.core.myclass.DemandHall;
 import com.parasol.core.myclass.TenderAll;
+import com.parasol.core.myclass.TenderName;
 import com.parasol.core.service.TenderService;
 import com.parasol.core.tender.Tender;
 import com.parasol.core.user.User;
@@ -650,11 +657,57 @@ public class TenderController {
 				return "tenderCost";
 			}
 		 
-	/*	//跳转我的发布
-		@RequestMapping(value="/wodefabu.do",method = RequestMethod.GET)
-		public String wodefabu(HttpServletRequest request){	
-			User user = (User) request.getSession().getAttribute("user");
-			return "wodefabu";
-		}*/
+		 /*
+		  *全部招标信息名称
+		  *2017/8/18 
+		  */
+		 @ResponseBody
+		 @RequestMapping(value="/selectTenderName.do")
+		 public List<TenderName> selectTenderName(){
+				List<Tender> lists = tenderService.selectTender();
+				List<TenderName> tenders = new ArrayList<>();			
+				for (Tender list : lists) {
+					TenderName tenderName = new TenderName();
+					tenderName.setProjectName(list.getProjectName());	
+					tenderName.setStartTime(list.getStartTime());
+					tenderName.setEndDate(list.getEndDate());
+					tenders.add(tenderName);
+				}
+			 return tenders;
+		 }
+		 
+		    /**
+		     * 需求名称跳转
+		     */ 
+		 	@ResponseBody
+			@RequestMapping(value="/selectChoiceDemand.do")
+			public List<Tender> selectChoiceDemand(String projectName , HttpServletRequest request,HttpServletResponse response) throws Exception{	
+				System.out.println(projectName);
+				Tender tender = tenderService.selectByPrimaryName(projectName);//存
+			    List<Tender> list = new ArrayList<>();
+			    list.add(tender);
+				return list;
+				
+			}	
+
+		 	
+			@ResponseBody
+			@RequestMapping(value="/ossUpload.do")
+		 	public void ossUpload(MultipartRequest request){
+			/*	long name = request.getFileMap().get("file").getSize();
+				MultipartFile multipartFile = request.getFileMap().get("file");
+				String string = OSSObjectUtils.uploadMultipartFile(multipartFile, null);
+				System.out.println(string);
+				String filename = multipartFile.getOriginalFilename();*/
+				OSSObjectUtils.deleteObject("wut1", "aaaa.jpg");
+				System.out.println("1111111111111111111111111");
+		/*		System.out.println(filename);
+				System.out.println(multipartFile);
+				
+				System.out.println(name);*/
+			}
+		 
+		 
+		 
 }
  

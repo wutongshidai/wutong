@@ -48,17 +48,17 @@
 		<dubbo:reference interface="com.parasol.core.service.ExpertsService" id="expertsService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
-		<!-- 	<dubbo:reference interface="com.parasol.core.service.BaseCacheService" id="baseCacheService"
-			url="dubbo://127.0.0.1:20880"  
-		/> -->
-	<!-- 	<dubbo:reference interface="com.itheima.core.Service.TestTbService" id="testTbService"
+			<dubbo:reference interface="com.parasol.core.service.WtadminService" id="wtadminService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
-		<dubbo:reference interface="com.itheima.core.Service.product.BrandService" id="brandService"
+		<dubbo:reference interface="com.itheima.core.Service.WtbrandService" id="wtbrandService"
+			url="dubbo://127.0.0.1:20880"  
+		/>
+		<dubbo:reference interface="com.itheima.core.Service.product.WtgoodsService" id="wtgoodsService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
 		
-		<dubbo:reference interface="com.itheima.core.Service.product.ProductService" id="productService"
+	<!-- 	<dubbo:reference interface="com.itheima.core.Service.product.ProductService" id="productService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
 		<dubbo:reference interface="com.itheima.core.Service.product.ColorService" id="colorService"

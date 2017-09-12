@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.mall.Wt_favouriteMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_favourite" >
+    <id column="fa_id" property="faId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="gd_id" property="gdId" jdbcType="INTEGER" />
+    <result column="fa_time" property="faTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    fa_id,user_id,gd_id,fa_time
+    from wt_favourite
+    where fa_id = #{faId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wt_favourite
+    where fa_id = #{faId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.parasol.core.mall.Wt_favourite" >
+    insert into wt_favourite (fa_id, user_id, gd_id, fa_time
+      )
+    values (#{faId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{gdId,jdbcType=INTEGER}, #{faTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_favourite" >
+    insert into wt_favourite
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="faId != null" >
+        fa_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="gdId != null" >
+        gd_id,
+      </if>
+      <if test="faTime != null" >
+        fa_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="faId != null" >
+        #{faId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="gdId != null" >
+        #{gdId,jdbcType=INTEGER},
+      </if>
+      <if test="faTime != null" >
+        #{faTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.parasol.core.mall.Wt_favourite" >
+    update wt_favourite
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="gdId != null" >
+        gd_id = #{gdId,jdbcType=INTEGER},
+      </if>
+      <if test="faTime != null" >
+        fa_time = #{faTime,jdbcType=TIMESTAMP},
+      </if>      
+    </set>
+    where fa_id = #{faId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_favourite" >
+    update wt_favourite
+    set user_id = #{userId,jdbcType=INTEGER},
+      gd_id = #{gdId,jdbcType=INTEGER}
+      fa_time = #{faTime,jdbcType=TIMESTAMP}
+    where fa_id = #{faId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.mall.Wt_brandMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_brand" >
+    <id column="br_id" property="brId" jdbcType="INTEGER" />
+    <result column="br_name" property="brName" jdbcType="VARCHAR" />
+    <result column="br_logo" property="brLogo" jdbcType="VARCHAR" />
+    <result column="br_url" property="brUrl" jdbcType="VARCHAR" />
+    <result column="br_sort" property="brSort" jdbcType="INTEGER" />
+    <result column="br_display" property="brDisplay" jdbcType="INTEGER" />
+    <result column="br_describe" property="brDescribe" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    br_id,br_name,br_logo,br_url,br_sort,br_display,br_describe
+    from wt_brand
+    where br_id = #{brId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wt_brand
+    where br_id = #{brId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.parasol.core.mall.Wt_brand" >
+    insert into wt_brand (br_id, br_name, br_logo, 
+      br_url, br_sort, br_display, 
+      br_describe)
+    values (#{brId,jdbcType=INTEGER}, #{brName,jdbcType=VARCHAR}, #{brLogo,jdbcType=VARCHAR}, 
+      #{brUrl,jdbcType=VARCHAR}, #{brSort,jdbcType=INTEGER}, #{brDisplay,jdbcType=INTEGER}, 
+      #{brDescribe,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_brand" >
+    insert into wt_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brId != null" >
+        br_id,
+      </if>
+      <if test="brName != null" >
+        br_name,
+      </if>
+      <if test="brLogo != null" >
+        br_logo,
+      </if>
+      <if test="brUrl != null" >
+        br_url,
+      </if>
+      <if test="brSort != null" >
+        br_sort,
+      </if>
+      <if test="brDisplay != null" >
+        br_display,
+      </if>
+      <if test="brDescribe != null" >
+        br_describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brId != null" >
+        #{brId,jdbcType=INTEGER},
+      </if>
+      <if test="brName != null" >
+        #{brName,jdbcType=VARCHAR},
+      </if>
+      <if test="brLogo != null" >
+        #{brLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="brUrl != null" >
+        #{brUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="brSort != null" >
+        #{brSort,jdbcType=INTEGER},
+      </if>
+      <if test="brDisplay != null" >
+        #{brDisplay,jdbcType=INTEGER},
+      </if>
+      <if test="brDescribe != null" >
+        #{brDescribe,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.parasol.core.mall.Wt_brand" >
+    update wt_brand
+    <set >
+      <if test="brName != null" >
+        br_name = #{brName,jdbcType=VARCHAR},
+      </if>
+      <if test="brLogo != null" >
+        br_logo = #{brLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="brUrl != null" >
+        br_url = #{brUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="brSort != null" >
+        br_sort = #{brSort,jdbcType=INTEGER},
+      </if>
+      <if test="brDisplay != null" >
+        br_display = #{brDisplay,jdbcType=INTEGER},
+      </if>
+      <if test="brDescribe != null" >
+        br_describe = #{brDescribe,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where br_id = #{brId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_brand" >
+    update wt_brand
+    set br_name = #{brName,jdbcType=VARCHAR},
+      br_logo = #{brLogo,jdbcType=VARCHAR},
+      br_url = #{brUrl,jdbcType=VARCHAR},
+      br_sort = #{brSort,jdbcType=INTEGER},
+      br_display = #{brDisplay,jdbcType=INTEGER},
+      br_describe = #{brDescribe,jdbcType=VARCHAR}
+    where br_id = #{brId,jdbcType=INTEGER}
+  </update>
+</mapper>

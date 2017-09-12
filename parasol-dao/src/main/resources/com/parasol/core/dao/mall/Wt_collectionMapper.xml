@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.mall.Wt_collectionMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_collection" >
+    <id column="co_id" property="coId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="ad_ex_id" property="adExId" jdbcType="INTEGER" />
+    <result column="co_time" property="coTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    co_id,user_id,ad_ex_id,co_time
+    from wt_collection
+    where co_id = #{coId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wt_collection
+    where co_id = #{coId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.parasol.core.mall.Wt_collection" >
+    insert into wt_collection (co_id, user_id, ad_ex_id, co_time
+      )
+    values (#{coId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{coTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_collection" >
+    insert into wt_collection
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="coId != null" >
+        co_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="adExId != null" >
+        ad_ex_id,
+      </if>
+       <if test="coTime != null" >
+        co_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="coId != null" >
+        #{coId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="adExId != null" >
+        #{adExId,jdbcType=INTEGER},
+      </if>
+       <if test="coTime != null" >
+        #{coTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.parasol.core.mall.Wt_collection" >
+    update wt_collection
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="adExId != null" >
+        ad_ex_id = #{adExId,jdbcType=INTEGER},
+      </if>
+      <if test="coTime != null" >
+        co_time = #{coTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where co_id = #{coId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_collection" >
+    update wt_collection
+    set user_id = #{userId,jdbcType=INTEGER},
+      ad_ex_id = #{adExId,jdbcType=INTEGER}
+      co_time = #{coTime,jdbcType=TIMESTAMP}
+    where co_id = #{coId,jdbcType=INTEGER}
+  </update>
+</mapper>

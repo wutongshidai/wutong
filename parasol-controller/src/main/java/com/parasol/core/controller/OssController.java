@@ -1,0 +1,56 @@
+package com.parasol.core.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
+
+import com.parasol.common.oss.OSSObjectUtils;
+
+/**
+ * 
+ * @author aliang
+ * @since 2017/8/30
+ *
+ */
+
+@Controller
+public class OssController {
+	
+	/*
+	 * oss文件上传
+	 */
+	@ResponseBody
+	@RequestMapping(value="/uploadOss.do")
+ 	public Map<String, String> uploadOss(MultipartRequest request){	
+		try {
+			MultipartFile multipartFile = request.getFileMap().get("file");
+			String filename = OSSObjectUtils.uploadMultipartFile(multipartFile,"");
+			System.out.println("oss上传成功！");
+			Map<String, String> map = new HashMap<>();
+			map.put("filename", filename);
+			map.put("success", "true");
+			return map;
+		} catch (Exception e) {
+			Map<String, String> map = new HashMap<>();
+			map.put("success", "false");
+			return map;
+		}
+	
+	}
+	
+	/*
+	 * oss文件删除
+	 */
+	@ResponseBody
+	@RequestMapping(value="/deleteOss.do")
+ 	public void deleteOss(String buketName , String fileName){
+		OSSObjectUtils.deleteObject(buketName, fileName);
+		System.out.println("oss删除成功！");
+	}
+	
+}

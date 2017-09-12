@@ -48,9 +48,14 @@ public class FileUploadController {
 	     }
 	     
 	     @RequestMapping(value = "/fileUpload_stream.do")
-	     public String upFile(HttpServletRequest request,@RequestParam("file_upload") MultipartFile multipartFile){
-	        String filePath=Files_Utils_DG.FilesUpload_stream(request,multipartFile,"/filesOut/Upload");
+	     public String upFile(HttpServletRequest request,@RequestParam("file_upload") MultipartFile multipartFile) throws Exception{
+//	        String filePath=Files_Utils_DG.FilesUpload_stream(request,multipartFile,"/filesOut/Upload");
 //	         return "{\"TFMark\":\"true\",\"Msg\":\"upload success !\",\"filePath\":\"" + filePath + "\"}";
+			/*   OSSClientUtil ossClient = new OSSClientUtil();
+			   	String name = ossClient.uploadImg2Oss(multipartFile);
+			   	String imgUrl = ossClient.getImgUrl(name);
+			   	System.out.println(name);
+			   	System.out.println(imgUrl)*/;
 	        return "{'message':'success','M':'你真牛逼！'}";
 	       }
 	     

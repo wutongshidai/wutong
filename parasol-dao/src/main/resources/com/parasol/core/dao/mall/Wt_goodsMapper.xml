@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.mall.Wt_goodsMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_goods" >
+    <id column="gd_id" property="gdId" jdbcType="INTEGER" />
+    <result column="gd_name" property="gdName" jdbcType="VARCHAR" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+    <result column="cat_id" property="catId" jdbcType="INTEGER" />
+    <result column="cat_parentid" property="catParentid" jdbcType="INTEGER" />
+    <result column="gd_time" property="gdTime" jdbcType="TIMESTAMP" />
+    <result column="cat_sonid" property="catSonid" jdbcType="INTEGER" />
+    <result column="ad_ex_id" property="adExId" jdbcType="VARCHAR" />
+    <result column="gd_number" property="gdNumber" jdbcType="INTEGER" />
+    <result column="gd_price" property="gdPrice" jdbcType="DECIMAL" />
+    <result column="gd_mprice" property="gdMprice" jdbcType="DECIMAL" />
+    <result column="gd_addtime" property="gdAddtime" jdbcType="TIMESTAMP" />
+    <result column="gd_display" property="gdDisplay" jdbcType="VARCHAR" />
+    <result column="gd_img" property="gdImg" jdbcType="VARCHAR" />
+    <result column="gd_priceclass" property="gdPriceclass" jdbcType="INTEGER" />
+    <result column="gd_order" property="gdOrder" jdbcType="INTEGER" />
+    <result column="gd_describe" property="gdDescribe" jdbcType="VARCHAR" />
+    <result column="gd_area" property="gdArea" jdbcType="INTEGER" />
+    <result column="gd_prca" property="gdPrca" jdbcType="INTEGER" />
+    <result column="gd_deimg" property="gdDeimg" jdbcType="VARCHAR" />
+    <result column="gd_colour" property="gdColour" jdbcType="VARCHAR" />
+    <result column="gd_place" property="gdPlace" jdbcType="INTEGER" />
+    <result column="gd_uptime" property="gdUptime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
+    from wt_goods
+    where gd_id = #{gdId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wt_goods
+    where gd_id = #{gdId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.parasol.core.mall.Wt_goods" >
+    insert into wt_goods (gd_id, gd_name, brand_id, 
+      cat_id, cat_parentid, gd_time, 
+      cat_sonid, ad_ex_id, gd_number, 
+      gd_price, gd_mprice, gd_addtime, 
+      gd_display, gd_img, gd_priceclass, 
+      gd_order, gd_describe, gd_area, 
+      gd_prca, gd_deimg, gd_colour, 
+      gd_place, gd_uptime)
+    values (#{gdId,jdbcType=INTEGER}, #{gdName,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, 
+      #{catId,jdbcType=INTEGER}, #{catParentid,jdbcType=INTEGER}, #{gdTime,jdbcType=TIMESTAMP}, 
+      #{catSonid,jdbcType=INTEGER}, #{adExId,jdbcType=VARCHAR}, #{gdNumber,jdbcType=INTEGER}, 
+      #{gdPrice,jdbcType=DECIMAL}, #{gdMprice,jdbcType=DECIMAL}, #{gdAddtime,jdbcType=TIMESTAMP}, 
+      #{gdDisplay,jdbcType=VARCHAR}, #{gdImg,jdbcType=VARCHAR}, #{gdPriceclass,jdbcType=INTEGER}, 
+      #{gdOrder,jdbcType=INTEGER}, #{gdDescribe,jdbcType=VARCHAR}, #{gdArea,jdbcType=INTEGER}, 
+      #{gdPrca,jdbcType=INTEGER}, #{gdDeimg,jdbcType=VARCHAR}, #{gdColour,jdbcType=VARCHAR}, 
+      #{gdPlace,jdbcType=INTEGER}, #{gdUptime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_goods" >
+    insert into wt_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gdId != null" >
+        gd_id,
+      </if>
+      <if test="gdName != null" >
+        gd_name,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+      <if test="catId != null" >
+        cat_id,
+      </if>
+      <if test="catParentid != null" >
+        cat_parentid,
+      </if>
+      <if test="gdTime != null" >
+        gd_time,
+      </if>
+      <if test="catSonid != null" >
+        cat_sonid,
+      </if>
+      <if test="adExId != null" >
+        ad_ex_id,
+      </if>
+      <if test="gdNumber != null" >
+        gd_number,
+      </if>
+      <if test="gdPrice != null" >
+        gd_price,
+      </if>
+      <if test="gdMprice != null" >
+        gd_mprice,
+      </if>
+      <if test="gdAddtime != null" >
+        gd_addtime,
+      </if>
+      <if test="gdDisplay != null" >
+        gd_display,
+      </if>
+      <if test="gdImg != null" >
+        gd_img,
+      </if>
+      <if test="gdPriceclass != null" >
+        gd_priceclass,
+      </if>
+      <if test="gdOrder != null" >
+        gd_order,
+      </if>
+      <if test="gdDescribe != null" >
+        gd_describe,
+      </if>
+      <if test="gdArea != null" >
+        gd_area,
+      </if>
+      <if test="gdPrca != null" >
+        gd_prca,
+      </if>
+      <if test="gdDeimg != null" >
+        gd_deimg,
+      </if>
+      <if test="gdColour != null" >
+        gd_colour,
+      </if>
+      <if test="gdPlace != null" >
+        gd_place,
+      </if>
+      <if test="gdUptime != null" >
+        gd_uptime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gdId != null" >
+        #{gdId,jdbcType=INTEGER},
+      </if>
+      <if test="gdName != null" >
+        #{gdName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null" >
+        #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="catParentid != null" >
+        #{catParentid,jdbcType=INTEGER},
+      </if>
+      <if test="gdTime != null" >
+        #{gdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catSonid != null" >
+        #{catSonid,jdbcType=INTEGER},
+      </if>
+      <if test="adExId != null" >
+        #{adExId,jdbcType=VARCHAR},
+      </if>
+      <if test="gdNumber != null" >
+        #{gdNumber,jdbcType=INTEGER},
+      </if>
+      <if test="gdPrice != null" >
+        #{gdPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="gdMprice != null" >
+        #{gdMprice,jdbcType=DECIMAL},
+      </if>
+      <if test="gdAddtime != null" >
+        #{gdAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdDisplay != null" >
+        #{gdDisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="gdImg != null" >
+        #{gdImg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdPriceclass != null" >
+        #{gdPriceclass,jdbcType=INTEGER},
+      </if>
+      <if test="gdOrder != null" >
+        #{gdOrder,jdbcType=INTEGER},
+      </if>
+      <if test="gdDescribe != null" >
+        #{gdDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gdArea != null" >
+        #{gdArea,jdbcType=INTEGER},
+      </if>
+      <if test="gdPrca != null" >
+        #{gdPrca,jdbcType=INTEGER},
+      </if>
+      <if test="gdDeimg != null" >
+        #{gdDeimg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdColour != null" >
+        #{gdColour,jdbcType=VARCHAR},
+      </if>
+      <if test="gdPlace != null" >
+        #{gdPlace,jdbcType=INTEGER},
+      </if>
+      <if test="gdUptime != null" >
+        #{gdUptime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.parasol.core.mall.Wt_goods" >
+    update wt_goods
+    <set >
+      <if test="gdName != null" >
+        gd_name = #{gdName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="catId != null" >
+        cat_id = #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="catParentid != null" >
+        cat_parentid = #{catParentid,jdbcType=INTEGER},
+      </if>
+      <if test="gdTime != null" >
+        gd_time = #{gdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="catSonid != null" >
+        cat_sonid = #{catSonid,jdbcType=INTEGER},
+      </if>
+      <if test="adExId != null" >
+        ad_ex_id = #{adExId,jdbcType=VARCHAR},
+      </if>
+      <if test="gdNumber != null" >
+        gd_number = #{gdNumber,jdbcType=INTEGER},
+      </if>
+      <if test="gdPrice != null" >
+        gd_price = #{gdPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="gdMprice != null" >
+        gd_mprice = #{gdMprice,jdbcType=DECIMAL},
+      </if>
+      <if test="gdAddtime != null" >
+        gd_addtime = #{gdAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdDisplay != null" >
+        gd_display = #{gdDisplay,jdbcType=VARCHAR},
+      </if>
+      <if test="gdImg != null" >
+        gd_img = #{gdImg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdPriceclass != null" >
+        gd_priceclass = #{gdPriceclass,jdbcType=INTEGER},
+      </if>
+      <if test="gdOrder != null" >
+        gd_order = #{gdOrder,jdbcType=INTEGER},
+      </if>
+      <if test="gdDescribe != null" >
+        gd_describe = #{gdDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="gdArea != null" >
+        gd_area = #{gdArea,jdbcType=INTEGER},
+      </if>
+      <if test="gdPrca != null" >
+        gd_prca = #{gdPrca,jdbcType=INTEGER},
+      </if>
+      <if test="gdDeimg != null" >
+        gd_deimg = #{gdDeimg,jdbcType=VARCHAR},
+      </if>
+      <if test="gdColour != null" >
+        gd_colour = #{gdColour,jdbcType=VARCHAR},
+      </if>
+      <if test="gdPlace != null" >
+        gd_place = #{gdPlace,jdbcType=INTEGER},
+      </if>
+      <if test="gdUptime != null" >
+        gd_uptime = #{gdUptime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where gd_id = #{gdId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_goods" >
+    update wt_goods
+    set gd_name = #{gdName,jdbcType=VARCHAR},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      cat_id = #{catId,jdbcType=INTEGER},
+      cat_parentid = #{catParentid,jdbcType=INTEGER},
+      gd_time = #{gdTime,jdbcType=TIMESTAMP},
+      cat_sonid = #{catSonid,jdbcType=INTEGER},
+      ad_ex_id = #{adExId,jdbcType=VARCHAR},
+      gd_number = #{gdNumber,jdbcType=INTEGER},
+      gd_price = #{gdPrice,jdbcType=DECIMAL},
+      gd_mprice = #{gdMprice,jdbcType=DECIMAL},
+      gd_addtime = #{gdAddtime,jdbcType=TIMESTAMP},
+      gd_display = #{gdDisplay,jdbcType=VARCHAR},
+      gd_img = #{gdImg,jdbcType=VARCHAR},
+      gd_priceclass = #{gdPriceclass,jdbcType=INTEGER},
+      gd_order = #{gdOrder,jdbcType=INTEGER},
+      gd_describe = #{gdDescribe,jdbcType=VARCHAR},
+      gd_area = #{gdArea,jdbcType=INTEGER},
+      gd_prca = #{gdPrca,jdbcType=INTEGER},
+      gd_deimg = #{gdDeimg,jdbcType=VARCHAR},
+      gd_colour = #{gdColour,jdbcType=VARCHAR},
+      gd_place = #{gdPlace,jdbcType=INTEGER},
+      gd_uptime = #{gdUptime,jdbcType=TIMESTAMP}
+    where gd_id = #{gdId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -255,7 +255,7 @@ function chageCode() {
             </div>
              <div class="duanX">
                 <label for="yanZ">短信验证码</label>
-                <input type="text" id="yanZ" placeholder="&nbsp;&nbsp;&nbsp;填写验证码" maxlength="6"/> <input type="button" value="免费获取验证码" id="btnSendCode" name="btnSendCode" onclick="sendMessage()">
+                <input type="text" id="mobileyan" name="mobileyan" placeholder="&nbsp;&nbsp;&nbsp;填写验证码" maxlength="6"/> <input type="button" value="免费获取验证码" id="btnSendCode" name="btnSendCode" onclick="sendMessage()">
             </div>
 			<div class="spanf">
 					<div class="spanf-1">

@@ -534,6 +534,8 @@
      select 
     id,userId,tenderee,tender_company,project_name,agreement_price,project_location,schedule,end_date,start_time,contact_name,contact_mobile,tender_address,tender_money,contract_status,bill_status,price_status,explainl,tender_file,bid_file,status,update_time,project_type,classification   
      from tender
+     order by
+	  id desc
   </select>
   <select id="selectTenderTen" resultMap="BaseResultMap" >
      select 

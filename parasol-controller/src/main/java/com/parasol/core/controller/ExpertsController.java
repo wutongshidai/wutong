@@ -1,5 +1,6 @@
 package com.parasol.core.controller;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.codec.binary.Base64;
+import org.fusesource.hawtbuf.ByteArrayInputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.parasol.common.load.fileUpload;
+import com.parasol.common.oss.OSSObjectUtils;
 import com.parasol.core.experts.Experts;
 import com.parasol.core.experts.ExpertsA;
 import com.parasol.core.experts.ExpertsB;
@@ -41,11 +45,12 @@ public class ExpertsController {
     	Experts experts = new Experts();
     	experts.setUserId(user.getId());
     	BeanUtils.populate(experts, request.getParameterMap());	
-
     	 if(expertId == null){
-    		   	if(null != experts.getPhoto()&&""!=experts.getPhoto()){
+    		   	if(null != experts.getPhoto()&&""!=experts.getPhoto()){		   		
+    		   		InputStream inputStream = new ByteArrayInputStream(Base64.decodeBase64(experts.getPhoto()));	
+    		   		OSSObjectUtils.uploadFile("wut1/1111.png", inputStream);
     	    		String a =  getUUIDName();
-    	    		fileUpload.saveImg(experts.getPhoto(), a);
+//    	    		fileUpload.saveImg(experts.getPhoto(), a);
     	    		experts.setPhoto("../imgl/" + a + ".png");
     	    	}if(null != experts.getShow0()&&""!=experts.getShow0()){
 //    	    		String b =  getUUIDName(experts.getSpare3());

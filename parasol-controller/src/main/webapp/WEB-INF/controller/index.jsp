@@ -40,8 +40,8 @@
             <li><a href="/login.do">免费注册</a></li>
             <li><a href="/html/myAccount.html">我的账户</a></li>
             <li><a href="#">联系客服</a></li>
-            <li><a href="">消息</a></li>
-            <li><a href="">帮助</a></li>
+            <li><a href="/perties.do">消息</a></li>
+            <li><a href="/zhucechenggong.do">帮助</a></li>
         </ul>
     </div>
     <!--logo 搜索-->

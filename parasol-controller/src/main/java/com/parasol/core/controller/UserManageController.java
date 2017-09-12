@@ -8,15 +8,18 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.binary.Hex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.apache.commons.codec.binary.Hex;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.parasol.common.converter.Validator;
+import com.parasol.common.oss.OSSObjectUtils;
 import com.parasol.core.service.TenderService;
 import com.parasol.core.service.UserService;
 import com.parasol.core.user.User;
@@ -197,4 +200,48 @@ public class UserManageController {
 		 }
 		 return map;
 	 }
+	 
+	 
+	 
+	 
+	 
+	 
+/*	 
+	 @RequestMapping(value = "/headImgUpload.do", method = RequestMethod.POST)
+	 public Map<String, Object> headImgUpload(HttpServletRequest request,@RequestParam("file_upload") MultipartFile file) {
+		 Map<String, Object> value = new HashMap<String, Object>();
+		 value.put("success", true);
+		 value.put("errorCode", 0);
+		 value.put("errorMsg", "");
+		 try {
+			 System.out.println(file.toString());
+			 String head = userService.updateHead(file, 4);//此处是调用上传服务接口，4是需要更新的userId 测试数据。
+			 value.put("data", head);
+		 } catch (Exception e) {
+			 e.printStackTrace();
+			 value.put("success", false);
+			 value.put("errorCode", 200);
+			 value.put("errorMsg", "图片上传失败");
+		 }
+		 return value;
+	 } */
+	 
+	 
+	 @RequestMapping(value = "/headImgUpload.do")
+	 public static String headImgUpload(HttpServletRequest request ,@RequestParam("file_upload") MultipartFile multipartFile) {
+//		 OSSObjectUtils.downloadFile("aaa.jpg", "E:/");
+		 OSSObjectUtils.uploadMultipartFile(multipartFile, null);
+		 System.out.println("yunxing");
+		 return "chenggong";
+	 } 
+	 
+
+		/**
+	     * 跳转注册成功
+	     */
+		@RequestMapping(value="/aaaa.do",method = RequestMethod.GET)
+		public String aaaa(){
+			return "aaaa";
+		}	
+	 
 }

@@ -87,16 +87,4 @@ public class UploadController {
 		}
 	}
 	
-	//跳转测试
-	@RequestMapping(value="/dddd.do",method = RequestMethod.GET)
-	public String dddd(){	
-		return "ddddd";
-	}
-	
-	//跳转测试
-		@RequestMapping(value="/tijiao.do",method = RequestMethod.GET)
-		public String tijiao(HttpServletRequest request , HttpServletResponse response
-				){	
-			return "ddddd";
-		}
 }

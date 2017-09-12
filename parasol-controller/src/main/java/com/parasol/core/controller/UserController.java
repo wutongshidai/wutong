@@ -386,6 +386,29 @@ public class UserController {
   }  
     
     
-    
+	/**
+     * 校验验证码
+     */ 
+/*    @ResponseBody
+    @RequestMapping("/checkCodesss.do")
+    public Map<String,String> checkCodesss(String mobileyan, HttpSession session){
+    	Map<String, String> adminMap= new HashMap<String,String>();
+    	String flag = "0";
+    	//toLowerCase()变小写  
+    	//toUpperCase()变大写  
+    	//(s1).equalsIgnoreCase(s2)忽略大小写比较  
+    	System.out.println(mobileyan);
+    	System.out.println(session.getAttribute("yancode").toString());
+    	if(mobileyan.equalsIgnoreCase(session.getAttribute("yancode").toString())){
+    		flag="1";
+    	}else if(mobileyan.length()==0){
+    		flag="0";
+    	}else{
+    		flag="-1";
+    	}
+    	adminMap.put("admin",flag);
+    	System.out.println("打印这句话说明,Ajax request 发送成功...");
+    	return adminMap;
+  }*/
    
 }

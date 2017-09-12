@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.parasol.core.dao.user.UserMapper;
 import com.parasol.core.user.User;
@@ -16,6 +17,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+/*	@Autowired
+	private OSSClientUtil ossClient;*/
 	
 	@Override
 	public int insert(User user) {
@@ -66,4 +70,23 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	   }
+	   
+	   
+	   
+	   
+	  
+	   
+	   
+/*	   @Override
+	   public String updateHead(MultipartFile file, long userId) throws Exception{
+		   if (file == null || file.getSize() <= 0) {
+			   throw new Exception("头像不能为空");
+		   		}		
+		   OSSClientUtil ossClient = new OSSClientUtil();
+		   	String name = ossClient.uploadImg2Oss(file);
+		   	String imgUrl = ossClient.getImgUrl(name);
+		   	//userDao.updateHead(userId, imgUrl);//只是本地上传使用的
+		   	System.out.println(imgUrl);
+		   	return  imgUrl;
+	   }*/
 }
