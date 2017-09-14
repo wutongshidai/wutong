@@ -15,4 +15,6 @@ public interface Wt_adminMapper {
     int updateByPrimaryKeySelective(Wt_admin record);
 
     int updateByPrimaryKey(Wt_admin record);
+
+    Wt_admin selectByUserName(String userName);
 }

@@ -1,6 +1,7 @@
 package com.parasol.core.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,7 +21,16 @@ public class WtadminController {
 	private WtadminService wtadminService;
 	@Autowired
 	private WtadminexpendService wtadminexpendService;
-	
+
+
+	@ResponseBody
+	@RequestMapping("/selectByUserName.do")
+	public Boolean selectUsername(@RequestBody String userName){
+//		int i = wtadminService.insertSelective(userName);
+		Boolean b =wtadminService.selectByUserName(userName);
+		return b;
+	}
+
 	/**
 	 * 添加商家
 	 */
@@ -34,6 +44,7 @@ public class WtadminController {
 		int i = wtadminService.deleteByPrimaryKey(id);
 		return i;
 	}
+
 
 	
 	public int insert(Wt_admin record) {

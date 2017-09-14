@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.parasol.core.dao.mall.Wt_adminMapper;
 import com.parasol.core.mall.Wt_admin;
+import org.springframework.stereotype.Service;
 
+@Service("wtadminService")
 public class WtadminServiceImpl implements WtadminService {
 
 	@Autowired
@@ -44,6 +46,16 @@ public class WtadminServiceImpl implements WtadminService {
 	public int updateByPrimaryKey(Wt_admin record) {
 		int i = wt_adminMapper.updateByPrimaryKey(record);
 		return i;
+	}
+
+	@Override
+	public Boolean selectByUserName(String userName) {
+		Wt_admin admin =wt_adminMapper.selectByUserName(userName);
+		if (admin != null){
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 }

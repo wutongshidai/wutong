@@ -1,10 +1,14 @@
 package com.parasol.core.service;
 
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.parasol.core.dao.mall.Wt_goodsMapper;
 import com.parasol.core.mall.Wt_goods;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service("wtgoodsService")
+@Transactional
 public class WtgoodsServiceImpl implements WtgoodsService {
 
 	@Autowired

@@ -51,4 +51,6 @@ public interface WtadminService {
 	 * @return 0失败，1成功
 	 */
     int updateByPrimaryKey(Wt_admin record);
+
+	Boolean selectByUserName(String userName);
 }
