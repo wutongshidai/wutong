@@ -7,6 +7,8 @@ import com.parasol.core.dao.mall.Wt_goodsMapper;
 import com.parasol.core.mall.Wt_goods;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service("wtgoodsService")
 @Transactional
 public class WtgoodsServiceImpl implements WtgoodsService {
@@ -46,8 +48,14 @@ public class WtgoodsServiceImpl implements WtgoodsService {
 
 	@Override
 	public int updateByPrimaryKey(Wt_goods record) {
-		int i = wtgoodsMapper.updateByPrimaryKey(record);
+		int i = wtgoodsMapper.updateByPrimaryKeySelective(record);
 		return i;
+	}
+
+	@Override
+	public List<Wt_goods> selectGoods(Integer adExId) {
+		List<Wt_goods> list=wtgoodsMapper.selectByExId(adExId);
+		return list;
 	}
 
 }

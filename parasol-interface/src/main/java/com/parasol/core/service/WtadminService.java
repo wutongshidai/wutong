@@ -2,6 +2,8 @@ package com.parasol.core.service;
 
 import com.parasol.core.mall.Wt_admin;
 
+import java.util.Map;
+
 /**
  * 商家服务
  * @author wuliang
@@ -22,7 +24,7 @@ public interface WtadminService {
 	 * @param record 商家对象
 	 * @return 0失败，1成功
 	 */
-    int insert(Wt_admin record);
+    Map insert(Wt_admin record);
     
 	/**
 	 * 添加商家（带非空判断）
@@ -53,4 +55,10 @@ public interface WtadminService {
     int updateByPrimaryKey(Wt_admin record);
 
 	Boolean selectByUserName(String userName);
+
+	Boolean selectByPhone(String phone);
+
+	Map<String,Object> login(Wt_admin admin);
+
+	Map<String,Object> selectInfo(Integer adExId);
 }

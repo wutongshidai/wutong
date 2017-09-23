@@ -1,10 +1,13 @@
 package com.parasol.core.controller;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.parasol.core.mall.Wt_admin;
+import com.parasol.core.mall.Wt_admin_expend;
+import com.parasol.core.service.WtadminexpendService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import com.parasol.core.mall.Wt_goods;
 import com.parasol.core.service.WtgoodsService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author aliang
@@ -30,6 +34,8 @@ public class WtgoodsController {
     private WtgoodsService wtgoodsService;
 //	@Autowired
 //	private WtbrandService wtbrandService;
+    @Autowired
+    private WtadminexpendService wtadminexpendService;
 
     @ResponseBody
     @RequestMapping("/deleteGoods.do")
@@ -39,25 +45,130 @@ public class WtgoodsController {
     }
 
     /**
+     * 校验登录
+     */
+    @ResponseBody
+    @RequestMapping("/checkLogin.do")
+    public static Map checkLogin(HttpSession session) {
+        Map map1 = new HashMap();
+        Map userMap = (Map) session.getAttribute("userMap");
+        if (userMap == null) {
+            map1.put("msg", "登录失效，请重新登录");
+            map1.put("status", false);
+            return map1;
+        } else {
+            map1.put("status", true);
+            return map1;
+        }
+    }
+
+    /**
+     * 创建商品
+     *
      * @param map
      * @return 0 失败；1成功
      */
     @ResponseBody
     @RequestMapping("/insertGoods.do")
-    public int insert(@RequestBody Map map) {
+    public Map insert(@RequestBody Map map, HttpSession session) {
+        Map map1 = new HashMap();
+        map1.put("msg", "服务异常，请稍后再试");
+        map1.put("status", false);
+        if (session.getAttribute("userMap") == null) {
+            map1.put("msg", "登录失效，请重新登录");
+            map1.put("status", false);
+            return map1;
+        }
+        int adExId = (Integer)map.get("adExId");
         Wt_goods record = new Wt_goods();
         try {
+            // 判断是否填完整了拓展表信息
+            Wt_admin_expend wt_admin_expend = wtadminexpendService.selectByPrimaryKey(adExId);
+            int flag = 0;
+            for (Field f : wt_admin_expend.getClass().getDeclaredFields()) {
+                f.setAccessible(true);
+                if (f.get(wt_admin_expend) == null) { //判断字段是否为空，并且对象属性中的基本都会转为对象类型来判断
+                    flag++;
+                }
+
+            }
+            if (flag >0) {
+                map1.put("msg", "信息未完整，请去店铺管理填写完整");
+                return map1;
+            }
+            int i = 0;
             BeanUtils.populate(record, map);
             record.setGdTime(new Date());
+            record.setGdUptime(new Date());
+            record.setGdDisplay("0");
+            i = wtgoodsService.insert(record);
+            if (i == 1) {
+                map1.put("msg", "创建商品成功");
+                map1.put("status", true);
+                return map1;
+            } else {
+                map1.put("msg", "添加失败请检查数据,稍后再试");
+                map1.put("status", false);
+            }
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-            return 0;
+            map1.put("msg", "服务异常，请稍后再试");
+            map1.put("status", false);
+            return map1;
         } catch (InvocationTargetException e) {
             e.printStackTrace();
-            return 0;
+            map1.put("msg", "服务异常，请稍后再试");
+            map1.put("status", false);
+            return map1;
         }
-        int i = wtgoodsService.insert(record);
-        return i;
+        return map1;
+    }
+
+    /**
+     * 查询商品列表
+     * @param adExIdMap
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/getGoods.do")
+    public List getGoods(@RequestBody Map adExIdMap) {
+        Integer adExId = (Integer)adExIdMap.get("adExId");
+        Wt_goods goods = null;
+        List<Wt_goods> arrayList =  wtgoodsService.selectGoods(adExId);
+        return arrayList;
+    }
+
+    /**
+     * 编辑商品
+     * @param goodsMap
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/editGoods.do")
+    public Map editGoods(@RequestBody Map goodsMap) {
+        Wt_goods wt_goods = new Wt_goods();
+        Map map = new HashMap();
+        map.put("status", false);
+        map.put("msg", "编辑商品失败,请稍后再试");
+        try {
+            String gdTime =(String) goodsMap.get("gdTime");
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date date = null;
+//            date = format.parse(gdTime);
+//            goodsMap.put("gdTime", date);
+            System.out.println(new Date());
+            goodsMap.put("gdUptime",new Date());
+            BeanUtils.populate(wt_goods,goodsMap);
+            int i = wtgoodsService.updateByPrimaryKey(wt_goods);
+            if (i==1) {
+                map.put("status", true);
+                map.put("msg", "编辑商品成功");
+            }
+            return map;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return map;
+            }
     }
 
     /*
@@ -126,7 +237,7 @@ public class WtgoodsController {
     }
 
 	/*  
-	 * 商品编辑............
+     * 商品编辑............
 	 */
 /*	@ResponseBody
 	@RequestMapping("/updateSelectiveGoods.do")

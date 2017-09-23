@@ -30,6 +30,10 @@
 		<dubbo:service interface="com.parasol.core.service.UserService" ref="userService"/>
 		<dubbo:service interface="com.parasol.core.service.TenderService" ref="tenderService"/>
 		<dubbo:service interface="com.parasol.core.service.ExpertsService" ref="expertsService"/> 
+		<dubbo:service interface="com.parasol.core.service.WtgoodsService" ref="wtgoodsService"/>
+		<dubbo:service interface="com.parasol.core.service.WtadminService" ref="wtadminService"/>
+		<dubbo:service interface="com.parasol.core.service.WtadminexpendService" ref="wtadminexpendService"/>
+		<dubbo:service interface="com.parasol.core.service.WtnavigationService" ref="wtnavigationService"/>
 		<!-- <dubbo:service interface="com.parasol.core.service.BaseCacheService" ref="baseCacheService"/> -->
 		 
 </beans> 

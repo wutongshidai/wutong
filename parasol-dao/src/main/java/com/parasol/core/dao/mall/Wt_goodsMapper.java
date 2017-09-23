@@ -2,6 +2,8 @@ package com.parasol.core.dao.mall;
 
 import com.parasol.core.mall.Wt_goods;
 
+import java.util.List;
+
 public interface Wt_goodsMapper {
 
     int deleteByPrimaryKey(Integer gdId);
@@ -15,4 +17,6 @@ public interface Wt_goodsMapper {
     int updateByPrimaryKeySelective(Wt_goods record);
 
     int updateByPrimaryKey(Wt_goods record);
+
+    List<Wt_goods> selectByExId(Integer adExId);
 }

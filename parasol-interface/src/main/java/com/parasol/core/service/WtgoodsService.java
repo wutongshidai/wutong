@@ -2,6 +2,8 @@ package com.parasol.core.service;
 
 import com.parasol.core.mall.Wt_goods;
 
+import java.util.List;
+
 /**
  * 商品服务
  * @author wuliang
@@ -50,4 +52,6 @@ public interface WtgoodsService {
 	 * @return 0失败，1成功
 	 */
     int updateByPrimaryKey(Wt_goods record);
+
+    List<Wt_goods> selectGoods(Integer adExId);
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.mall.Wt_navigationMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_navigation" >
+    <id column="na_id" property="naId" jdbcType="INTEGER" />
+    <result column="ad_ex_id" property="adExId" jdbcType="INTEGER" />
+    <result column="na_name" property="naName" jdbcType="VARCHAR" />
+    <result column="cat_id" property="catId" jdbcType="INTEGER" />
+    <result column="na_display" property="naDisplay" jdbcType="INTEGER" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    na_id,ad_ex_id,na_name,cat_id,na_display
+    from wt_navigation
+    where na_id = #{naId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wt_navigation
+    where na_id = #{naId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.parasol.core.mall.Wt_navigation" >
+    insert into wt_navigation (na_id, ad_ex_id, na_name, 
+      cat_id, na_display)
+    values (#{naId,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{naName,jdbcType=VARCHAR}, 
+      #{catId,jdbcType=INTEGER}, #{naDisplay,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_navigation" >
+    insert into wt_navigation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="naId != null" >
+        na_id,
+      </if>
+      <if test="adExId != null" >
+        ad_ex_id,
+      </if>
+      <if test="naName != null" >
+        na_name,
+      </if>
+      <if test="catId != null" >
+        cat_id,
+      </if>
+      <if test="naDisplay != null" >
+        na_display,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="naId != null" >
+        #{naId,jdbcType=INTEGER},
+      </if>
+      <if test="adExId != null" >
+        #{adExId,jdbcType=INTEGER},
+      </if>
+      <if test="naName != null" >
+        #{naName,jdbcType=VARCHAR},
+      </if>
+      <if test="catId != null" >
+        #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="naDisplay != null" >
+        #{naDisplay,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.parasol.core.mall.Wt_navigation" >
+    update wt_navigation
+    <set >
+      <if test="adExId != null" >
+        ad_ex_id = #{adExId,jdbcType=INTEGER},
+      </if>
+      <if test="naName != null" >
+        na_name = #{naName,jdbcType=VARCHAR},
+      </if>
+      <if test="catId != null" >
+        cat_id = #{catId,jdbcType=INTEGER},
+      </if>
+      <if test="naDisplay != null" >
+        na_display = #{naDisplay,jdbcType=INTEGER},
+      </if>
+    </set>
+    where na_id = #{naId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_navigation" >
+    update wt_navigation
+    set ad_ex_id = #{adExId,jdbcType=INTEGER},
+      na_name = #{naName,jdbcType=VARCHAR},
+      cat_id = #{catId,jdbcType=INTEGER},
+      na_display = #{naDisplay,jdbcType=INTEGER}
+    where na_id = #{naId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByAd" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    na_id,ad_ex_id,na_name,cat_id,na_display
+    from wt_navigation
+    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+  </select>
+</mapper>

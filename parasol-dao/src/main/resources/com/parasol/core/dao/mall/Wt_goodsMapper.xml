@@ -9,15 +9,15 @@
     <result column="cat_parentid" property="catParentid" jdbcType="INTEGER" />
     <result column="gd_time" property="gdTime" jdbcType="TIMESTAMP" />
     <result column="cat_sonid" property="catSonid" jdbcType="INTEGER" />
-    <result column="ad_ex_id" property="adExId" jdbcType="VARCHAR" />
+    <result column="ad_ex_id" property="adExId" jdbcType="INTEGER" />
     <result column="gd_number" property="gdNumber" jdbcType="INTEGER" />
-    <result column="gd_price" property="gdPrice" jdbcType="DECIMAL" />
-    <result column="gd_mprice" property="gdMprice" jdbcType="DECIMAL" />
+    <result column="gd_price" property="gdPrice" jdbcType="DOUBLE" />
+    <result column="gd_mprice" property="gdMprice" jdbcType="DOUBLE" />
     <result column="gd_addtime" property="gdAddtime" jdbcType="TIMESTAMP" />
     <result column="gd_display" property="gdDisplay" jdbcType="VARCHAR" />
     <result column="gd_img" property="gdImg" jdbcType="VARCHAR" />
     <result column="gd_priceclass" property="gdPriceclass" jdbcType="INTEGER" />
-    <result column="gd_order" property="gdOrder" jdbcType="INTEGER" />
+    <result column="gd_order" property="gdOrder" jdbcType="VARCHAR" />
     <result column="gd_describe" property="gdDescribe" jdbcType="VARCHAR" />
     <result column="gd_area" property="gdArea" jdbcType="INTEGER" />
     <result column="gd_prca" property="gdPrca" jdbcType="INTEGER" />
@@ -31,6 +31,11 @@
     gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
     from wt_goods
     where gd_id = #{gdId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByExId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from wt_goods
@@ -47,10 +52,10 @@
       gd_place, gd_uptime)
     values (#{gdId,jdbcType=INTEGER}, #{gdName,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, 
       #{catId,jdbcType=INTEGER}, #{catParentid,jdbcType=INTEGER}, #{gdTime,jdbcType=TIMESTAMP}, 
-      #{catSonid,jdbcType=INTEGER}, #{adExId,jdbcType=VARCHAR}, #{gdNumber,jdbcType=INTEGER}, 
-      #{gdPrice,jdbcType=DECIMAL}, #{gdMprice,jdbcType=DECIMAL}, #{gdAddtime,jdbcType=TIMESTAMP}, 
+      #{catSonid,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{gdNumber,jdbcType=INTEGER},
+      #{gdPrice,jdbcType=DOUBLE}, #{gdMprice,jdbcType=DOUBLE}, #{gdAddtime,jdbcType=TIMESTAMP}, 
       #{gdDisplay,jdbcType=VARCHAR}, #{gdImg,jdbcType=VARCHAR}, #{gdPriceclass,jdbcType=INTEGER}, 
-      #{gdOrder,jdbcType=INTEGER}, #{gdDescribe,jdbcType=VARCHAR}, #{gdArea,jdbcType=INTEGER}, 
+      #{gdOrder,jdbcType=VARCHAR}, #{gdDescribe,jdbcType=VARCHAR}, #{gdArea,jdbcType=INTEGER},
       #{gdPrca,jdbcType=INTEGER}, #{gdDeimg,jdbcType=VARCHAR}, #{gdColour,jdbcType=VARCHAR}, 
       #{gdPlace,jdbcType=INTEGER}, #{gdUptime,jdbcType=TIMESTAMP})
   </insert>
@@ -150,16 +155,16 @@
         #{catSonid,jdbcType=INTEGER},
       </if>
       <if test="adExId != null" >
-        #{adExId,jdbcType=VARCHAR},
+        #{adExId,jdbcType=INTEGER},
       </if>
       <if test="gdNumber != null" >
         #{gdNumber,jdbcType=INTEGER},
       </if>
       <if test="gdPrice != null" >
-        #{gdPrice,jdbcType=DECIMAL},
+        #{gdPrice,jdbcType=DOUBLE},
       </if>
       <if test="gdMprice != null" >
-        #{gdMprice,jdbcType=DECIMAL},
+        #{gdMprice,jdbcType=DOUBLE},
       </if>
       <if test="gdAddtime != null" >
         #{gdAddtime,jdbcType=TIMESTAMP},
@@ -174,7 +179,7 @@
         #{gdPriceclass,jdbcType=INTEGER},
       </if>
       <if test="gdOrder != null" >
-        #{gdOrder,jdbcType=INTEGER},
+        #{gdOrder,jdbcType=VARCHAR},
       </if>
       <if test="gdDescribe != null" >
         #{gdDescribe,jdbcType=VARCHAR},
@@ -221,16 +226,16 @@
         cat_sonid = #{catSonid,jdbcType=INTEGER},
       </if>
       <if test="adExId != null" >
-        ad_ex_id = #{adExId,jdbcType=VARCHAR},
+        ad_ex_id = #{adExId,jdbcType=INTEGER},
       </if>
       <if test="gdNumber != null" >
         gd_number = #{gdNumber,jdbcType=INTEGER},
       </if>
       <if test="gdPrice != null" >
-        gd_price = #{gdPrice,jdbcType=DECIMAL},
+        gd_price = #{gdPrice,jdbcType=DOUBLE},
       </if>
       <if test="gdMprice != null" >
-        gd_mprice = #{gdMprice,jdbcType=DECIMAL},
+        gd_mprice = #{gdMprice,jdbcType=DOUBLE},
       </if>
       <if test="gdAddtime != null" >
         gd_addtime = #{gdAddtime,jdbcType=TIMESTAMP},
@@ -245,7 +250,7 @@
         gd_priceclass = #{gdPriceclass,jdbcType=INTEGER},
       </if>
       <if test="gdOrder != null" >
-        gd_order = #{gdOrder,jdbcType=INTEGER},
+        gd_order = #{gdOrder,jdbcType=VARCHAR},
       </if>
       <if test="gdDescribe != null" >
         gd_describe = #{gdDescribe,jdbcType=VARCHAR},
@@ -279,15 +284,15 @@
       cat_parentid = #{catParentid,jdbcType=INTEGER},
       gd_time = #{gdTime,jdbcType=TIMESTAMP},
       cat_sonid = #{catSonid,jdbcType=INTEGER},
-      ad_ex_id = #{adExId,jdbcType=VARCHAR},
+      ad_ex_id = #{adExId,jdbcType=INTEGER},
       gd_number = #{gdNumber,jdbcType=INTEGER},
-      gd_price = #{gdPrice,jdbcType=DECIMAL},
-      gd_mprice = #{gdMprice,jdbcType=DECIMAL},
+      gd_price = #{gdPrice,jdbcType=DOUBLE},
+      gd_mprice = #{gdMprice,jdbcType=DOUBLE},
       gd_addtime = #{gdAddtime,jdbcType=TIMESTAMP},
       gd_display = #{gdDisplay,jdbcType=VARCHAR},
       gd_img = #{gdImg,jdbcType=VARCHAR},
       gd_priceclass = #{gdPriceclass,jdbcType=INTEGER},
-      gd_order = #{gdOrder,jdbcType=INTEGER},
+      gd_order = #{gdOrder,jdbcType=VARCHAR},
       gd_describe = #{gdDescribe,jdbcType=VARCHAR},
       gd_area = #{gdArea,jdbcType=INTEGER},
       gd_prca = #{gdPrca,jdbcType=INTEGER},

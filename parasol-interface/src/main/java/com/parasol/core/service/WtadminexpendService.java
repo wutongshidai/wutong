@@ -46,4 +46,6 @@ public interface WtadminexpendService {
 	 * @return 0失败，1成功
 	 */
     int updateByPrimaryKey(Wt_admin_expend record);
+
+    int upShop(Wt_admin_expend wt_admin_expend);
 }

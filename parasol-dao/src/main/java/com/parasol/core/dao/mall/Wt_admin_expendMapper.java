@@ -15,4 +15,8 @@ public interface Wt_admin_expendMapper {
     int updateByPrimaryKeySelective(Wt_admin_expend record);
 
     int updateByPrimaryKey(Wt_admin_expend record);
+
+    Wt_admin_expend selectByadId(Integer id);
+
+    int updateByadId(Wt_admin_expend wt_admin_expend);
 }

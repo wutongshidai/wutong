@@ -42,7 +42,7 @@ public class Wt_goods implements Serializable {
     /**
      * 关联店铺id
      */
-    private String adExId;
+    private Integer adExId;
 
     /**
      * 商品数量
@@ -52,12 +52,12 @@ public class Wt_goods implements Serializable {
     /**
      * 商品录入价格
      */
-    private Long gdPrice;
+    private Double gdPrice;
 
     /**
      * 商品实际价格
      */
-    private Long gdMprice;
+    private Double gdMprice;
 
     /**
      * 商品上架时间
@@ -82,7 +82,7 @@ public class Wt_goods implements Serializable {
     /**
      * 商品规格
      */
-    private Integer gdOrder;
+    private String gdOrder;
 
     /**
      * 商品描述
@@ -177,12 +177,12 @@ public class Wt_goods implements Serializable {
         this.catSonid = catSonid;
     }
 
-    public String getadExId() {
+    public Integer getAdExId() {
         return adExId;
     }
 
-    public void setadExId(String adExId) {
-        this.adExId = adExId == null ? null : adExId.trim();
+    public void setAdExId(Integer adExId) {
+        this.adExId = adExId;
     }
 
     public Integer getGdNumber() {
@@ -193,19 +193,19 @@ public class Wt_goods implements Serializable {
         this.gdNumber = gdNumber;
     }
 
-    public Long getGdPrice() {
+    public Double getGdPrice() {
         return gdPrice;
     }
 
-    public void setGdPrice(Long gdPrice) {
+    public void setGdPrice(Double gdPrice) {
         this.gdPrice = gdPrice;
     }
 
-    public Long getGdMprice() {
+    public Double getGdMprice() {
         return gdMprice;
     }
 
-    public void setGdMprice(Long gdMprice) {
+    public void setGdMprice(Double gdMprice) {
         this.gdMprice = gdMprice;
     }
 
@@ -241,11 +241,11 @@ public class Wt_goods implements Serializable {
         this.gdPriceclass = gdPriceclass;
     }
 
-    public Integer getGdOrder() {
+    public String getGdOrder() {
         return gdOrder;
     }
 
-    public void setGdOrder(Integer gdOrder) {
+    public void setGdOrder(String gdOrder) {
         this.gdOrder = gdOrder;
     }
 

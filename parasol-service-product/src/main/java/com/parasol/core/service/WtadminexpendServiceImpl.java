@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.parasol.core.dao.mall.Wt_admin_expendMapper;
 import com.parasol.core.mall.Wt_admin_expend;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service("wtadminexpendService")
+@Transactional
 public class WtadminexpendServiceImpl implements WtadminexpendService {
 
 	@Autowired
-	private Wt_admin_expendMapper wtadminexpendMapper; 
-	
+	private Wt_admin_expendMapper wtadminexpendMapper;
+
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		int i = wtadminexpendMapper.deleteByPrimaryKey(id);
@@ -43,6 +47,12 @@ public class WtadminexpendServiceImpl implements WtadminexpendService {
 	@Override
 	public int updateByPrimaryKey(Wt_admin_expend record) {
 		int i = wtadminexpendMapper.updateByPrimaryKey(record);
+		return i;
+	}
+
+	@Override
+	public int upShop(Wt_admin_expend wt_admin_expend) {
+		int i = wtadminexpendMapper.updateByadId(wt_admin_expend);
 		return i;
 	}
 
