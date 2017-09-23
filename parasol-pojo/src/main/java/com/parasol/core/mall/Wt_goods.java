@@ -177,11 +177,11 @@ public class Wt_goods implements Serializable {
         this.catSonid = catSonid;
     }
 
-    public Integer getAdExId() {
+    public Integer getadExId() {
         return adExId;
     }
 
-    public void setAdExId(Integer adExId) {
+    public void setadExId(Integer adExId) {
         this.adExId = adExId;
     }
 

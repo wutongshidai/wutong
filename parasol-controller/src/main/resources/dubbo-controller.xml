@@ -39,7 +39,7 @@
 		<dubbo:reference interface="com.parasol.core.service.UploadService" id="uploadService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
-			<dubbo:reference interface="com.parasol.core.service.UserService" id="userService"
+		<dubbo:reference interface="com.parasol.core.service.UserService" id="userService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
 		<dubbo:reference interface="com.parasol.core.service.TenderService" id="tenderService"
@@ -48,18 +48,27 @@
 		<dubbo:reference interface="com.parasol.core.service.ExpertsService" id="expertsService"
 			url="dubbo://127.0.0.1:20880"  
 		/>
-		<dubbo:reference interface="com.parasol.core.service.WtgoodsService" id="wtgoodsService"
-			url="dubbo://127.0.0.1:20880"
-		/>
 		<dubbo:reference interface="com.parasol.core.service.WtadminService" id="wtadminService"
-						 url="dubbo://127.0.0.1:20880"
+			url="dubbo://127.0.0.1:20880"  
+		/>
+		<dubbo:reference interface="com.parasol.core.service.WtbrandService" id="wtbrandService"
+			url="dubbo://127.0.0.1:20880"  
+		/>
+		<dubbo:reference interface="com.parasol.core.service.WtgoodsService" id="wtgoodsService"
+			url="dubbo://127.0.0.1:20880"  
 		/>
 		<dubbo:reference interface="com.parasol.core.service.WtadminexpendService" id="wtadminexpendService"
-						 url="dubbo://127.0.0.1:20880"
+			url="dubbo://127.0.0.1:20880"  
 		/>
-		<dubbo:reference interface="com.parasol.core.service.WtnavigationService" id="wtnavigationService"
-						 url="dubbo://127.0.0.1:20880"
+				<dubbo:reference interface="com.parasol.core.service.WtnavigationService" id="wtnavigationService"
+			url="dubbo://127.0.0.1:20880"  
+		/>
+				<dubbo:reference interface="com.parasol.core.service.WtfavouriteService" id="wtfavouriteService"
+			url="dubbo://127.0.0.1:20880"  
+		/>
+				<dubbo:reference interface="com.parasol.core.service.WtcollectionService" id="wtcollectionService"
+			url="dubbo://127.0.0.1:20880"  
 		/>
 		<!-- 全局设置 -->
-		<dubbo:consumer timeout="60000" check="false"/>
+		<dubbo:consumer timeout="600000" check="false"/>
 </beans>

@@ -1,10 +1,18 @@
 package com.parasol.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.parasol.core.dao.mall.Wt_brandMapper;
 import com.parasol.core.mall.Wt_brand;
 
+/**
+ * @author wuliang
+ * @since 2017/9/12
+ */
+@Service("wtbrandService")
+@Transactional
 public class WtbrandServiceImpl implements WtbrandService {
 
 	@Autowired

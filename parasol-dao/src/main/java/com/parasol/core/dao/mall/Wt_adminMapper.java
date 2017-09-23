@@ -6,7 +6,7 @@ public interface Wt_adminMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    void insert(Wt_admin record);
+    int insert(Wt_admin record);
 
     int insertSelective(Wt_admin record);
 
@@ -15,10 +15,4 @@ public interface Wt_adminMapper {
     int updateByPrimaryKeySelective(Wt_admin record);
 
     int updateByPrimaryKey(Wt_admin record);
-
-    Wt_admin selectByUserName(String userName);
-
-    Wt_admin selectByPhone(String phone);
-
-    Wt_admin login(Wt_admin admin);
 }

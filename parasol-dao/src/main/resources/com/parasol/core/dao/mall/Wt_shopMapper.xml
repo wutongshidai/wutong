@@ -4,12 +4,13 @@
   <resultMap id="BaseResultMap" type="com.parasol.core.mall.Wt_shop" >
     <id column="sp_id" property="spId" jdbcType="INTEGER" />
     <result column="ad_ex_id" property="adExId" jdbcType="INTEGER" />
-    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="gd_id" property="gdId" jdbcType="INTEGER" />
     <result column="ad_id" property="adId" jdbcType="INTEGER" />
+    <result column="gd_volume" property="gdVolume" jdbcType="INTEGER" />
   </resultMap>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    sp_id,ad_ex_id,goods_id,ad_id
+    sp_id,ad_ex_id,gd_id,ad_id,gd_volume
     from wt_shop
     where sp_id = #{spId,jdbcType=INTEGER}
   </select>
@@ -18,10 +19,10 @@
     where sp_id = #{spId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.parasol.core.mall.Wt_shop" >
-    insert into wt_shop (sp_id, ad_ex_id, goods_id, 
-      ad_id)
-    values (#{spId,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
-      #{adId,jdbcType=INTEGER})
+    insert into wt_shop (sp_id, ad_ex_id, gd_id, 
+      ad_id, gd_volume)
+    values (#{spId,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{gdId,jdbcType=INTEGER}, 
+      #{adId,jdbcType=INTEGER}, #{gdVolume,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.parasol.core.mall.Wt_shop" >
     insert into wt_shop
@@ -32,11 +33,14 @@
       <if test="adExId != null" >
         ad_ex_id,
       </if>
-      <if test="goodsId != null" >
-        goods_id,
+      <if test="gdId != null" >
+        gd_id,
       </if>
       <if test="adId != null" >
         ad_id,
+      </if>
+      <if test="gdVolume != null" >
+        gd_volume,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -46,11 +50,14 @@
       <if test="adExId != null" >
         #{adExId,jdbcType=INTEGER},
       </if>
-      <if test="goodsId != null" >
-        #{goodsId,jdbcType=INTEGER},
+      <if test="gdId != null" >
+        #{gdId,jdbcType=INTEGER},
       </if>
       <if test="adId != null" >
         #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="gdVolume != null" >
+        #{gdVolume,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -60,11 +67,14 @@
       <if test="adExId != null" >
         ad_ex_id = #{adExId,jdbcType=INTEGER},
       </if>
-      <if test="goodsId != null" >
-        goods_id = #{goodsId,jdbcType=INTEGER},
+      <if test="gdId != null" >
+        gd_id = #{gdId,jdbcType=INTEGER},
       </if>
       <if test="adId != null" >
         ad_id = #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="gdVolume != null" >
+        gd_volume = #{gdVolume,jdbcType=INTEGER},
       </if>
     </set>
     where sp_id = #{spId,jdbcType=INTEGER}
@@ -72,8 +82,9 @@
   <update id="updateByPrimaryKey" parameterType="com.parasol.core.mall.Wt_shop" >
     update wt_shop
     set ad_ex_id = #{adExId,jdbcType=INTEGER},
-      goods_id = #{goodsId,jdbcType=INTEGER},
-      ad_id = #{adId,jdbcType=INTEGER}
+      gd_id = #{gdId,jdbcType=INTEGER},
+      ad_id = #{adId,jdbcType=INTEGER},
+      gd_volume = #{gdVolume,jdbcType=INTEGER}
     where sp_id = #{spId,jdbcType=INTEGER}
   </update>
 </mapper>

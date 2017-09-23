@@ -193,8 +193,7 @@ public class UserController {
 		return "dengL";
 	}
 	/**
-     * 加密 MD5  + 十六进制  + 盐  
-     * password = "safqwgnetrygfhehn123456j7efwhtreyguyu6y";
+     * 加密 MD5  
      * @param 
      * @return
      */
@@ -203,9 +202,7 @@ public class UserController {
 		char[] encodeHex  = null;	
 		try {
 			MessageDigest instance = MessageDigest.getInstance(algorithm);
-			//MD5加密后密文
 			byte[] digest = instance.digest(password.getBytes());
-			//十六进制再加密一次
 			encodeHex = Hex.encodeHex(digest);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
@@ -352,11 +349,11 @@ public class UserController {
     
     
     /**
-     * 姓名重复校验
+     * 姓名重复校验,0用户名重复，1为不重复
      */ 
     @ResponseBody
     @RequestMapping("/userName.do")
-    public Map<String,String> userName(String userName, HttpSession session){
+    public Map<String,String> userName(String userName){
     	Map<String, String> adminMap= new HashMap<String,String>();
     	String flag = "0";
     	System.out.println(userName);

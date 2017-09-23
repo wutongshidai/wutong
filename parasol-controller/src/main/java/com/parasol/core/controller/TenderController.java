@@ -1,6 +1,5 @@
 package com.parasol.core.controller;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.http.HttpRequest;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
-import org.springframework.web.multipart.support.DefaultMultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parasol.common.load.Files_Utils_DG;
@@ -524,7 +521,7 @@ public class TenderController {
 		}	
 
 		
-		//校验验证码	
+		//校验手机验证码	
 		@ResponseBody
 		@RequestMapping(value="/checkCodesss.do")
 		public Map<String,String> checkCodesss(String mobileyan, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws Exception{	
@@ -548,9 +545,7 @@ public class TenderController {
 			}else{
 				flag = "2";//验证码不能为空
 			}	
-			System.out.println(flag);
-			adminMaps.put("admin",flag);
-			System.out.println(adminMaps);
+			adminMaps.put("flag",flag);
 	    	System.out.println("短信验证...");
 	    	return adminMaps;	
 		}

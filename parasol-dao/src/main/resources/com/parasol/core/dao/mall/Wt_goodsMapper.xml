@@ -9,7 +9,7 @@
     <result column="cat_parentid" property="catParentid" jdbcType="INTEGER" />
     <result column="gd_time" property="gdTime" jdbcType="TIMESTAMP" />
     <result column="cat_sonid" property="catSonid" jdbcType="INTEGER" />
-    <result column="ad_ex_id" property="adExId" jdbcType="INTEGER" />
+    <result column="ad_ex_id" property="adExId" jdbcType="VARCHAR" />
     <result column="gd_number" property="gdNumber" jdbcType="INTEGER" />
     <result column="gd_price" property="gdPrice" jdbcType="DOUBLE" />
     <result column="gd_mprice" property="gdMprice" jdbcType="DOUBLE" />
@@ -32,11 +32,6 @@
     from wt_goods
     where gd_id = #{gdId,jdbcType=INTEGER}
   </select>
-  <select id="selectByExId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select *
-    from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER}
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from wt_goods
     where gd_id = #{gdId,jdbcType=INTEGER}
@@ -52,10 +47,10 @@
       gd_place, gd_uptime)
     values (#{gdId,jdbcType=INTEGER}, #{gdName,jdbcType=VARCHAR}, #{brandId,jdbcType=INTEGER}, 
       #{catId,jdbcType=INTEGER}, #{catParentid,jdbcType=INTEGER}, #{gdTime,jdbcType=TIMESTAMP}, 
-      #{catSonid,jdbcType=INTEGER}, #{adExId,jdbcType=INTEGER}, #{gdNumber,jdbcType=INTEGER},
+      #{catSonid,jdbcType=INTEGER}, #{adExId,jdbcType=VARCHAR}, #{gdNumber,jdbcType=INTEGER}, 
       #{gdPrice,jdbcType=DOUBLE}, #{gdMprice,jdbcType=DOUBLE}, #{gdAddtime,jdbcType=TIMESTAMP}, 
       #{gdDisplay,jdbcType=VARCHAR}, #{gdImg,jdbcType=VARCHAR}, #{gdPriceclass,jdbcType=INTEGER}, 
-      #{gdOrder,jdbcType=VARCHAR}, #{gdDescribe,jdbcType=VARCHAR}, #{gdArea,jdbcType=INTEGER},
+      #{gdOrder,jdbcType=VARCHAR}, #{gdDescribe,jdbcType=VARCHAR}, #{gdArea,jdbcType=INTEGER}, 
       #{gdPrca,jdbcType=INTEGER}, #{gdDeimg,jdbcType=VARCHAR}, #{gdColour,jdbcType=VARCHAR}, 
       #{gdPlace,jdbcType=INTEGER}, #{gdUptime,jdbcType=TIMESTAMP})
   </insert>
@@ -155,7 +150,7 @@
         #{catSonid,jdbcType=INTEGER},
       </if>
       <if test="adExId != null" >
-        #{adExId,jdbcType=INTEGER},
+        #{adExId,jdbcType=VARCHAR},
       </if>
       <if test="gdNumber != null" >
         #{gdNumber,jdbcType=INTEGER},
@@ -226,7 +221,7 @@
         cat_sonid = #{catSonid,jdbcType=INTEGER},
       </if>
       <if test="adExId != null" >
-        ad_ex_id = #{adExId,jdbcType=INTEGER},
+        ad_ex_id = #{adExId,jdbcType=VARCHAR},
       </if>
       <if test="gdNumber != null" >
         gd_number = #{gdNumber,jdbcType=INTEGER},
@@ -284,7 +279,7 @@
       cat_parentid = #{catParentid,jdbcType=INTEGER},
       gd_time = #{gdTime,jdbcType=TIMESTAMP},
       cat_sonid = #{catSonid,jdbcType=INTEGER},
-      ad_ex_id = #{adExId,jdbcType=INTEGER},
+      ad_ex_id = #{adExId,jdbcType=VARCHAR},
       gd_number = #{gdNumber,jdbcType=INTEGER},
       gd_price = #{gdPrice,jdbcType=DOUBLE},
       gd_mprice = #{gdMprice,jdbcType=DOUBLE},
@@ -302,4 +297,194 @@
       gd_uptime = #{gdUptime,jdbcType=TIMESTAMP}
     where gd_id = #{gdId,jdbcType=INTEGER}
   </update>
+  <select id="selectGoodsByClass" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+	gd_id , gd_img , gd_price , gd_name   
+    from wt_goods
+    where cat_parentid = #{catParentid,jdbcType=INTEGER}
+    order by
+    gd_id desc limit 8
+  </select>
+    <select id="selectThreeClass" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+	gd_id , gd_img , gd_price , gd_name   
+    from wt_goods
+    where cat_sonid = #{catSonid,jdbcType=INTEGER}
+    order by
+    gd_id desc limit 12
+  </select>
+   <select id="selectOneClass" resultMap="BaseResultMap" >
+    select 
+	gd_id , gd_img , gd_price , gd_name   
+    from wt_goods
+    where cat_parentid = #{catParentid,jdbcType=INTEGER}
+    order by
+    gd_id desc 
+    limit #{startrow,jdbcType=INTEGER} , 12
+  </select>
+  <select id="selectGoodsByAllClass" resultMap="BaseResultMap" >
+    select 
+	gd_id , gd_img , gd_price , gd_name   
+    from wt_goods
+    where cat_id = #{catId,jdbcType=INTEGER}
+    order by
+    gd_id desc
+    limit #{startrow,jdbcType=INTEGER} , 12
+  </select>
+  <select id="selectGoodsByThreeClass" resultMap="BaseResultMap" >
+    select 
+	*  
+    from wt_goods
+    where cat_sonid = #{catSonid,jdbcType=INTEGER} 
+    order by
+    gd_id desc
+    limit  #{startrow,jdbcType=INTEGER} , 12
+  </select>
+  <select id="selectGoodsAll" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+	*  
+    from wt_goods
+    order by
+    gd_id desc
+    limit #{startrow,jdbcType=INTEGER} , 12
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap" >
+    select 
+    gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
+    from wt_goods
+    where
+    gd_name
+    like
+    concat(concat('%',#{gdName}),'%')
+    order by
+    gd_id desc
+    limit #{startrow,jdbcType=INTEGER} , 12
+  </select>
+  <select id="selectGoodsByPrice" resultMap="BaseResultMap" >
+    select 
+	gd_id , gd_img , gd_price , gd_name   
+    from wt_goods
+    where 1 = 1
+      <if test="catParentid != null" >
+        and cat_parentid = #{catParentid,jdbcType=INTEGER}
+      </if>
+      <if test="catId != null" >
+       and cat_id = #{catId,jdbcType=INTEGER}
+      </if>
+       <if test="catSonid != null" >
+       and cat_sonid = #{catSonid,jdbcType=INTEGER}
+      </if>
+    order by
+    gd_price desc
+    limit #{startrow,jdbcType=INTEGER} , 12
+   </select>
+  <select id="selectGoodsByTime" resultMap="BaseResultMap" >
+    select 
+	gd_id , gd_img , gd_price , gd_name ,gd_addtime 
+    from wt_goods
+    where 1 = 1
+      <if test="catParentid != null" >
+       and cat_parentid = #{catParentid,jdbcType=INTEGER}
+      </if>
+      <if test="catId != null" >
+        and cat_id = #{catId,jdbcType=INTEGER}
+      </if>
+       <if test="catSonid != null" >
+        and cat_sonid = #{catSonid,jdbcType=INTEGER}
+      </if>
+    order by
+    gd_addtime desc
+    limit #{startrow,jdbcType=INTEGER} , 12
+   </select> 
+   <select id="selectGoodsThreeCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+    where cat_sonid = #{catSonid,jdbcType=INTEGER}
+   </select>
+   <select id="selectGoodsTwoCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+    where cat_id = #{catId,jdbcType=INTEGER}
+   </select>
+   <select id="selectGoodsOneCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+    where  cat_parentid = #{catParentid,jdbcType=INTEGER}
+   </select> 
+   <select id="selectGoodsCount" resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+   </select>
+   <select id="selectGoodsGuess" resultMap="BaseResultMap">
+    select 
+	*   
+    from wt_goods
+    where gd_id != #{gdId,jdbcType=INTEGER} and ad_ex_id =#{adExId,jdbcType=INTEGER}
+    order by 
+    gd_id desc
+    limit 4
+   </select>   
+   <select id="selectShopCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+   </select>
+   <select id="selectGoodsShop" resultMap="BaseResultMap" >
+    select 
+	*   
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+    order by
+    gd_addtime desc
+    limit   #{startrow,jdbcType=INTEGER} , 12
+   </select>
+  <select id="selectByNameShop" resultMap="BaseResultMap" >
+    select 
+    gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and
+    gd_name
+    like
+    concat(concat('%',#{gdName}),'%')
+    order by gd_id desc 
+    limit   #{startrow,jdbcType=INTEGER} , 12
+  </select>
+    <select id="selectGradeCount"  resultType="java.lang.Integer">
+    select 
+	count(*)   
+    from wt_goods
+    where 1 = 1
+      <if test="catParentid != null" >
+       and cat_parentid = #{catParentid,jdbcType=INTEGER}
+      </if>
+      <if test="catId != null" >
+      and  cat_id = #{catId,jdbcType=INTEGER}
+      </if>
+       <if test="catSonid != null" >
+      and  cat_sonid = #{catSonid,jdbcType=INTEGER}
+      </if>
+   </select> 
+    <select id="selectByNameShopCount" resultType="java.lang.Integer" >
+    select 
+    count(*) 
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and
+    gd_name
+    like
+    concat(concat('%',#{gdName}),'%')
+  </select>
+    <select id="selectByNameCount"  parameterType="string" resultType="java.lang.Integer" >
+    select 
+    count(*) 
+    from wt_goods
+    where
+    gd_name
+    like
+    concat(concat('%',#{gdName}),'%')
+  </select>
 </mapper>

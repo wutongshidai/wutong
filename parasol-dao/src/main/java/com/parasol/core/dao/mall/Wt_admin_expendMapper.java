@@ -1,5 +1,7 @@
 package com.parasol.core.dao.mall;
 
+import java.util.List;
+
 import com.parasol.core.mall.Wt_admin_expend;
 
 public interface Wt_admin_expendMapper {
@@ -15,8 +17,6 @@ public interface Wt_admin_expendMapper {
     int updateByPrimaryKeySelective(Wt_admin_expend record);
 
     int updateByPrimaryKey(Wt_admin_expend record);
-
-    Wt_admin_expend selectByadId(Integer id);
-
-    int updateByadId(Wt_admin_expend wt_admin_expend);
+    
+    List<Wt_admin_expend> selectByName(String adShopName);
 }

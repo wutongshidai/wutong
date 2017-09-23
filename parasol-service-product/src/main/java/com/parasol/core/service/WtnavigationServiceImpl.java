@@ -7,8 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.parasol.core.dao.mall.Wt_navigationMapper;
 import com.parasol.core.mall.Wt_navigation;
 
-import java.util.List;
-
 @Service("wtnavigationService")
 @Transactional
 public class WtnavigationServiceImpl implements WtnavigationService {
@@ -31,8 +29,7 @@ public class WtnavigationServiceImpl implements WtnavigationService {
 	@Override
 	public Integer insertSelective(Wt_navigation record) {
 		// TODO Auto-generated method stub
-		int i = wt_navigationMapper.insertSelective(record);
-		return i;
+		return 0;
 	}
 
 	@Override
@@ -43,8 +40,8 @@ public class WtnavigationServiceImpl implements WtnavigationService {
 
 	@Override
 	public Integer updateByPrimaryKeySelective(Wt_navigation record) {
-		int i = wt_navigationMapper.updateByPrimaryKeySelective(record);
-		return i;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -54,9 +51,9 @@ public class WtnavigationServiceImpl implements WtnavigationService {
 	}
 
 	@Override
-	public List<Wt_navigation> selectByAd(Integer adExId) {
-		List<Wt_navigation> wt_navigations = wt_navigationMapper.selectByAd(adExId);
-		return wt_navigations;
+	public Wt_navigation selectByAd(Integer adExId) {
+		Wt_navigation ad = wt_navigationMapper.selectByAd(adExId);
+		return ad;
 	}
 
 }

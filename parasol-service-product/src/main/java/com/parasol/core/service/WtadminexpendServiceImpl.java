@@ -1,19 +1,26 @@
+
 package com.parasol.core.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
-import com.parasol.core.dao.mall.Wt_admin_expendMapper;
-import com.parasol.core.mall.Wt_admin_expend;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.parasol.core.dao.mall.Wt_admin_expendMapper;
+import com.parasol.core.mall.Wt_admin_expend;
+
+/**
+ * @author wuliang
+ * @since 2017/9/12
+ */
 @Service("wtadminexpendService")
 @Transactional
 public class WtadminexpendServiceImpl implements WtadminexpendService {
 
 	@Autowired
-	private Wt_admin_expendMapper wtadminexpendMapper;
-
+	private Wt_admin_expendMapper wtadminexpendMapper; 
+	
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
 		int i = wtadminexpendMapper.deleteByPrimaryKey(id);
@@ -50,10 +57,13 @@ public class WtadminexpendServiceImpl implements WtadminexpendService {
 		return i;
 	}
 
+	/*
+	 * 通过店铺名模糊查询店铺
+	 */
 	@Override
-	public int upShop(Wt_admin_expend wt_admin_expend) {
-		int i = wtadminexpendMapper.updateByadId(wt_admin_expend);
-		return i;
+	public List<Wt_admin_expend> selectByName(String adShopName) {
+		List<Wt_admin_expend> list = wtadminexpendMapper.selectByName(adShopName);
+		return list;
 	}
 
 
