@@ -319,4 +319,82 @@
     like
     concat(concat('%',#{adShopName}),'%')
   </select>
+    <select id="selectByadId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    ad_ex_id,ad_id,ad_company_nature,ad_company_url,ad_company_address,ad_company_phone,ad_company_code,ad_company_mail,ad_company_contacts,ad_company_contactsnumber,ad_bank_name,ad_bank_username,ad_bank_number,ad_bank_address,ad_shop_number,ad_shop_name,ad_shop_username,ad_shop_phone,ad_shop_qq,ad_shop_logo,ad_license_img,ad_legal_img,ad_manage_img,ad_state
+    from wt_admin_expend
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </select>
+  <update id="updateByadId" parameterType="com.parasol.core.mall.Wt_admin_expend" >
+    update wt_admin_expend
+    <set >
+      <if test="adCompanyNature != null" >
+        ad_company_nature = #{adCompanyNature,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyUrl != null" >
+        ad_company_url = #{adCompanyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyAddress != null" >
+        ad_company_address = #{adCompanyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyPhone != null" >
+        ad_company_phone = #{adCompanyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyCode != null" >
+        ad_company_code = #{adCompanyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyMail != null" >
+        ad_company_mail = #{adCompanyMail,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyContacts != null" >
+        ad_company_contacts = #{adCompanyContacts,jdbcType=VARCHAR},
+      </if>
+      <if test="adCompanyContactsnumber != null" >
+        ad_company_contactsnumber = #{adCompanyContactsnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="adBankName != null" >
+        ad_bank_name = #{adBankName,jdbcType=VARCHAR},
+      </if>
+      <if test="adBankUsername != null" >
+        ad_bank_username = #{adBankUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adBankNumber != null" >
+        ad_bank_number = #{adBankNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="adBankAddress != null" >
+        ad_bank_address = #{adBankAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopNumber != null" >
+        ad_shop_number = #{adShopNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopName != null" >
+        ad_shop_name = #{adShopName,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopUsername != null" >
+        ad_shop_username = #{adShopUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopPhone != null" >
+        ad_shop_phone = #{adShopPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopQq != null" >
+        ad_shop_qq = #{adShopQq,jdbcType=VARCHAR},
+      </if>
+      <if test="adShopLogo != null" >
+        ad_shop_logo = #{adShopLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="adLicenseImg != null" >
+        ad_license_img = #{adLicenseImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adLegalImg != null" >
+        ad_legal_img = #{adLegalImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adManageImg != null" >
+        ad_manage_img = #{adManageImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adState != null" >
+        ad_state = #{adState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </update>
 </mapper>

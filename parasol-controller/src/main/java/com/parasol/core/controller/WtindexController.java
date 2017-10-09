@@ -185,7 +185,7 @@ public class WtindexController {
 	
 	/*
 	 * 商家首页
-	 */
+	 */  
 	@ResponseBody
 	@RequestMapping("/selectGoodsShop.do")
 	public Map<String , Object> selectGoodsShop(Integer page , Integer adExId) {
@@ -297,8 +297,8 @@ public class WtindexController {
 	 */
 	@ResponseBody
 	@RequestMapping("/selectByNavigation.do")
-	public Wt_navigation navigationList(Integer adExId) {
-		Wt_navigation ad = wtnavigationService.selectByAd(adExId);
+	public List<Wt_navigation> navigationList(Integer adExId) {
+		 List<Wt_navigation> ad = wtnavigationService.selectByAd(adExId);
 	 return ad;
 	}
 	

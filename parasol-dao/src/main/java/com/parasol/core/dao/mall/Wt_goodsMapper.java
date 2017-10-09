@@ -59,5 +59,7 @@ public interface Wt_goodsMapper {
     int selectByNameShopCount(@Param("gdName") String gdName ,@Param("adExId") Integer adExId);
     
     int selectByNameCount(String gdName);
+    
+    List<Wt_goods> selectByExId(Integer adExId);
    
 }

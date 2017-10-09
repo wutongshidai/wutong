@@ -487,4 +487,9 @@
     like
     concat(concat('%',#{gdName}),'%')
   </select>
+    <select id="selectByExId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from wt_goods
+    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -19,4 +19,8 @@ public interface Wt_admin_expendMapper {
     int updateByPrimaryKey(Wt_admin_expend record);
     
     List<Wt_admin_expend> selectByName(String adShopName);
+    
+    Wt_admin_expend selectByadId(Integer id);
+
+    int updateByadId(Wt_admin_expend wt_admin_expend);
 }

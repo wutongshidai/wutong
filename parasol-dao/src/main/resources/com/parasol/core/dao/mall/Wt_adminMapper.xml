@@ -111,4 +111,22 @@
       cat_id = #{catId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <select id="login" resultMap="BaseResultMap" parameterType="com.parasol.core.mall.Wt_admin" >
+    select
+    id,user_name,password,mobile_phone,wt_admin_expend_id,company_name,cat_id
+    from wt_admin
+    where user_name = #{userName,jdbcType=VARCHAR} AND password = #{password,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    id,user_name,password,mobile_phone,wt_admin_expend_id,company_name,cat_id
+    from wt_admin
+    where user_name = #{userName}
+  </select>
+  <select id="selectByPhone" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    id
+    from wt_admin
+    where mobile_phone = #{phone}
+  </select>
 </mapper>

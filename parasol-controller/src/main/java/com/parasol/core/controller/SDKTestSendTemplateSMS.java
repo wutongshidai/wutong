@@ -1,7 +1,6 @@
 package com.parasol.core.controller;
 
 import java.util.HashMap;
-import java.util.Random;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;

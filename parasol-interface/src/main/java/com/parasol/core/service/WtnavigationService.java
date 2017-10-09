@@ -1,5 +1,7 @@
 package com.parasol.core.service;
 
+import java.util.List;
+
 import com.parasol.core.mall.Wt_navigation;
 
 public interface WtnavigationService {
@@ -16,5 +18,7 @@ public interface WtnavigationService {
 
     Integer updateByPrimaryKey(Wt_navigation record);
     
-    Wt_navigation selectByAd(Integer adExId);
+//    Wt_navigation selectByAd(Integer adExId);
+    
+    List<Wt_navigation> selectByAd(Integer adExId);
 }

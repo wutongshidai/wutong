@@ -66,5 +66,9 @@ public class WtadminexpendServiceImpl implements WtadminexpendService {
 		return list;
 	}
 
-
+	@Override
+	public int upShop(Wt_admin_expend wt_admin_expend) {
+		int i = wtadminexpendMapper.updateByadId(wt_admin_expend);
+		return i;
+	}
 }

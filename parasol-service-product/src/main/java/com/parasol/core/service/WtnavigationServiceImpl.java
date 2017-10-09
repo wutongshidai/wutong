@@ -1,5 +1,7 @@
 package com.parasol.core.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,20 +30,19 @@ public class WtnavigationServiceImpl implements WtnavigationService {
 
 	@Override
 	public Integer insertSelective(Wt_navigation record) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = wt_navigationMapper.insertSelective(record);
+		return i;
 	}
 
 	@Override
 	public Wt_navigation selectByPrimaryKey(Integer naId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Integer updateByPrimaryKeySelective(Wt_navigation record) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = wt_navigationMapper.updateByPrimaryKeySelective(record);
+		return i;
 	}
 
 	@Override
@@ -50,10 +51,15 @@ public class WtnavigationServiceImpl implements WtnavigationService {
 		return updateByPrimaryKey;
 	}
 
-	@Override
+/*	@Override
 	public Wt_navigation selectByAd(Integer adExId) {
 		Wt_navigation ad = wt_navigationMapper.selectByAd(adExId);
 		return ad;
-	}
+	}*/
 
+	@Override
+	public List<Wt_navigation> selectByAd(Integer adExId) {
+		List<Wt_navigation> wt_navigations = wt_navigationMapper.selectByAd(adExId);
+		return wt_navigations;
+	}
 }

@@ -293,4 +293,9 @@ public class WtgoodsServiceImpl implements WtgoodsService {
 		return count; 
 	}
 
+	@Override
+	public List<Wt_goods> selectGoods(Integer adExId) {
+		List<Wt_goods> list=wtgoodsMapper.selectByExId(adExId);
+		return list;
+	}
 }

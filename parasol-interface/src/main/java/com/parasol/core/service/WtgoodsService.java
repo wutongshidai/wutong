@@ -160,4 +160,6 @@ public interface WtgoodsService {
     
 
     Integer selectByNameCount(String gdName);
+    
+    List<Wt_goods> selectGoods(Integer adExId);
 }

@@ -1,5 +1,7 @@
 package com.parasol.core.dao.mall;
 
+import java.util.List;
+
 import com.parasol.core.mall.Wt_navigation;
 
 public interface Wt_navigationMapper {
@@ -16,5 +18,6 @@ public interface Wt_navigationMapper {
 
     int updateByPrimaryKey(Wt_navigation record);
     
-    Wt_navigation selectByAd(Integer adExId);
+//    Wt_navigation selectByAd(Integer adExId);
+    List<Wt_navigation> selectByAd(Integer adExId);
 }

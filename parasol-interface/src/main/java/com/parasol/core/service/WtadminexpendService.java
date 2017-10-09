@@ -61,4 +61,6 @@ public interface WtadminexpendService {
      * @return 商品集合
      */
     List<Wt_admin_expend> selectByName(String adShopName);
+    
+    int upShop(Wt_admin_expend wt_admin_expend);
 }
