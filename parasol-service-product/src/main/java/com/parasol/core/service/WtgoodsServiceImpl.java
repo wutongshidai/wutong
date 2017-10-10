@@ -55,7 +55,7 @@ public class WtgoodsServiceImpl implements WtgoodsService {
 
 	@Override
 	public Integer updateByPrimaryKey(Wt_goods record) {
-		int i = wtgoodsMapper.updateByPrimaryKey(record);
+		int i = wtgoodsMapper.updateByPrimaryKeySelective(record);
 		return i;
 	}
 	

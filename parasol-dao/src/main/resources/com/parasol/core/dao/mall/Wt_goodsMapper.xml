@@ -301,7 +301,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name   
     from wt_goods
-    where cat_parentid = #{catParentid,jdbcType=INTEGER}
+    where cat_parentid = #{catParentid,jdbcType=INTEGER} and gd_display = 1
     order by
     gd_id desc limit 8
   </select>
@@ -309,7 +309,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name   
     from wt_goods
-    where cat_sonid = #{catSonid,jdbcType=INTEGER}
+    where cat_sonid = #{catSonid,jdbcType=INTEGER} and gd_display = 1
     order by
     gd_id desc limit 12
   </select>
@@ -317,7 +317,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name   
     from wt_goods
-    where cat_parentid = #{catParentid,jdbcType=INTEGER}
+    where cat_parentid = #{catParentid,jdbcType=INTEGER} and gd_display = 1
     order by
     gd_id desc 
     limit #{startrow,jdbcType=INTEGER} , 12
@@ -326,7 +326,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name   
     from wt_goods
-    where cat_id = #{catId,jdbcType=INTEGER}
+    where cat_id = #{catId,jdbcType=INTEGER} and gd_display = 1
     order by
     gd_id desc
     limit #{startrow,jdbcType=INTEGER} , 12
@@ -335,7 +335,7 @@
     select 
 	*  
     from wt_goods
-    where cat_sonid = #{catSonid,jdbcType=INTEGER} 
+    where cat_sonid = #{catSonid,jdbcType=INTEGER} and gd_display = 1
     order by
     gd_id desc
     limit  #{startrow,jdbcType=INTEGER} , 12
@@ -344,6 +344,7 @@
     select 
 	*  
     from wt_goods
+    where gd_display = 1
     order by
     gd_id desc
     limit #{startrow,jdbcType=INTEGER} , 12
@@ -353,7 +354,8 @@
     gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
     from wt_goods
     where
-    gd_name
+    gd_display = 1 and 
+    gd_name  
     like
     concat(concat('%',#{gdName}),'%')
     order by
@@ -364,7 +366,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name   
     from wt_goods
-    where 1 = 1
+    where 1 = 1  and gd_display = 1
       <if test="catParentid != null" >
         and cat_parentid = #{catParentid,jdbcType=INTEGER}
       </if>
@@ -382,7 +384,7 @@
     select 
 	gd_id , gd_img , gd_price , gd_name ,gd_addtime 
     from wt_goods
-    where 1 = 1
+    where 1 = 1 and gd_display = 1
       <if test="catParentid != null" >
        and cat_parentid = #{catParentid,jdbcType=INTEGER}
       </if>
@@ -400,30 +402,31 @@
     select 
 	count(*)   
     from wt_goods
-    where cat_sonid = #{catSonid,jdbcType=INTEGER}
+    where cat_sonid = #{catSonid,jdbcType=INTEGER} and gd_display = 1
    </select>
    <select id="selectGoodsTwoCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     select 
 	count(*)   
     from wt_goods
-    where cat_id = #{catId,jdbcType=INTEGER}
+    where cat_id = #{catId,jdbcType=INTEGER} and gd_display = 1
    </select>
    <select id="selectGoodsOneCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
     select 
 	count(*)   
     from wt_goods
-    where  cat_parentid = #{catParentid,jdbcType=INTEGER}
+    where  cat_parentid = #{catParentid,jdbcType=INTEGER} and gd_display = 1
    </select> 
    <select id="selectGoodsCount" resultType="java.lang.Integer">
     select 
 	count(*)   
     from wt_goods
+    where gd_display = 1
    </select>
    <select id="selectGoodsGuess" resultMap="BaseResultMap">
     select 
 	*   
     from wt_goods
-    where gd_id != #{gdId,jdbcType=INTEGER} and ad_ex_id =#{adExId,jdbcType=INTEGER}
+    where gd_id != #{gdId,jdbcType=INTEGER} and ad_ex_id =#{adExId,jdbcType=INTEGER} and gd_display = 1
     order by 
     gd_id desc
     limit 4
@@ -447,7 +450,7 @@
     select 
     gd_id,gd_name,brand_id,cat_id,cat_parentid,gd_time,cat_sonid,ad_ex_id,gd_number,gd_price,gd_mprice,gd_addtime,gd_display,gd_img,gd_priceclass,gd_order,gd_describe,gd_area,gd_prca,gd_deimg,gd_colour,gd_place,gd_uptime
     from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER} and
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and gd_display = 1 and
     gd_name
     like
     concat(concat('%',#{gdName}),'%')
@@ -458,7 +461,7 @@
     select 
 	count(*)   
     from wt_goods
-    where 1 = 1
+    where 1 = 1 and gd_display = 1
       <if test="catParentid != null" >
        and cat_parentid = #{catParentid,jdbcType=INTEGER}
       </if>
@@ -473,7 +476,7 @@
     select 
     count(*) 
     from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER} and
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and gd_display = 1 and
     gd_name
     like
     concat(concat('%',#{gdName}),'%')
@@ -482,7 +485,7 @@
     select 
     count(*) 
     from wt_goods
-    where
+    where  gd_display = 1 and 
     gd_name
     like
     concat(concat('%',#{gdName}),'%')
@@ -490,6 +493,6 @@
     <select id="selectByExId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select *
     from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} 
   </select>
 </mapper>
