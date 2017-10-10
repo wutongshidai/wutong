@@ -298,4 +298,13 @@ public class WtgoodsServiceImpl implements WtgoodsService {
 		List<Wt_goods> list=wtgoodsMapper.selectByExId(adExId);
 		return list;
 	}
+
+	@Override
+	public int soldOut(Integer gdId, String gdDisplay) {
+		Wt_goods wt_goods = new Wt_goods();
+		wt_goods.setGdId(gdId);
+		wt_goods.setGdDisplay(gdDisplay);
+		int i= wtgoodsMapper.updateByPrimaryKeySelective(wt_goods);
+		return i;
+	}
 }

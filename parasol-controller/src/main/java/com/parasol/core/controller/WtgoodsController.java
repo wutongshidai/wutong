@@ -86,20 +86,26 @@ public class WtgoodsController {
 		return map;
 	}
 
-	/*
-	 *修改上下架状态 
-	 */
-	@ResponseBody
-	@RequestMapping("/goodsGrounding.do")
-	public String goodsGrounding(Integer gdId , String gdDisplay) {
-		  Wt_goods wt_goods = wtgoodsService.selectByPrimaryKey(gdId);
-		  wt_goods.setGdDisplay(gdDisplay);
-		  int i = wtgoodsService.updateByPrimaryKeySelective(wt_goods);
-		  if(i == 1){
-			  return "success";
-		  }
-		return "fail";
-	}
+    /**
+     * 修改上下架
+     * @param map
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/soldOut.do")
+    public Map soldOut(@RequestBody Map map) {
+        Map reMap = new HashMap();
+        reMap.put("msg", "操作失败。请稍后");
+        reMap.put("status", false);
+        Integer gdId = (Integer) map.get("gdId");
+        String gdDisplay = (String)map.get("gdDisplay");
+        int i = wtgoodsService.soldOut(gdId, gdDisplay);
+        if(i == 1){
+            reMap.put("msg", "成功");
+            reMap.put("status", true);
+        }
+        return reMap;
+    }
 		
 	/*  
 	 * 商品编辑............
