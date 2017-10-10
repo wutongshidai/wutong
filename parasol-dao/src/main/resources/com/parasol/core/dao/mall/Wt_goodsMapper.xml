@@ -432,13 +432,13 @@
     select 
 	count(*)   
     from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and gd_display = 1
    </select>
    <select id="selectGoodsShop" resultMap="BaseResultMap" >
     select 
 	*   
     from wt_goods
-    where ad_ex_id = #{adExId,jdbcType=INTEGER}
+    where ad_ex_id = #{adExId,jdbcType=INTEGER} and  gd_display = 1
     order by
     gd_addtime desc
     limit   #{startrow,jdbcType=INTEGER} , 12

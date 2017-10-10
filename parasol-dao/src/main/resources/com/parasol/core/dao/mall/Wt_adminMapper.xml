@@ -20,7 +20,7 @@
     delete from wt_admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.parasol.core.mall.Wt_admin" >
+  <insert id="insert"  useGeneratedKeys="true" keyProperty="id" parameterType="com.parasol.core.mall.Wt_admin" >
     insert into wt_admin (id, user_name, password, 
       mobile_phone, wt_admin_expend_id, company_name, 
       cat_id)

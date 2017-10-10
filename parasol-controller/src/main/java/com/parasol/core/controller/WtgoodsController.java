@@ -47,13 +47,6 @@ public class WtgoodsController {
 		return i;
 	}
 
-	@ResponseBody
-	@RequestMapping("/insertGoods.do")
-	public int insert(Wt_goods record) {
-		int i = wtgoodsService.insert(record);
-		return i;
-	}
-
 	/*
 	 * 商品录入
 	 */
@@ -152,6 +145,12 @@ public class WtgoodsController {
 		return map;
 	}
 	
+	
+	/**
+	 * @author biao
+	 * @since 2017/10/9
+	 */
+	
     /**
      * 校验登录
      */
@@ -190,7 +189,7 @@ public class WtgoodsController {
         int adExId = (Integer)map.get("adExId");
         Wt_goods record = new Wt_goods();
         try {
-            // 判断是否填完整了拓展表信息                                         wtadminexpendSerivce
+            // 判断是否填完整了拓展表信息                                        
             Wt_admin_expend wt_admin_expend = wtadminexpendService.selectByPrimaryKey(adExId);
             int flag = 0;
             for (Field f : wt_admin_expend.getClass().getDeclaredFields()) {

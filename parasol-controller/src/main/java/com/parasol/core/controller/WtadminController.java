@@ -14,6 +14,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,6 +31,7 @@ import com.parasol.core.service.WtnavigationService;
  * @author aliang
  * @since 2017/8/28
  */
+@Controller
 public class WtadminController {
 
 	@Autowired
@@ -77,6 +79,12 @@ public class WtadminController {
 		return i;
 	}
 	
+
+	/**
+	 * @author biao
+	 * @since 2017/10/9
+	 */
+	
 	/*
 	 *修改店铺logo
 	 */
@@ -91,13 +99,7 @@ public class WtadminController {
 		  }
 		return "fail";
 	}
-	
-	
-	
-
 	Logger logger = Logger.getLogger(WtadminController.class);
-
-
 
 	/**
      * 校验账户名接口
