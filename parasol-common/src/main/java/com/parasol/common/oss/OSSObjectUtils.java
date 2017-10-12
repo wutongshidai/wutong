@@ -86,8 +86,7 @@ public class OSSObjectUtils {
         ObjectMetadata objectMeta = new ObjectMetadata();
         objectMeta.setContentLength(file.length());
         // 可以在metadata中标记文件类型
-//        objectMeta.setContentType("image/jpeg");
-
+        // objectMeta.setContentType("image/jpeg");
         InputStream input = new FileInputStream(file);
         client.putObject(BUCKET, imageFloder + file.getName(), input, objectMeta);
 
@@ -95,7 +94,7 @@ public class OSSObjectUtils {
     }
 
     // 上传文件
-    public static String uploadMultipartFile(MultipartFile multipartFile, String imageDir) {
+    public static String uploadMultipartFile(MultipartFile multipartFile, String imageDir , String bucketName) {
         if(multipartFile == null) {
             return null;
         }
@@ -106,7 +105,7 @@ public class OSSObjectUtils {
                 return null;
             }
             String fileName = UUID.randomUUID().toString()+"."+suffix;
-            OSSObjectUtils.uploadFile(fileName, size, multipartFile.getInputStream(), imageDir);
+            OSSObjectUtils.uploadFileNew(fileName, size, multipartFile.getInputStream(), imageDir, bucketName);
             return fileName;
         } catch (IOException e) {
             e.printStackTrace();
@@ -120,7 +119,15 @@ public class OSSObjectUtils {
         OSSClient client = new OSSClient(ENDPOINT, ACCESS_ID, ACCESS_KEY);
         ObjectMetadata objectMeta = new ObjectMetadata();
         objectMeta.setContentLength(fileSize);
-        client.putObject("wut1", imageFloder + fileName, input, objectMeta);
+        client.putObject(BUCKET, imageFloder + fileName, input, objectMeta);
+    }
+    
+    public static void uploadFileNew(String fileName, long fileSize, InputStream input, String imageFloder ,String bucketName)
+            throws OSSException, ClientException, FileNotFoundException {
+        OSSClient client = new OSSClient(ENDPOINT, ACCESS_ID, ACCESS_KEY);
+        ObjectMetadata objectMeta = new ObjectMetadata();
+        objectMeta.setContentLength(fileSize);
+        client.putObject(bucketName, imageFloder + fileName, input, objectMeta);
     }
     //流上传
     public static void uploadFile( String key, InputStream is) {

@@ -61,6 +61,9 @@ public class SDKTestSendTemplateSMS {
 		}
 	}
 	
+	/*
+	 * 商城后台用户注册
+	 */
 	@ResponseBody
 	@RequestMapping("/sdkTestSend2.do")
 	public String sdkTestSend2(@RequestBody Map map, HttpServletRequest request, HttpServletResponse response) {

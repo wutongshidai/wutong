@@ -230,7 +230,7 @@ public class UserManageController {
 	 @RequestMapping(value = "/headImgUpload.do")
 	 public static String headImgUpload(HttpServletRequest request ,@RequestParam("file_upload") MultipartFile multipartFile) {
 //		 OSSObjectUtils.downloadFile("aaa.jpg", "E:/");
-		 OSSObjectUtils.uploadMultipartFile(multipartFile, null);
+		 OSSObjectUtils.uploadMultipartFile(multipartFile, null,"wut1");
 		 System.out.println("yunxing");
 		 return "chenggong";
 	 } 

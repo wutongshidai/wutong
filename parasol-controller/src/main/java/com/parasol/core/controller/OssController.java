@@ -23,13 +23,14 @@ public class OssController {
 	
 	/*
 	 * oss文件上传
+	 * 商品上传
 	 */
 	@ResponseBody
 	@RequestMapping(value="/uploadOss.do")
  	public Map<String, String> uploadOss(MultipartRequest request){	
 		try {
 			MultipartFile multipartFile = request.getFileMap().get("file");
-			String filename = OSSObjectUtils.uploadMultipartFile(multipartFile,"");
+			String filename = OSSObjectUtils.uploadMultipartFile(multipartFile,"","wut1");
 			System.out.println("oss上传成功！");
 			Map<String, String> map = new HashMap<>();
 			map.put("filename", filename);
@@ -39,8 +40,7 @@ public class OssController {
 			Map<String, String> map = new HashMap<>();
 			map.put("success", "false");
 			return map;
-		}
-	
+		}	
 	}
 	
 	/*
@@ -53,4 +53,27 @@ public class OssController {
 		System.out.println("oss删除成功！");
 	}
 	
+	
+	/*
+	 * oss文件上传
+	 * 证件上传
+	 * 2017/10/12
+	 */
+	@ResponseBody
+	@RequestMapping(value="/uploadOssCard.do")
+ 	public Map<String, String> uploadOssCard(MultipartRequest request){	
+		try {
+			MultipartFile multipartFile = request.getFileMap().get("file");
+			String filename = OSSObjectUtils.uploadMultipartFile(multipartFile,"","wut3");
+			System.out.println("oss上传成功！");
+			Map<String, String> map = new HashMap<>();
+			map.put("filename", filename);
+			map.put("success", "true");
+			return map;
+		} catch (Exception e) {
+			Map<String, String> map = new HashMap<>();
+			map.put("success", "false");
+			return map;
+		}	
+	}
 }
