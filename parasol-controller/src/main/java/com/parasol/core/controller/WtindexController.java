@@ -193,9 +193,11 @@ public class WtindexController {
 	 List<Wt_goods> list = wtgoodsService.selectGoodsShop(page , adExId);
 	 Integer count = wtgoodsService.selectShopCount(adExId);
 	 Wt_admin_expend wt_admin_expend = wtadminexpendService.selectByPrimaryKey(adExId);
+	 List<Wt_navigation> wt_navigations = wtnavigationService.selectByAd(adExId);
 	 map.put("shop", wt_admin_expend);
 	 map.put("list", list);
 	 map.put("count", count);
+	 map.put("nav", wt_navigations);
 	 return map;
 	}
 	
