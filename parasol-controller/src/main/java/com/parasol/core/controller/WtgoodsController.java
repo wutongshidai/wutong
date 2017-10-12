@@ -197,15 +197,16 @@ public class WtgoodsController {
         try {
             // 判断是否填完整了拓展表信息                                        
             Wt_admin_expend wt_admin_expend = wtadminexpendService.selectByPrimaryKey(adExId);
+            System.out.println(wt_admin_expend.toString());
             int flag = 0;
             for (Field f : wt_admin_expend.getClass().getDeclaredFields()) {
                 f.setAccessible(true);
-                if (f.get(wt_admin_expend) == null) { //判断字段是否为空，并且对象属性中的基本都会转为对象类型来判断
+                if (("").equals(f.get(wt_admin_expend)) || f.get(wt_admin_expend) == null) { //判断字段是否为空，并且对象属性中的基本都会转为对象类型来判断
                     flag++;
                 }
 
             }
-            if (flag >0) {
+            if (flag >1) {
                 map1.put("msg", "信息未完整，请去店铺管理填写完整");
                 return map1;
             }
