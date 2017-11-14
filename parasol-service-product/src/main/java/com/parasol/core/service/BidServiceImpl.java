@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 
 @Service("bidService")
 @Transactional
@@ -55,5 +56,11 @@ public class BidServiceImpl implements BidService {
     public Bid_order getMyBidById(String bidId) {
         Bid_order   bidOrder = bidOrderMapper.selectByPrimaryKey(bidId);
         return bidOrder;
+    }
+
+    @Override
+    public int updateOrder(Bid_order order) {
+        int i = bidOrderMapper.updateByPrimaryKey(order);
+        return i;
     }
 }

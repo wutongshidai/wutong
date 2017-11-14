@@ -5,6 +5,7 @@ import com.parasol.core.bid.Bid_info;
 import com.parasol.core.bid.Bid_order;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 招投标服务
@@ -23,4 +24,6 @@ public interface BidService {
     List<Bid_order> getMyBids(Integer com_userId);
 
     Bid_order getMyBidById(String bidId);
+
+    int updateOrder(Bid_order order);
 }
