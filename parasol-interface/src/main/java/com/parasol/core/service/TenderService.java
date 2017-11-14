@@ -15,6 +15,8 @@ public interface TenderService {
 	public Tender selectByPrimaryName(String projectName);
 	
 	public List<Tender> selectListUserId(Integer userId);
+
+	public Tender selectByPrimaryKey(Integer tenderId);
 	
 	public List<Tender> selectTender();
 

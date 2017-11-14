@@ -49,7 +49,13 @@ public class TenderServiceImpl implements TenderService{
 		List<Tender> tenders = tenderMapper.selectListUserId(userId);
 		return tenders;
 	}
-	
+
+	@Override
+	public Tender selectByPrimaryKey(Integer tenderId) {
+		Tender tender = tenderMapper.selectByPrimaryKey(tenderId);
+		return tender;
+	}
+
 	public List<Tender> selectTender(){
 		List<Tender> tenders = tenderMapper.selectTender();
 		System.out.println(tenders);
