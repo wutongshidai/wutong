@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.keepD1{
+				
+				padding-top:150px;
+				
+			}
+			.keepD{
+				text-align: center;
+				margin:10px auto;
+				width:800px;
+				height: 50px;
+			}
+			.keepDa{
+				display: block;
+				margin:10px auto;
+				text-align: center;
+				background: deepskyblue;
+				color:#fff;
+				width:150px;
+				height: 40px;
+				line-height:40px ;
+				text-decoration: none;
+				border:none;
+				border-radius: 10px;
+			}
+		</style>
+		<script type="text/javascript" src="../../JS/jquery.min.js"></script>
+		<script type="text/javascript" src="../../JS/layer/layer.js"></script>
+	</head>
+	<script type="text/javascript">
+	
+	
+	
+	window.onload = function() { 
+	  function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+		
+	
+	var title1=GetQueryString("qian"); 
+	var userId=GetQueryString("userId");
+	var tenderId=GetQueryString("tenderId");
+	var dsb3_id;
+	  console.log(title1,userId,tenderId)
+ 
+	  $(".keepD1").text('投标保证金：'+title1+'元')
+	   $.ajax({
+				type:"get",
+				url:"http://192.168.3.124:9091/api/bid/bidInfo.do?com_userId="+userId,
+				
+				success:function(data){
+					console.log(data)
+					dsb3_id=data.resultData.bidInfo.id
+					 $("#keep1").val(data.resultData.bidInfo.bidCompany)
+					 $("#keep2").val(data.resultData.bidInfo.bidUser)
+					 $("#keep3").val(data.resultData.bidInfo.bidPhone)
+					 $("#keep4").val(data.resultData.bidInfo.bidMail)
+					 $("#keep5").val(data.resultData.bidInfo.referrer)
+				}
+			});
+	  
+	  $('.keepDa').on('click',function (){
+			 var one1= $('#keep1').val()
+			 var one2= $('#keep2').val()
+			 var one3= $('#keep3').val()
+			 var one4= $('#keep4').val()
+			 var one5= $('#keep5').val()
+			console.log(one1,one2,one3)
+			if(one1&&one2&&one3&&one4&&one5){
+				var xsb1 = {
+						
+				}
+				
+				$.ajax({
+				type:"post",
+				/* dateType:"json", */
+				url:"http://192.168.3.124:9091/api/bid/placeOrder.do",
+				
+				data:{
+					tenderid:tenderId,
+					bidInfoid:dsb3_id,
+					comUserid:userId,
+					bidCompany:one1,
+					bidUser:one2,
+					bidPhone:one3,
+					bidMail:one4,
+					referrer:one5
+				},
+
+				success:function(data){
+					if(data.code==200){
+						console.log(data.resultData.BidOrderId,"//////////////////////////////////")
+						var orderId=data.resultData.BidOrderId
+						$.ajax({
+							type:"post",
+							url:"http://192.168.3.124:9091/api/payment/tender/pay",
+							data:{
+								orderId: orderId     
+							},
+							success:function(data){
+								if(data.code==200){
+									console.log(data.resultData)
+									
+									/*
+									var aaa=data.resultData
+									layer.open({
+										  type: 1,
+										  title: false,
+										  closeBtn: 2,
+										  area: ['1500px', '800px'],
+										  shadeClose: true,
+										  skin: 'yourclass',
+										  content: aaa
+										});*/
+								}else if(data.code==500){
+									alert("boom")
+								}
+								
+
+							}
+						});	
+					}
+				 
+					
+					
+					
+		
+				}
+			});
+				 
+			}else{
+				
+				alert("填写完整")
+				
+			}
+		})
+	  
+	  
+	}; 
+
+//		$(".keepD1").text('投标保证金：'+title1+'元')
+//			$.ajax({
+//			type: "get",
+//			url: 'http://www.wutongsd.com/userMessage.do',
+//			async: true,
+//			datatype: "json",
+//			beforeSend: function() { 
+//						},
+//			success: function(data) {
+//				console.log(data)
+//				
+//				
+//				if(data.redirects!=""){
+//					location.href="/"+data.redirects
+//	//					location.href="http://www.wutongsd.com/dengL.do"
+//					}
+//			},
+//			error: function(data){
+//				console.log(data)
+//			}
+//		});
+		
+	
+	</script>
+	<body>
+		                  <P class="keepD keepD1">投标保证金：1元</P>
+						  <p class="keepD">投标单位：<input type="text" placeholder="请输入投标公司" value=""  id="keep1"></P>
+						  <p class="keepD">联系人：<input type="text" placeholder="请输入联系人姓名"  id="keep2"></P>
+						  <p class="keepD">联系电话：<input type="number" placeholder="请输入联系人的联系方式" id="keep3"></P>
+						  <p class="keepD">联系邮箱：<input type="text" placeholder="请输入联系人的邮箱" id="keep4"></P>
+						  <p class="keepD">推荐人：<input type="text" placeholder="推荐人姓名" id="keep5"></P>
+						  <button class="keepDa">确认信息并支付保证金</button>
+	</body>
+</html>

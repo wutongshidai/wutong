@@ -43,6 +43,7 @@ public class BidServiceImpl implements BidService {
     @Override
     public int insertOrder(Bid_order order) {
         int i = bidOrderMapper.insertSelective(order);
+        System.out.println(i);
         return i;
     }
 

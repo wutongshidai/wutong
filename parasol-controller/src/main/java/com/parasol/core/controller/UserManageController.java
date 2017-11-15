@@ -47,13 +47,14 @@ public class UserManageController {
 	@RequestMapping(value = "/userMessage.do")
 	public Map<String, Object> message(HttpServletRequest request, HttpServletResponse response) {
 		User user = (User) request.getSession().getAttribute("user");
+		System.out.println(user+"11111111111111");
 		Map<String, Object> map = new HashMap<>();
 		map.put("user", user);
 		map.put("redirects", "");
 		if (null == user) {
 			map.put("redirects", "dengL.do");
 		}
-		System.out.println(user);
+		System.out.println(user+"22222222");
 		return map;
 	}
 

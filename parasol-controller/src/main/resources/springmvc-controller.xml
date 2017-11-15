@@ -6,6 +6,7 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
@@ -20,7 +21,9 @@
 		http://www.springframework.org/schema/task
    		http://www.springframework.org/schema/task/spring-task-4.0.xsd
 		http://code.alibabatech.com/schema/dubbo              
-		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/util
+   		http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
 	<!-- 扫描 -->
 	<context:component-scan base-package="com.parasol.core"/>
@@ -59,4 +62,18 @@
         <bean class="com.parasol.common.filter.CrossInterceptor" />
     </mvc:interceptor>
 </mvc:interceptors>
+
+<!-- session共享 -->
+	<bean id="redisHttpSessionConfiguration"
+		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+		<property name="maxInactiveIntervalInSeconds" value="120" />
+	</bean>
+	<bean
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<!-- redis 配置 -->
+		<property name="hostName" value="192.168.3.189" />
+		<property name="port" value="6379" />
+	</bean>
+	<!-- 让Spring Session不再执行config命令 -->
+	<util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP"/>
 </beans>

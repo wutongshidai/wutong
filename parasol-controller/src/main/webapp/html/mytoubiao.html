@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			html,body{
+				width:100%;
+				height:100%;
+			}
+			.box{
+				width:100%;
+				height:100%;
+				overflow-x: hidden;
+			}
+			.box_title{
+				padding-top:30px;
+				font-size:20px;
+				width:100%;
+				height:50px;
+				line-height:50px;
+				text-indent:30px;
+			}
+			.box_title1{
+				margin-top:30px;
+				font-size:20px;
+				width:100%;
+				height:50px;
+				line-height:50px;
+				text-indent:30px;
+			}
+			.box_net{
+				width:900px;
+				height:auto;
+				line-height:30px;
+				text-indent: 30px;
+				margin-left:30px;
+			}
+			#myRelesasa tr td{
+				padding:0 20px;
+			}
+			#myRelesasa tr td span{
+				float:left;
+				margin-right:15px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p class="box_title">项目信息</p>
+			<table border="0" width='900' id="myRelesasa" style="margin-left:20px;sfont-size:15px; font-weight:none;text-align: left;vertical-align: super; padding:0 20px;background:#eaeaea;">
+		    <tr height="60">
+		        <td width="500">工程名称：中国科学院微电子研究所超纯水机暖通基础设施修缮项目【配电柜、变频器】</td>
+		        <td width="500">招标单位：北京同创同德建筑装饰工程有限责任公司</td>
+		        
+		    </tr>
+		    <tr height="40">
+		        <td >招标代理机构：北京鲲鹏工程管理有限公司 </td>
+		        <td >项目类别：材料</td>
+		    </tr>
+		     <tr height="40">
+		        <td >工期：15日历天 </td>
+		        <td >投标文件递交截止时间：2017-08-16</td>
+		    </tr>
+		     <tr height="40">
+		        <td >投标保证金：5000.0元 </td>
+		        <td >质量要求：合格</td>
+		    </tr>
+		     <tr height="40">
+		        <td >项目地点：北京市朝阳区北土城西路3号 </td>
+		        <td >合同估算价：250905.29元</td>
+		    </tr>
+		     <tr height="40">
+		        <td >招标地址：北京亦庄开发区经海二路5号院 </td>
+		        <td style="color:red;">增值税专用发票      超价废标 </td>
+		    </tr>
+		     <tr height="40">
+		        <td>附件下载：<a href="http://www.wutongsd.com/fileDownload_servlet.do?filePath=/filesOut/Upload/20171107035115/Deskto1p.rar"> Deskto1p.rar</a></td>
+		        <td >联系人：赵娜 13470020189</td>
+		    </tr>
+		    
+		</table>
+		<p class="box_title1">需求描述</p>
+		<div class="box_net">
+			请自行下载招标资料后务必联系87396162进行信息登记以及图纸的领取！！！
+		</div>
+		</div>
+		
+		
+		
+	<script type="text/javascript" src="../JS/jquery.min.js"></script>
+	<script type="text/javascript" src="../JS/data.js"></script>
+	<script type="text/javascript" src="../JS/jquery.page.js"></script>
+	<script type="text/javascript" src="../JS/layer/layer.js"></script>				
+<script type="text/javascript">
+ window.onload=function(){
+ 	function getQueryString(name){
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.href.split('?')[1].match(reg);
+        if (r != null){
+          return decodeURI(r[2]);
+        }
+        return null;
+      }
+	console.log(getQueryString('userId'))
+		$.ajax({
+		type:"get",
+		url:"http://192.168.3.124:9091/api/bid/watchMyBid?projectName="+getQueryString('userId'),
+//      url:"new_file.json",
+		success:function(data){
+			console.log(data)
+			var html1=""
+			var html2=""
+			var times
+			var datas=data.resultData.tender
+			html1+= '<tr height="60"> <td width="500">工程名称：'+ datas.projectName+' </td>'		      
+		    html1+= '<td width="500">招标单位：'+datas.tenderee+'</td></tr>'		        		    
+		    html1+= '<tr height="40"><td >招标代理机构：'+datas.tenderCompany+'</td>' 		        
+		    html1+= '<td >项目类别：'+datas.projectType+'</td></tr>'		    
+		   	html1+= '<tr height="40"><td >工期：'+datas.schedule+'日历天</td>'		         
+		    html1+= '<td >投标文件递交截止时间：'+date('Y-m-d',data.resultData.endDate)+'</td></tr>'		    
+		    html1+= '<tr height="40"><td >投标保证金：'+datas.tenderMoney+'元</td>'		         
+		    html1+= '+<td >质量要求：合格</td> </tr>'		   
+		    html1+= '<tr height="40"><td >项目地点：'+datas.projectLocation+'</td>'		         
+		    html1+= '<td >合同估算价：'+datas.agreementPrice+'元</td></tr>'		    
+		    html1+= '<tr c><td >招标地址：'+ datas.tenderAddress +'</td>'
+		    html1+= '<td style="color:red;"><span class="priceStatus">固定总价合同</span> <span class="contractStatus">增值税专用发票</span>  <span class="billStatus">超价废标</span> </td></tr>'
+//		    html1+= '<tr height="40"> <td>附件下载：<a href="http://www.wutongsd.com/fileDownload_servlet.do?filePath='+datas.tenderFile+'">'+ data.resultData.suffix+'</a> &nbsp; <a href="http://www.wutongsd.com/fileDownload_servlet.do?filePath='+datas.bidFile+'"> '+ data.resultData.suffixl+'</a></td>'
+		    html1+= '<tr height="40"><td >联系人：'+datas.contactName+ +datas.contactMobile+' </td></tr>'
+		    $("#myRelesasa").html(html1)
+		    if(datas.priceStatus == 1){  
+		            $(".priceStatus").css("display",'none')
+		        }else{
+					$(".priceStatus").css("display",'block'); 
+					}
+				 if(datas.contractStatus == 1){  
+					$(".contractStatus").css("display",'none');  
+				}else{
+					$(".contractStatus").css("display",'block'); 
+					} 
+				if(datas.billStatus == 1){  
+					$(".billStatus").css("display",'none');  
+				}else{
+					$(".billStatus").css("display",'block'); 
+					} 
+		    $('.box_net').text(datas.explainl)
+		}
+	});
+ }
+	
+		</script>
+	</body>
+</html>
