@@ -28,5 +28,7 @@ public interface Bid_orderMapper {
 
     int updateByPrimaryKey(Bid_order record);
 
-    List<Bid_order> selectByUserId(Integer com_userId);
+    List<Bid_order> selectByUserId(Integer comUserid);
+
+    List<Bid_order> selectByTId(Integer tenderid);
 }

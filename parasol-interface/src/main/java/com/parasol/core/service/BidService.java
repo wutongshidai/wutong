@@ -26,4 +26,6 @@ public interface BidService {
     Bid_order getMyBidById(String bidId);
 
     int updateOrder(Bid_order order);
+
+    List<Bid_order> selectOrderByTid(Integer id);
 }

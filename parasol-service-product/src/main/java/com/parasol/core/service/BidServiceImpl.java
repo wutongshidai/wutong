@@ -63,4 +63,10 @@ public class BidServiceImpl implements BidService {
         int i = bidOrderMapper.updateByPrimaryKey(order);
         return i;
     }
+
+    @Override
+    public List<Bid_order> selectOrderByTid(Integer id) {
+        List<Bid_order> list = bidOrderMapper.selectByTId(id);
+        return null;
+    }
 }
