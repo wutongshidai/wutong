@@ -1,3 +1,4 @@
+
 package com.parasol.core.bid;
 
 public class TenderBid {
