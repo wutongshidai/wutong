@@ -2,6 +2,7 @@ package com.parasol.core.alipay;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class BizContent implements Serializable {
 
     private String out_trade_no;
