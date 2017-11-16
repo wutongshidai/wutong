@@ -112,7 +112,7 @@
                                 <li>附件下载：<a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
                                 <li>联系人：${tender.contactName}  ${tender.contactMobile}</li>
                             </ul>
-							<input type="button" id="dsb" value="我要投标" name=${tender.tenderMoney} style="display:block; width:100px;height:30px;margin:0 auto; background:red;color:green;" />
+							<input type="button" id="dsb" value="我要投标" name=${tender.tenderMoney} style="display: block; width: 150px;height: 40px;font-size: 16px;font-weight: bold;margin: 0 auto; background: #459dff; color: #ffffff;" />
 							
                         </div>
                         <div class="miaoS">
