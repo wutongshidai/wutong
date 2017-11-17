@@ -300,7 +300,7 @@
   <select id="selectByUserId" resultMap="BaseResultMap" parameterType="com.parasol.core.bid.Bid_orderQuery" >
     select * FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER}
   </select>
-  <select id="selectByTId" resultMap="BaseResultMap" parameterType="com.parasol.core.bid.Bid_orderQuery" >
+  <select id="selectByTId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * FROM bid_order WHERE tenderId = #{tenderid,jdbcType=INTEGER}
   </select>
   <update id="updateByPrimaryKey" parameterType="com.parasol.core.bid.Bid_order" >

@@ -275,7 +275,6 @@
       bid_company = #{bidCompany,jdbcType=VARCHAR},
       bid_user = #{bidUser,jdbcType=VARCHAR},
       bid_phone = #{bidPhone,jdbcType=VARCHAR},
-      creatTime = #{creattime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},
       bid_mail = #{bidMail,jdbcType=VARCHAR},
       referrer = #{referrer,jdbcType=VARCHAR}
