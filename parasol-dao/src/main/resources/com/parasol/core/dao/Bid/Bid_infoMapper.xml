@@ -293,7 +293,7 @@
 
 
 
-  <insert id="insertResultId" keyProperty="userId" useGeneratedKeys="true" parameterType="com.parasol.core.bid.Bid_info" >
+  <insert id="insertResultId" keyProperty="id" useGeneratedKeys="true" parameterType="com.parasol.core.bid.Bid_info" >
     insert into bid_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
