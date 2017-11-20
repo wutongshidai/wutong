@@ -301,7 +301,7 @@
     select * FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER}
   </select>
   <select id="selectByTId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select * FROM bid_order WHERE tenderId = #{tenderid,jdbcType=INTEGER}
+    select * FROM bid_order WHERE tenderId = #{tenderid,jdbcType=INTEGER} AND pay_status = 1
   </select>
   <update id="updateByPrimaryKey" parameterType="com.parasol.core.bid.Bid_order" >
   update bid_order
