@@ -29,8 +29,8 @@ public class BidServiceImpl implements BidService {
 
     @Override
     public Integer createInfo(Bid_info bidInfo) {
-        int insert = bidInfoMapper.insertResultId(bidInfo);
-        return insert;
+        bidInfoMapper.insertResultId(bidInfo);
+        return bidInfo.getId();
     }
 
     @Override

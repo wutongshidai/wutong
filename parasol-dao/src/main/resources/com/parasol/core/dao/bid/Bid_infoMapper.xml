@@ -296,9 +296,6 @@
   <insert id="insertResultId" keyProperty="id" useGeneratedKeys="true" parameterType="com.parasol.core.bid.Bid_info" >
     insert into bid_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="comUserid != null" >
         com_userId,
       </if>
@@ -325,9 +322,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="comUserid != null" >
         #{comUserid,jdbcType=INTEGER},
       </if>
