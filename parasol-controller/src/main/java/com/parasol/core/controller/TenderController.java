@@ -701,8 +701,23 @@ public class TenderController {
 				
 				System.out.println(name);*/
 			}
-		 
-		 
+		     
+			//跳转投标
+			@ResponseBody
+			@RequestMapping(value="/bidGood.do")
+			public Map<String, Object> bidGood(HttpServletRequest request){	
+				User user = (User) request.getSession().getAttribute("user");
+				Map<String, Object> map = new HashMap<>();
+				if(user != null){
+					map.put("redirects", "/html/myAccount.html");
+					System.out.println("11111111111");
+					return map;
+				}else{
+					map.put("redirects", "dengL.do");
+					System.out.println("2222222");
+					return map;
+				}
+			} 
 		 
 }
  
