@@ -21,6 +21,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   	<module>parasol-portal</module>
   	<module>parasol-address</module>
   	<module>parasol-service-address</module>
+  	<module>parasol-purse-dao</module>
   </modules>
   
     	<!-- jdk1.7 -->
@@ -370,5 +371,28 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     		<version>2.7.0</version>
 		</dependency>
 	</dependencies>
+  <repositories>
+        <repository>
+            <id>public</id>
+            <name>public</name>
+            <url>http://192.168.3.189:8078/repository/maven-public/</url>
+            <releases>
+            </releases>
+            <snapshots>
+            </snapshots>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://192.168.3.189:8078/repository/maven-public/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://192.168.3.189:8078/repository/maven-public/</url>
+        </snapshotRepository>
+    </distributionManagement>
   
 </project>
