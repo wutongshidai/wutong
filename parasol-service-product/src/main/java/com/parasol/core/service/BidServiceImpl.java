@@ -29,8 +29,8 @@ public class BidServiceImpl implements BidService {
 
     @Override
     public Integer createInfo(Bid_info bidInfo) {
-        int insert = bidInfoMapper.insertResultId(bidInfo);
-        return insert;
+        bidInfoMapper.insertResultId(bidInfo);
+        return bidInfo.getId();
     }
 
     @Override
@@ -43,6 +43,7 @@ public class BidServiceImpl implements BidService {
     @Override
     public int insertOrder(Bid_order order) {
         int i = bidOrderMapper.insertSelective(order);
+        System.out.println(i);
         return i;
     }
 
@@ -67,6 +68,12 @@ public class BidServiceImpl implements BidService {
     @Override
     public List<Bid_order> selectOrderByTid(Integer id) {
         List<Bid_order> list = bidOrderMapper.selectByTId(id);
-        return null;
+        return list;
+    }
+
+    @Override
+    public Bid_info selectInfoById(Integer bidInfoid) {
+        Bid_info bid_info = bidInfoMapper.selectByPrimaryKey(bidInfoid);
+        return bid_info;
     }
 }
