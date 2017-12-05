@@ -59,6 +59,8 @@ public class Bid_order implements Serializable {
      */
     private Integer refundUser;
 
+    private String payChannel;
+    
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -170,4 +172,12 @@ public class Bid_order implements Serializable {
         sb.append("]");
         return sb.toString();
     }
+
+	public String getPayChannel() {
+		return payChannel;
+	}
+
+	public void setPayChannel(String payChannel) {
+		this.payChannel = payChannel;
+	}
 }

@@ -164,4 +164,5 @@ public interface WtgoodsService {
     List<Wt_goods> selectGoods(Integer adExId);
 
     int soldOut(Integer gdId, String gdDisplay);
+    
 }
