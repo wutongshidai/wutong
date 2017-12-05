@@ -316,7 +316,7 @@
     creatTime = #{creattime,jdbcType=TIMESTAMP},
     updateTime = #{updatetime,jdbcType=TIMESTAMP},
     refund_user = #{refundUser,jdbcType=INTEGER},
-    pay_chanel = #{payChannel}
+    pay_channel = #{payChannel}
   where id = #{id,jdbcType=VARCHAR}
 </update>
 </mapper>
