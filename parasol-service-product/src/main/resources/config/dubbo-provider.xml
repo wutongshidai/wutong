@@ -23,8 +23,8 @@
 		
 		<dubbo:application name="parasol-service-product"/>
 		
-		<dubbo:registry address="N/A"/>
-		<dubbo:protocol port="20880"/>
+		<dubbo:registry address="zookeeper://192.168.3.189:2182"/>
+		<dubbo:protocol port="20880"/><!-- <dubbo:protocol port="20880"/> -->
 		<!-- <dubbo:service interface="" ref=""/> -->
 		<dubbo:service interface="com.parasol.core.service.UploadService" ref="uploadService"/>
 		<dubbo:service interface="com.parasol.core.service.UserService" ref="userService"/>
@@ -37,5 +37,7 @@
 		<dubbo:service interface="com.parasol.core.service.WtnavigationService" ref="wtnavigationService"/>
 		<dubbo:service interface="com.parasol.core.service.WtfavouriteService" ref="wtfavouriteService"/>
 		<dubbo:service interface="com.parasol.core.service.WtcollectionService" ref="wtcollectionService"/>
+		<dubbo:service interface="com.parasol.core.service.BidService" ref="bidService"/>
+		<dubbo:service interface="com.parasol.core.service.AlipayService" ref="alipayService"/>
 		 
 </beans> 
