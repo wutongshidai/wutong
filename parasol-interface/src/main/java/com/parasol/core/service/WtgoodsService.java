@@ -165,5 +165,4 @@ public interface WtgoodsService {
 
     int soldOut(Integer gdId, String gdDisplay);
     
-    int sysVisible(Integer gdId, boolean sysVisible);
 }
