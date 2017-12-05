@@ -28,4 +28,6 @@ public interface BidService {
     int updateOrder(Bid_order order);
 
     List<Bid_order> selectOrderByTid(Integer id);
+
+    Bid_info selectInfoById(Integer bidInfoid);
 }

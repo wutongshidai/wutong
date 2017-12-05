@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>我的账户</title>
 		 <link rel="stylesheet" href="../css/reset.min.css" type="text/css"/>
 		 <link rel="stylesheet" href="../css/myAccount.css" type="text/css"/>
@@ -13,8 +13,7 @@
         		<p><span id="">
         			用户账号 :
         		</span>
-        		<span id="">
-        			王天霸
+        		<span id="wtb1">
         		</span>
         		</p>
         		<p><span id="">
@@ -76,14 +75,14 @@
         	<!--页面主体-->
 		<div class="box">
 			<div class="nav">
-            <span><a href="#">关于我们</a></span>
+            <span><a href="#" style="color:black;">关于我们</a></span>
             <ul>
                 <li><a id="main_name">登陆</a></li>
-                <li><a href="zhuC.html">免费注册</a></li>
+                <li><a href="../login.do">免费注册</a></li>
                 <li><a href="#" style="color:red;">我的账户</a></li>
-                <li><a href="#">联系客服</a></li>
-                <li><a href="#">消息</a></li>
-                <li><a href="#">帮助</a></li>
+                <li><a href="javascript:; ">联系客服</a></li>
+                <li><a href="javascript:; ">消息</a></li>
+                <li><a href="javascript:; ">帮助</a></li>
             </ul>
         </div>
         	<div class="logoImg">
@@ -111,7 +110,7 @@
         </ul>
         <!--基本信息模块-->
         <ul class="inFormation inFormations" style='display: block;'>
-        	<p class="tag"><span id="">
+        	<p class="tag"><span class="tagli">
         		基本信息        		
         	</span></p>
         	<li class="basicInformation">
@@ -119,35 +118,28 @@
         			用户账号 :
         		</span>
         		<span id="userName">
-        			王天霸
         		</span>
         		</p>
         		<p><span id="">
         			用户昵称 :
         		</span>
         		<span id="companyName">
-        			天霸
         		</span>
         		</p>
         		<p><span id="">
         			性别 :
         		</span>
         		<span id="sex">
-        			男
         		</span>
         		</p>
         		<p style="display: none;"><span id="">
         			邮寄地址 :
         		</span>
         		<span id="">
-        			北京市大兴区亦庄镇小洋坊康碱路6号
-        		</span>
-        		</p>
         		<p><span id="">
         			手机号码:
         		</span>
         		<span id="mobile">
-        			15565133664
         		</span>
         		</p>
         		<p>
@@ -155,7 +147,6 @@
         			邮箱 :
         		</span>
         		<span id="userEmail">
-        			w15565133664@163.com
         		</span>
         		</p>
         		<p>
@@ -166,7 +157,7 @@
         </ul>
         <!--修改密码模块-->
         <ul class="inFormation changePassword" style='display: none;'>
-        	<p class="tag"><span id="">
+        	<p class="tag"><span class="tagli">
         		修改密码       		
         	</span></p>
         	<li class="basicInPassword">
@@ -210,9 +201,10 @@
         </ul>
         <!--我的发布-->
          <ul class="inFormation myRelease" style='display: none;'>
-        	<p class="tag"><span id="">
-        		我的发布      		
-        	</span></p>
+        	<p class="tag">
+        		<span class="tagli act1">我的发布</span>
+        		<span class="tagli">我的投标</span>
+        	</p>
         	<li class="basicInPassword">
         		<table border="1" width='880' id="myRelesa" style="font-size:18px;text-align: center;">
 		    <tr height="40">
@@ -224,80 +216,31 @@
 		        <td >梧桐时代科技有限责任公司 </td>
 		        <td >2017.5.01</td>
 		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
+		        	<button class="checkView" name="12138" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
 		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
 		        </td>
 		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
+		    
+</table>
+        	</li>
+        	
+        	<!--我的投标-->
+        <li class="basicInPassbiaobiao">
+        	<table border="1" width='880' id="myRelesas1" style="font-size:18px;text-align: center;">
+		    <tr height="40">
+		        <th width="445">投标信息</th>
+		        <th width="200">投标状态</th>
+		        <th width="230">投标保证金</th>
+		        <th width="230">开标时间</th>
+		        <th width="230">操作</th>
 		    </tr>
 		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
+		        <td >梧桐时代科技有限责任公司梧桐时代科技有限责任公司  </td>
+		        <td >未开标</td>
+		        <td >10000</td>
 		        <td >2017.5.01</td>
 		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
-		        </td>
-		    </tr>
-		    <tr height="40" style="font-size:13px;">
-		        <td >梧桐时代科技有限责任公司 </td>
-		        <td >2017.5.01</td>
-		        <td >
-		        	<button class="checkView" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;margin-right:30px ;">查看</button>
-		        	<button class="deleteList" style="width:58px;height:20px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">删除</button>
+		        	<button class="checkViews" name="12138" style="width:88px;height:30px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">查看</button>
 		        </td>
 		    </tr>
 </table>
@@ -310,7 +253,7 @@
         <!--专家信息-->
         <!--expert information--> 
         <ul class="inFormation expert_information " style='display:none;'>
-        	<p class="tag"><span id="">
+        	<p class="tag"><span class="tagli">
         		专家信息       		
         	</span></p>
         	<li class="basicInformation" style='display:block;'>
@@ -339,14 +282,12 @@
         			邮寄地址 :
         		</span>
         		<span id="">
-        			北京市大兴区亦庄镇小洋坊康碱路6号
         		</span>
         		</p>-->
         		<!--<p><span id="">
         			手机号码:
         		</span>
         		<span id="mobile">
-        			15565133664
         		</span>
         		</p>-->
         		<p>
@@ -374,13 +315,13 @@
         </ul>
         </div>
         <div class="main_wenbu banx">
-                <p><a href="#">关于我们</a></p>
-                <p><a href="#">企业服务</a></p>
-                <p><a href="#">联系我们</a></p>
-                <p><a href="#">帮助中心</a></p>
-                <p><a href="#">网站导航</a></p>
-                <p>Copyright2016 梧桐时代科技有限责任公司 . 京ICP 证 17016004 号</p>
-                <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
+            <p><a href="../Tail%20link/About%20us.html">关于我们</a></p>
+            <p><a href="../Tail%20link/Enterprise%20service.html">企业服务</a></p>
+            <p><a href="../Tail%20link/Contact%20us.html">联系我们</a></p>
+            <p><a href="../Tail%20link/Help%20center.html">帮助中心</a></p>
+		    <p><a href="">网站导航</a></p>	
+            <p>Copyright2016 北京梧桐时代科技有限责任公司 . <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">京ICP备17016004号-1</a></p>
+            <p>通讯地址：北京市大兴区亦庄镇小羊坊康碱路 6 号</p>
             </div>
 		</div>
 		

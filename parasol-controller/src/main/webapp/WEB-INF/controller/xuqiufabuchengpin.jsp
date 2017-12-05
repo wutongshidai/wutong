@@ -30,6 +30,8 @@
 	<script type="text/javascript" src="/JS/jquery-1.11.3.js"></script>
 	<script type="text/javascript" src="/JS/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="/JS/registerCheck.js"></script>
+	<script type="text/javascript" src="/JS/layer/layer.js"></script>
+</script>
 	
 </head>
 <body>
@@ -85,6 +87,7 @@
             <div class="zhuTi">
                 <p>需求大厅 <a href="#"> < ${esc}</a><a href="#"> < ${desc}</a></p>
                 <div class="Dxiaoguo">
+                	<p id= "pbiaoqian" value="${tender.id}"   ></p>
                     <p>${tender.agreementPrice} <em>元</em></p>
                     <h5>${tender.projectName}</h5>
                 </div>
@@ -92,7 +95,7 @@
                     <div class="cengg">
                         <div class="xinX">
                             <h6>项目信息</h6>
-                            <ul>
+                            <ul style="margin-bottom:20px;">
                                 <li>工程名称：${tender.projectName}</li>
                                 <li>招标单位：${tender.tenderee}</li>
                                 <li>招标代理机构：${tender.tenderCompany}</li>
@@ -109,6 +112,8 @@
                                 <li>附件下载：<a href="/fileDownload_servlet.do?filePath=${tender.tenderFile}"> ${suffix}</a></li> <li><a href="/fileDownload_servlet.do?filePath=${tender.bidFile}"> ${suffixl}</a></li>
                                 <li>联系人：${tender.contactName}  ${tender.contactMobile}</li>
                             </ul>
+							<input type="button" id="dsb" value="我要投标" name=${tender.tenderMoney} style="display: block; width: 150px;height: 40px;font-size: 16px;font-weight: bold;margin: 0 auto; background: #459dff; color: #ffffff;" />
+							
                         </div>
                         <div class="miaoS">
                             <h6>需求描述</h6>
@@ -205,25 +210,66 @@
 </body>
 </html>
 	<script type="text/javascript">
-	  function display(){  
-		        var priceStatus = document.getElementById("priceStatus");
-				var contractStatus = document.getElementById("contractStatus"); 
-				var billStatus = document.getElementById("billStatus"); 
-		        if(${tender.priceStatus} == 1){  
-		            priceStatus.style.display="none";  
-		        }else{
-					priceStatus.style.display="block"; 
-					}
-				 if(${tender.contractStatus} == 1){  
-					contractStatus.style.display="none";  
-				}else{
-					contractStatus.style.display="block"; 
-					} 
-				if(${tender.billStatus} == 1){  
-					billStatus.style.display="none";  
-				}else{
-					billStatus.style.display="block"; 
-					} 
-	 		 } 
-			display()
+	  
+	window.onload=function(){
+		function display(){  
+			        var priceStatus = document.getElementById("priceStatus");
+					var contractStatus = document.getElementById("contractStatus"); 
+					var billStatus = document.getElementById("billStatus"); 
+			        if(${tender.priceStatus} == 1){  
+			            priceStatus.style.display="none";  
+			        }else{
+						priceStatus.style.display="block"; 
+						}
+					 if(${tender.contractStatus} == 1){  
+						contractStatus.style.display="none";  
+					}else{
+						contractStatus.style.display="block"; 
+						} 
+					if(${tender.billStatus} == 1){  
+						billStatus.style.display="none";  
+					}else{
+						billStatus.style.display="block"; 
+						} 
+		 		 } 
+				display()
+				
+			$('#dsb').on('click',function(){
+				var qian=$(this).attr('name')
+				$.ajax({
+					type: "get",
+					url: 'http://192.168.3.124:8082/userMessage.do',
+					async: true,
+					datatype: "json",
+					beforeSend: function() { 
+								},
+					success: function(data) {
+						console.log(data)
+						var xsb=data.user.id
+						
+						if(data.redirects!=""){
+							location.href="http://192.168.3.124:8082/dengL.do"
+							//location.href="/"+data.redirects
+//							location.href="http://192.168.3.124:8082/dengL.do"
+						}else if(data.redirects==""){
+							var pbiaoqian=$("#pbiaoqian").attr('value')
+							layer.open({
+								  type: 2,
+								  title: false,
+								  closeBtn: 2,
+								  area: ['1000px', '800px'],
+								  shadeClose: true,
+								  skin: 'yourclass',
+								  content:"../../html/ab.html?qian="+qian+"&tenderId="+pbiaoqian+"&userId="+xsb
+								});
+							
+						}
+				},
+				error: function(data){
+					console.log(data)
+				}
+			});
+				
+			})
+	}  
 	</script>

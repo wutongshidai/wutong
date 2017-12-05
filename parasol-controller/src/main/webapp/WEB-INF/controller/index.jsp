@@ -851,7 +851,7 @@
     type: 'get',
     dataType: 'json',
     /*    url: "json/json2.txt",*/
-    url: "json/data66.txt",
+    url: "json/data67.txt",
 
     success: function (data) {
 

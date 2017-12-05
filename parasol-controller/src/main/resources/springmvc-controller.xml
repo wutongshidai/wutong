@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
@@ -19,44 +19,63 @@
 		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/task
    		http://www.springframework.org/schema/task/spring-task-4.0.xsd
+		http://www.springframework.org/schema/util
+   		http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://code.alibabatech.com/schema/dubbo              
-		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-	
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/util
+   		http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
 	<!-- 扫描 -->
-	<context:component-scan base-package="com.parasol.core"/>
+	<context:component-scan base-package="com.parasol.core" />
 	<!-- 处理器映射器、处理器适配器 -->
 	<!-- <mvc:annotation-driven/> -->
-	<mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
-	<bean id="conversionServiceFactoryBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+	<mvc:annotation-driven conversion-service="conversionServiceFactoryBean" />
+	<bean id="conversionServiceFactoryBean"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<list>
 				<bean class="com.parasol.common.converter.TrimConverter"></bean>
 			</list>
 		</property>
 	</bean>
-	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" 
-			p:maxUploadSize="1048576000">
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:maxUploadSize="1048576000">
 	</bean>
-	<!-- 试图解析器 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/controller/"/>
-		<property name="suffix" value=".jsp"/>
-	    <property name="order" value="1" />
+	<!-- 试图解析器 -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/controller/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1" />
 	</bean>
 	<!-- 扫描 -->
-	<import resource="dubbo-controller.xml"/>
-	
-	
-		
-	<!-- <mvc:cors>	
-		<mvc:mapping path="/**" allowed-origins="*" allow-credentials="true" max-age="1800" 
-		allowed-methods="GET,POST,OPTIONS"/>
-	</mvc:cors> -->
+	<import resource="dubbo-controller.xml" />
+
+
+
+	<!-- <mvc:cors> <mvc:mapping path="/**" allowed-origins="*" allow-credentials="true" 
+		max-age="1800" allowed-methods="GET,POST,OPTIONS"/> </mvc:cors> -->
 	<mvc:interceptors>
-    <mvc:interceptor>
-        <mvc:mapping path="/**/*"/>
-        <bean class="com.parasol.common.filter.CrossInterceptor" />
-    </mvc:interceptor>
-</mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**/*" />
+			<bean class="com.parasol.common.filter.CrossInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+<!-- session共享 -->
+	<bean id="redisHttpSessionConfiguration"
+		class="org.springframework.session.data.redis.config.annotation.web.http.RedisHttpSessionConfiguration">
+		<property name="maxInactiveIntervalInSeconds" value="120" />
+	</bean>
+	<bean
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+		<!-- redis 配置 -->
+		<property name="hostName" value="192.168.3.189" />
+		<property name="port" value="6379" />
+	</bean>
+	<!-- 让Spring Session不再执行config命令 -->
+	<util:constant static-field="org.springframework.session.data.redis.config.ConfigureRedisAction.NO_OP"/>
 </beans>

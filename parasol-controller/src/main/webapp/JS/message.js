@@ -59,7 +59,7 @@ $(function() {
         //发送ajax请求  
         $.ajax({
             type:"POST",
-            url:"/checkCodesss.do",
+            url:"/checkCode.do",
             data:{
                 mobileyan:$("input[name='mobileyan']").val()
             },
