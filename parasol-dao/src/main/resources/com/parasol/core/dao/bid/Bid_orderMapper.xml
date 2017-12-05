@@ -13,6 +13,7 @@
     <result column="creatTime" property="creattime" jdbcType="TIMESTAMP" />
     <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
     <result column="refund_user" property="refundUser" jdbcType="INTEGER" />
+    <result column="pay_channel" property="payChannel" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -314,7 +315,8 @@
     refund_status = #{refundStatus,jdbcType=INTEGER},
     creatTime = #{creattime,jdbcType=TIMESTAMP},
     updateTime = #{updatetime,jdbcType=TIMESTAMP},
-    refund_user = #{refundUser,jdbcType=INTEGER}
+    refund_user = #{refundUser,jdbcType=INTEGER},
+    pay_chanel = #{payChannel}
   where id = #{id,jdbcType=VARCHAR}
 </update>
 </mapper>
