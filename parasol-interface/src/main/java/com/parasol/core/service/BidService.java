@@ -30,4 +30,6 @@ public interface BidService {
     List<Bid_order> selectOrderByTid(Integer id);
 
     Bid_info selectInfoById(Integer bidInfoid);
+
+	int countByUserId(Integer userId);
 }

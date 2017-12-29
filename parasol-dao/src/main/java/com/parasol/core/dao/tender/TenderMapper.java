@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.parasol.core.myclass.TenderAll;
+import com.parasol.core.myclass.TenderList;
+import com.parasol.core.myclass.TenderNameQuery;
 import com.parasol.core.tender.Tender;
 import com.parasol.core.tender.TenderQuery;
 
@@ -31,8 +32,6 @@ public interface TenderMapper {
 
     int updateByPrimaryKey(Tender record);
     
-    
-    
     List<Tender> selectListUserId(Integer userId);
     
     List<Tender> selectTender();
@@ -43,7 +42,6 @@ public interface TenderMapper {
     
     List<Tender> selectClassification(Integer classification);
     
-    
     List<Tender> selectProject();
     List<Tender> selectPurchase();
     List<Tender> selectDesign();
@@ -52,7 +50,6 @@ public interface TenderMapper {
     
     List<Tender> selectByExamplel(TenderQuery example);
     
- 
     List<Tender> selectByExampless(TenderQuery example);
     List<Tender> selectByExampleProgramme(TenderQuery example);
     List<Tender> selectByExamplePurchase(TenderQuery example);
@@ -65,5 +62,12 @@ public interface TenderMapper {
     int countByExampleDesign(TenderQuery example);
     int countByExampleProperty(TenderQuery example);
     int countByExampleCost(TenderQuery example);
+    
+	/*
+	 * 2017/12/25
+	 */
     int countByExampleMy(Integer userId);
+    List<TenderList> selectListTender(TenderNameQuery tenderNameQuery);
+    Integer countTenderList(@Param("classification") Integer classification ,@Param("userId") Integer userId);
+    
 }

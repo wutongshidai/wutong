@@ -2,7 +2,9 @@ package com.parasol.core.service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ import com.parasol.core.Enum.TenderStatusEnum;
 import com.parasol.core.dao.tender.TenderMapper;
 import com.parasol.core.myclass.DemandHall;
 import com.parasol.core.myclass.TenderAll;
+import com.parasol.core.myclass.TenderList;
+import com.parasol.core.myclass.TenderNameQuery;
 import com.parasol.core.tender.Tender;
 import com.parasol.core.tender.TenderQuery;
 import com.parasol.core.tender.TenderQuery.Criteria;
@@ -242,10 +246,10 @@ public class TenderServiceImpl implements TenderService{
 	 */
 	
 	@Override
-	public Pagination tenderAll(Integer userId , Integer page){
+	public Pagination tenderAll(Integer userId , Integer page ,Integer count){
 		TenderQuery tenderQuery = new TenderQuery();
 		tenderQuery.setPageNo(page);
-		tenderQuery.setPageSize(10);
+		tenderQuery.setPageSize(count);
 		tenderQuery.setOrderByClause("id desc");
 		tenderQuery.setFields("project_name,start_time,classification");
 		Criteria createCriteria = tenderQuery.createCriteria();
@@ -585,4 +589,42 @@ public class TenderServiceImpl implements TenderService{
 		int i = tenderMapper.deleteByPrimaryKey(tenderMapper.selectByPrimaryName(projectName).getId());
 		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
 	} 
+	
+	/*
+	 * 2017/12/25
+	 */
+	public Map selectListTender(String classification , String userId ,String count , String page){
+		int i = 0;
+		TenderNameQuery query = new TenderNameQuery();
+		query.setPageNo(Integer.parseInt(page));
+		query.setPageSize(Integer.parseInt(count));
+		if(classification == null){
+			query.setClassification(null);	
+			i = tenderMapper.countTenderList(null, Integer.parseInt(userId));
+		}else{
+			query.setClassification(Integer.parseInt(classification));	
+		}
+		if(userId == null){
+			query.setUserId(null);	
+			i = tenderMapper.countTenderList(Integer.parseInt(classification), null);
+		}else{
+			query.setUserId(Integer.parseInt(userId));	
+		}
+		query.setStartRow((Integer.parseInt(page)-1)*Integer.parseInt(count));
+		List<TenderList> list = tenderMapper.selectListTender(query);		
+		Map map = new HashMap<>();
+		map.put("list", list);
+		map.put("count", i);
+		return map;
+	}
+	
+	
+	public Integer countTenderName(Integer userId){
+		Integer i = tenderMapper.countByExampleMy(userId);
+		return i;
+	}
+	
+/*	public List<TenderName> selectListTender(String classification , String page){
+		return null;
+	}*/
 }

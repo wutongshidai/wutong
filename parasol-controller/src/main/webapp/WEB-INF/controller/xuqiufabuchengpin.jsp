@@ -245,13 +245,14 @@
 								},
 					success: function(data) {
 						console.log(data)
-						var xsb=data.user.id
+						
 						
 						if(data.redirects!=""){
 							location.href="http://192.168.3.124:8082/dengL.do"
-							//location.href="/"+data.redirects
-//							location.href="http://192.168.3.124:8082/dengL.do"
+				//			location.href="/"+data.redirects
+//							location.href="http://www.wutongsd/dengL.do"
 						}else if(data.redirects==""){
+							var xsb=data.user.id
 							var pbiaoqian=$("#pbiaoqian").attr('value')
 							layer.open({
 								  type: 2,

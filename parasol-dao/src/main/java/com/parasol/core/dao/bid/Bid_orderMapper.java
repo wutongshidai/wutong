@@ -31,4 +31,6 @@ public interface Bid_orderMapper {
     List<Bid_order> selectByUserId(Integer comUserid);
 
     List<Bid_order> selectByTId(Integer tenderid);
+    
+    int countByUserId(Integer comUserid);
 }

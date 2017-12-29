@@ -1,8 +1,15 @@
 
 package com.parasol.core.bid;
 
-public class TenderBid {
-    private Bid_order bidOrder;
+import java.io.Serializable;
+
+public class TenderBid implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Bid_order bidOrder;
 
     private String projectName;
 

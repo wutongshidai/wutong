@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.parasol.core.dao.user.UserMapper;
 import com.parasol.core.user.User;
@@ -71,8 +70,10 @@ public class UserServiceImpl implements UserService {
 		return null;
 	   }
 	   
-	   
-	   
+	   @Override
+	   public User selectUser(String userName){
+		  return userMapper.selectUser(userName);
+	   }
 	   
 	  
 	   

@@ -4,20 +4,33 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
+			body{
+				/*background:url(../img/1008611.png);*/
+			}
 			.keepD1{
 				
 				padding-top:150px;
 				
 			}
 			.keepD{
-				text-align: center;
 				margin:10px auto;
 				width:800px;
 				height: 50px;
 			}
+			.keepD span{
+				width:40%;
+				height:50px;
+				display: inline-block;
+				text-align: right;
+				margin-right:10px;
+			}
+			.keepD1 .money{
+				width:180px;
+				height:50px;
+				text-align: center;
+			}
 			.keepDa{
-				display: block;
-				margin:10px auto;
+				display: inline-block;
 				text-align: center;
 				background: deepskyblue;
 				color:#fff;
@@ -27,16 +40,80 @@
 				text-decoration: none;
 				border:none;
 				border-radius: 10px;
+				margin-left: 40%;
+			}
+			.keepD1:hover{
+				cursor: pointer;
+			}
+			.keepDa1{
+				display: inline-block;
+				text-align: center;
+				background: deepskyblue;
+				color:#fff;
+				width:150px;
+				height: 40px;
+				line-height:40px ;
+				text-decoration: none;
+				border:none;
+				border-radius: 10px;
+				margin-left: 10px;
+			}
+			.keepDa1:hover{
+				cursor: pointer;
+			}
+			.pay_goos{
+				width:400px;
+				height:30px;
+				margin:0 auto 10px;
+				font-weight: bold;
+			}
+			.pay_goo{
+				width:500px;
+				min-height:80px;
+				margin:0 auto;
+				padding-left:180px;
+			}
+			.pay_goo li{
+				list-style: none;
+				width:130px;
+				height:30px;
+				float:left;
+				margin:0 10px 10px;
+				text-align: center;
+				padding-top:2px;
+			}
+			.pay_goo li:hover{
+				cursor: pointer;
+			}
+			.pay_goo li img{
+				margin:0 auto;
+				width:86px;
+				height:28px;
+			}
+			.pay_goo .activvd{
+				border:2px solid red;
+			}
+			.btnwx:hover{
+				cursor: pointer;
 			}
 		</style>
 		<script type="text/javascript" src="../../JS/jquery.min.js"></script>
 		<script type="text/javascript" src="../../JS/layer/layer.js"></script>
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7b7e25abcaacb393f18d11a9a0203069";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 	</head>
 	<script type="text/javascript">
 	
-	
-	
 	window.onload = function() { 
+		var bd_url="http://192.168.3.124:9091"
+		var pay_Id=0
 	  function GetQueryString(name)
 		{
 		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -48,25 +125,37 @@
 	var title1=GetQueryString("qian"); 
 	var userId=GetQueryString("userId");
 	var tenderId=GetQueryString("tenderId");
-	var dsb3_id;
+	var dsb3_id=null;
 	  console.log(title1,userId,tenderId)
  
-	  $(".keepD1").text('投标保证金：'+title1+'元')
+	  $(".money").text(title1+'元')
 	   $.ajax({
 				type:"get",
-				url:"http://192.168.3.124:9091/api/bid/bidInfo.do?com_userId="+userId,
+				url:bd_url+"/api/bid/bidInfo.do?com_userId="+userId,
 				
 				success:function(data){
 					console.log(data)
-					dsb3_id=data.resultData.bidInfo.id
-					 $("#keep1").val(data.resultData.bidInfo.bidCompany)
-					 $("#keep2").val(data.resultData.bidInfo.bidUser)
-					 $("#keep3").val(data.resultData.bidInfo.bidPhone)
-					 $("#keep4").val(data.resultData.bidInfo.bidMail)
-					 $("#keep5").val(data.resultData.bidInfo.referrer)
+					if(data.resultData!=null&&data.resultData.bidInfo!=null&&data.resultData.bidInfo.id!=null){
+						dsb3_id=data.resultData.bidInfo.id
+						 $("#keep1").val(data.resultData.bidInfo.bidCompany)
+						 $("#keep2").val(data.resultData.bidInfo.bidUser)
+						 $("#keep3").val(data.resultData.bidInfo.bidPhone)
+						 $("#keep4").val(data.resultData.bidInfo.bidMail)
+						 $("#keep5").val(data.resultData.bidInfo.referrer)
+					}
+					
 				}
 			});
-	  
+	$('.keepDa1').on('click',function(){
+	  	var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+		parent.layer.close(index); //再执行关闭   
+	  })
+	   $('.pay_goo li').on('click',function(){
+	 	$(this).addClass("activvd").siblings().removeClass('activvd');
+	 	pay_Id=$(this).attr('pay_Id')
+//	 	alert(pay_Id)
+	 })
+	   
 	  $('.keepDa').on('click',function (){
 			 var one1= $('#keep1').val()
 			 var one2= $('#keep2').val()
@@ -82,7 +171,7 @@
 				$.ajax({
 				type:"post",
 				/* dateType:"json", */
-				url:"http://192.168.3.124:9091/api/bid/placeOrder.do",
+				url:bd_url+"/api/bid/placeOrder.do",
 				
 				data:{
 					tenderid:tenderId,
@@ -94,14 +183,57 @@
 					bidMail:one4,
 					referrer:one5
 				},
-
 				success:function(data){
 					if(data.code==200){
 						console.log(data.resultData.BidOrderId,"//////////////////////////////////")
 						var orderId=data.resultData.BidOrderId
-						$.ajax({
+						
+						if(pay_Id==0){
+							layer.closeAll(); 
+							//var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+							//parent.layer.close(index); //再执行关闭   
+							$.ajax({
 							type:"post",
-							url:"http://192.168.3.124:9091/api/payment/tender/pay",
+							url:bd_url+"/api/wxpay/unifiedOrder",
+							data:{
+								orderId: orderId     
+							},
+							success:function(data){
+								if(data.code==200){ 
+									console.log(data.resultData)
+									var aaa=data.resultData
+									var bbweixin=layer.open({
+										  type: 1,
+										  title: false,
+										  closeBtn: 2,
+										  area: ['500px', '440px'],
+										  shadeClose: true,
+										  skin: 'yourclass',
+										  content:'<p style="text-align:center;padding-top:40px;">请用微信扫描二维码完成支付</p><img src=http://wut4.oss-cn-beijing.aliyuncs.com/'+aaa.imgUrl+' style="display:block;margin:60px auto 50px;width:150px;height:150px;" /> <botton class="btnwx" style="margin:0 auto;font-size: 19px; border-radius:8px;width:130px;text-align:center;height:40px;line-height:40px;color:#fff;display:block;background:deepskyblue;">支付完成</botton>',
+										  end: function () {
+											 
+								            }
+										});
+										$('.btnwx').on('click',function(){   
+											var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+											parent.layer.close(index); //再执行关闭   
+											top.location="http://192.168.3.124:8082/html/toubiaocg.html"
+										})
+								}else if(data.code==10001){
+									layer.msg('订单已支付，请勿重复提交')
+								}else if(data.code==10005){
+									layer.msg('订单不存在')
+								}else if(data.code==500){
+									layer.msg('服务器故障，维修中》》》')
+								}
+								
+
+							}
+						});
+						}else if(pay_Id==1){
+							$.ajax({
+							type:"post",
+							url:bd_url+"/api/payment/tender/pay",
 							data:{
 								orderId: orderId     
 							},
@@ -120,19 +252,20 @@
 										  skin: 'yourclass',
 										  content:aaa
 										});
+										
 								}else if(data.code==500){
-									alert("boom")
+									//alert("boom")
 								}
 								
 
 							}
 						});	
+						}
+						
+					}else if(data.code==202){
+						layer.msg('未登陆或登陆已过期，请重新登陆！');
 					}
-				 
-					
-					
-					
-		
+				
 				}
 			});
 				 
@@ -143,40 +276,26 @@
 			}
 		})
 	  
-	  
+	
+
 	}; 
 
-//		$(".keepD1").text('投标保证金：'+title1+'元')
-//			$.ajax({
-//			type: "get",
-//			url: 'http://www.wutongsd.com/userMessage.do',
-//			async: true,
-//			datatype: "json",
-//			beforeSend: function() { 
-//						},
-//			success: function(data) {
-//				console.log(data)
-//				
-//				
-//				if(data.redirects!=""){
-//					location.href="/"+data.redirects
-//	//					location.href="http://www.wutongsd.com/dengL.do"
-//					}
-//			},
-//			error: function(data){
-//				console.log(data)
-//			}
-//		});
 		
 	
 	</script>
 	<body>
-		                  <P class="keepD keepD1">投标保证金：1元</P>
-						  <p class="keepD">投标单位：<input type="text" placeholder="请输入投标公司" value=""  id="keep1"></P>
-						  <p class="keepD">联系人：<input type="text" placeholder="请输入联系人姓名"  id="keep2"></P>
-						  <p class="keepD">联系电话：<input type="number" placeholder="请输入联系人的联系方式" id="keep3"></P>
-						  <p class="keepD">联系邮箱：<input type="text" placeholder="请输入联系人的邮箱" id="keep4"></P>
-						  <p class="keepD">推荐人：<input type="text" placeholder="推荐人姓名" id="keep5"></P>
-						  <button class="keepDa">确认信息并支付保证金</button>
+		                  <P class="keepD keepD1"><span id="">投标保证金 : </span><span class="money">1元</span></P>
+						  <p class="keepD"><span id="">投标单位 : </span><input type="text" placeholder="请输入投标公司" value=""  id="keep1"></P>
+						  <p class="keepD"><span id="">联系人 : </span><input type="text" placeholder="请输入联系人姓名"  id="keep2"></P>
+						  <p class="keepD"><span id="">联系电话 : </span><input type="number" placeholder="请输入联系人的联系方式" id="keep3"></P>
+						  <p class="keepD"><span id="">联系邮箱 : </span><input type="text" placeholder="请输入联系人的邮箱" id="keep4"></P>
+						  <p class="keepD"><span id="">推荐人 : </span><input type="text" placeholder="推荐人姓名" id="keep5"></P>
+						  <p class="pay_goos">请选择支付方式:</p>
+						  <ul class="pay_goo">
+						  	<li class="activvd" pay_Id="0"><img src="../img/wixinzf.png"/></li>
+						  	<li pay_Id="1"><img src="../img/zhifubao.png"/></li>
+						  	
+						  </ul>
+						  <button class="keepDa">确认信息并支付保证金</button><button class="keepDa1">再考虑一下</button>
 	</body>
 </html>

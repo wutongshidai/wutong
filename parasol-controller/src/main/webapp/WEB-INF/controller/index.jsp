@@ -703,8 +703,21 @@
 <script src="JS/utils.js" type="text/javascript" rel="stylesheet"></script>
 <script src="JS/move.js"></script>
 <script src="JS/AutoBanner.js"></script>
+<script type="text/javascript" src="/JS/layer/layer.js"></script>
 <script>var oTab=new AutoBanner('box','json/data.txt',6000);</script>
 <script>
+	$('.imgWrap div').eq(2).on('click',function(){
+		layer.open({
+			  type: 2,
+			  title: false,
+			  closeBtn: 2,
+			  area: ['1000px', '800px'],
+			  shadeClose: true,
+			  skin: 'yourclass',
+			  content:"../../html/bg.html"
+			});
+
+	})
 	$("#btn110").click(function(){
 		$.ajax({
 			type:"get",

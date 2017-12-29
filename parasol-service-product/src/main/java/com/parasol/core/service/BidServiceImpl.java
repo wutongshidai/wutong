@@ -56,6 +56,7 @@ public class BidServiceImpl implements BidService {
     @Override
     public Bid_order getMyBidById(String bidId) {
         Bid_order   bidOrder = bidOrderMapper.selectByPrimaryKey(bidId);
+        System.out.println(bidOrder);
         return bidOrder;
     }
 
@@ -76,4 +77,11 @@ public class BidServiceImpl implements BidService {
         Bid_info bid_info = bidInfoMapper.selectByPrimaryKey(bidInfoid);
         return bid_info;
     }
+    
+    @Override
+    public int countByUserId(Integer userId) {
+        int i = bidOrderMapper.countByUserId(userId);
+        return i;
+    }
+    
 }

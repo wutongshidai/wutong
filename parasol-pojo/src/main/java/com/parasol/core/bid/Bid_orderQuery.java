@@ -1,11 +1,17 @@
 package com.parasol.core.bid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Bid_orderQuery {
-    protected String orderByClause;
+public class Bid_orderQuery implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2162077092267118379L;
+
+	protected String orderByClause;
 
     protected boolean distinct;
 

@@ -178,7 +178,7 @@ public class UserManageController {
 		 page= 1;
 	 	}
 	Integer userId = user.getId();
-	Pagination pagination = tenderService.tenderAll(userId , page);
+	Pagination pagination = tenderService.tenderAll(userId , page, null);
 	map.put("pagination", pagination);
 	return map;
 	}

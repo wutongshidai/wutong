@@ -367,4 +367,12 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
+    <select id="selectUser" parameterType="string" resultMap="BaseResultMap">
+  	select 
+  	    *
+  	from
+  		com_user
+  	where
+  		user_name = #{userName} 
+  </select>
 </mapper>

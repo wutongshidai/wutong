@@ -81,6 +81,7 @@ $(function(){
 		if($(this).index()==2){
 			$('.checkView').off()
 			$('.checkViews').off()
+			$('.page').css('display','block')
 			$('.changePassword').css('display','none')
 			$('.inFormations').css('display','none')
 			$('.myRelease').css('display','block')
@@ -266,7 +267,8 @@ $(function(){
 				$('.checkViews').off()
 				layer.closeAll(); 
 				$(this).addClass("act1").siblings().removeClass('act1');
-				if($(this).index()==0){					
+				if($(this).index()==0){	
+					$('.page').css('display','block')
 					$('.basicInPassword').css('display','block')
 					$('.basicInPassbiaobiao').css('display','none')
 					$.ajax({
@@ -446,7 +448,7 @@ $(function(){
 				}else if($(this).index()==1){
 					
 //——————————————————我的投标————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-					
+					$('.page').css('display','none')
 					$('.basicInPassword').css('display','none')
 					$('.basicInPassbiaobiao').css('display','block')
 //					$('.checkViews').on('click',function(){
@@ -477,24 +479,27 @@ $(function(){
 					var times
 					var dsb1
 					var initial_page=1
-					var datas=data.resultData.Bid
-					console.log(datas[0].bidOrder.updatetime)
-					html1+=' <tr height="40"><th width="445">投标信息</th><th width="200">投标状态</th><th width="230">投标保证金</th><th width="230">开标时间</th><th width="230">操作</th></tr>'
-					for (var i=0;i<datas.length;i++){
-						times=datas[i].bidOrder.updatetime
-						if(datas[i].bidOrder.payStatus==0){
-							dsb1= '未支付'
-						}else if(datas[i].bisdOrder.payStatus==1){
-							dsb1='已支付' 
+					if(data.code==200){
+						var datas=data.resultData.Bid
+						console.log(datas[0].bidOrder.updatetime)
+						html1+=' <tr height="40"><th width="445">投标信息</th><th width="200">投标状态</th><th width="230">投标保证金</th><th width="230">开标时间</th><th width="230">操作</th></tr>'
+						for (var i=0;i<datas.length;i++){
+							times=datas[i].bidOrder.updatetime
+							if(datas[i].bidOrder.payStatus==0){
+								dsb1= '未支付'
+							}else if(datas[i].bisdOrder.payStatus==1){
+								dsb1='已支付' 
+							}
+							html1+='<tr height="40" style="font-size:13px;">'
+					        html1+='<td >'+datas[i].projectName +'</td>'
+					        html1+='<td >'+dsb1+'</td>'
+					        html1+='<td >'+datas[i].bidOrder.bidBond+'</td>'
+					        html1+='<td >'+date('Y-m-d',times)+'</td>'
+					        html1+='<td >'
+					        html1+='<button class="checkViews" name="'+datas[i].projectName+'" style="width:88px;height:30px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">查看</button></td></tr>'		    
 						}
-						html1+='<tr height="40" style="font-size:13px;">'
-				        html1+='<td >'+datas[i].projectName +'</td>'
-				        html1+='<td >'+dsb1+'</td>'
-				        html1+='<td >'+datas[i].bidOrder.bidBond+'</td>'
-				        html1+='<td >'+date('Y-m-d',times)+'</td>'
-				        html1+='<td >'
-				        html1+='<button class="checkViews" name="'+datas[i].projectName+'" style="width:88px;height:30px;border:1px solid #9d9d9d; font-size: 12px; border-radius: 5px;">查看</button></td></tr>'		    
 					}
+					
 					$("#myRelesas1").html(html1)
 					//查看
 						$('.checkViews').on('click',function(){
@@ -701,7 +706,7 @@ $("#delzj").click(function(){
 		if($("#nickname").val().length<=8){
 			$.ajax({
 			type:"get",
-			url:"http://192.168.3.124:9091/api/bid/updateMessage.do",
+			url:"http://192.168.3.124:8082/updateMessage.do",
 			data:{"companyName":$("#nickname").val(),
 					"id":userId
 			},
@@ -721,7 +726,7 @@ $("#delzj").click(function(){
 				  $(this).css("background-color","#D6D6FF");
 				  $.ajax({
 			type: "get",
-			url: 'http://192.168.3.124:9091/api/bid/ajaxPassword.do',
+			url: 'http://192.168.3.124:8082/ajaxPassword.do',
 			async: true,
 			data:{
 				'password':$("#currentPassword").val()
@@ -753,7 +758,7 @@ $("#delzj").click(function(){
 		$("#newPassword").blur(function(){
 		$.ajax({
 			type: "get",
-			url: 'http://192.168.3.124:9091/api/bid/ajaxPassword.do',
+			url: 'http://192.168.3.124:8082/ajaxPassword.do',
 			async: true,
 			data:{
 				'password':$("#currentPassword").val()
@@ -796,7 +801,7 @@ $("#delzj").click(function(){
 		$("#newsPassword").blur(function(){
 		$.ajax({
 			type: "get",
-			url: 'http://192.168.3.124:9091/api/bid/ajaxPassword.do',
+			url: 'http://192.168.3.124:8082/ajaxPassword.do',
 			async: true,
 			data:{
 				'password':$("#currentPassword").val()
@@ -845,7 +850,7 @@ $("#delzj").click(function(){
 	$("#xgPassword").click(function(){
 			$.ajax({
 			type: "get",
-			url: 'http://192.168.3.124:9091/api/bid/ajaxPassword.do',
+			url: 'http://192.168.3.124:8082/ajaxPassword.do',
 			async: true,
 			data:{
 				'password':$("#currentPassword").val()
@@ -871,7 +876,7 @@ $("#delzj").click(function(){
 									  if($("#newsPassword").val()==$("#newPassword").val()){
 							       		$.ajax({
 											type: "get",
-											url: 'http://192.168.3.124:9091/api/bid/updatePassword.do',
+											url: 'http://192.168.3.124:8082/updatePassword.do',
 											async: true,
 											data:{
 												'password':$("#currentPassword").val(),

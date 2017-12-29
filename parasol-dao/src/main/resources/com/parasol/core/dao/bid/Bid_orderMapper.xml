@@ -298,8 +298,8 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="com.parasol.core.bid.Bid_orderQuery" >
-    select * FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER}
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER} and pay_status = 1 order by creatTime desc
   </select>
   <select id="selectByTId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * FROM bid_order WHERE tenderId = #{tenderid,jdbcType=INTEGER} AND pay_status = 1
@@ -319,4 +319,8 @@
     pay_channel = #{payChannel}
   where id = #{id,jdbcType=VARCHAR}
 </update>
+
+  <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select count(*) FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER} and pay_status = 1 order by creatTime desc
+  </select>
 </mapper>

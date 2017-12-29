@@ -124,6 +124,7 @@ html,body{
 	height:506px;
 	padding-left:310px;
 	overflow: auto;
+	overflow-x:hidden;
 }
 .basicInPassbiaobiao{
 	display: none;
@@ -302,7 +303,6 @@ html,body{
 .main_wenbu>p:first-child+p+p+p+p+p+p{
     margin-left: 475px;
 }
-
 
 .page a.turndown{padding: 0 10px;}
 .navigation li:hover{cursor: pointer;}

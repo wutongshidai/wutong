@@ -1,6 +1,5 @@
 package com.parasol.core.service;
 
-import org.springframework.web.multipart.MultipartFile;
 import com.parasol.core.user.User;
 
 public interface UserService {
@@ -14,6 +13,8 @@ public interface UserService {
 	public Boolean updatePassword(String userName , String password);
 	public Boolean updateByNickName(Integer id , String companyName);
 	public Boolean updateByNickNames(User user);
+	
+	public User selectUser(String userName);
 	
 	
 	

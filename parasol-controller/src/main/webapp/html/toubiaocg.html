@@ -6,28 +6,54 @@
 	</head>
 	<style>
 		p{
-			margin:10px auto;
-			width: 350px;
-			height:855px;
-			background: url(../img/toubiaocg2.png) no-repeat;
-			/*background-attachment: fixed;
-			background-repeat: no-repeat;
-			background-size: cover;*/
-			padding-left:950px;
-			padding-top:30px;
+			margin: 10px auto;
+		    /* width: 350px; */
+		    height: 855px;
+		    background: url(../img/toubiaocg2.png) no-repeat center center;
+		    /* padding-left: 950px; */
+		    /* padding-top: 30px; */
+		    text-align: center;
+		    /* vertical-align: middle; */
+		    line-height: 950px;
 		}
 		p a{
-			text-decoration: none;
-			color:#333;
+		text-decoration: none;
+			color: red;
 			font-weight: bolder;
-    		font-size: 20px;
-
-		}
+                        font-size: 20px;
+			border-bottom:1px solid red	}
 		p a:hover{
 		color:red;
 		}
 	</style>
 	<body>
-		<p><a href="/xuqiudating.do">＜☺返回招标大厅</a></p>
+		<p>
+			<a href="/xuqiudating.do"><span id="jumpTo">10</span>秒后自动返回招标大厅,也可点击本处直接返回招标大厅</a>
+		</p>
 	</body>
+	<script type="text/javascript">
+		
+			
+			function countDown(secs,surl){         
+		 		var jumpTo = document.getElementById('jumpTo');
+		 		jumpTo.innerHTML=secs;  
+			 	if(--secs>0){     
+		     	setTimeout("countDown("+secs+",'"+surl+"')",1000);     
+		     	}     
+		 		else{       
+		     	location.href=surl;     
+		     	}     
+		 		}   
+		 		countDown(10,'/xuqiudating.do');
+		
+	</script>
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7b7e25abcaacb393f18d11a9a0203069";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </html>

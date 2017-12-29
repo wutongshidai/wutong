@@ -28,9 +28,17 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
     
-    
-    //fangkai
     int updatePassword(@Param("userName") String userName ,@Param("password") String password);
+    
     String selectByUserName(String userName);
-    int updateByNickName(Integer id , String companyName);//sql
+    
+    int updateByNickName(Integer id , String companyName);
+      
+    /*
+     * 2017/12/25
+     */
+    User selectUser(String userName);
+    
+    
+    
 }

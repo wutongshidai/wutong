@@ -27,6 +27,16 @@
     <result column="project_type" property="projectType" jdbcType="VARCHAR" />
     <result column="classification" property="classification" jdbcType="INTEGER" />
   </resultMap>
+  
+  <resultMap id="BaseResultMapss" type="com.parasol.core.myclass.TenderList" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+   	<result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="classification" property="classification" jdbcType="INTEGER" />
+  </resultMap>
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -706,10 +716,7 @@
       limit #{startRow} , #{pageSize}
     </if>
   </select>
-  
-  
-  
-   <select id="countByExampleProgramme" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
+  <select id="countByExampleProgramme" parameterType="com.parasol.core.tender.TenderQuery" resultType="java.lang.Integer" >
     select count(*) from tender
     where classification &lt;= 5
     <if test="_parameter != null" >
@@ -745,7 +752,33 @@
     </if>
   </select>
   <select id="countByExampleMy" parameterType="java.lang.Integer" resultType="java.lang.Integer" >
-    select count(*) from tender
-    where userId = #{userId}
+    select count(*) from tender  where
+    <if test="userId != null" >
+       userId = #{userId}
+    </if>  
+  </select>
+  <select id="selectListTender" resultMap="BaseResultMapss" parameterType="com.parasol.core.myclass.TenderNameQuery" >
+     select 
+    	*  
+     from tender  
+      where 1=1 
+     <if test="classification != null">
+       and classification = #{classification,jdbcType=INTEGER}
+     </if>
+     <if test="userId != null">
+       and userId = #{userId}
+     </if>
+     order by start_time
+     desc
+     limit #{startRow} , #{pageSize}
+  </select>
+  <select id="countTenderList" resultType="java.lang.Integer" >
+    select count(*) from tender  where 1=1 
+    <if test="classification != null">
+      and classification = #{classification,jdbcType=INTEGER}
+    </if>
+    <if test="userId != null" >
+      and userId = #{userId}
+    </if> 
   </select>
 </mapper>
