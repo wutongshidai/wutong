@@ -1,29 +1,28 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>cn.itcast.parasol</groupId>
-  <artifactId>parasol</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>parasol-common</module>
-  	<module>parasol-dao</module>
-  	<module>parasol-pojo</module>
-  	<module>parasol-interface</module>
-  	<module>parasol-service-solr</module>
-  	<module>parasol-service-cms</module>
-  	<module>parasol-service-buyer</module>
-  	<module>parasol-service-product</module>
-  	<module>parasol-controller</module>
-  	<module>parasol-login</module>
-  	<module>parasol-portal</module>
-  	<module>parasol-address</module>
-  	<module>parasol-service-address</module>
-  </modules>
-  
-    	<!-- jdk1.7 -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.itcast.parasol</groupId>
+	<artifactId>parasol</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>parasol-common</module>
+		<module>parasol-dao</module>
+		<module>parasol-pojo</module>
+		<module>parasol-interface</module>
+		<module>parasol-service-solr</module>
+		<module>parasol-service-cms</module>
+		<module>parasol-service-buyer</module>
+		<module>parasol-service-product</module>
+		<module>parasol-controller</module>
+		<module>parasol-login</module>
+		<module>parasol-portal</module>
+		<module>parasol-address</module>
+		<module>parasol-service-address</module>
+	</modules>
+
+	<!-- jdk1.7 -->
 	<build>
 		<plugins>
 			<plugin>
@@ -38,8 +37,8 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			</plugin>
 		</plugins>
 	</build>
-  
-  <!-- 设置统一控制版本 -->
+
+	<!-- 设置统一控制版本 -->
 	<properties>
 		<java-version>1.7</java-version>
 		<junit-version>4.12</junit-version>
@@ -261,14 +260,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				<version>2.6.2</version>
 				<type>jar</type>
 			</dependency>
-			
+
 			<!-- redis 依赖 -->
-		<!-- 	<dependency>
-				<groupId>org.springframework.data</groupId>
-				<artifactId>spring-data-redis</artifactId>
-				<version>1.7.1.RELEASE</version>
-			</dependency>
-			 -->
+			<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+				<version>1.7.1.RELEASE</version> </dependency> -->
 			<!-- FastDFS client -->
 
 			<dependency>
@@ -319,14 +314,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				<artifactId>activemq-pool</artifactId>
 				<version>5.8.0</version>
 			</dependency>
-			
-			<!--velocity  
-			<dependency>
-               <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
-                 <version>1.7</version>
-            </dependency>-->
-	        
+
+			<!--velocity <dependency> <groupId>org.apache.velocity</groupId> <artifactId>velocity</artifactId> 
+				<version>1.7</version> </dependency> -->
+
 			<!-- Active MQ 结束 -->
 			<dependency>
 				<groupId>org.springframework.data</groupId>
@@ -348,50 +339,52 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<version>7.0.47</version>
 			<scope>provided</scope>
 		</dependency>
-<!-- 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-redis</artifactId> 
+			</dependency> <dependency> <groupId>org.springframework.data</groupId> <artifactId>spring-data-commons</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.7.0</version>
 		</dependency>
-		
-		
-			
+
+
+
 		<dependency>
-	    	<groupId>com.aliyun.oss</groupId>
-    		<artifactId>aliyun-sdk-oss</artifactId>
-    		<version>2.7.0</version>
+			<groupId>com.aliyun.oss</groupId>
+			<artifactId>aliyun-sdk-oss</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<!-- 分页组件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.2.1</version>
 		</dependency>
 	</dependencies>
-  <repositories>
-        <repository>
-            <id>public</id>
-            <name>public</name>
-            <url>http://192.168.3.189:8078/repository/maven-public/</url>
-            <releases>
-            </releases>
-            <snapshots>
-            </snapshots>
-        </repository>
-    </repositories>
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>releases</name>
-            <url>http://192.168.3.189:8078/repository/maven-public/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>snapshots</name>
-            <url>http://192.168.3.189:8078/repository/maven-public/</url>
-        </snapshotRepository>
-    </distributionManagement>
+	<repositories>
+		<repository>
+			<id>public</id>
+			<name>public</name>
+			<url>http://192.168.3.189:8078/repository/maven-public/</url>
+			<releases>
+			</releases>
+			<snapshots>
+			</snapshots>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>releases</name>
+			<url>http://192.168.3.189:8078/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>snapshots</name>
+			<url>http://192.168.3.189:8078/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>

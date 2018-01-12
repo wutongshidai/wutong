@@ -19,6 +19,13 @@
   		<artifactId>parasol-interface</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
+  	<dependency>
+  		<groupId>com.alibaba</groupId>
+  		<artifactId>alipay-sdk-java</artifactId>
+  		<scope>system</scope>
+  		<version>0</version>
+  		<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/alipay-sdk-java20171027120314.jar</systemPath>
+  	</dependency>
   </dependencies>
   
 </project>
