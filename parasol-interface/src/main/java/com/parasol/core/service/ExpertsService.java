@@ -33,7 +33,7 @@ public interface ExpertsService {
 	 * @param experts   专家对象
 	 * @return  成功信息。0失败。1成功。
 	 */
-	String saveExperts(Experts experts);
+	Integer saveExperts(Experts experts);
 	
 	
 	/**

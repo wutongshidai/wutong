@@ -6,7 +6,7 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
     <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
     <result column="province" property="province" jdbcType="VARCHAR" />
     <result column="city" property="city" jdbcType="VARCHAR" />
@@ -123,7 +123,7 @@
       agree_status, company_name, company_property, 
       company_project)
     values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{userName,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{userEmail,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{agreeStatus,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyProperty,jdbcType=INTEGER}, 
       #{companyProject,jdbcType=VARCHAR})
@@ -185,7 +185,7 @@
         #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
       </if>
       <if test="userEmail != null" >
         #{userEmail,jdbcType=VARCHAR},
@@ -235,7 +235,7 @@
         password = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null" >
-        sex = #{record.sex,jdbcType=INTEGER},
+        sex = #{record.sex,jdbcType=VARCHAR},
       </if>
       <if test="record.userEmail != null" >
         user_email = #{record.userEmail,jdbcType=VARCHAR},
@@ -272,7 +272,7 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       user_name = #{record.userName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=INTEGER},
+      sex = #{record.sex,jdbcType=VARCHAR},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
       province = #{record.province,jdbcType=VARCHAR},
       city = #{record.city,jdbcType=VARCHAR},
@@ -298,7 +298,7 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=INTEGER},
+        sex = #{sex,jdbcType=VARCHAR},
       </if>
       <if test="userEmail != null" >
         user_email = #{userEmail,jdbcType=VARCHAR},
@@ -332,7 +332,7 @@
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
       province = #{province,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},

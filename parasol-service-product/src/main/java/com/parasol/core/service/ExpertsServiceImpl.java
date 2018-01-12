@@ -26,16 +26,8 @@ public class ExpertsServiceImpl implements ExpertsService {
 
 	@Autowired
 	ExpertsMapper expertsDao;
-	
-/*	@Autowired
-	ExpertsQuery expertsMapper;
-	*/
 	@Autowired
 	Experts_number_messageMapper experts_number_messageMapper;
-	
-/*	
-	@Autowired
-	ExpertsA expertsA;*/
 	
 	@Override
 	public List<ExpertsA> expertsList(Integer title, Integer field, Integer education_number, Integer major_number,
@@ -85,7 +77,7 @@ public class ExpertsServiceImpl implements ExpertsService {
 	}
 
 	@Override
-	public String saveExperts(Experts experts) {
+	public Integer saveExperts(Experts experts) {
 		Integer worke = experts.getDateWorke();
 		if(worke <=10){
 			experts.setMajorNumber(22);
@@ -96,9 +88,8 @@ public class ExpertsServiceImpl implements ExpertsService {
 		}else {
 			experts.setMajorNumber(19);
 		}
-		int updateByPrimaryKey = expertsDao.insert(experts);
-		String string = Integer.toString(updateByPrimaryKey);
-		return string;
+		int i = expertsDao.insert(experts);
+		return i;
 	}
 
 	@Override

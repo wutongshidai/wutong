@@ -33,7 +33,7 @@ public class ExpertsController {
 	@Autowired
 	ExpertsService expertsService;
 
-	
+/*	
 	@ResponseBody
     @RequestMapping(value = "/experts.do" , method = RequestMethod.POST)
     public String experts(Integer expertId , HttpServletRequest request,
@@ -180,7 +180,7 @@ public class ExpertsController {
     	System.out.println(request.toString());
     	System.out.println(saveExperts);
     	return saveExperts;
-    }
+    }*/
     
 	 @ResponseBody
 	 @RequestMapping(value="/expertsList.do")

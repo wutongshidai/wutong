@@ -323,4 +323,25 @@
   <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
     select count(*) FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER} and pay_status = 1 order by creatTime desc
   </select>
+
+  <select id="selectMyBidssss" resultMap="BaseResultMap" parameterType="com.parasol.core.myclass.TenderNameQuery" >
+     select 
+    	*  
+     from bid_order  
+      where pay_status = 1 
+     <if test="userId != null">
+       and com_userId = #{userId}
+     </if>
+     order by creatTime
+     desc
+     limit #{startRow} , #{pageSize}
+  </select>
+  
+<!--   <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * FROM bid_order WHERE com_userId = #{comUserid,jdbcType=INTEGER} and pay_status = 1 order by creatTime desc
+  </select> -->
+  
 </mapper>
+
+
+

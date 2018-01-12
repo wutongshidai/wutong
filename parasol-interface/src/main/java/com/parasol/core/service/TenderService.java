@@ -59,6 +59,7 @@ public interface TenderService {
 	/*public List<TenderName> selectTenderName(String userId , Integer count , Integer page);*/
 //	public Integer countTenderList(Integer classification , Integer userId);
 	Map selectListTender(String classification , String userId , String count , String page);
+	public Boolean deleteByPrinaryId(Integer id);
 
 	
 }

@@ -139,7 +139,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.parasol.core.tender.Tender" >
+  <insert id="insert" parameterType="com.parasol.core.tender.Tender" useGeneratedKeys="true" keyProperty="id">
     insert into tender (id, userId, tenderee, 
       tender_company, project_name, agreement_price, 
       project_location, schedule, end_date, 

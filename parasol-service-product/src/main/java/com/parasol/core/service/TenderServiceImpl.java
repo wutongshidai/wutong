@@ -34,7 +34,9 @@ public class TenderServiceImpl implements TenderService{
 	
 	@Override
 	public int insert(Tender tender){
-		return tenderMapper.insert(tender); 
+		tenderMapper.insert(tender);
+		return tender.getId();
+		
 	}
 	
 	
@@ -627,4 +629,9 @@ public class TenderServiceImpl implements TenderService{
 /*	public List<TenderName> selectListTender(String classification , String page){
 		return null;
 	}*/
+	@Override
+	public Boolean deleteByPrinaryId(Integer id){
+		int i = tenderMapper.deleteByPrimaryKey(id);
+		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
+	} 
 }

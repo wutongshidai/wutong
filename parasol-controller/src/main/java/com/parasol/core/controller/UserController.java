@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.parasol.common.converter.Validator;
+import com.parasol.common.utils.PropertiesUtils;
 import com.parasol.core.experts.Expertindex;
 import com.parasol.core.myclass.TenderName;
 import com.parasol.core.service.ExpertsService;
@@ -381,7 +382,6 @@ public class UserController {
 		model.addAttribute("tenders", tenders);
     	return "redirect:/index.do";
   }  
-    
     
 	/**
      * 校验验证码

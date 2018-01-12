@@ -27,7 +27,7 @@ public class User implements Serializable {
     /**
      * 性别:0女,1男
      */
-    private Integer sex;
+    private String sex;
 
     /**
      * 用户邮箱
@@ -103,11 +103,11 @@ public class User implements Serializable {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 

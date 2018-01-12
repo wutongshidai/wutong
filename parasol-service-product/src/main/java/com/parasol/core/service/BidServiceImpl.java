@@ -4,6 +4,8 @@ import com.parasol.core.bid.Bid_info;
 import com.parasol.core.bid.Bid_order;
 import com.parasol.core.dao.bid.Bid_infoMapper;
 import com.parasol.core.dao.bid.Bid_orderMapper;
+import com.parasol.core.myclass.TenderNameQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,8 +50,15 @@ public class BidServiceImpl implements BidService {
     }
 
     @Override
-    public List<Bid_order> getMyBids(Integer com_userId) {
-        List<Bid_order> bidOrders =  bidOrderMapper.selectByUserId(com_userId);
+    public List<Bid_order> getMyBids(String userId ,String count , String page) {
+		int i = 0;
+		TenderNameQuery query = new TenderNameQuery();
+		query.setPageNo(Integer.parseInt(page));
+		query.setPageSize(Integer.parseInt(count));
+		query.setUserId(Integer.parseInt(userId));	
+		query.setStartRow((Integer.parseInt(page)-1)*Integer.parseInt(count));
+//        List<Bid_order> bidOrders =  bidOrderMapper.selectByUserId(com_userId);
+		List<Bid_order> bidOrders =  bidOrderMapper.selectMyBidssss(query);
         return bidOrders;
     }
 

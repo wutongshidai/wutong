@@ -21,7 +21,7 @@ public interface BidService {
 
     int insertOrder(Bid_order order);
 
-    List<Bid_order> getMyBids(Integer com_userId);
+    List<Bid_order> getMyBids(String userId ,String count , String page);
 
     Bid_order getMyBidById(String bidId);
 

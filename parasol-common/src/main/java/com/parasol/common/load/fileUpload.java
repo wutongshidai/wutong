@@ -25,19 +25,21 @@ public class fileUpload {
 	 *            fileReader的图片串，后台使用String接收
 	 * @return
 	 */
-	public static String saveImg(String fileData,String name) {
+	public static String saveImg(String fileData,String path) {
 		String flag = "fail";
 		try{  	
 //			String fileUrl = "/vdb1/docker/webapp2/parasol-controller-0.0.1-SNAPSHOT/imgUpload/" + name +".png";
 //			String fileUrl = "/usr/local/tomcat/webapps/parasol-controller-0.0.1-SNAPSHOT/imgl/" + name + ".png";
-			String fileUrl = "E:/cehshi/" + name +".png";
-			System.out.println(name);
+//			String fileUrl = "E:/cehshi/" + name +".png";
+//			String fileUrl = "E:/cehshi/" + name;
+//			System.out.println(name);
 			System.out.println("-------");
-			System.out.println(fileUrl);
-			File file = new File(fileUrl);
+			System.out.println(path);
+			File file = new File(path);
 //			File file = new File("/usr/local/tomcat/webapps/parasol-controller-0.0.1-SNAPSHOT/filesOut/Upload/20170701003750/ershazi.txt");
 //			File file = new File("/usr/local/tomcat/webapps/parasol-controller-0.0.1-SNAPSHOT/imgl/" + name + ".png" );
 			flag = writeFile(new ByteArrayInputStream(Base64.decodeBase64(fileData)),file);
+			System.out.println(Base64.decodeBase64(fileData).length);
 			return flag;
 		}catch(Exception e){
 			System.out.println("创建写入流失败-------------");

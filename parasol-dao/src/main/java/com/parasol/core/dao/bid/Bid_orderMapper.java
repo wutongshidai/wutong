@@ -2,6 +2,8 @@ package com.parasol.core.dao.bid;
 
 import com.parasol.core.bid.Bid_order;
 import com.parasol.core.bid.Bid_orderQuery;
+import com.parasol.core.myclass.TenderNameQuery;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,9 +30,11 @@ public interface Bid_orderMapper {
 
     int updateByPrimaryKey(Bid_order record);
 
-    List<Bid_order> selectByUserId(Integer comUserid);
+//    List<Bid_order> selectByUserId(Integer comUserid);
 
     List<Bid_order> selectByTId(Integer tenderid);
     
     int countByUserId(Integer comUserid);
+
+	List<Bid_order> selectMyBidssss(TenderNameQuery query);
 }
