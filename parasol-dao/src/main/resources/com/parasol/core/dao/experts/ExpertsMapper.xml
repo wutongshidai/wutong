@@ -63,6 +63,22 @@
     <result column="education_number" property="educationNumber" jdbcType="INTEGER" />
     <result column="major_number" property="majorNumber" jdbcType="INTEGER" />
   </resultMap>
+  
+  
+  <resultMap id="BaseResultMapss" type="com.parasol.core.experts.Expertindex" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="INTEGER" />
+    <result column="field" property="field" jdbcType="INTEGER" />
+    <result column="date_worke" property="dateWorke" jdbcType="INTEGER" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="show3" property="show3" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -643,7 +659,7 @@
   </select>
   
   
-   <select id="selectExpertindex" resultType="com.parasol.core.experts.Expertindex" >
+   <select id="selectExpertindex" resultMap="BaseResultMapss" >
     	select 
 			id , user_id , field , date_worke , title , education , photo , spare3
 		from experts

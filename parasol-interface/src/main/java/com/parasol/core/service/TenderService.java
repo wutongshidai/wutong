@@ -60,6 +60,8 @@ public interface TenderService {
 //	public Integer countTenderList(Integer classification , Integer userId);
 	Map selectListTender(String classification , String userId , String count , String page);
 	public Boolean deleteByPrinaryId(Integer id);
+	public Integer updateEndtime(String id ,String endTime);
+	Map selectListTender1(String count , String page);
 
 	
 }
