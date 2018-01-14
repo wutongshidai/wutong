@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.announcement.AnnouncementMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.announcement.Announcement" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="author_id" property="authorId" jdbcType="INTEGER" />
+    <result column="column_id" property="columnId" jdbcType="INTEGER"/>
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+    <result column="mdate" property="mdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="create" keyProperty="id"  useGeneratedKeys="true" parameterType="com.parasol.core.announcement.Announcement">
+    insert into announcement (title, content, author_id, column_id, status, role_id, cdate, mdate) values (#{title}, #{content}, #{authorId}, #{columnId}, #{status}, #{roleId}, #{cdate}, #{mdate})
+  </insert>
+  <delete id="delete">
+  	delete from announcement where id = #{announcementId}
+  </delete>
+  
+  <update id="updateStatus">
+  	update announcement set status = #{status} where id = #{announcementId}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap">
+  	select id, title, content, author_id, column_id, status, role_id, cdate, mdate from announcement 
+  	<if test="columnId != -1 or status != -1 or roleId != -1">
+  		where 1 = 1
+  		<if test="columnId != -1">
+  			and column_id=#{columnId}
+  		</if>
+  		<if test="status != -1">
+  		 	and status=#{status} 
+  		 </if>
+  		<if test="roleId != -1">
+  		 	and role_id=#{roleId} 
+  		 </if>
+  	</if>
+  	order by id desc
+  </select>
+</mapper>

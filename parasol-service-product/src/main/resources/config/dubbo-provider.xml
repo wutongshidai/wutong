@@ -40,5 +40,6 @@
 		<dubbo:service interface="com.parasol.core.service.BidService" ref="bidService"/>
 		<dubbo:service interface="com.parasol.core.service.AlipayService" ref="alipayService"/>
 		<dubbo:service interface="com.parasol.core.service.WxQrcodeService" ref="wxQrcodeService"/>
+		<dubbo:service interface="com.parasol.core.service.AnnouncementService" ref="announcementService"/>
 		 
 </beans> 
