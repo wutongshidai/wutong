@@ -39,4 +39,11 @@ public interface AnnouncementMapper {
 	 * @return
 	 */
 	public Integer delete(int announcementId);
+	
+	/**
+	 * 根据id查询公告详情
+	 * @param announcementId
+	 * @return
+	 */
+	public Announcement findById(int announcementId);
 }

@@ -40,4 +40,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		return announcementMapper.delete(announcementId) > 0;
 	}
 
+	@Override
+	public Announcement findById(int announcementId) {
+		return announcementMapper.findById(announcementId);
+	}
+
 }

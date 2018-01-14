@@ -36,4 +36,11 @@ public interface AnnouncementService {
 	 * @return
 	 */
 	public boolean delete(int announcementId);
+	
+	/**
+	 * 根据id查找公告详细信息
+	 * @param announcementId
+	 * @return
+	 */
+	public Announcement findById(int announcementId);
 }
