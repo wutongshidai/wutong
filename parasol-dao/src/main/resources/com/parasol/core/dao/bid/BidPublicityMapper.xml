@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.bid.BidPublicityMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.bid.BidPublicity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="project_code" property="projectCode" jdbcType="VARCHAR" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="INTEGER" />
+    <result column="owner" property="owner" jdbcType="VARCHAR"/>
+    <result column="detail" property="detail" jdbcType="VARCHAR" />
+    <result column="attachment" property="attachment" jdbcType="VARCHAR" />
+    <result column="win_date" property="winDate" jdbcType="TIMESTAMP" />
+    <result column="win_company" property="winCompany" jdbcType="VARCHAR" />
+    
+    <result column="publicity_date" property="publicityDate" jdbcType="TIMESTAMP" />
+    <result column="first_candidate" property="firstCandidate" jdbcType="VARCHAR" />
+    <result column="second_candidate" property="secondCandidate" jdbcType="VARCHAR"/>
+    <result column="third_candidate" property="thirdCandidate" jdbcType="VARCHAR" />
+    <result column="amount" property="amount" jdbcType="DOUBLE" />
+    <result column="publicity_status" property="publicityStatus" jdbcType="DOUBLE" />
+    
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="create" keyProperty="id"  useGeneratedKeys="true" parameterType="com.parasol.core.bid.BidPublicity">
+    insert into bid_publicity (project_code, project_name, industry, owner, detail, attachment, win_date, first_candidate, second_candidate, third_candidate,
+    amount, company_name, phone, contact, email, publicity_date, cdate, publicity_status, win_company) 
+    values (#{projectCode}, #{projectName}, #{industry}, #{owner}, #{detail}, #{attachment}, #{winDate}, 
+    #{firstCandidate}, #{secondCandidate}, #{thirdCandidate}, #{amount}, #{companyName}, #{phone},#{contact}, #{email}, #{publicityDate},
+    #{cdate}, #{publicityStatus}, #{winCompany})
+  </insert>
+  
+  <delete id="delete" parameterType="java.lang.Integer">
+  	delete from bid_publicity where id = #{id}
+  </delete>
+  
+  <update id="update" parameterType="com.parasol.core.bid.BidPublicity">
+  	update bid_publicity set project_code = #{projectCode}, project_name = #{projectName}, industry = #{industry}, owner = #{owner}, 
+  	detail = #{detail}, attachment = #{attachment}, win_date = #{winDate}, first_candidate = #{firstCandidate}, second_candidate = #{secondCandidate},
+  	third_candidate = #{thirdCandidate}, amount = #{amount}, company_name = #{companyName}, phone = #{phone}, email = #{email}, 
+  	publicity_date = #{publicityDate}, cdate = #{cdate}, publicity_status = #{publicityStatus}, win_company = #{winCompany}
+  	where id = #{id}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap">
+  	select * from bid_publicity 
+  	<if test="industry != -1 or publicityStatus != -1">
+  		where 1 = 1
+  		<if test="industry != -1">
+  			and industry = #{industry}
+  		</if>
+  		<if test="publicityStatus != -1">
+  			and publicity_status = #{publicityStatus}
+  		</if>
+  	</if>
+  	order by cdate desc
+  </select>
+  
+  <select id="findById"  resultMap="BaseResultMap">
+  	select * from bid_publicity where id = #{id}
+  </select>
+  
+  <select id="findByCode" resultMap="BaseResultMap">
+  	select * from bid_publicity where project_code = #{projectCode}
+  </select>
+</mapper>
