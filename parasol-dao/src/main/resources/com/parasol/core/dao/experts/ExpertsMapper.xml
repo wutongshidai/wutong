@@ -63,6 +63,22 @@
     <result column="education_number" property="educationNumber" jdbcType="INTEGER" />
     <result column="major_number" property="majorNumber" jdbcType="INTEGER" />
   </resultMap>
+  
+  
+  <resultMap id="BaseResultMapss" type="com.parasol.core.experts.Expertindex" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="INTEGER" />
+    <result column="field" property="field" jdbcType="INTEGER" />
+    <result column="date_worke" property="dateWorke" jdbcType="INTEGER" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="show3" property="show3" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -379,12 +395,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.parasol.core.experts.ExpertsQuery" resultType="java.lang.Integer" >
-    select count(*) from experts
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update experts
     <set >
@@ -643,10 +653,25 @@
   </select>
   
   
-   <select id="selectExpertindex" resultType="com.parasol.core.experts.Expertindex" >
+   <select id="selectExpertindex" resultMap="BaseResultMapss" >
     	select 
 			id , user_id , field , date_worke , title , education , photo , spare3
 		from experts
     	order by rand() limit 4 
+  </select>
+  <select id="countByExample1" resultType="java.lang.Integer" >
+    select count(*) from experts where 1=1
+        <if test="title != null" >
+      	  and title = #{title}
+    	</if>
+        <if test="field != null" >
+      	  and field = #{field}
+    	</if>
+        <if test="education_number != null" >
+      	  and education_number = #{education_number}
+    	</if>
+        <if test="major_number != null" >
+      	  and major_number = #{major_number}
+    	</if>
   </select>
 </mapper>

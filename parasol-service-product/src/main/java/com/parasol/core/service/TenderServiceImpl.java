@@ -1,11 +1,14 @@
 package com.parasol.core.service;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -634,4 +637,33 @@ public class TenderServiceImpl implements TenderService{
 		int i = tenderMapper.deleteByPrimaryKey(id);
 		  return i == 1?Boolean.valueOf(true):Boolean.valueOf(false); 
 	} 
+	
+	public Integer updateEndtime(String id ,String endDate){
+		Tender record = tenderMapper.selectByPrimaryKey(Integer.parseInt(id));
+		System.out.println(record);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			System.out.println(sdf.parse(endDate)+"shijian");
+			record.setEndDate(sdf.parse(endDate));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}	
+		System.out.println(record);
+		int i = tenderMapper.updateByPrimaryKeySelective(record);
+		return i;
+	}
+	
+	
+	public Map selectListTender1(String count , String page){
+		int i = 0;
+		TenderNameQuery query = new TenderNameQuery();
+		query.setPageNo(Integer.parseInt(page));
+		query.setPageSize(Integer.parseInt(count));
+		query.setStartRow((Integer.parseInt(page)-1)*Integer.parseInt(count));
+		List<TenderList> list = tenderMapper.selectListTender(query);		
+		Map map = new HashMap<>();
+		map.put("list", list);
+		map.put("count", i);
+		return map;
+	}
 }

@@ -40,7 +40,7 @@
   	order by id desc
   </select>
   
-  <select id="findById"  resultMap="BaseResultMap">
+  <select id="findById"  parameterType="java.lang.Integer" resultMap="BaseResultMap">
   	select id, title, content, author_id, column_id, status, role_id, cdate, mdate from announcement where id = #{announcementId}
   </select>
 </mapper>
