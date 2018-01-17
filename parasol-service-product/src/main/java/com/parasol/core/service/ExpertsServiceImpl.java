@@ -41,7 +41,7 @@ public class ExpertsServiceImpl implements ExpertsService {
 		mapperList.put("major_number", major_number);
 		List<Experts> expertsList=expertsDao.selectByExample(expertsMapper,mapperList);
 		List<Map<String,Object>> number_message = experts_number_messageMapper.selectNumber_message();
-		int countByExample = expertsDao.countByExample(expertsMapper);
+		int countByExample = expertsDao.countByExample1(title, field, education_number, major_number);
 		List<ExpertsA> exList=new ArrayList<>();
 		for (Experts experts : expertsList) {
 			Integer title2 = experts.getTitle();

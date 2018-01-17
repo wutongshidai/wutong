@@ -36,4 +36,8 @@ public interface ExpertsMapper {
     Experts selectByUserId(Integer userId);
     
     List<Expertindex> selectExpertindex();
+    
+    
+    int countByExample1(@Param("title") Integer title,@Param("field") Integer field ,@Param("education_number") Integer education_number,@Param("major_number") Integer major_number);
+  
 }

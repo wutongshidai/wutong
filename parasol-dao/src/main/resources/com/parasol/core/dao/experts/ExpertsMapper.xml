@@ -395,12 +395,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.parasol.core.experts.ExpertsQuery" resultType="java.lang.Integer" >
-    select count(*) from experts
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update experts
     <set >
@@ -664,5 +658,20 @@
 			id , user_id , field , date_worke , title , education , photo , spare3
 		from experts
     	order by rand() limit 4 
+  </select>
+  <select id="countByExample1" resultType="java.lang.Integer" >
+    select count(*) from experts where 1=1
+        <if test="title != null" >
+      	  and title = #{title}
+    	</if>
+        <if test="field != null" >
+      	  and field = #{field}
+    	</if>
+        <if test="education_number != null" >
+      	  and education_number = #{education_number}
+    	</if>
+        <if test="major_number != null" >
+      	  and major_number = #{major_number}
+    	</if>
   </select>
 </mapper>
