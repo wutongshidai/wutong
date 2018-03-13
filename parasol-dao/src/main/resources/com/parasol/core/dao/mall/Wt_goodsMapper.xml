@@ -495,4 +495,13 @@
     from wt_goods
     where ad_ex_id = #{adExId,jdbcType=INTEGER} 
   </select>
+  <select id="selectFirst" resultType="java.util.HashMap" >
+    SELECT cat_sid, cat_name FROM wt_category WHERE cat_patentid = cat_sid;
+  </select>
+  <select id="selectSec" resultType="java.util.HashMap" >
+    SELECT cat_patentid,cat_sid, cat_name FROM wt_category WHERE cat_id = cat_sid;
+  </select>
+  <select id="selectThird" resultType="java.util.HashMap"  >
+    SELECT cat_id,cat_sid, cat_name FROM wt_category WHERE cat_id != cat_sid
+  </select>
 </mapper>

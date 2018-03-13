@@ -61,5 +61,10 @@ public interface Wt_goodsMapper {
     int selectByNameCount(String gdName);
     
     List<Wt_goods> selectByExId(Integer adExId);
-   
+
+    List selectFirst();
+
+    List selectSec();
+
+    List selectThird();
 }
