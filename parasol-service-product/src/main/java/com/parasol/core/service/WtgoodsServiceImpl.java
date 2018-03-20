@@ -68,22 +68,22 @@ public class WtgoodsServiceImpl implements WtgoodsService {
         Map<String, Object> map = new HashMap<>();
         List<Wt_goods> list1 = wtgoodsMapper.selectGoodsByClass(1);
         ShopIndexGood good1 = new ShopIndexGood();
-        good1.setGoods("土建");
+        good1.setGoods("定制类");
         good1.setValve(1);
         good1.setChildren(list1);
         List<Wt_goods> list2 = wtgoodsMapper.selectGoodsByClass(2);
         ShopIndexGood good2 = new ShopIndexGood();
-        good2.setGoods("装饰");
+        good2.setGoods("非定制类");
         good2.setValve(2);
         good2.setChildren(list2);
         List<Wt_goods> list3 = wtgoodsMapper.selectGoodsByClass(3);
         ShopIndexGood good3 = new ShopIndexGood();
-        good3.setGoods("辅助、工具");
+        good3.setGoods("辅助类");
         good3.setValve(3);
         good3.setChildren(list3);
         List<Wt_goods> list4 = wtgoodsMapper.selectGoodsByClass(4);
         ShopIndexGood good4 = new ShopIndexGood();
-        good4.setGoods("其它");
+        good4.setGoods("设备类");
         good4.setValve(4);
         good4.setChildren(list4);
         map.put("tujian", good1);
@@ -350,23 +350,6 @@ public class WtgoodsServiceImpl implements WtgoodsService {
             map1.put("children", secList);
             array.add(map1);
         }
-
-//        List list1 = new ArrayList();
-//        List list2 = new ArrayList();
-//        Map map = new HashMap();
-//        Map map1 = new HashMap();
-//        Map map2 = new HashMap();
-//        map2.put("value", "36");
-//        map2.put("label", "yuanp");
-//        list2.add(map2);
-//        list2.add(map2);
-//        map1.put("value", "12");
-//        map1.put("label", "金属材料");
-//        map1.put("children", list2);
-//        list1.add(map1);
-//        map.put("value", "1");
-//        map.put("label", "土建");
-//        map.put("children", list1);
         return array;
     }
 }
