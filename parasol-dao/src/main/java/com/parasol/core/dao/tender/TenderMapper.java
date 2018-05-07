@@ -69,5 +69,5 @@ public interface TenderMapper {
     int countByExampleMy(Integer userId);
     List<TenderList> selectListTender(TenderNameQuery tenderNameQuery);
     Integer countTenderList(@Param("classification") Integer classification ,@Param("userId") Integer userId);
-    
+
 }

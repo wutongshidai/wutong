@@ -63,5 +63,12 @@ public interface TenderService {
 	public Integer updateEndtime(String id ,String endTime);
 	Map selectListTender1(String count , String page);
 
-	
+
+	/**
+	 * 修改开标状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+    Map changeTenderStatus(String id, Integer status);
 }
