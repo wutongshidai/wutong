@@ -757,7 +757,7 @@
        userId = #{userId}
     </if>  
   </select>
-  <select id="selectListTender" resultMap="BaseResultMapss" parameterType="com.parasol.core.myclass.TenderNameQuery" >
+  <select id="selectListTender" resultMap="BaseResultMap" parameterType="com.parasol.core.myclass.TenderNameQuery" >
      select 
     	*  
      from tender  
@@ -768,7 +768,7 @@
      <if test="userId != null">
        and userId = #{userId}
      </if>
-     order by start_time
+     order by status, start_time
      desc
      limit #{startRow} , #{pageSize}
   </select>
@@ -781,4 +781,5 @@
       and userId = #{userId}
     </if> 
   </select>
+  <update id="updateTenderStatus" ></update>
 </mapper>

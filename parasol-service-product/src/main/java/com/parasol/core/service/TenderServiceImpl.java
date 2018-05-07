@@ -603,18 +603,17 @@ public class TenderServiceImpl implements TenderService{
 		TenderNameQuery query = new TenderNameQuery();
 		query.setPageNo(Integer.parseInt(page));
 		query.setPageSize(Integer.parseInt(count));
-		if(classification == null){
-			query.setClassification(null);	
-			i = tenderMapper.countTenderList(null, Integer.parseInt(userId));
-		}else{
-			query.setClassification(Integer.parseInt(classification));	
+		Integer	userId1 =null;
+		Integer	classification1 =null;
+		if (userId != null) {
+				userId1 = Integer.parseInt(userId);
 		}
-		if(userId == null){
-			query.setUserId(null);	
-			i = tenderMapper.countTenderList(Integer.parseInt(classification), null);
-		}else{
-			query.setUserId(Integer.parseInt(userId));	
+		if (classification != null) {
+			classification1 =Integer.parseInt(classification);
 		}
+		query.setClassification(classification1);
+		query.setUserId(userId1);
+		i = tenderMapper.countTenderList(classification1, userId1);
 		query.setStartRow((Integer.parseInt(page)-1)*Integer.parseInt(count));
 		List<TenderList> list = tenderMapper.selectListTender(query);		
 		Map map = new HashMap<>();
@@ -665,5 +664,20 @@ public class TenderServiceImpl implements TenderService{
 		map.put("list", list);
 		map.put("count", i);
 		return map;
+	}
+
+	@Override
+	public Map changeTenderStatus(String id, Integer status) {
+        Tender record = tenderMapper.selectByPrimaryKey(Integer.parseInt(id));
+        Map map = new HashMap();
+        map.put("success",false);
+        if (record != null) {
+            record.setStatus(status);
+            int i = tenderMapper.updateByPrimaryKeySelective(record);
+            if (i == 1) {
+                map.put("success",true);
+            }
+        }
+        return map;
 	}
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.adPositionId.AdPositionIdMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.adPositionId.AdPositionId" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="levels" property="levels" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="addAd" keyProperty="id"  useGeneratedKeys="true" parameterType="com.parasol.core.adPositionId.AdPositionId">
+    insert into index_img (name, img, url, status, levels, time) values (#{name}, #{img}, #{url}, #{status}, #{levels}, #{time})
+  </insert>
+  <delete id="deleteAd">
+  	delete from index_img where id = #{adId}
+  </delete>
+  
+  <update id="upAd">
+  	update index_img set
+      <if test="name != null">
+          name = #{name},
+      </if>
+      <if test="img != null">
+          img = #{img},
+      </if>
+      <if test="url != null">
+          url = #{url},
+      </if>
+      <if test="status != null">
+          status = #{status},
+      </if>
+      <if test="levels != null">
+          levels = #{levels},
+      </if>
+      <if test="time != null">
+          time = #{time}
+      </if>
+  	 where
+      id = #{id}
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap">
+  	select * from index_img
+  	where 1 = 1
+      <if test="adId != null">
+  		and id = #{adId}
+      </if>
+      <if test="levels != null">
+          and levels=#{levels}
+      </if>
+  	order by id desc
+  </select>
+</mapper>
