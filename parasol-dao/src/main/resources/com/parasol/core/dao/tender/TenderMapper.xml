@@ -146,8 +146,7 @@
       start_time, contact_name, contact_mobile, 
       tender_address, tender_money, contract_status, 
       bill_status, price_status, explainl, 
-      tender_file, bid_file, status, 
-      update_time, project_type, classification
+      tender_file, bid_file, update_time, project_type, classification
       )
     values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{tenderee,jdbcType=VARCHAR}, 
       #{tenderCompany,jdbcType=VARCHAR}, #{projectName,jdbcType=VARCHAR}, #{agreementPrice,jdbcType=DECIMAL}, 
@@ -155,7 +154,7 @@
       #{startTime,jdbcType=TIMESTAMP}, #{contactName,jdbcType=VARCHAR}, #{contactMobile,jdbcType=VARCHAR}, 
       #{tenderAddress,jdbcType=VARCHAR}, #{tenderMoney,jdbcType=DOUBLE}, #{contractStatus,jdbcType=INTEGER}, 
       #{billStatus,jdbcType=INTEGER}, #{priceStatus,jdbcType=INTEGER}, #{explainl,jdbcType=VARCHAR}, 
-      #{tenderFile,jdbcType=VARCHAR}, #{bidFile,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{tenderFile,jdbcType=VARCHAR}, #{bidFile,jdbcType=VARCHAR},
       #{updateTime,jdbcType=TIMESTAMP}, #{projectType,jdbcType=VARCHAR}, #{classification,jdbcType=INTEGER}
       )
   </insert>

@@ -101,7 +101,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="String" >
     select
-    id,bid_infoId,com_userId,tenderId,ten_userId,bid_bond,pay_status,refund_status,creatTime,updateTime,refund_user
+    *
     from bid_order
     where id = #{id,jdbcType=VARCHAR}
   </select>
