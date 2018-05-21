@@ -48,8 +48,21 @@ public class Bid_info implements Serializable {
      * 推荐人
      */
     private String referrer;
+    
+    /**
+     * 是否新入会员
+     */
+    private boolean isNewMember;
 
-    private static final long serialVersionUID = 1L;
+    public boolean isNewMember() {
+		return isNewMember;
+	}
+
+	public void setNewMember(boolean isNewMember) {
+		this.isNewMember = isNewMember;
+	}
+
+	private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
