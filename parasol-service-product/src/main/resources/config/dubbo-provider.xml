@@ -43,5 +43,7 @@
 		<dubbo:service interface="com.parasol.core.service.AnnouncementService" ref="announcementService"/>
 		<dubbo:service interface="com.parasol.core.service.AdPositionIdService" ref="adPositionIdService"/>
 		<dubbo:service interface="com.parasol.core.service.BidPublicityService" ref="bidPublicityService"/>
+		<dubbo:service interface="com.parasol.core.service.BidOrderRefundTaskService" ref="bidOrderRefundTaskService"/>
+		<dubbo:service interface="com.parasol.core.service.BidRefundOrderService" ref="bidRefundOrderService"/>
 
 </beans> 

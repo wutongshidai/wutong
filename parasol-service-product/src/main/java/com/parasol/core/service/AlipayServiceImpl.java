@@ -12,7 +12,10 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.request.AlipayTradeRefundRequest;
+import com.alipay.api.response.AlipayTradeRefundResponse;
 import com.parasol.core.alipay.BizContent;
+import com.parasol.core.alipay.RefundBizContent;
 
 @Service("alipayService")
 public class AlipayServiceImpl implements AlipayService {
@@ -73,6 +76,28 @@ public class AlipayServiceImpl implements AlipayService {
 			e.printStackTrace(System.err);
 			return false;
 		}
+	}
+	
+	@Override
+	public boolean refund(String outTradeNo, Double refundAmount, String refundReason, String outRequestNo,
+			String operatorId) {
+		RefundBizContent refundBizContent = new RefundBizContent(outTradeNo, refundAmount, refundReason, outRequestNo, operatorId);
+		AlipayClient alipayClient = new DefaultAlipayClient("https://openapi.alipay.com/gateway.do", APP_ID, APP_PRIVATE_KEY, "json", "UTF-8", ALIPAY_PUBLIC_KEY, "RSA2");
+		AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
+		request.setBizContent(JSONObject.toJSONString(refundBizContent));
+		try {
+			AlipayTradeRefundResponse response = alipayClient.execute(request);
+			if(response.isSuccess()){
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch (AlipayApiException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 	
 }
