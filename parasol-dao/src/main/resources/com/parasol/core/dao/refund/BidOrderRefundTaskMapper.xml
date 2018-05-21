@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.parasol.core.dao.refund.BidOrderRefundTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.parasol.core.refund.BidOrderRefundTask" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="bid_order_id" property="bidOrderId" jdbcType="VARCHAR" />
+    <result column="param_code" property="paramCode" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="cdate" property="cdate" jdbcType="TIMESTAMP" />
+    <result column="mdate" property="mdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="findById" resultMap="BaseResultMap">
+    select id, bid_order_id, status, param_code, cdate, mdate from bid_order_refund_task where status = 0 and id = #{id}
+  </select>
+  <select id="findWaitedByParamCode" resultMap="BaseResultMap">
+    select id, bid_order_id, status, param_code, cdate, mdate from bid_order_refund_task where status = 0 and param_code = #{paramCode}
+  </select>
+  <select id="findWaitedByOrderId" resultMap="BaseResultMap">
+    select id, bid_order_id, status, param_code, cdate, mdate from bid_order_refund_task where status = 0 and bid_order_id = #{bidOrderId}
+  </select>
+    <insert id="create" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.parasol.core.refund.BidRefundOrder" >
+        insert into bid_order_refund_task (bid_order_id, status, param_code, cdate, mdate) values (#{bidOrderId}, #{status}, #{paramCode}, #{cdate}, #{mdate})
+    </insert>
+    <update id="updateStatus">
+    	update bid_order_refund_task set status = #{status} where id=#{id}
+    </update>
+</mapper>
