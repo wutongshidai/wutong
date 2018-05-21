@@ -23,4 +23,15 @@ public interface AlipayService {
 	 * @return
 	 */
 	public boolean rsaCheck(Map<String, String> params);
+	
+	/**
+	 * 支付宝退款
+	 * @param outTradeNo 退款订单号-平台订单号，非支付宝交易号
+	 * @param refundAmount 退款总额
+	 * @param refundReason 退款原因描述
+	 * @param outRequestNo 部分退款唯一识别码（可对一个订单进行多次部分退款，只有真正部分退款时必填）
+	 * @param operatorId 支付宝操作员标识
+	 * @return
+	 */
+	public boolean refund(String outTradeNo, Double refundAmount, String refundReason, String outRequestNo, String operatorId);
 }
