@@ -3,7 +3,7 @@ package com.parasol.core.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.parasol.core.adPositionId.AdPositionId;
-import com.parasol.core.dao.adPositionId.AdPositionIdMapper;
+import com.parasol.core.dao.adpositionid.AdPositionIdMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
