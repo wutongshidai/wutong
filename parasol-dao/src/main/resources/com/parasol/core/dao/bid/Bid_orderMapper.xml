@@ -75,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      id, bid_infoId, com_userId, tenderId, ten_userId, bid_bond, pay_status, refund_status, 
+      id, bid_infoId, com_userId, tenderId, ten_userId, bid_bond, pay_status, refund_status,
       creatTime, updateTime, refund_user
     </if>
     <if test="fields != null" >

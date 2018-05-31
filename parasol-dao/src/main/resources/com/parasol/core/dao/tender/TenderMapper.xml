@@ -767,7 +767,7 @@
      <if test="userId != null">
        and userId = #{userId}
      </if>
-     order by status, start_time
+     order by status desc, start_time
      desc
      limit #{startRow} , #{pageSize}
   </select>

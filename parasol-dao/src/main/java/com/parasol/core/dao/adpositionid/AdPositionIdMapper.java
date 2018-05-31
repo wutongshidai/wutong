@@ -1,4 +1,4 @@
-package com.parasol.core.dao.adPositionId;
+package com.parasol.core.dao.adpositionid;
 
 import com.parasol.core.adPositionId.AdPositionId;
 import org.apache.ibatis.annotations.Param;
