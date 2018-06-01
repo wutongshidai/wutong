@@ -3,15 +3,15 @@
 <mapper namespace="com.parasol.core.dao.adpositionid.IndexImgCategoryMapper" >
   <resultMap id="BaseResultMap" type="com.parasol.core.adPositionId.IndexImgCategory" >
     <id column="id" property="id" jdbcType="INTEGER" />
-      <result column="cat_parentid" property="catParentid" jdbcType="INTEGER" />
-      <result column="gd_price" property="gdPrice" jdbcType="DOUBLE" />
-      <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
-      <result column="gd_name" property="gdName" jdbcType="VARCHAR" />
-      <result column="gd_id" property="gdId" jdbcType="INTEGER" />
+      <result column="cat_parentid" property="cat_parentid" jdbcType="INTEGER" />
+      <result column="gd_price" property="gd_price" jdbcType="DOUBLE" />
+      <result column="img_url" property="img_url" jdbcType="VARCHAR" />
+      <result column="gd_name" property="gd_name" jdbcType="VARCHAR" />
+      <result column="gd_id" property="gd_id" jdbcType="INTEGER" />
   </resultMap>
 
   <insert id="addAd" keyProperty="id"  useGeneratedKeys="true" parameterType="com.parasol.core.adPositionId.IndexImgCategory">
-    insert into index_img_category (cat_parentid, gd_price, img_url, gd_name, gd_id) values (#{catParentid}, #{gdPrice}, #{imgUrl}, #{gdName}, #{gdId})
+    insert into index_img_category (cat_parentid, gd_price, img_url, gd_name, gd_id) values (#{cat_parentid}, #{gd_price}, #{img_url}, #{gd_name}, #{gd_id})
   </insert>
   <delete id="deleteId" parameterType="com.parasol.core.adPositionId.IndexImgCategory">
     delete from index_img_category where id = #{id , jdbcType=INTEGER}
@@ -42,7 +42,7 @@
     select * from index_img_category
     where 1 = 1
     <if test="id != null">
-      and id = #{id}
+      and cat_parentid = #{id}
     </if>
     <if test="gdId != null">
       and gd_id=#{gdId}

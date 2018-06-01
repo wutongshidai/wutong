@@ -35,12 +35,12 @@ public class IndexImgCategory implements Serializable {
         this.id = id;
     }
 
-    public Integer getGood_id() {
+    public Integer getGd_id() {
         return gd_id;
     }
 
-    public void setGood_id(Integer good_id) {
-        this.gd_id = good_id;
+    public void setGd_id(Integer gd_id) {
+        this.gd_id = gd_id;
     }
 
     public String getImg_url() {
@@ -59,12 +59,12 @@ public class IndexImgCategory implements Serializable {
         this.cat_parentid = cat_parentid;
     }
 
-    public String getGood_name() {
+    public String getGd_name() {
         return gd_name;
     }
 
-    public void setGood_name(String good_name) {
-        this.gd_name = good_name;
+    public void setGd_name(String gd_name) {
+        this.gd_name = gd_name;
     }
 
     public Double getGd_price() {
@@ -73,18 +73,6 @@ public class IndexImgCategory implements Serializable {
 
     public void setGd_price(Double gd_price) {
         this.gd_price = gd_price;
-    }
-
-    @Override
-    public String toString() {
-        return "Index_img_category{" +
-                "id=" + id +
-                ", good_id=" + gd_id +
-                ", img_url='" + img_url + '\'' +
-                ", cat_parentid=" + cat_parentid +
-                ", good_name='" + gd_name + '\'' +
-                ", gd_price=" + gd_price +
-                '}';
     }
 }
 

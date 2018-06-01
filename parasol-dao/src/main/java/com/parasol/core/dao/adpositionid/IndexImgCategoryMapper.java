@@ -15,6 +15,6 @@ public interface IndexImgCategoryMapper {
 
      int addAd(IndexImgCategory record);
 
-     List<IndexImgCategory> list(Integer id ,Integer gdId);
+     List<IndexImgCategory> list(@Param("id") Integer id ,@Param("gdId")Integer gdId);
 
 }
